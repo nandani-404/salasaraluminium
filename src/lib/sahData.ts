@@ -159,7 +159,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-13', saCode: 'SA-13', name: 'G-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Precision extruded G-channel structural guide profile.', image: '/g-channel-v1.png' },
 
   // B. Locks & Latches
-  { id: 'sa-11', saCode: 'SA-11', name: 'Lock – HDPVC / Metal', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', finishes: ['Black', 'Brown', 'CP', 'Anodized Silver'], shortDesc: 'Versatile HDPVC & metal body lock mechanism available in premium finishes.', image: '/cat-locks.png' },
+  { id: 'sa-11', saCode: 'SA-11', name: 'Lock – HDPVC / Metal', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', finishes: ['Black', 'Brown', 'CP', 'Anodized Silver'], shortDesc: 'Versatile HDPVC & metal body lock mechanism available in premium finishes.', image: '/lock-hdpvc-metal-v1.png' },
   { id: 'sa-14', saCode: 'SA-14', name: 'M.S Lock – State', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Straight M.S mortar latch lock for aluminium sliding window frames.', image: '/cat-locks.png' },
   { id: 'sa-15', saCode: 'SA-15', name: 'M.S Lock – L', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'L-shaped M.S window latch lock offering firm corner engagement.', image: '/cat-locks.png' },
   { id: 'sa-16', saCode: 'SA-16', name: 'Touch Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Flush touch spring-loaded latch lock for quick snap-to-close windows.', image: '/cat-locks.png' },
