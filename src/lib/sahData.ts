@@ -204,7 +204,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
 
   // H. Fittings & Accessories
   { id: 'sa-45', saCode: 'SA-45', name: 'Floor Machine (Floor Spring)', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Double cylinder hydraulic floor spring machine for heavy glass doors.', image: '/floor-machine-v1.png' },
-  { id: 'sa-46', saCode: 'SA-46', name: 'Wall Plug', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'High-grip nylon expansion wall plugs for frame anchoring screws.', image: '/sku-sa76.png' },
+  { id: 'sa-46', saCode: 'SA-46', name: 'Wall Plug', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'High-grip nylon expansion wall plugs for frame anchoring screws.', image: '/wall-plug-v1.png' },
   { id: 'sa-50', saCode: 'SA-50', name: 'Partition Connector', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Aluminium corner & T-connector bracket for office glass partition profiles.', image: '/sku-sa76.png' },
   { id: 'sa-51', saCode: 'SA-51', name: 'Glass Sticker Film', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Frosted & decorative privacy safety film for glass panels.', image: '/sku-sa76.png' },
   { id: 'sa-52', saCode: 'SA-52', name: '2Trk–3Trk PVC Angle', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'PVC corner sealing angle for 2-track and 3-track window sills.', image: '/sku-sa76.png' },
