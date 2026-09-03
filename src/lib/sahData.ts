@@ -155,7 +155,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-8', saCode: 'SA-8', name: 'Double Swing Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Self-aligning double swing roller assembly for heavy sliding patio doors.', image: '/double-swing-roller-v1.png' },
   { id: 'sa-9', saCode: 'SA-9', name: 'C-Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'C-section track roller wheel designed for smooth low-friction gliding.', image: '/c-roller-v1.png' },
   { id: 'sa-10', saCode: 'SA-10', name: 'G-Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'G-profile guiding roller wheel assembly for specialized architectural sections.', image: '/g-roller-v1.png' },
-  { id: 'sa-12', saCode: 'SA-12', name: 'C-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Extruded aluminium C-channel guide section for roller track mounting.', image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&q=80' },
+  { id: 'sa-12', saCode: 'SA-12', name: 'C-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Extruded aluminium C-channel guide section for roller track mounting.', image: '/c-channel-v1.png' },
   { id: 'sa-13', saCode: 'SA-13', name: 'G-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Precision extruded G-channel structural guide profile.', image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?w=600&q=80' },
 
   // B. Locks & Latches
