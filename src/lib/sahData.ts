@@ -169,7 +169,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-20', saCode: 'SA-20', name: 'T-Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'T-handle security latch lock for commercial window sashes.', image: '/t-lock-v1.png' },
   { id: 'sa-21', saCode: 'SA-21', name: 'Crescent Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Classic rotating crescent sash lock for aluminium sliding window interlocks.', image: '/crescent-lock-v1.png' },
   { id: 'sa-22', saCode: 'SA-22', name: 'Maruti Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Compact Maruti-type side latch lock for residential window frames.', image: '/maruti-lock-v1.png' },
-  { id: 'sa-23', saCode: 'SA-23', name: 'Air Lift Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Air Lift vertical sliding sash lock mechanism for heavy glazed windows.', image: '/cat-locks.png' },
+  { id: 'sa-23', saCode: 'SA-23', name: 'Air Lift Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Air Lift vertical sliding sash lock mechanism for heavy glazed windows.', image: '/air-lift-v1.png' },
 
   // C. Door & Window Seals / Stoppers
   { id: 'sa-24', saCode: 'SA-24', name: 'Door Seal (Aluminium + Brush/Rubber)', categorySlug: 'door-window-seals', categoryName: 'Door & Window Seals / Stoppers', shortDesc: 'Bottom door drop seal preventing dust, water, and insects under entry doors.', image: '/cat-seals.png' },
