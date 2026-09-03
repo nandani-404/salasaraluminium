@@ -4,15 +4,24 @@ import React from 'react';
 import Image from 'next/image';
 import { X, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { SAHProduct } from '@/lib/sahData';
+import { Product } from '@/lib/data/products';
 
 interface QuickViewModalProps {
-  product: SAHProduct | null;
+  product: SAHProduct | Product | null;
   onClose: () => void;
-  onEnquire: (saCode: string) => void;
+  onEnquire?: (saCode: string) => void;
 }
 
 export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalProps) {
   if (!product) return null;
+
+  const image = 'image' in product ? product.image : product.images[0];
+  const saCode = 'saCode' in product ? product.saCode : product.sku;
+  const categoryName = 'categoryName' in product ? product.categoryName : product.category;
+  const shortDesc = 'shortDesc' in product ? product.shortDesc : product.shortDescription;
+  const finishes = 'finishes' in product && product.finishes ? product.finishes : ('finish' in product && product.finish ? [product.finish] : []);
+  const sizes = 'sizes' in product ? product.sizes : [];
+  const variants = 'variants' in product ? product.variants : [];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fadeIn">
@@ -31,14 +40,14 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
           {/* Left Column: Product Image Frame */}
           <div className="md:col-span-5 relative aspect-square w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl overflow-hidden p-4 flex items-center justify-center">
             <Image 
-              src={product.image} 
+              src={image} 
               alt={product.name} 
               fill 
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-contain p-4" 
             />
             <div className="absolute top-3 left-3 bg-[#0B1F3A] text-[#D4AF37] text-xs font-mono font-bold px-2.5 py-1 rounded-md shadow-xs border border-[#D4AF37]/30">
-              {product.saCode}
+              {saCode}
             </div>
           </div>
 
@@ -46,7 +55,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
           <div className="md:col-span-7 space-y-4">
             <div>
               <span className="text-[10px] font-bold text-[#B8860B] uppercase tracking-wider block mb-1">
-                {product.categoryName}
+                {categoryName}
               </span>
               <h2 className="text-xl sm:text-2xl font-black text-[#0B1F3A] tracking-tight leading-tight">
                 {product.name}
@@ -54,15 +63,15 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
             </div>
 
             <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-              {product.shortDesc}
+              {shortDesc}
             </p>
 
             {/* Colors / Finishes Available */}
-            {product.finishes && product.finishes.length > 0 && (
+            {finishes && finishes.length > 0 && (
               <div className="space-y-1.5 pt-1">
                 <span className="text-xs font-bold text-[#0B1F3A] block">Available Finishes / Colors:</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {product.finishes.map((finish) => (
+                  {finishes.map((finish) => (
                     <span 
                       key={finish} 
                       className="px-2.5 py-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-xs font-semibold text-[#0B1F3A] flex items-center space-x-1"
@@ -76,11 +85,11 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
             )}
 
             {/* Sizes Available */}
-            {product.sizes && product.sizes.length > 0 && (
+            {sizes && sizes.length > 0 && (
               <div className="space-y-1.5 pt-1">
                 <span className="text-xs font-bold text-[#0B1F3A] block">Available Sizes:</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {product.sizes.map((size) => (
+                  {sizes.map((size) => (
                     <span 
                       key={size} 
                       className="px-2.5 py-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-xs font-semibold text-[#0B1F3A]"
@@ -93,11 +102,11 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
             )}
 
             {/* Variants Available */}
-            {product.variants && product.variants.length > 0 && (
+            {variants && variants.length > 0 && (
               <div className="space-y-1.5 pt-1">
                 <span className="text-xs font-bold text-[#0B1F3A] block">Specifications:</span>
                 <div className="flex flex-wrap gap-1.5">
-                  {product.variants.map((v) => (
+                  {variants.map((v) => (
                     <span 
                       key={v} 
                       className="px-2.5 py-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg text-xs font-semibold text-[#0B1F3A]"
@@ -126,11 +135,11 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
               <button
                 onClick={() => {
                   onClose();
-                  onEnquire(product.saCode);
+                  onEnquire?.(saCode);
                 }}
                 className="w-full py-3.5 bg-[#0B1F3A] hover:bg-[#1E293B] text-white text-xs font-extrabold uppercase tracking-wider rounded-xl transition-all duration-200 shadow-md flex items-center justify-center space-x-2 cursor-pointer group"
               >
-                <span>Enquire SA Code ({product.saCode})</span>
+                <span>Enquire SA Code ({saCode})</span>
                 <ChevronRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
