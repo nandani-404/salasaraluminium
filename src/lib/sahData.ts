@@ -184,7 +184,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   // E. Door Kits
   { id: 'sa-30', saCode: 'SA-30', name: 'SS Mini Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', finishes: ['SS Natural (SA-30)'], shortDesc: 'Compact Stainless Steel natural finish door hardware kit including handle, latch, and stopper.', image: '/mini-doorkit-v1.png' },
   { id: 'sa-31', saCode: 'SA-31', name: 'SS Mini Black Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', finishes: ['Matte Black (SA-31)'], shortDesc: 'Compact Stainless Steel matte black finish door hardware kit including handle, latch, and stopper.', image: '/ss-mini-black-doorkit-v1.png' },
-  { id: 'sa-32', saCode: 'SA-32', name: 'Door Stopper', categorySlug: 'door-kits', categoryName: 'Door Kits', shortDesc: 'Wall and floor mounted rubber-head door stopper in solid finish.', image: '/sku-sa33.png' },
+  { id: 'sa-32', saCode: 'SA-32', name: 'Door Stopper', categorySlug: 'door-kits', categoryName: 'Door Kits', shortDesc: 'Wall and floor mounted rubber-head door stopper in solid finish.', image: '/door-stopper-v1.png' },
   { id: 'sa-33', saCode: 'SA-33', name: 'Aluminium Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', finishes: ['Black', 'Brown', 'Champion', 'Matt', 'CP'], shortDesc: 'Complete architectural aluminium door fittings kit available in 5 finishes.', image: '/sku-sa33.png' },
   { id: 'sa-34', saCode: 'SA-34', name: 'Heavy Commercial Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', shortDesc: 'Reinforced high-load door hardware kit for main entrance doors and commercial spaces.', image: '/sku-sa33.png' },
 
