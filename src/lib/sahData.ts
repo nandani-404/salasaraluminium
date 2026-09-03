@@ -189,7 +189,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-34', saCode: 'SA-34', name: 'Heavy Commercial Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', shortDesc: 'Reinforced high-load door hardware kit for main entrance doors and commercial spaces.', image: '/heavy-commercial-doorkit-v1.png' },
 
   // F. Bolts & Handles
-  { id: 'sa-35', saCode: 'SA-35', name: 'Tower Bolt (2pcs)', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], shortDesc: '2-piece set extruded aluminium tower bolt for top & bottom door latching.', image: '/sku-sa35.png' },
+  { id: 'sa-35', saCode: 'SA-35', name: 'Tower Bolt (2pcs)', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], shortDesc: '2-piece set extruded aluminium tower bolt for top & bottom door latching.', image: '/tower-bolt-v1.png' },
   { id: 'sa-36', saCode: 'SA-36', name: 'Tower Bolt – Light / Heavy', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], variants: ['Light', 'Heavy'], shortDesc: 'Heavy-gauge barrel tower bolt with smooth slide pin mechanism.', image: '/sku-sa35.png' },
   { id: 'sa-37', saCode: 'SA-37', name: 'American Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Ergonomic American-style pull handle for entrance doors and windows.', image: '/sku-sa35.png' },
   { id: 'sa-38', saCode: 'SA-38', name: 'Taiwan Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Sleek contoured Taiwan handle profile for sliding door sashes.', image: '/sku-sa35.png' },
