@@ -172,7 +172,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-23', saCode: 'SA-23', name: 'Air Lift Lock', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', shortDesc: 'Air Lift vertical sliding sash lock mechanism for heavy glazed windows.', image: '/air-lift-v1.png' },
 
   // C. Door & Window Seals / Stoppers
-  { id: 'sa-24', saCode: 'SA-24', name: 'Door Seal (Aluminium + Brush/Rubber)', categorySlug: 'door-window-seals', categoryName: 'Door & Window Seals / Stoppers', shortDesc: 'Bottom door drop seal preventing dust, water, and insects under entry doors.', image: '/cat-seals.png' },
+  { id: 'sa-24', saCode: 'SA-24', name: 'Door Seal (Aluminium + Brush/Rubber)', categorySlug: 'door-window-seals', categoryName: 'Door & Window Seals / Stoppers', shortDesc: 'Bottom door drop seal preventing dust, water, and insects under entry doors.', image: '/door-seal-v1.png' },
   { id: 'sa-25', saCode: 'SA-25', name: 'Plastic Door Seal', categorySlug: 'door-window-seals', categoryName: 'Door & Window Seals / Stoppers', shortDesc: 'Flexible PVC acoustic & draft seal strip for internal wooden/glass doors.', image: '/cat-seals.png' },
   { id: 'sa-26', saCode: 'SA-26', name: 'Window Stopper', categorySlug: 'door-window-seals', categoryName: 'Door & Window Seals / Stoppers', shortDesc: 'Rubberized buffer window stopper preventing frame impact damage.', image: '/cat-seals.png' },
 
