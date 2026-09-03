@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, SAHProduct } from '@/lib/sahData';
-import { Shield, ChevronRight, Layers, FileText } from 'lucide-react';
+import { Shield, ChevronRight, ChevronLeft, Layers, FileText } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { QuickViewModal } from '@/components/product/QuickViewModal';
 
@@ -72,9 +72,26 @@ export default function ProductsPage() {
             </div>
           </div>
 
-          {/* Clean Category Filter Pills */}
-          <div className="pt-3 border-t border-[#E2E8F0]">
-            <div className="flex items-center space-x-2 overflow-x-auto py-1 scrollbar-none">
+          {/* Clean Category Filter Pills with Left/Right Arrow Buttons */}
+          <div className="pt-3 border-t border-[#E2E8F0] relative flex items-center space-x-2">
+            {/* Left Scroll Button */}
+            <button
+              type="button"
+              onClick={() => {
+                const nav = document.getElementById('category-pills-nav');
+                if (nav) nav.scrollBy({ left: -250, behavior: 'smooth' });
+              }}
+              aria-label="Scroll left"
+              className="p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Scrollable Pills Container */}
+            <div
+              id="category-pills-nav"
+              className="flex items-center space-x-2 overflow-x-auto py-1 scrollbar-none scroll-smooth flex-1"
+            >
               <button
                 onClick={() => setSelectedCategory('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
@@ -99,6 +116,19 @@ export default function ProductsPage() {
                 </button>
               ))}
             </div>
+
+            {/* Right Scroll Button */}
+            <button
+              type="button"
+              onClick={() => {
+                const nav = document.getElementById('category-pills-nav');
+                if (nav) nav.scrollBy({ left: 250, behavior: 'smooth' });
+              }}
+              aria-label="Scroll right"
+              className="p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
 
         </div>
