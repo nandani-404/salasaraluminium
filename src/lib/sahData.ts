@@ -195,7 +195,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-38', saCode: 'SA-38', name: 'Taiwan Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Sleek contoured Taiwan handle profile for sliding door sashes.', image: '/taiwan-handle-v1.png' },
   { id: 'sa-39', saCode: 'SA-39', name: 'D Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['5"', '6"'], shortDesc: 'Classic D-shaped aluminium pull handle for doors and cabinet shutters.', image: '/d-handle-v1.png' },
   { id: 'sa-40', saCode: 'SA-40', name: 'Handle Lock', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', shortDesc: 'Integrated lever handle lock set with mortise cylinder mechanism.', image: '/handle-lock-v1.png' },
-  { id: 'sa-41', saCode: 'SA-41', name: 'H-Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['12"', '14"', '18"', '24"'], shortDesc: 'Architectural back-to-back H pull handle for main glass & wooden entry doors.', image: '/sku-sa35.png' },
+  { id: 'sa-41', saCode: 'SA-41', name: 'H-Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['12"', '14"', '18"', '24"'], shortDesc: 'Architectural back-to-back H pull handle for main glass & wooden entry doors.', image: '/h-handle-v1.png' },
 
   // G. Door Closers
   { id: 'sa-42', saCode: 'SA-42', name: 'Door Closer (Aluminium / SS)', categorySlug: 'door-closers', categoryName: 'Door Closers', variants: ['Aluminium Body', 'SS Cover'], shortDesc: 'Overhead hydraulic surface door closer with adjustable latching speed.', image: '/sku-sa42.png' },
