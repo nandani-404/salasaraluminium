@@ -212,7 +212,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-54', saCode: 'SA-54', name: 'Light U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Standard wall thickness aluminium U-channel for light glazing trims.', image: '/light-u-channel-v1.png' },
 
   // I. Tapes, Sealants & Adhesives
-  { id: 'sa-47', saCode: 'SA-47', name: 'VHB Tape – Clear', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'High-bond transparent acrylic foam VHB tape for invisible glass-to-glass joints.', image: '/sku-sa81.png' },
+  { id: 'sa-47', saCode: 'SA-47', name: 'VHB Tape – Clear', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'High-bond transparent acrylic foam VHB tape for invisible glass-to-glass joints.', image: '/vhb-tape-clear-v1.png' },
   { id: 'sa-48', saCode: 'SA-48', name: 'VHB Tape – Grey', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'Heavy structural grey double-sided VHB tape for cladding & facade bonding.', image: '/sku-sa81.png' },
   { id: 'sa-49', saCode: 'SA-49', name: 'Rubber Weather Strip Gasket', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'EPDM rubber glazing gasket for waterproof window sealing.', image: '/sku-sa81.png' },
   { id: 'sa-55', saCode: 'SA-55', name: 'Silicone Sealant', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'Neutral cure weatherproofing silicone sealant cartridge for perimeter gaps.', image: '/sku-sa81.png' },
