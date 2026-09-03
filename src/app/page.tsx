@@ -133,18 +133,18 @@ export default function Home() {
             {featuredProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white border border-white rounded-xl overflow-hidden hover:border-slate-200 transition-colors duration-200 flex flex-col justify-between group"
               >
                 <div>
                   {/* SKU Product Image */}
-                  <div className="relative h-44 overflow-hidden bg-[#F8FAFC] border-b border-[#E2E8F0]">
+                  <div className="relative h-44 overflow-hidden bg-[#F8FAFC] border-b border-slate-100">
                     <Image
                       src={prod.image}
                       alt={prod.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded shadow-xs">
+                    <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded">
                       {prod.saCode}
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => openEnquiryModal(prod.saCode)}
-                      className="w-full py-2.5 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs cursor-pointer"
+                      className="w-full py-2.5 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all cursor-pointer"
                     >
                       Enquire Item {prod.saCode}
                     </button>
@@ -227,7 +227,7 @@ export default function Home() {
                     <span>Factory Direct Rates</span>
                   </div>
                   <p className="text-xs text-[#64748B] leading-relaxed">
-                    Bulk trade rates directly from Swastik Industries Mumbai production unit.
+                    Bulk trade rates from our Finetek branch in Raipur.
                   </p>
                 </div>
 
@@ -296,8 +296,8 @@ export default function Home() {
                 {/* Floating Stats Badge */}
                 <div className="absolute bottom-6 left-6 right-6 bg-[#0B1F3A] text-white p-5 rounded-xl flex items-center justify-between shadow-md">
                   <div>
-                    <div className="text-lg font-bold text-[#D4AF37]">Swastik Industries</div>
-                    <div className="text-xs text-slate-300 font-medium">Manufacturing Unit • Mumbai</div>
+                    <div className="text-lg font-bold text-[#D4AF37]">Finetek</div>
+                    <div className="text-xs text-slate-300 font-medium">Branch • Raipur</div>
                   </div>
                   <div className="h-8 w-px bg-slate-700" />
                   <div className="text-right">

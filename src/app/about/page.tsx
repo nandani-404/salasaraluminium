@@ -57,7 +57,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="text-sm font-extrabold text-[#0B1F3A] mb-1">Precision Manufacturing</h3>
                   <p className="text-xs text-[#64748B] leading-relaxed">
-                    Produced by Swastik Industries (Mumbai) using modern extrusion techniques & strict ISO-grade quality standards.
+                    Produced at our Finetek branch in Raipur using modern extrusion techniques & strict ISO-grade quality standards.
                   </p>
                 </div>
 

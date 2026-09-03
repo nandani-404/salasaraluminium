@@ -80,7 +80,7 @@ export default function WholesalePage() {
                 <div>
                   <h3 className="text-sm font-bold text-[#0B1F3A]">Direct Factory Pricing</h3>
                   <p className="text-xs text-gray-600 mt-1">
-                    Manufactured by Swastik Industries (Mumbai) and distributed through our Raipur branches.
+                    Distributed through our Finetek branch and other Raipur outlets.
                   </p>
                 </div>
               </div>

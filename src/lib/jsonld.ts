@@ -8,7 +8,7 @@ export function getOrganizationSchema() {
     '@type': ['Organization', 'LocalBusiness'],
     '@id': `${BASE_URL}/#organization`,
     name: SAH_BUSINESS_DETAILS.brandName,
-    legalName: 'Salasar Aluminium & Hardware (Manufactured by Swastik Industries)',
+    legalName: 'Salasar Aluminium & Hardware',
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
     description: 'Wholesale manufacturer & supplier of architectural aluminium extrusions, locks, hinges, door kits, door closers, fasteners, and shower fittings based in Raipur, Chhattisgarh.',

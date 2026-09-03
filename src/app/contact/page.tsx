@@ -231,7 +231,7 @@ export default function ContactPage() {
               </div>
 
               <div className="pt-2 text-xs text-gray-300 border-t border-white/10 space-y-1">
-                <div><strong>Manufactured By:</strong> Swastik Industries, Mumbai</div>
+                <div><strong>Branches:</strong> Salasar Aluminium & Hardware (Raipur), Lieon Marketing (Raipur) & Finetek (Raipur)</div>
                 <div><strong>Branches:</strong> Salasar Aluminium & Hardware (Raipur) & Lieon Marketing (Raipur)</div>
               </div>
             </div>

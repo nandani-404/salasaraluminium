@@ -16,15 +16,33 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 bg-white text-[#0B1F3A] rounded-lg flex items-center justify-center font-bold text-sm tracking-tight shadow-xs">
-                SAH
+            <div className="flex items-center space-x-3.5 group">
+              {/* Logo Emblem with White Background */}
+              <div className="relative w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1 shadow-md border border-[#D4AF37]/60">
+                <svg viewBox="0 0 44 44" fill="none" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#B8860B" />
+                      <stop offset="50%" stopColor="#D4AF37" />
+                      <stop offset="100%" stopColor="#AA771C" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Outer Beam Geometry in Gold */}
+                  <path d="M22 4L38 12V32L22 40L6 32V12L22 4Z" stroke="url(#footerGoldGrad)" strokeWidth="2.2" strokeLinejoin="round" />
+                  <path d="M6 12L22 20L38 12" stroke="url(#footerGoldGrad)" strokeWidth="1.2" opacity="0.6" />
+
+                  {/* SAH Gold Monogram Text */}
+                  <text x="22" y="27" textAnchor="middle" fill="url(#footerGoldGrad)" fontSize="13" fontWeight="900" letterSpacing="0.8">
+                    SAH
+                  </text>
+                </svg>
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-lg text-white tracking-tight">
                   SALASAR
                 </span>
-                <span className="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">
+                <span className="text-[10px] tracking-widest text-[#D4AF37] uppercase font-semibold">
                   Aluminium & Hardware
                 </span>
               </div>
@@ -37,7 +55,7 @@ export default function Footer() {
             <div className="space-y-2 pt-1 text-xs text-slate-300">
               <div className="flex items-center space-x-2">
                 <Factory className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span>Unit: <strong className="text-white font-semibold">Swastik Industries, Mumbai</strong></span>
+                <span>Branch: <strong className="text-white font-semibold">Finetek, Raipur</strong></span>
               </div>
               <div className="flex items-center space-x-2">
                 <Building2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
@@ -95,7 +113,7 @@ export default function Footer() {
             </div>
 
             <div className="pt-1 text-xs text-slate-300">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 whitespace-nowrap">
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                 <span>+91 8007443071 / +91 9079332560</span>
               </div>

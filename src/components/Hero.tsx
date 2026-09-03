@@ -85,7 +85,7 @@ export default function Hero() {
           <div className="pt-3 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white">
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-slate-950/70 backdrop-blur-md rounded-lg border border-white/15 shadow-sm">
               <Building2 className="w-4 h-4 text-amber-400" />
-              <span className="font-semibold text-slate-200">Mfg: <strong className="text-white font-semibold">Swastik Industries</strong></span>
+              <span className="font-semibold text-slate-200">Branch: <strong className="text-white font-semibold">Finetek, Raipur</strong></span>
             </div>
             <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-slate-950/70 backdrop-blur-md rounded-lg border border-white/15 shadow-sm">
               <MapPin className="w-4 h-4 text-amber-400" />

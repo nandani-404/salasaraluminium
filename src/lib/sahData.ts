@@ -27,10 +27,11 @@ export const SAH_BUSINESS_DETAILS = {
   tagline: 'QUALITY • STRENGTH • TRUST',
   secondaryLine: 'Strength in Every Detail, Quality in Every Product.',
   businessType: 'Wholesale Manufacturer & Supplier of Aluminium & Hardware Products',
-  manufacturedBy: 'Swastik Industries, Mumbai',
+  manufacturedBy: '',
   branches: [
     { name: 'Salasar Aluminium & Hardware', location: 'Raipur' },
-    { name: 'Lieon Marketing', location: 'Raipur' }
+    { name: 'Lieon Marketing', location: 'Raipur' },
+    { name: 'Finetek', location: 'Raipur' }
   ],
   address: 'Shop No. 3, Salasar Aluminium & Hardware, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan, Raipur, Chhattisgarh – 492001',
   contactPersons: [

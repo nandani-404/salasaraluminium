@@ -62,7 +62,7 @@ const ARTICLES = [
   {
     slug: 'aluminium-hardware-wholesale-in-chhattisgarh-what-dealers-should-know',
     title: 'Aluminium Hardware Wholesale in Chhattisgarh: What Dealers & Fabricators Should Know',
-    excerpt: 'Overview of B2B supply chains, direct factory pricing from Swastik Industries (Mumbai), and ready outlet stocking in Raipur.',
+    excerpt: 'Overview of B2B supply chains, direct trade pricing through our Finetek branch, and ready outlet stocking in Raipur.',
     category: 'Trade & Wholesale',
     author: 'Abhishek (Salasar Trade Team)',
     readTime: '5 min read',
