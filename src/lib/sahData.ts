@@ -179,7 +179,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   // D. Hinges
   { id: 'sa-27', saCode: 'SA-27', name: '2D Adjustable Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: '2-way micro-adjustable aluminium door hinge for flush alignment.', image: '/2d-hinge-v1.png' },
   { id: 'sa-28', saCode: 'SA-28', name: '3D Adjustable Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Heavy 3-way adjustable hinge allowing height, depth, and side adjustments.', image: '/3d-hinge-v1.png' },
-  { id: 'sa-29', saCode: 'SA-29', name: 'Standard Aluminium Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Durable extruded aluminium butt hinge for residential door shutters.', image: '/cat-hinges.png' },
+  { id: 'sa-29', saCode: 'SA-29', name: 'Standard Aluminium Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Durable extruded aluminium butt hinge for residential door shutters.', image: '/standard-aluminium-hinge-v1.png' },
 
   // E. Door Kits
   { id: 'sa-30-31', saCode: 'SA-30 / SA-31', name: 'SS Mini Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', finishes: ['SS Natural (SA-30)', 'Matte Black (SA-31)'], shortDesc: 'Compact Stainless Steel door hardware kit including handle, latch, and stopper.', image: '/sku-sa33.png' },
