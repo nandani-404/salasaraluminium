@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* Category Overview Grid (12 Categories) */}
       {/* 12 Specialized Hardware Categories Section */}
-      <section className="py-20 bg-white border-b border-[#E2E8F0]">
+      <section className="py-20 bg-slate-50/70 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
@@ -50,11 +50,11 @@ export default function Home() {
               <Link
                 key={cat.slug}
                 href={`/products#${cat.slug}`}
-                className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden hover:border-[#0B1F3A] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                className="bg-white border border-slate-300 rounded-xl overflow-hidden hover:border-[#0B1F3A] transition-colors duration-200 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   {/* Category Image Header */}
-                  <div className="relative h-44 overflow-hidden bg-[#F8FAFC] border-b border-[#E2E8F0]">
+                  <div className="relative h-44 overflow-hidden bg-slate-100/60 border-b border-slate-200">
                     <Image
                       src={cat.image}
                       alt={cat.name}
@@ -63,7 +63,7 @@ export default function Home() {
                     />
                     
                     {/* SKU Code Pill */}
-                    <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded shadow-xs">
+                    <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded">
                       {cat.codePrefix}
                     </div>
                   </div>
@@ -81,7 +81,7 @@ export default function Home() {
 
                 {/* Card Footer Link */}
                 <div className="px-5 pb-5 pt-0">
-                  <div className="pt-3 border-t border-[#F1F5F9] text-xs font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] flex items-center justify-between transition-colors">
+                  <div className="pt-3 border-t border-slate-100 text-xs font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] flex items-center justify-between transition-colors">
                     <span>Explore Products</span>
                     <ChevronRight className="w-4 h-4 text-[#94A3B8] group-hover:text-[#0B1F3A] group-hover:translate-x-0.5 transition-all" />
                   </div>
@@ -94,7 +94,7 @@ export default function Home() {
           <div className="mt-10 text-center">
             <Link
               href="/products"
-              className="inline-flex items-center space-x-2 px-7 py-3 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] transition-all shadow-xs group"
+              className="inline-flex items-center space-x-2 px-7 py-3 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] transition-all group"
             >
               <span>View All 12 Categories</span>
               <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
