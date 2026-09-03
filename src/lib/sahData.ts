@@ -199,7 +199,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
 
   // G. Door Closers
   { id: 'sa-42', saCode: 'SA-42', name: 'Door Closer (Aluminium / SS)', categorySlug: 'door-closers', categoryName: 'Door Closers', variants: ['Aluminium Body', 'SS Cover'], shortDesc: 'Overhead hydraulic surface door closer with adjustable latching speed.', image: '/door-closer-v1.png' },
-  { id: 'sa-43', saCode: 'SA-43', name: 'Pencil Door Closer', categorySlug: 'door-closers', categoryName: 'Door Closers', shortDesc: 'Slimline pencil-type pneumatic door closer for screen doors and light shutters.', image: '/sku-sa42.png' },
+  { id: 'sa-43', saCode: 'SA-43', name: 'Pencil Door Closer', categorySlug: 'door-closers', categoryName: 'Door Closers', shortDesc: 'Slimline pencil-type pneumatic door closer for screen doors and light shutters.', image: '/pencil-door-closer-v1.png' },
   { id: 'sa-44', saCode: 'SA-44', name: 'Capsule Door Closer', categorySlug: 'door-closers', categoryName: 'Door Closers', shortDesc: 'Heavy-duty capsule body hydraulic door closer for high-traffic entryways.', image: '/sku-sa42.png' },
 
   // H. Fittings & Accessories
