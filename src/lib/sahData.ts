@@ -208,8 +208,8 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-50', saCode: 'SA-50', name: 'Partition Connector', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Aluminium corner & T-connector bracket for office glass partition profiles.', image: '/partition-connector-v1.png' },
   { id: 'sa-51', saCode: 'SA-51', name: 'Glass Sticker Film', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Frosted & decorative privacy safety film for glass panels.', image: '/glass-sticker-v1.png' },
   { id: 'sa-52', saCode: 'SA-52', name: '2Trk–3Trk PVC Angle', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'PVC corner sealing angle for 2-track and 3-track window sills.', image: '/2trk-3trk-pvc-v1.png' },
-  { id: 'sa-53', saCode: 'SA-53', name: 'Premium U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Heavy-gauge extruded aluminium U-channel for structural glass perimeter mounting.', image: '/sku-sa76.png' },
-  { id: 'sa-54', saCode: 'SA-54', name: 'Light U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Standard wall thickness aluminium U-channel for light glazing trims.', image: '/sku-sa76.png' },
+  { id: 'sa-53', saCode: 'SA-53', name: 'Premium U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Heavy-gauge extruded aluminium U-channel for structural glass perimeter mounting.', image: '/u-channel-v1.png' },
+  { id: 'sa-54', saCode: 'SA-54', name: 'Light U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Standard wall thickness aluminium U-channel for light glazing trims.', image: '/u-channel-v1.png' },
 
   // I. Tapes, Sealants & Adhesives
   { id: 'sa-47', saCode: 'SA-47', name: 'VHB Tape – Clear', categorySlug: 'tapes-sealants-adhesives', categoryName: 'Tapes, Sealants & Adhesives', shortDesc: 'High-bond transparent acrylic foam VHB tape for invisible glass-to-glass joints.', image: '/sku-sa81.png' },
