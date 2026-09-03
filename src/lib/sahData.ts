@@ -190,7 +190,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
 
   // F. Bolts & Handles
   { id: 'sa-35', saCode: 'SA-35', name: 'Tower Bolt (2pcs)', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], shortDesc: '2-piece set extruded aluminium tower bolt for top & bottom door latching.', image: '/tower-bolt-v1.png' },
-  { id: 'sa-36', saCode: 'SA-36', name: 'Tower Bolt – Light / Heavy', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], variants: ['Light', 'Heavy'], shortDesc: 'Heavy-gauge barrel tower bolt with smooth slide pin mechanism.', image: '/sku-sa35.png' },
+  { id: 'sa-36', saCode: 'SA-36', name: 'Tower Bolt – Light / Heavy', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], variants: ['Light', 'Heavy'], shortDesc: 'Heavy-gauge barrel tower bolt with smooth slide pin mechanism.', image: '/tower-bolt-light-v1.png' },
   { id: 'sa-37', saCode: 'SA-37', name: 'American Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Ergonomic American-style pull handle for entrance doors and windows.', image: '/sku-sa35.png' },
   { id: 'sa-38', saCode: 'SA-38', name: 'Taiwan Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Sleek contoured Taiwan handle profile for sliding door sashes.', image: '/sku-sa35.png' },
   { id: 'sa-39', saCode: 'SA-39', name: 'D Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['5"', '6"'], shortDesc: 'Classic D-shaped aluminium pull handle for doors and cabinet shutters.', image: '/sku-sa35.png' },
