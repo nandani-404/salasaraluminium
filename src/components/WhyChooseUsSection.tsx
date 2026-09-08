@@ -125,7 +125,7 @@ interface WhyChooseUsSectionProps {
 }
 
 export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectionProps) {
-  const { openEnquiry } = useEnquiry();
+  const { openEnquiryModal } = useEnquiry();
 
   return (
     <section className="bg-white py-16 md:py-24 text-slate-900 border-b border-slate-100 overflow-hidden" id="why-choose-us">
@@ -293,7 +293,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
-                  onClick={() => openEnquiry('')}
+                  onClick={() => openEnquiryModal('')}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B8860B] hover:bg-[#a07509] text-white px-7 py-3.5 rounded-lg font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-xl focus:ring-2 focus:ring-[#B8860B] focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   REQUEST A QUOTE
