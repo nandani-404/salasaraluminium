@@ -29,13 +29,29 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   if (!product) return {};
 
+  const baseUrl = 'https://www.salasaraluminium.shop';
+  const imageUrls = product.images.map((img) => 
+    img.startsWith('http') ? img : `${baseUrl}${img.startsWith('/') ? '' : '/'}${img}`
+  );
+
   return {
     title: `${product.name} (${product.sku}) | Salasar Hardware`,
     description: `${product.shortDescription} Alloy: ${product.alloyGrade}, Finish: ${product.finish}. Order direct with trade pricing.`,
     openGraph: {
       title: product.name,
       description: product.shortDescription,
-      images: [{ url: product.images[0] }],
+      url: `${baseUrl}/product/${product.slug}`,
+      siteName: 'Salasar Aluminium & Hardware',
+      images: imageUrls.map((url) => ({
+        url,
+        alt: `${product.name} - ${product.sku}`,
+      })),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.name,
+      description: product.shortDescription,
+      images: imageUrls,
     },
   };
 }
