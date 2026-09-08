@@ -22,7 +22,8 @@ export default function TradeQuoteFormSection() {
   } = useForm<EnquiryFormData>({
     resolver: zodResolver(enquirySchema),
     defaultValues: {
-      productCategory: 'rollers-bearings-channels',
+      saProductCode: '',
+      productCategory: '',
     },
   });
 

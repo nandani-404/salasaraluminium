@@ -28,12 +28,13 @@ export default function EnquiryModal() {
   } = useForm<EnquiryFormData>({
     resolver: zodResolver(enquirySchema),
     defaultValues: {
-      productCategory: 'rollers-bearings-channels',
+      saProductCode: '',
+      productCategory: '',
     },
   });
 
   const currentQuantity = watch('estimatedQuantity');
-  const targetCodeInput = (watch('saProductCode') || selectedProduct || '').trim();
+  const targetCodeInput = (watch('saProductCode') || '').trim();
 
   // Lookup matched product for live image & details preview
   const matchedProduct = targetCodeInput
@@ -50,10 +51,10 @@ export default function EnquiryModal() {
   const previewCategory = matchedProduct ? matchedProduct.categoryName : 'Salasar Aluminium & Hardware';
 
   useEffect(() => {
-    if (selectedProduct) {
-      setValue('saProductCode', selectedProduct);
+    if (isOpen) {
+      setValue('saProductCode', selectedProduct || '');
     }
-  }, [selectedProduct, setValue]);
+  }, [isOpen, selectedProduct, setValue]);
 
   const onSubmit = async (data: EnquiryFormData) => {
     setIsSubmitting(true);
