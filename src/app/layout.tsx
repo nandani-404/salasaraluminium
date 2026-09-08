@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: '/icon',
-    apple: '/icon',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
   alternates: {
     canonical: BASE_URL,
