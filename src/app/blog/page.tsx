@@ -84,10 +84,10 @@ export default function BlogPage() {
         <div className="max-w-3xl space-y-3">
           <span className="text-xs font-bold text-[#C9A227] uppercase tracking-widest flex items-center space-x-1">
             <BookOpen className="w-4 h-4 text-[#C9A227]" />
-            <span>GEO / AEO & Trade Resource Library</span>
+            <span>Hardware Technical Specs & Trade Guides</span>
           </span>
           <h1 className="text-4xl font-serif font-extrabold text-[#0B1F3A]">
-            Technical Guides & Dealer Resources
+            Technical Guides & Hardware Specs
           </h1>
           <p className="text-gray-700 text-sm leading-relaxed">
             Direct answer guides and technical specifications for hardware dealers, fabricators, and contractors in Chhattisgarh & Pan-India.

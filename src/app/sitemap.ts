@@ -1,3 +1,5 @@
+
+
 import { MetadataRoute } from 'next';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
 import { BASE_URL } from '@/lib/jsonld';
@@ -7,9 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/products',
-    '/wholesale',
+    '/industries-we-serve',
+    '/why-choose-us',
     '/contact',
-    '/blog',
     '/llms.txt',
   ].map((route) => ({
     url: `${BASE_URL}${route}`,

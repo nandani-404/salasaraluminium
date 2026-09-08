@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CheckCircle2, Send, ShieldCheck, PhoneCall } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
-import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS } from '@/lib/sahData';
+import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 
 export default function TradeQuoteFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,6 +15,8 @@ export default function TradeQuoteFormSection() {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     reset,
     formState: { errors },
   } = useForm<EnquiryFormData>({
@@ -190,48 +192,84 @@ export default function TradeQuoteFormSection() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Category Dropdown */}
+                  {/* Target Product / SA Code */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
-                      Product Category *
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                      Target Product / SA Code
                     </label>
                     <select
-                      {...register('productCategory')}
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      {...register('saProductCode')}
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
                     >
-                      {SAH_CATEGORIES.map((cat) => (
-                        <option key={cat.slug} value={cat.slug}>
-                          {cat.name} ({cat.codePrefix})
+                      <option value="">-- General Hardware Enquiry --</option>
+                      {FULL_CATALOGUE_PRODUCTS.map((product) => (
+                        <option key={product.id} value={product.saCode}>
+                          {product.saCode} : {product.name}
                         </option>
                       ))}
                     </select>
                   </div>
 
-                  {/* SA Code Optional */}
+                  {/* State / Region */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
-                      Specific SA Code (Optional)
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                      State / Region
                     </label>
-                    <input
-                      type="text"
-                      {...register('saProductCode')}
-                      placeholder="e.g. SA-33 or SA-12"
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
-                    />
+                    <select
+                      {...register('state')}
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                    >
+                      <option value="">-- Select State --</option>
+                      {ALL_INDIAN_STATES.map((st) => (
+                        <option key={st} value={st}>
+                          {st}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 
-                {/* Message / Quantity Notes */}
+                {/* Quantity Required */}
                 <div>
-                  <label className="block text-xs font-semibold text-[#334155] mb-1">
-                    Order Quantity & Special Notes
+                  <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    Quantity Required
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 50 Boxes / 200 Pcs"
+                    {...register('estimatedQuantity')}
+                    className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
+                  />
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'].map((preset) => (
+                      <button
+                        key={preset}
+                        type="button"
+                        onClick={() => setValue('estimatedQuantity', preset)}
+                        className={`text-[10px] font-medium px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                          watch('estimatedQuantity') === preset
+                            ? 'bg-slate-900 text-white border-slate-900 shadow-2xs'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                        }`}
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Requirements & Notes */}
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    Requirements & Project Details *
                   </label>
                   <textarea
                     rows={3}
                     {...register('message')}
                     placeholder="Specify required box quantities, profile lengths, finishes (CP/SN/SS), or delivery destination..."
-                    className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors resize-none"
+                    className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none"
                   />
+                  {errors.message && <span className="text-[11px] text-red-500 mt-1 block">{errors.message.message}</span>}
                 </div>
 
                 <button

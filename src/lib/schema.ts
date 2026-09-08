@@ -8,10 +8,13 @@ export const enquirySchema = z.object({
   businessType: z.enum(['dealer', 'fabricator', 'contractor', 'retailer', 'end_user'], {
     message: 'Please select your business type',
   }).optional(),
-  productCategory: z.string().min(1, 'Please select a product category'),
+  productCategory: z.string().optional(),
   saProductCode: z.string().optional(),
   estimatedQuantity: z.string().optional(),
-  message: z.string().min(10, 'Please provide details on your order or project (at least 10 characters)'),
+  preferredFinish: z.string().optional(),
+  deliveryLocation: z.string().optional(),
+  state: z.string().optional(),
+  message: z.string().min(5, 'Please provide details on your order or project (at least 5 characters)'),
 });
 
 export type EnquiryFormData = z.infer<typeof enquirySchema>;

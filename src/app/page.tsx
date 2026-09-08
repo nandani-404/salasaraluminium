@@ -30,7 +30,7 @@ export default function Home() {
       {/* 12 Specialized Hardware Categories Section */}
       <section className="py-20 bg-slate-50/70 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
@@ -61,7 +61,7 @@ export default function Home() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    
+
                     {/* SKU Code Pill */}
                     <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded">
                       {cat.codePrefix}
@@ -107,7 +107,7 @@ export default function Home() {
       {/* Featured Hardware Showcase */}
       <section className="py-20 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 space-y-4 md:space-y-0 pb-6 border-b border-[#E2E8F0]">
             <div className="space-y-1.5">
@@ -118,7 +118,7 @@ export default function Home() {
                 Featured Catalogue SKUs
               </h2>
             </div>
-            
+
             <Link
               href="/products"
               className="text-xs font-bold text-[#0B1F3A] hover:text-[#9A7B1C] uppercase tracking-wider flex items-center space-x-1.5 transition-colors group"
@@ -137,12 +137,13 @@ export default function Home() {
               >
                 <div>
                   {/* SKU Product Image */}
-                  <div className="relative h-44 overflow-hidden bg-[#F8FAFC] border-b border-slate-100">
+                  <div className="relative h-60 overflow-hidden bg-[#F8FAFC] border-b border-slate-100">
                     <Image
                       src={prod.image}
                       alt={prod.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain group-hover:scale-105 transition-transform duration-500"
+                      suppressHydrationWarning
                     />
                     <div className="absolute top-3 left-3 bg-[#0B1F3A] text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded">
                       {prod.saCode}
@@ -165,15 +166,34 @@ export default function Home() {
 
                     {/* Finishes Pills */}
                     {prod.finishes && (
-                      <div className="mt-3 flex flex-wrap gap-1.5 pt-1">
-                        {prod.finishes.map((f) => (
-                          <span
-                            key={f}
-                            className="text-[10px] bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] px-2.5 py-0.5 rounded font-medium"
-                          >
-                            {f}
-                          </span>
-                        ))}
+                      <div className="mt-3 flex flex-wrap items-center gap-1.5 pt-1">
+                        {prod.finishes.map((f) => {
+                          const lower = f.toLowerCase();
+                          let swatchClass = '';
+                          if (lower.includes('matte black')) swatchClass = 'bg-slate-950 border-slate-800';
+                          else if (lower.includes('black')) swatchClass = 'bg-slate-900 border-slate-700';
+                          else if (lower.includes('grey') || lower.includes('gray')) swatchClass = 'bg-slate-400 border-slate-500';
+                          else if (lower.includes('brown')) swatchClass = 'bg-[#4A2E1B] border-[#311E12]';
+                          else if (lower.includes('ivory')) swatchClass = 'bg-[#F5F2EB] border-[#D6CFC3]';
+                          else if (lower.includes('white')) swatchClass = 'bg-white border-slate-300';
+                          else if (lower.includes('gold') || lower.includes('brass')) swatchClass = 'bg-[#D4AF37] border-amber-600';
+                          else if (lower.includes('cp') || lower.includes('chrome') || lower.includes('silver') || lower.includes('anodized')) swatchClass = 'bg-gradient-to-br from-slate-200 via-slate-100 to-slate-400 border-slate-400';
+
+                          return swatchClass ? (
+                            <span
+                              key={f}
+                              title={f}
+                              className={`w-4 h-4 rounded-full border shadow-2xs inline-block transition-transform hover:scale-125 cursor-pointer ${swatchClass}`}
+                            />
+                          ) : (
+                            <span
+                              key={f}
+                              className="text-[10px] bg-[#F8FAFC] border border-[#E2E8F0] text-[#334155] px-2.5 py-0.5 rounded font-medium"
+                            >
+                              {f}
+                            </span>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
@@ -202,14 +222,14 @@ export default function Home() {
       <section className="py-20 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Context & Info Column */}
             <div className="lg:col-span-6 space-y-6">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#B8860B]">
                   Direct Manufacturer Advantage
                 </span>
-                
+
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mt-1.5 leading-snug">
                   Wholesale Manufacturing & Bulk Trade Distribution
                 </h2>
@@ -291,8 +311,9 @@ export default function Home() {
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-2 rounded-xl"
+                  suppressHydrationWarning
                 />
-                
+
                 {/* Floating Stats Badge */}
                 <div className="absolute bottom-6 left-6 right-6 bg-[#0B1F3A] text-white p-5 rounded-xl flex items-center justify-between shadow-md">
                   <div>

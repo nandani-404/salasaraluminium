@@ -239,13 +239,14 @@ function ProductCard({
   return (
     <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#0B1F3A]/40 transition-all flex flex-col justify-between group">
       <div>
-        <div className="relative h-52 bg-white overflow-hidden border-b border-[#E2E8F0] flex items-center justify-center cursor-pointer" onClick={onQuickView}>
+        <div className="relative h-64 bg-white overflow-hidden border-b border-[#E2E8F0] flex items-center justify-center cursor-pointer" onClick={onQuickView}>
           <Image
             src={product.image}
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+            className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500"
+            suppressHydrationWarning
           />
           
           <div className="absolute top-3 left-3 bg-[#0B1F3A] text-[#D4AF37] text-[11px] font-mono font-bold px-2.5 py-1 rounded-md shadow-xs z-10 border border-[#D4AF37]/30">
@@ -263,12 +264,31 @@ function ProductCard({
 
           {/* Variants / Finishes / Sizes Pills */}
           {(product.finishes || product.sizes || product.variants) && (
-            <div className="pt-2 flex flex-wrap gap-1">
-              {product.finishes?.map((f) => (
-                <span key={f} className="text-[10px] bg-[#F8FAFC] border border-[#E2E8F0] text-[#0B1F3A] font-semibold px-2 py-0.5 rounded-md">
-                  {f}
-                </span>
-              ))}
+            <div className="pt-2 flex flex-wrap items-center gap-1.5">
+              {product.finishes?.map((f) => {
+                const lower = f.toLowerCase();
+                let swatchClass = '';
+                if (lower.includes('matte black')) swatchClass = 'bg-slate-950 border-slate-800';
+                else if (lower.includes('black')) swatchClass = 'bg-slate-900 border-slate-700';
+                else if (lower.includes('grey') || lower.includes('gray')) swatchClass = 'bg-slate-400 border-slate-500';
+                else if (lower.includes('brown')) swatchClass = 'bg-[#4A2E1B] border-[#311E12]';
+                else if (lower.includes('ivory')) swatchClass = 'bg-[#F5F2EB] border-[#D6CFC3]';
+                else if (lower.includes('white')) swatchClass = 'bg-white border-slate-300';
+                else if (lower.includes('gold') || lower.includes('brass')) swatchClass = 'bg-[#D4AF37] border-amber-600';
+                else if (lower.includes('cp') || lower.includes('chrome') || lower.includes('silver') || lower.includes('anodized')) swatchClass = 'bg-gradient-to-br from-slate-200 via-slate-100 to-slate-400 border-slate-400';
+
+                return swatchClass ? (
+                  <span
+                    key={f}
+                    title={f}
+                    className={`w-4 h-4 rounded-full border shadow-2xs inline-block transition-transform hover:scale-125 cursor-pointer ${swatchClass}`}
+                  />
+                ) : (
+                  <span key={f} className="text-[10px] bg-[#F8FAFC] border border-[#E2E8F0] text-[#0B1F3A] font-semibold px-2 py-0.5 rounded-md">
+                    {f}
+                  </span>
+                );
+              })}
               {product.sizes?.map((s) => (
                 <span key={s} className="text-[10px] bg-[#F8FAFC] border border-[#E2E8F0] text-[#0B1F3A] font-semibold px-2 py-0.5 rounded-md">
                   {s}

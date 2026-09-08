@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
-import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
+import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,14 +15,17 @@ export default function ContactPage() {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     reset,
     formState: { errors },
   } = useForm<EnquiryFormData>({
     resolver: zodResolver(enquirySchema),
-    defaultValues: {
-      productCategory: 'rollers-bearings-channels',
-    },
   });
+
+  const currentQuantity = watch('estimatedQuantity');
+
+  const QUANTITY_PRESETS = ['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'];
 
   const onSubmit = async (data: EnquiryFormData) => {
     setIsSubmitting(true);
@@ -68,30 +71,34 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-white p-8 rounded-2xl border border-[#E8E6E1] shadow-xl space-y-6">
-            <div>
-              <h2 className="text-2xl font-serif font-bold text-[#0B1F3A]">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-9 rounded-2xl border border-slate-200/80 shadow-xl space-y-6">
+            <div className="border-b border-slate-100 pb-4">
+              <span className="text-[10px] font-semibold text-amber-700 uppercase tracking-widest block mb-1">
+                Direct Wholesale Support
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Submit Direct Trade Enquiry
               </h2>
-              <p className="text-xs text-gray-500 mt-1">
-                Fill in your hardware requirements below for rapid trade quote response.
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                Fill in your hardware requirements below for rapid trade quote response from our Raipur sales desk.
               </p>
             </div>
 
             {isSuccess ? (
-              <div className="py-12 text-center flex flex-col items-center space-y-4">
-                <div className="w-14 h-14 bg-[#C9A227]/20 text-[#C9A227] rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-8 h-8" />
+              <div className="py-12 text-center flex flex-col items-center justify-center space-y-3">
+                <div className="w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-sm">
+                  <CheckCircle2 className="w-7 h-7 text-emerald-400" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-[#0B1F3A]">
-                  Enquiry Dispatched to Sales Team
+                <h3 className="text-xl font-bold text-slate-900">
+                  Enquiry Received
                 </h3>
-                <p className="text-xs text-gray-600 max-w-md">
-                  Thank you! Abhishek will review your requirements and reach out on your contact number.
+                <p className="text-xs text-slate-600 max-w-md leading-relaxed">
+                  Thank you! Your inquiry has been routed directly to Abhishek at Salasar Aluminium & Hardware. We will respond shortly with direct factory trade rates.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setIsSuccess(false)}
-                  className="px-6 py-2.5 bg-[#C9A227] text-[#0B1F3A] text-xs font-bold rounded hover:bg-[#b08d20]"
+                  className="mt-3 px-6 py-2.5 bg-slate-900 text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
                 >
                   Submit Another Inquiry
                 </button>
@@ -99,115 +106,156 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {errorMessage && (
-                  <div className="p-3 bg-red-50 text-red-700 text-xs rounded">{errorMessage}</div>
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-xl">
+                    {errorMessage}
+                  </div>
                 )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Ramesh Patel"
                       {...register('fullName')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.fullName && <span className="text-xs text-red-500 mt-1 block">{errors.fullName.message}</span>}
+                    {errors.fullName && <span className="text-[11px] text-red-500 mt-1 block">{errors.fullName.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
                       Firm / Company Name
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Patel Hardware Store"
                       {...register('companyName')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
                       Email Address *
                     </label>
                     <input
                       type="email"
                       placeholder="ramesh@firm.com"
                       {...register('email')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.email && <span className="text-xs text-red-500 mt-1 block">{errors.email.message}</span>}
+                    {errors.email && <span className="text-[11px] text-red-500 mt-1 block">{errors.email.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       placeholder="+91 9876543210"
                       {...register('phone')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.phone && <span className="text-xs text-red-500 mt-1 block">{errors.phone.message}</span>}
+                    {errors.phone && <span className="text-[11px] text-red-500 mt-1 block">{errors.phone.message}</span>}
                   </div>
                 </div>
 
+                {/* Target Product & State */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
-                      Product Category *
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                      Target Product / SA Code
                     </label>
                     <select
-                      {...register('productCategory')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                      {...register('saProductCode')}
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
                     >
-                      {SAH_CATEGORIES.map((cat) => (
-                        <option key={cat.slug} value={cat.slug}>
-                          {cat.name}
+                      <option value="">-- General Hardware Enquiry --</option>
+                      {FULL_CATALOGUE_PRODUCTS.map((product) => (
+                        <option key={product.id} value={product.saCode}>
+                          {product.saCode} : {product.name}
                         </option>
                       ))}
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
-                      Target SA Code
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                      State / Region
                     </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. SA-33 Aluminium Door Kit"
-                      {...register('saProductCode')}
-                      className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
-                    />
+                    <select
+                      {...register('state')}
+                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                    >
+                      <option value="">-- Select State --</option>
+                      {ALL_INDIAN_STATES.map((st) => (
+                        <option key={st} value={st}>
+                          {st}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
 
+                {/* Quantity Required */}
                 <div>
-                  <label className="block text-xs font-bold text-[#0B1F3A] uppercase tracking-wider mb-1">
-                    Requirements & Quantity *
+                  <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    Quantity Required
                   </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Specify requirements, finishes, quantities, or delivery location..."
-                    {...register('message')}
-                    className="w-full px-3.5 py-2.5 bg-white border border-[#E8E6E1] rounded-md text-sm text-[#0B1F3A]"
+                  <input
+                    type="text"
+                    placeholder="e.g. 50 Boxes / 200 Pcs"
+                    {...register('estimatedQuantity')}
+                    className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                   />
-                  {errors.message && <span className="text-xs text-red-500 mt-1 block">{errors.message.message}</span>}
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {QUANTITY_PRESETS.map((preset) => (
+                      <button
+                        key={preset}
+                        type="button"
+                        onClick={() => setValue('estimatedQuantity', preset)}
+                        className={`text-[10px] font-medium px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                          currentQuantity === preset
+                            ? 'bg-slate-900 text-white border-slate-900 shadow-2xs'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900'
+                        }`}
+                      >
+                        {preset}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 bg-[#C9A227] text-[#0B1F3A] text-xs font-extrabold uppercase tracking-wider rounded-md hover:bg-[#b08d20] transition-colors shadow flex items-center justify-center space-x-2"
-                >
-                  <span>{isSubmitting ? 'Sending Enquiry...' : 'Submit Trade Enquiry'}</span>
-                  <Send className="w-4 h-4 text-[#0B1F3A]" />
-                </button>
+                {/* Requirements & Notes */}
+                <div>
+                  <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    Requirements & Project Details *
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Specify sizes (e.g. 4 in / 6 in), finish preferences, dispatch urgency..."
+                    {...register('message')}
+                    className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all resize-none"
+                  />
+                  {errors.message && <span className="text-[11px] text-red-500 mt-1 block">{errors.message.message}</span>}
+                </div>
+
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold uppercase tracking-wider rounded-xl transition-all shadow-sm hover:shadow-md flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer active:scale-[0.99]"
+                  >
+                    <span>{isSubmitting ? 'Sending Enquiry...' : 'Submit Trade Enquiry'}</span>
+                    <Send className="w-3.5 h-3.5 text-amber-400" />
+                  </button>
+                </div>
               </form>
             )}
           </div>
@@ -232,7 +280,6 @@ export default function ContactPage() {
 
               <div className="pt-2 text-xs text-gray-300 border-t border-white/10 space-y-1">
                 <div><strong>Branches:</strong> Salasar Aluminium & Hardware (Raipur), Lieon Marketing (Raipur) & Finetek (Raipur)</div>
-                <div><strong>Branches:</strong> Salasar Aluminium & Hardware (Raipur) & Lieon Marketing (Raipur)</div>
               </div>
             </div>
 

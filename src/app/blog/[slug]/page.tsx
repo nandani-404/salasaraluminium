@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const faqSchema = getFaqSchema(post.qaBlocks);
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', item: '/' },
-    { name: 'Blog & Resources', item: '/blog' },
+    { name: 'Trade Guides & Specs', item: '/blog' },
     { name: post.title, item: `/blog/${post.slug}` },
   ]);
 

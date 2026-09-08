@@ -132,8 +132,10 @@ export default function Footer() {
         {/* Footer Bottom Line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
           <p>© 2026 {SAH_BUSINESS_DETAILS.brandName}. All rights reserved.</p>
-          <div className="flex items-center space-x-4 mt-3 sm:mt-0">
-            <Link href="/wholesale" className="hover:text-white transition-colors">Trade Desk</Link>
+          <div className="flex flex-wrap items-center gap-3 mt-3 sm:mt-0">
+            <Link href="/industries-we-serve" className="hover:text-white transition-colors">Industries We Serve</Link>
+            <span>•</span>
+            <Link href="/why-choose-us" className="hover:text-white transition-colors">Why Choose Us</Link>
             <span>•</span>
             <Link href="/contact" className="hover:text-white transition-colors">Showroom</Link>
             <span>•</span>

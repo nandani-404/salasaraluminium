@@ -25,8 +25,8 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Wholesale Trade', href: '/wholesale' },
-    { name: 'Resources & FAQs', href: '/blog' },
+    { name: 'Industries We Serve', href: '/industries-we-serve' },
+    { name: 'Why Choose Us', href: '/why-choose-us' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -149,21 +149,21 @@ export default function Header() {
           </div>
 
           <Link
-            href="/wholesale"
+            href="/industries-we-serve"
             className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/wholesale' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+              pathname === '/industries-we-serve' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
             }`}
           >
-            Wholesale Trade
+            Industries We Serve
           </Link>
 
           <Link
-            href="/blog"
+            href="/why-choose-us"
             className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/blog' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+              pathname === '/why-choose-us' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
             }`}
           >
-            Resources
+            Why Choose Us
           </Link>
 
           <Link
