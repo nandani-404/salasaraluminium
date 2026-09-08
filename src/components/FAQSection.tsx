@@ -6,7 +6,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import { SAH_FAQS, SAHFAQ } from '@/lib/sahData';
 import { getFaqSchema } from '@/lib/jsonld';
 import { useEnquiry } from '@/context/EnquiryContext';
-import Link from 'next/link';
 
 interface FAQSectionProps {
   title?: string;
@@ -34,7 +33,7 @@ export default function FAQSection({
   };
 
   return (
-    <section className="py-24 bg-white border-t border-[#E2E8F0] font-sans">
+    <section className="py-20 sm:py-24 bg-white border-t border-[#E2E8F0]">
       {/* FAQ Json-LD Schema for SEO */}
       <script
         type="application/ld+json"
@@ -42,24 +41,24 @@ export default function FAQSection({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
           
-          {/* Left Column: Heading & Contact Support Link */}
-          <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-28">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">
+          {/* Sticky Left Column: Heading & Contact Support Link */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4 pt-1">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B] block">
               COMMON QUESTIONS
             </span>
 
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0B1F3A] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight leading-[1.15]">
               Frequently<br className="hidden sm:inline" /> asked questions.
             </h2>
 
-            <div className="pt-2 text-sm text-[#64748B]">
+            <div className="pt-2 text-xs sm:text-sm text-[#64748B] leading-relaxed">
               <span>Can't find what you're looking for? </span>
               <button
                 type="button"
                 onClick={() => openEnquiryModal()}
-                className="text-[#2563EB] font-semibold hover:underline cursor-pointer inline-flex items-center"
+                className="text-[#0B1F3A] font-bold underline hover:text-[#9A7B1C] transition-colors cursor-pointer inline-flex items-center"
               >
                 Contact support
               </button>
@@ -72,20 +71,20 @@ export default function FAQSection({
               const isOpen = openIndex === idx;
 
               return (
-                <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
+                <div key={faq.question} className="py-5">
                   <button
                     type="button"
                     onClick={() => toggleAccordion(idx)}
                     className="w-full text-left flex items-start justify-between space-x-4 cursor-pointer focus:outline-none group py-1"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-base sm:text-lg font-bold text-[#0F172A] group-hover:text-[#2563EB] transition-colors leading-snug pr-2">
+                    <span className="text-base sm:text-lg font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] transition-colors leading-snug pr-2">
                       {faq.question}
                     </span>
 
-                    <span className="shrink-0 text-[#64748B] group-hover:text-[#0F172A] transition-colors pt-0.5">
+                    <span className="shrink-0 text-[#64748B] group-hover:text-[#0B1F3A] transition-colors pt-0.5">
                       {isOpen ? (
-                        <ChevronUp className="w-5 h-5 text-[#64748B]" />
+                        <ChevronUp className="w-5 h-5 text-[#0B1F3A]" />
                       ) : (
                         <ChevronDown className="w-5 h-5 text-[#94A3B8]" />
                       )}
@@ -100,7 +99,7 @@ export default function FAQSection({
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2, ease: 'easeInOut' }}
                       >
-                        <p className="pt-3 pb-2 text-sm text-[#64748B] leading-relaxed pr-6">
+                        <p className="pt-3 pb-2 text-xs sm:text-sm text-[#475569] leading-relaxed pr-6">
                           {faq.answer}
                         </p>
                       </motion.div>
