@@ -11,7 +11,7 @@ export default function Hero() {
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-black">
+    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-slate-950">
       {/* Full-width Autoplay Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -19,43 +19,57 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-100"
+          className="w-full h-full object-cover opacity-80"
         >
           <source src="/1 (online-video-cutter.com) (1).mp4" type="video/mp4" />
         </video>
-        {/* Gradient Scrim for Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15 pointer-events-none" />
+        {/* Lighter Gradient Scrim Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/65 via-slate-950/30 to-transparent pointer-events-none" />
       </div>
 
-      <div className="w-full px-4 sm:px-8 lg:px-12 relative z-10">
-        {/* High-Impact Left Hero Content */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="max-w-2xl space-y-6 text-left"
         >
-          {/* Tagline Badge */}
-          <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-slate-950/80 backdrop-blur-xl border border-amber-400/60 rounded-full text-amber-300 text-xs font-semibold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span>Architectural Extrusions & Hardware</span>
+          {/* Brand Logo & Eyebrow Badge */}
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-[#0B1F3A] rounded-xl flex items-center justify-center p-1.5 shadow-lg border border-[#D4AF37]/50 shrink-0">
+              <svg viewBox="0 0 44 44" fill="none" className="w-full h-full">
+                <defs>
+                  <linearGradient id="heroGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F3E5AB" />
+                    <stop offset="50%" stopColor="#D4AF37" />
+                    <stop offset="100%" stopColor="#AA771C" />
+                  </linearGradient>
+                </defs>
+                <path d="M22 4L38 12V32L22 40L6 32V12L22 4Z" stroke="url(#heroGoldGrad)" strokeWidth="2.5" strokeLinejoin="round" />
+                <path d="M6 12L22 20L38 12" stroke="url(#heroGoldGrad)" strokeWidth="1.5" opacity="0.6" />
+                <text x="22" y="27" textAnchor="middle" fill="url(#heroGoldGrad)" fontWeight="800" fontSize="13" letterSpacing="0.5">
+                  SAH
+                </text>
+              </svg>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black/50 backdrop-blur-md border border-white/15 text-xs font-semibold text-[#D4AF37] tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+              Wholesale & Trade Supply
+            </div>
           </div>
 
-          {/* Main Headline - Font Semibold */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-semibold text-white leading-tight tracking-tight drop-shadow-md">
-            Strength in Every{' '}
-            <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
-              Detail.
-            </span>
+          {/* Main Title */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] drop-shadow-md">
+            Architectural Aluminium & Hardware
           </h1>
 
-          {/* Subtitle - Font Semibold */}
-          <p className="text-base sm:text-lg text-slate-100 font-semibold leading-relaxed max-w-xl drop-shadow-sm">
-            Wholesale manufacturer and direct trade supplier of <span className="text-amber-300 font-semibold">architectural extrusions</span>, door kits, locks, hinges & glass fittings in <span className="text-white font-semibold underline decoration-amber-400 decoration-2 underline-offset-4">Raipur</span>.
+          {/* Supporting Copy */}
+          <p className="text-base sm:text-lg text-slate-200 font-normal leading-relaxed max-w-xl drop-shadow-sm">
+            Direct wholesale supplier of high-precision extrusions, door systems, locks & fittings for fabricators and contractors across Raipur.
           </p>
 
-          {/* Action Buttons - Font Semibold */}
-          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+          {/* Action Buttons */}
+          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
             <button
               type="button"
               onClick={() => {
@@ -66,31 +80,26 @@ export default function Hero() {
                   openEnquiryModal();
                 }
               }}
-              className="px-7 py-3.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center space-x-2.5 group cursor-pointer border border-yellow-200/50"
+              className="px-6 py-3.5 bg-[#B8860B] hover:bg-[#a07509] text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer"
             >
-              <span>Request Trade Quote</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-slate-950" />
+              <span>Request Quote</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
 
             <Link
               href="/products"
-              className="px-7 py-3.5 bg-slate-950/70 hover:bg-slate-900/90 backdrop-blur-md text-white font-semibold text-xs sm:text-sm uppercase tracking-wider rounded-xl border border-amber-400/50 hover:border-amber-400 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center space-x-2.5 cursor-pointer group"
+              className="px-6 py-3.5 bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-wider rounded-lg border border-white/20 backdrop-blur-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Layers className="w-4 h-4 text-amber-400 group-hover:rotate-6 transition-transform" />
-              <span>Browse 86 Products</span>
+              <Layers className="w-4 h-4 text-slate-300" />
+              <span>Browse Catalog</span>
             </Link>
           </div>
 
-          {/* Location & Manufacturer Signal Cards - Font Semibold */}
-          <div className="pt-3 flex flex-wrap items-center gap-4 text-xs sm:text-sm text-white">
-            <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-slate-950/70 backdrop-blur-md rounded-lg border border-white/15 shadow-sm">
-              <Building2 className="w-4 h-4 text-amber-400" />
-              <span className="font-semibold text-slate-200">Branch: <strong className="text-white font-semibold">Finetek, Raipur</strong></span>
-            </div>
-            <div className="flex items-center space-x-2 px-3.5 py-1.5 bg-slate-950/70 backdrop-blur-md rounded-lg border border-white/15 shadow-sm">
-              <MapPin className="w-4 h-4 text-amber-400" />
-              <span className="font-semibold text-slate-200">Location: <strong className="text-white font-semibold">Raipur, Chhattisgarh</strong></span>
-            </div>
+          {/* Factual Footnote */}
+          <div className="pt-4 flex items-center gap-6 text-xs text-slate-300 font-medium">
+            <span>Branch: Finetek • Raipur</span>
+            <span>•</span>
+            <span>86+ SKUs In Stock</span>
           </div>
         </motion.div>
       </div>

@@ -6,6 +6,13 @@ import Link from 'next/link';
 import { ChevronRight, ArrowRight, Check } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
+export interface ProductSupplied {
+  name: string;
+  image?: string;
+  link: string;
+  anchorText: string;
+}
+
 export interface IndustryItem {
   id: string;
   number: string;
@@ -17,7 +24,7 @@ export interface IndustryItem {
   description: string;
   image: string;
   imageAlt: string;
-  productsSupplied: { name: string; link: string; anchorText: string }[];
+  productsSupplied: ProductSupplied[];
   applications: string[];
 }
 
@@ -31,13 +38,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Commercial & High-Rise Projects',
     rightSubtitle: 'ALUMINIUM SYSTEMS & ARCHITECTURAL HARDWARE',
     description: 'We supply aluminium profiles and architectural hardware for commercial buildings, high-rise developments, façades, curtain walls, doors, windows and interior applications.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Aluminium curtain wall system used in a commercial high-rise building',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Aluminium curtain wall structural mullion profiles and commercial glazing system',
     productsSupplied: [
-      { name: 'Aluminium Profiles', link: '/products', anchorText: 'Explore Aluminium Profiles' },
-      { name: 'Curtain Wall Components', link: '/products', anchorText: 'View Curtain Wall Components' },
-      { name: 'Door & Window Hardware', link: '/products', anchorText: 'Explore Door & Window Hardware' },
-      { name: 'Architectural Hardware', link: '/products', anchorText: 'View Architectural Hardware' },
+      { name: 'Aluminium Profiles', image: '/c-channel-v1.png', link: '/products', anchorText: 'Explore Profiles' },
+      { name: 'Curtain Wall Components', image: '/patch lock.png', link: '/products', anchorText: 'View Components' },
+      { name: 'Door & Window Hardware', image: '/floor machine.png', link: '/products', anchorText: 'Explore Hardware' },
+      { name: 'Architectural Hardware', image: '/heavy commerical doorkit.png', link: '/products', anchorText: 'View Hardware' },
     ],
     applications: ['Curtain Walls', 'Facades', 'Doors', 'Windows', 'Partitions', 'Office Interiors'],
   },
@@ -50,13 +57,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Residential Projects',
     rightSubtitle: 'ALUMINIUM SECTIONS & HARDWARE SUPPLY',
     description: 'We provide aluminium sections, window sliding channels, door hardware and glass fittings for residential towers, apartment complexes and housing developments.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Aluminium window profiles and glass partition systems in modern residential architecture',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
+    imageAlt: 'Aluminium sliding glass door frames, window channels and architectural hardware',
     productsSupplied: [
-      { name: 'Aluminium Profiles', link: '/products', anchorText: 'Explore Residential Aluminium Profiles' },
-      { name: 'Door Hardware', link: '/products', anchorText: 'Explore Door Hardware' },
-      { name: 'Window Hardware', link: '/products', anchorText: 'Explore Window Hardware' },
-      { name: 'Glass & Architectural Fittings', link: '/products', anchorText: 'View Glass & Architectural Fittings' },
+      { name: 'Aluminium Profiles', image: '/c-channel-v1.png', link: '/products', anchorText: 'Explore Profiles' },
+      { name: 'Door Hardware', image: '/american handle.png', link: '/products', anchorText: 'Explore Door Hardware' },
+      { name: 'Window Hardware', image: '/sliding roller1.png', link: '/products', anchorText: 'Explore Window Hardware' },
+      { name: 'Glass & Architectural Fittings', image: '/patch lock.png', link: '/products', anchorText: 'View Glass Fittings' },
     ],
     applications: ['Doors', 'Windows', 'Balconies', 'Partitions', 'Interior Systems'],
   },
@@ -69,13 +76,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Aluminium Fabricators',
     rightSubtitle: 'FABRICATION SECTIONS & HARDWARE COMPONENTS',
     description: 'We supply aluminium profiles, channels, rollers, locks, hinges and assembly hardware for fabricators producing custom doors, windows and aluminium frames.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Aluminium extrusion profiles and hardware components in a fabrication workshop',
+    image: '/fabricator-workshop.jpg',
+    imageAlt: 'Industrial aluminium profile extrusions, corner cleats, window rollers, hinges and fabrication tools on assembly workbench',
     productsSupplied: [
-      { name: 'Aluminium Sections', link: '/products', anchorText: 'Explore Aluminium Fabrication Sections' },
-      { name: 'Profiles & Channels', link: '/products', anchorText: 'View Profiles & Channels' },
-      { name: 'Fabrication Hardware', link: '/products', anchorText: 'Explore Fabrication Hardware' },
-      { name: 'Door & Window Components', link: '/products', anchorText: 'View Door & Window Components' },
+      { name: 'Aluminium Sections', image: '/corner cleat.png', link: '/products', anchorText: 'Explore Sections' },
+      { name: 'Profiles & Channels', image: '/u-channel-v1.png', link: '/products', anchorText: 'View Channels' },
+      { name: 'Fabrication Hardware', image: '/cutting wheel.png', link: '/products', anchorText: 'Explore Tools' },
+      { name: 'Door & Window Components', image: '/2d hinge.png', link: '/products', anchorText: 'View Components' },
     ],
     applications: ['Frames', 'Doors', 'Windows', 'Partitions', 'Custom Fabrication'],
   },
@@ -88,13 +95,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Modular Furniture Manufacturers',
     rightSubtitle: 'FURNITURE PROFILES & MODULAR FITTINGS',
     description: 'We supply aluminium G-sections, J-profiles, frame channels, drawer slides and cabinet hardware for modular furniture manufacturers and interior fabricators.',
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Aluminium G-profile handles and modular furniture cabinet hardware',
+    image: '/modular-furniture.jpg',
+    imageAlt: 'Modern modular cabinet interior featuring aluminium G-profile handle extrusions, wardrobe frame channels, concealed hinges and fittings',
     productsSupplied: [
-      { name: 'Aluminium Profiles', link: '/products', anchorText: 'Explore Furniture Aluminium Profiles' },
-      { name: 'Furniture Sections', link: '/products', anchorText: 'View Furniture Aluminium Sections' },
-      { name: 'Connectors & Fittings', link: '/products', anchorText: 'Explore Modular Connectors & Fittings' },
-      { name: 'Cabinet & Modular Hardware', link: '/products', anchorText: 'View Cabinet & Modular Hardware' },
+      { name: 'Aluminium Profiles', image: '/g channel.png', link: '/products', anchorText: 'Explore Profiles' },
+      { name: 'Furniture Sections', image: '/round concealed handle.png', link: '/products', anchorText: 'View Sections' },
+      { name: 'Connectors & Fittings', image: '/knob.png', link: '/products', anchorText: 'Explore Connectors' },
+      { name: 'Cabinet & Modular Hardware', image: '/3d hinge.png', link: '/products', anchorText: 'View Cabinet Hardware' },
     ],
     applications: ['Cabinets', 'Furniture Frames', 'Partitions', 'Display Systems', 'Modular Structures'],
   },
@@ -107,13 +114,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Industrial Facilities & Warehousing',
     rightSubtitle: 'HEAVY STRUCTURAL HARDWARE & SEALS',
     description: 'We supply structural aluminium sections, heavy sliding door hardware, weather seals and industrial hardware components for factory and warehouse facilities.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Heavy industrial sliding door hardware and aluminium structural assemblies in warehouse facility',
+    image: '/salasar-warehouse-hub.png',
+    imageAlt: 'Heavy industrial sliding door hardware and aluminium structural assemblies in warehouse',
     productsSupplied: [
-      { name: 'Aluminium Structural Profiles', link: '/products', anchorText: 'Explore Structural Aluminium Profiles' },
-      { name: 'Channels & Sections', link: '/products', anchorText: 'View Structural Channels & Sections' },
-      { name: 'Industrial Hardware', link: '/products', anchorText: 'Explore Heavy Industrial Hardware' },
-      { name: 'Fabrication Components', link: '/products', anchorText: 'View Industrial Fabrication Components' },
+      { name: 'Aluminium Structural Profiles', image: '/big l.png', link: '/products', anchorText: 'Explore Structural Profiles' },
+      { name: 'Channels & Sections', image: '/u chasnnel.png', link: '/products', anchorText: 'View Heavy Channels' },
+      { name: 'Industrial Hardware', image: '/pu foam.png', link: '/products', anchorText: 'Explore Industrial Hardware' },
+      { name: 'Fabrication Components', image: '/rubber.png', link: '/products', anchorText: 'View Weather Seals' },
     ],
     applications: ['Machine Frames', 'Structural Assemblies', 'Partitions', 'Enclosures', 'Fabrication'],
   },
@@ -126,13 +133,13 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     title: 'Hospitality & Institutional Projects',
     rightSubtitle: 'ARCHITECTURAL HARDWARE & GLASS FITTINGS',
     description: 'We supply architectural hardware, shower enclosure fittings, door closers, handles and aluminium profiles for hotels, commercial spaces and institutional buildings.',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
-    imageAlt: 'Architectural glass door hardware and sleek fittings installed in modern hotel interior',
+    image: '/hospitality-hardware.jpg',
+    imageAlt: 'Luxury hotel bathroom glass shower enclosure with solid brass chrome hinges, glass patch fittings, and stainless steel door handles',
     productsSupplied: [
-      { name: 'Architectural Hardware', link: '/products', anchorText: 'Explore Architectural Hardware' },
-      { name: 'Door & Window Hardware', link: '/products', anchorText: 'View Door & Window Hardware' },
-      { name: 'Aluminium Profiles', link: '/products', anchorText: 'Explore Institutional Aluminium Profiles' },
-      { name: 'Glass & Interior Fittings', link: '/products', anchorText: 'View Glass & Interior Fittings' },
+      { name: 'Architectural Hardware', image: '/shower hinge 90.png', link: '/products', anchorText: 'Explore Glass Hardware' },
+      { name: 'Door & Window Hardware', image: '/door closer.png', link: '/products', anchorText: 'View Door Closers' },
+      { name: 'Aluminium Profiles', image: '/louvers.png', link: '/products', anchorText: 'Explore Louvers' },
+      { name: 'Glass & Interior Fittings', image: '/glass to glass.png', link: '/products', anchorText: 'View Connectors' },
     ],
     applications: ['Hotels', 'Restaurants', 'Offices', 'Institutions', 'Public Buildings', 'Interior Projects'],
   },
@@ -145,7 +152,7 @@ export default function IndustriesWeServeSection() {
   const selectedIndustry = INDUSTRIES_DATA.find((item) => item.id === selectedId) || INDUSTRIES_DATA[0];
 
   return (
-    <section className="py-20 sm:py-24 bg-[#FAF9F6] border-t border-[#E8E6E1] text-[#0B1F3A] font-sans">
+    <section className="py-20 sm:py-24 bg-white border-t border-[#E2E8F0] text-[#0B1F3A] font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Section Header */}
@@ -154,7 +161,7 @@ export default function IndustriesWeServeSection() {
             INDUSTRIES WE SERVE
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B1F3A] tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight leading-tight">
             Aluminium & Hardware Solutions Across Industries
           </h2>
 
@@ -254,7 +261,7 @@ export default function IndustriesWeServeSection() {
                   </div>
 
                   {/* High Quality Realistic Industry Image */}
-                  <div className="relative h-56 sm:h-64 w-full rounded-lg overflow-hidden border border-[#E2E8F0] bg-slate-100">
+                  <div className="relative h-60 sm:h-72 w-full rounded-lg overflow-hidden border border-[#E2E8F0] bg-slate-100 shadow-2xs">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
@@ -265,7 +272,7 @@ export default function IndustriesWeServeSection() {
                     />
                   </div>
 
-                  {/* Products Supplied Grid */}
+                  {/* Products Supplied Grid with Product Thumbnail Images */}
                   <div className="space-y-3">
                     <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#0B1F3A]">
                       PRODUCTS SUPPLIED
@@ -277,10 +284,23 @@ export default function IndustriesWeServeSection() {
                           key={prod.name}
                           className="p-3 bg-[#FAF9F6] border border-[#E8E6E1] rounded-lg flex items-center justify-between group hover:border-[#0B1F3A] transition-colors"
                         >
-                          <div className="flex items-center space-x-2.5">
-                            <span className="w-5 h-5 rounded-full bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center text-xs shrink-0">
-                              <Check className="w-3 h-3 stroke-[3]" />
-                            </span>
+                          <div className="flex items-center space-x-3">
+                            {/* Product Thumbnail Image */}
+                            {prod.image ? (
+                              <div className="relative w-11 h-11 rounded-md bg-white border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-2xs">
+                                <Image
+                                  src={prod.image}
+                                  alt={prod.name}
+                                  fill
+                                  sizes="44px"
+                                  className="object-contain p-0.5"
+                                />
+                              </div>
+                            ) : (
+                              <span className="w-5 h-5 rounded-full bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center text-xs shrink-0">
+                                <Check className="w-3 h-3 stroke-[3]" />
+                              </span>
+                            )}
                             <span className="text-xs font-bold text-[#0B1F3A]">{prod.name}</span>
                           </div>
 

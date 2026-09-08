@@ -33,18 +33,21 @@ export default function FAQSection({
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-white border-t border-[#E2E8F0]">
+    <section className="py-20 sm:py-24 bg-white border-t border-[#E2E8F0] relative overflow-visible" style={{ overflow: 'visible' }}>
       {/* FAQ Json-LD Schema for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative overflow-visible" style={{ overflow: 'visible' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative overflow-visible" style={{ overflow: 'visible' }}>
           
           {/* Sticky Left Column: Heading & Contact Support Link */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start space-y-4 pt-1">
+          <div 
+            className="lg:col-span-5 lg:sticky lg:top-24 self-start z-20 space-y-4 pt-1"
+            style={{ position: 'sticky', top: '6rem', alignSelf: 'flex-start' }}
+          >
             <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B] block">
               COMMON QUESTIONS
             </span>
