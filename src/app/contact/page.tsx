@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import FAQSection from '@/components/FAQSection';
 
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -300,6 +301,9 @@ export default function ContactPage() {
 
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 }

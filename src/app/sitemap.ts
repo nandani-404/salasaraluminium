@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries-we-serve',
     '/why-choose-us',
     '/contact',
+    '/faq',
     '/llms.txt',
   ].map((route) => ({
     url: `${BASE_URL}${route}`,

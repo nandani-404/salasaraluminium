@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import FAQSection from '@/components/FAQSection';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
 import { ArrowRight, Layers, Award, Sparkles, Building2, BookOpen, ChevronRight, ShieldCheck, MapPin, PhoneCall } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
@@ -332,6 +333,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Trade Enquiry Form Section */}
       <TradeQuoteFormSection />

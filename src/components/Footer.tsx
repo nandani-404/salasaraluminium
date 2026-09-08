@@ -137,6 +137,8 @@ export default function Footer() {
             <span>•</span>
             <Link href="/why-choose-us" className="hover:text-white transition-colors">Why Choose Us</Link>
             <span>•</span>
+            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+            <span>•</span>
             <Link href="/contact" className="hover:text-white transition-colors">Showroom</Link>
             <span>•</span>
             <Link href="/llms.txt" className="hover:text-white transition-colors">LLM Info</Link>

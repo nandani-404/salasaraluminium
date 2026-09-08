@@ -301,3 +301,48 @@ export const ALL_INDIAN_STATES = [
   'Lakshadweep',
   'Puducherry',
 ];
+
+export interface SAHFAQ {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+export const SAH_FAQS: SAHFAQ[] = [
+  {
+    question: 'How do I place a wholesale order or get a trade quote?',
+    answer: 'You can submit an enquiry directly through our website using the "Request Trade Quote" form or button. Alternatively, you can call or WhatsApp our sales director Abhishek at +91 8007443071 / +91 9079332560 for instant wholesale pricing and order placement.',
+    category: 'Orders & Quotes',
+  },
+  {
+    question: 'Where is Salasar Aluminium & Hardware located and where do you deliver?',
+    answer: 'Our main showroom and wholesale distribution hub is located at Shop No. 3, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan, Raipur, Chhattisgarh (492001). We supply across Chhattisgarh and surrounding states with rapid dispatch.',
+    category: 'Location & Delivery',
+  },
+  {
+    question: 'What are SA Codes and how do I match products?',
+    answer: 'Every product in our 86-SKU catalogue has a unique SA Code (e.g., SA-01, SA-33, SA-42). You can reference the SA Code in your quote request or phone calls to instantly select exact specifications, sizes, and finishes.',
+    category: 'Product Catalogue',
+  },
+  {
+    question: 'What finishes and colors are available for hardware and extrusions?',
+    answer: 'We provide multiple premium finishes including Powder Coated Black, Matte Black, Anodized Silver/CP, Satin Chrome, Gold/Brass, Brown, Ivory, and Mill Finish to suit residential, commercial, and industrial requirements.',
+    category: 'Product Specifications',
+  },
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) for wholesale trade pricing?',
+    answer: 'We cater to fabricators, contractors, and hardware dealers. Standard wholesale trade quotes apply to box quantities and bulk orders (10 Boxes, 50 Boxes, 100+ Boxes). Contact our sales desk for sample pieces or site-specific minimums.',
+    category: 'Orders & Quotes',
+  },
+  {
+    question: 'Do you offer custom profile lengths or specialized hardware configurations?',
+    answer: 'Yes, we supply custom profile length cuts and specialized architectural hardware configurations for commercial sites, curtain walls, and specialized door/window fabrication projects across Chhattisgarh.',
+    category: 'Customization',
+  },
+  {
+    question: 'How quickly can orders be dispatched from your Raipur warehouse?',
+    answer: 'In-stock items are dispatched same-day or next-day from our Bhaisthan, Finetek, or Lieon Marketing branches in Raipur for fast regional jobsite delivery.',
+    category: 'Location & Delivery',
+  },
+];
+
