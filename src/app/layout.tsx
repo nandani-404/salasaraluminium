@@ -88,6 +88,9 @@ export default function RootLayout({
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <JsonLd schema={orgSchema} />
+        <link rel="icon" href="/favicon.png?v=2" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png?v=2" />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#1A1D20]" suppressHydrationWarning>
         <EnquiryProvider>
