@@ -18,9 +18,9 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#0B1F3A',
+          background: '#FFFFFF',
           borderRadius: '50%',
-          border: '1.5px solid #D4AF37',
+          border: '1.5px solid #0B1F3A',
         }}
       >
         <svg
