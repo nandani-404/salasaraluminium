@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
+  metadataBase: new URL('https://www.salasaraluminium.shop'),
   title: {
     default: 'Salasar Aluminium & Hardware | Architectural Extrusions & Hardware Supplier',
     template: '%s | Salasar Aluminium & Hardware',
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: BASE_URL,
+    url: 'https://www.salasaraluminium.shop',
     siteName: 'Salasar Aluminium & Hardware',
     title: 'Salasar Aluminium & Hardware | Architectural Extrusions & Hardware',
     description:
       'Explore premier architectural extrusions, glass railing channels, curtain wall profiles, and anodized finishes. Direct trade supply for architects and contractors.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+        url: 'https://www.salasaraluminium.shop/logo.png',
         width: 1200,
         height: 630,
         alt: 'Salasar Architectural Aluminium Systems',
@@ -60,12 +60,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-v3.png', type: 'image/png' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/logo.png', type: 'image/png' },
     ],
-    apple: '/favicon-v3.png',
+    shortcut: '/favicon.png',
+    apple: '/logo.png',
   },
   alternates: {
-    canonical: BASE_URL,
+    canonical: 'https://www.salasaraluminium.shop',
   },
   robots: {
     index: true,
@@ -92,8 +94,10 @@ export default function RootLayout({
       <head>
         <JsonLd schema={orgSchema} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
-        <link rel="icon" href="/favicon-v3.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon-v3.png" />
+        <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+        <link rel="shortcut icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-[#1A1D20]" suppressHydrationWarning>
         <EnquiryProvider>
