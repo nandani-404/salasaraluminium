@@ -7,6 +7,7 @@ import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import FAQSection from '@/components/FAQSection';
+import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
 import { ArrowRight, Layers, Award, Sparkles, Building2, BookOpen, ChevronRight, ShieldCheck, MapPin, PhoneCall } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
@@ -333,6 +334,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Industries We Serve Section */}
+      <IndustriesWeServeSection />
 
       {/* FAQ Section */}
       <FAQSection />

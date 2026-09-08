@@ -18,6 +18,7 @@ import {
   PhoneCall
 } from 'lucide-react';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 const INDUSTRIES = [
@@ -323,6 +324,9 @@ export default function IndustriesWeServePage() {
 
         </div>
       </section>
+
+      {/* Overview Grid Section */}
+      <IndustriesWeServeSection />
     </div>
   );
 }
