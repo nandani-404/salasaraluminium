@@ -24,7 +24,6 @@ import {
   ArrowUpRight,
   Package,
   Layers,
-  Sparkles,
 } from 'lucide-react';
 import { EnquiryRecord } from '@/lib/enquiryService';
 
@@ -40,8 +39,8 @@ const STATUS_CONFIG: Record<
 
 export default function AdminClient() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const [email, setEmail] = useState('admin@salasaraluminium.shop');
-  const [password, setPassword] = useState('Salasar@2026');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
@@ -315,30 +314,6 @@ CREATE INDEX IF NOT EXISTS idx_enquiries_status ON public.enquiries (status);`;
             <p className="text-xs text-slate-300">
               Manage live wholesale enquiries, customer quotes, and Supabase leads.
             </p>
-          </div>
-
-          {/* Dummy Credentials Callout */}
-          <div className="p-3.5 bg-slate-900/80 border border-slate-700/70 rounded-xl text-xs text-slate-300 space-y-1.5">
-            <div className="flex items-center justify-between">
-              <span className="font-semibold text-[#C9A227] flex items-center space-x-1">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Demo Admin Credentials:</span>
-              </span>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('admin@salasaraluminium.shop');
-                  setPassword('Salasar@2026');
-                }}
-                className="text-[10px] text-sky-400 hover:text-sky-300 underline font-medium cursor-pointer"
-              >
-                Auto-fill
-              </button>
-            </div>
-            <div className="font-mono text-[11px] text-slate-200">
-              <div>Email: <span className="text-white">admin@salasaraluminium.shop</span></div>
-              <div>Pass: <span className="text-white">Salasar@2026</span></div>
-            </div>
           </div>
 
           {loginError && (
