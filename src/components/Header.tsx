@@ -260,35 +260,91 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu Overlay & Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-[#E8E6E1] px-4 pt-2 pb-6 space-y-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-base font-medium text-[#0B1F3A] py-2 border-b border-[#E8E6E1]/40 hover:text-[#C9A227]"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link
-            href="/products"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-base font-medium text-[#0B1F3A] py-2 border-b border-[#E8E6E1]/40 hover:text-[#C9A227]"
-          >
-            All 11 Product Categories (86 SKUs)
-          </Link>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              openEnquiryModal();
-            }}
-            className="w-full mt-4 py-3 bg-[#C9A227] text-[#0B1F3A] text-sm font-bold uppercase tracking-wider rounded-md text-center"
-          >
-            Request Trade Quote
-          </button>
+        <div className="fixed inset-0 z-50 bg-[#0B1F3A]/70 backdrop-blur-xs xl:hidden flex flex-col justify-end sm:justify-start">
+          <div className="w-full bg-white h-[90vh] sm:h-full max-w-md ml-auto flex flex-col shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-200">
+            {/* Drawer Top Header */}
+            <div className="p-4 border-b border-[#E2E8F0] flex items-center justify-between bg-[#FAF9F6]">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-[#0B1F3A] rounded-lg flex items-center justify-center p-1 border border-[#D4AF37]">
+                  <span className="text-white text-xs font-black">SAH</span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-serif font-black text-sm text-[#0B1F3A]">SALASAR</span>
+                  <span className="text-[7px] text-[#B8860B] uppercase font-bold tracking-wider">Aluminium & Hardware</span>
+                </div>
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 text-[#0B1F3A] rounded-lg hover:bg-gray-100 transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Nav Items */}
+            <div className="p-4 space-y-1 flex-1 overflow-y-auto">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block px-3 py-1">
+                Navigation Menu
+              </span>
+
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between text-sm font-bold py-3 px-3 rounded-xl transition-all ${
+                    pathname === link.href
+                      ? 'bg-[#0B1F3A] text-white'
+                      : 'text-[#0B1F3A] hover:bg-[#FAF9F6] active:bg-[#F1F5F9]'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  <ChevronDown className="w-4 h-4 -rotate-90 opacity-60" />
+                </Link>
+              ))}
+
+              <div className="pt-4 border-t border-[#E2E8F0] mt-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block px-3 py-1">
+                  Product Categories
+                </span>
+                <div className="grid grid-cols-2 gap-1.5 pt-1">
+                  {SAH_CATEGORIES.slice(0, 6).map((cat) => (
+                    <Link
+                      key={cat.slug}
+                      href={`/products#${cat.slug}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="p-2.5 bg-[#FAF9F6] border border-[#E8E6E1] rounded-xl text-xs font-semibold text-[#0B1F3A] hover:border-[#D4AF37] transition-all truncate"
+                    >
+                      {cat.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Drawer Bottom Actions */}
+            <div className="p-4 border-t border-[#E2E8F0] bg-[#FAF9F6] space-y-2">
+              <a
+                href={`tel:${SAH_BUSINESS_DETAILS.contactPersons[0].phoneNumbers[0].replace(/\s/g, '')}`}
+                className="w-full py-3 px-4 bg-[#FAF9F6] border border-[#0B1F3A]/20 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-2"
+              >
+                <PhoneCall className="w-4 h-4 text-[#D4AF37]" />
+                <span>Call Sales Desk: {SAH_BUSINESS_DETAILS.contactPersons[0].phoneNumbers[0]}</span>
+              </a>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openEnquiryModal();
+                }}
+                className="w-full py-3 px-4 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-xl text-center shadow-xs active:scale-98 transition-all"
+              >
+                Request Trade Quote
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>

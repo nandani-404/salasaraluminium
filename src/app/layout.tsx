@@ -83,6 +83,8 @@ export const metadata: Metadata = {
   },
 };
 
+import MobileQuickActionBar from '@/components/layout/MobileQuickActionBar';
+
 export default function RootLayout({
   children,
 }: {
@@ -105,8 +107,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col bg-white text-[#1A1D20]" suppressHydrationWarning>
         <EnquiryProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pb-14 md:pb-0">{children}</main>
           <Footer />
+          <MobileQuickActionBar />
           <EnquiryModal />
         </EnquiryProvider>
       </body>

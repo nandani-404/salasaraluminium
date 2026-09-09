@@ -146,7 +146,7 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
       <main className="min-h-screen bg-neutral-950 text-neutral-100 pt-28 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumbs */}
-          <nav className="flex items-center text-xs text-neutral-400 mb-6 space-x-2 overflow-x-auto pb-2">
+          <nav className="flex items-center gap-2 text-xs text-neutral-400 mb-6 overflow-x-auto no-scrollbar whitespace-nowrap py-1">
             <Link href="/" className="hover:text-amber-400 transition-colors">Home</Link>
             <ChevronRight className="w-3 h-3 text-neutral-600 shrink-0" />
             <Link href="/locations" className="hover:text-amber-400 transition-colors">Locations</Link>
@@ -157,36 +157,36 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
           </nav>
 
           {/* Hero Header */}
-          <div className="bg-gradient-to-br from-neutral-900 via-neutral-900 to-neutral-850 border border-neutral-800 rounded-2xl p-6 md:p-10 mb-12 shadow-2xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-neutral-900 via-neutral-900 to-neutral-850 border border-neutral-800 rounded-2xl p-5 sm:p-6 md:p-10 mb-8 sm:mb-12 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-10 -mr-10 w-60 h-60 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
             
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
-              <Building2 className="w-3.5 h-3.5" />
-              Wholesale B2B Trade Supply • {loc.name}, {loc.state}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 max-w-full truncate">
+              <Building2 className="w-3.5 h-3.5 shrink-0" />
+              <span className="truncate">Wholesale B2B Trade Supply • {loc.name}, {loc.state}</span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight mb-4 leading-tight">
               Wholesale <span className="text-amber-400">{prod.name}</span> Supplier in {loc.name}
             </h1>
 
-            <p className="text-base md:text-lg text-neutral-300 max-w-3xl leading-relaxed mb-8">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 max-w-3xl leading-relaxed mb-6 sm:mb-8">
               Salasar Aluminium & Hardware is the authorized wholesale supplier of high-grade{' '}
               <strong className="text-white">{prod.name}</strong> (Code: <code className="text-amber-400">{prod.saCode}</code>) for dealers, window fabricators, glass contractors, and commercial developers in <strong>{loc.name}</strong> and across {loc.state}.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <a
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-600/20 transition-all flex items-center gap-2"
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-emerald-600/20 transition-all flex items-center justify-center gap-2 text-center"
               >
-                <WhatsAppIcon className="w-5 h-5 text-white" />
+                <WhatsAppIcon className="w-5 h-5 text-white shrink-0" />
                 <span>Get Wholesale Price for {loc.name}</span>
               </a>
               <a
                 href="#enquiry"
-                className="bg-neutral-800 hover:bg-neutral-700 text-neutral-200 font-semibold px-6 py-3.5 rounded-xl border border-neutral-700 transition-colors"
+                className="bg-neutral-800 hover:bg-neutral-700 text-neutral-200 font-semibold px-6 py-3.5 rounded-xl border border-neutral-700 transition-colors text-center"
               >
                 Send Bulk Inquiry
               </a>
