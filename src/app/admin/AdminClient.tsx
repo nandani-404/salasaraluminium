@@ -332,7 +332,6 @@ CREATE INDEX IF NOT EXISTS idx_enquiries_status ON public.enquiries (status);`;
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="admin@salasaraluminium.shop"
                   className="w-full pl-10 pr-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
                 />
               </div>
@@ -347,7 +346,6 @@ CREATE INDEX IF NOT EXISTS idx_enquiries_status ON public.enquiries (status);`;
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder="••••••••"
                   className="w-full pl-10 pr-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#C9A227] focus:ring-1 focus:ring-[#C9A227] transition-all"
                 />
               </div>

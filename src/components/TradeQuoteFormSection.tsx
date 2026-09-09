@@ -153,7 +153,7 @@ export default function TradeQuoteFormSection() {
                     className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-sm flex items-center space-x-1.5"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>WhatsApp Quote (8007443071)</span>
+                    <span>WhatsApp Quote</span>
                   </a>
                   <button
                     type="button"
@@ -330,7 +330,7 @@ export default function TradeQuoteFormSection() {
                     title="Get instant trade quote on WhatsApp"
                   >
                     <MessageCircle className="w-4 h-4" />
-                    <span>Get Quotes on WhatsApp (8007443071)</span>
+                    <span>Get Quotes on WhatsApp</span>
                   </a>
 
                   {/* Email & Log Submit Button */}
