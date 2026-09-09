@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall, MessageCircle } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 import FAQSection from '@/components/FAQSection';
@@ -11,6 +11,7 @@ import FAQSection from '@/components/FAQSection';
 export default function ContactClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedLeadId, setSubmittedLeadId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const {
@@ -28,6 +29,30 @@ export default function ContactClient() {
 
   const QUANTITY_PRESETS = ['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'];
 
+  const getWhatsAppQuoteUrl = () => {
+    const parts = ['*Wholesale Trade Quote Request - Salasar Aluminium*'];
+    const name = watch('fullName');
+    const company = watch('companyName');
+    const code = watch('saProductCode');
+    const category = watch('productCategory');
+    const qty = watch('estimatedQuantity');
+    const state = watch('state');
+    const msg = watch('message');
+
+    if (name) parts.push(`Customer: ${name}`);
+    if (company) parts.push(`Company: ${company}`);
+    if (code) parts.push(`Product Code: ${code}`);
+    if (category) parts.push(`Category: ${category}`);
+    if (qty) parts.push(`Quantity: ${qty}`);
+    if (state) parts.push(`State: ${state}`);
+    if (msg) parts.push(`Requirements: ${msg}`);
+
+    if (parts.length === 1) {
+      parts.push('Hi Abhishek, I would like to enquire about wholesale hardware pricing and stock availability.');
+    }
+    return `https://wa.me/918007443071?text=${encodeURIComponent(parts.join('\n'))}`;
+  };
+
   const onSubmit = async (data: EnquiryFormData) => {
     setIsSubmitting(true);
     setErrorMessage('');
@@ -42,6 +67,7 @@ export default function ContactClient() {
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Failed to submit enquiry');
 
+      setSubmittedLeadId(result.leadId || '');
       setIsSuccess(true);
       reset();
     } catch (err: unknown) {
@@ -93,16 +119,35 @@ export default function ContactClient() {
                 <h3 className="text-xl font-bold text-slate-900">
                   Enquiry Received
                 </h3>
+                {submittedLeadId && (
+                  <span className="font-mono text-xs font-bold px-3 py-1 bg-amber-50 text-amber-900 rounded-lg border border-amber-200">
+                    Lead Reference: {submittedLeadId}
+                  </span>
+                )}
                 <p className="text-xs text-slate-600 max-w-md leading-relaxed">
-                  Thank you! Your inquiry has been routed directly to Abhishek at Salasar Aluminium & Hardware. We will respond shortly with direct factory trade rates.
+                  Thank you! Your inquiry has been routed directly to Abhishek at Salasar Aluminium & Hardware, and an email notification has been dispatched to our sales team.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setIsSuccess(false)}
-                  className="mt-3 px-6 py-2.5 bg-slate-900 text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
-                >
-                  Submit Another Inquiry
-                </button>
+                <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
+                  <a
+                    href={getWhatsAppQuoteUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center space-x-1.5"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp Quote (8007443071)</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSuccess(false);
+                      setSubmittedLeadId('');
+                    }}
+                    className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-xl transition-colors cursor-pointer"
+                  >
+                    Submit Another Inquiry
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -247,7 +292,20 @@ export default function ContactClient() {
                   {errors.message && <span className="text-[11px] text-red-500 mt-1 block">{errors.message.message}</span>}
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 space-y-2.5">
+                  {/* WhatsApp Quote Button */}
+                  <a
+                    href={getWhatsAppQuoteUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm flex items-center justify-center space-x-2 active:scale-[0.99] cursor-pointer"
+                    title="Get instant trade quote on WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Get Quotes on WhatsApp (8007443071)</span>
+                  </a>
+
+                  {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}

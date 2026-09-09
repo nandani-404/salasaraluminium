@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { enquirySchema } from '@/lib/schema';
+import { saveEnquiryRecord } from '@/lib/enquiryService';
+import { sendEnquiryEmail } from '@/lib/emailService';
 
 export async function POST(request: Request) {
   try {
@@ -8,26 +10,27 @@ export async function POST(request: Request) {
     // Validate request payload using Zod
     const validatedData = enquirySchema.parse(body);
 
-    // Simulate backend logging & email dispatch (Resend / Database / Supabase)
-    console.log('[LEAD ENQUIRY RECEIVED]:', {
-      timestamp: new Date().toISOString(),
-      ...validatedData,
-    });
+    const leadId = `SAL-${Math.floor(100000 + Math.random() * 900000)}`;
 
-    // Simulated delay for realism
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    // 1. Persist lead in Supabase & Backup Store
+    const savedRecord = await saveEnquiryRecord(validatedData, leadId);
+
+    // 2. Send Real Email Notification via Resend
+    const emailResult = await sendEnquiryEmail(validatedData, leadId);
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Your enquiry has been logged successfully. A sales engineer will contact you shortly.',
-        leadId: `SAL-${Math.floor(100000 + Math.random() * 900000)}`,
+        message: 'Your enquiry has been logged successfully. Our trade team will contact you shortly.',
+        leadId,
+        recordId: savedRecord.id,
+        emailDispatched: emailResult.success,
       },
       { status: 200 }
     );
   } catch (error: unknown) {
     console.error('[ENQUIRY API ERROR]:', error);
-    
+
     if (error && typeof error === 'object' && 'errors' in error) {
       return NextResponse.json(
         { error: 'Invalid form data submitted.', details: (error as { errors: unknown }).errors },

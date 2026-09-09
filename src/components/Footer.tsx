@@ -2,12 +2,18 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
 import { MapPin, Phone, Building2, Factory } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Footer() {
+  const pathname = usePathname();
   const { openEnquiryModal } = useEnquiry();
+
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
 
   return (
     <footer className="bg-[#0B1F3A] text-white pt-16 pb-10 border-t border-white/10">

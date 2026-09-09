@@ -3,13 +3,14 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CheckCircle2, Send, ShieldCheck, PhoneCall } from 'lucide-react';
+import { CheckCircle2, Send, ShieldCheck, PhoneCall, MessageCircle } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 
 export default function TradeQuoteFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedLeadId, setSubmittedLeadId] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const {
@@ -26,6 +27,32 @@ export default function TradeQuoteFormSection() {
       productCategory: '',
     },
   });
+
+  const getWhatsAppQuoteUrl = () => {
+    const parts = ['*Wholesale Trade Quote Request - Salasar Aluminium*'];
+    const name = watch('fullName');
+    const company = watch('companyName');
+    const code = watch('saProductCode');
+    const category = watch('productCategory');
+    const qty = watch('estimatedQuantity');
+    const finish = watch('preferredFinish');
+    const state = watch('state');
+    const msg = watch('message');
+
+    if (name) parts.push(`Customer: ${name}`);
+    if (company) parts.push(`Company: ${company}`);
+    if (code) parts.push(`Product Code: ${code}`);
+    if (category) parts.push(`Category: ${category}`);
+    if (qty) parts.push(`Quantity: ${qty}`);
+    if (finish) parts.push(`Finish: ${finish}`);
+    if (state) parts.push(`State: ${state}`);
+    if (msg) parts.push(`Details: ${msg}`);
+
+    if (parts.length === 1) {
+      parts.push('Hi Abhishek, I would like to receive wholesale quote pricing and bulk supply terms.');
+    }
+    return `https://wa.me/918007443071?text=${encodeURIComponent(parts.join('\n'))}`;
+  };
 
   const onSubmit = async (data: EnquiryFormData) => {
     setIsSubmitting(true);
@@ -44,6 +71,7 @@ export default function TradeQuoteFormSection() {
         throw new Error(result.error || 'Failed to submit enquiry');
       }
 
+      setSubmittedLeadId(result.leadId || '');
       setIsSuccess(true);
       reset();
     } catch (err: unknown) {
@@ -104,21 +132,40 @@ export default function TradeQuoteFormSection() {
           {/* Right Column: Clean Minimal Form */}
           <div className="lg:col-span-7 bg-white text-[#0B1F3A] rounded-2xl border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
             {isSuccess ? (
-              <div className="py-12 text-center flex flex-col items-center justify-center space-y-4">
+              <div className="py-12 text-center flex flex-col items-center justify-center space-y-3">
                 <div className="w-14 h-14 bg-[#F0FDF4] border border-[#BBF7D0] rounded-full flex items-center justify-center text-[#166534]">
                   <CheckCircle2 className="w-8 h-8 text-[#16A34A]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0B1F3A]">Trade Quote Request Dispatched</h3>
+                {submittedLeadId && (
+                  <span className="font-mono text-xs font-bold px-3 py-1 bg-amber-50 text-amber-900 rounded-lg border border-amber-200">
+                    Quote Reference: {submittedLeadId}
+                  </span>
+                )}
                 <p className="text-[#475569] max-w-md text-sm leading-relaxed">
-                  Thank you! Your quote request has been sent to our Raipur sales engineering desk. Abhishek will call or WhatsApp you shortly with wholesale trade pricing.
+                  Thank you! Your quote request has been logged into our system and an email notification has been dispatched to Abhishek at Salasar Aluminium & Hardware.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setIsSuccess(false)}
-                  className="mt-4 px-6 py-2.5 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] transition-colors shadow-2xs cursor-pointer"
-                >
-                  Submit Another Trade Enquiry
-                </button>
+                <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
+                  <a
+                    href={getWhatsAppQuoteUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-sm flex items-center space-x-1.5"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp Quote (8007443071)</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSuccess(false);
+                      setSubmittedLeadId('');
+                    }}
+                    className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition-colors cursor-pointer"
+                  >
+                    Submit Another Quote
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -273,20 +320,35 @@ export default function TradeQuoteFormSection() {
                   {errors.message && <span className="text-[11px] text-red-500 mt-1 block">{errors.message.message}</span>}
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer"
-                >
-                  {isSubmitting ? (
-                    <span>Dispatching Request...</span>
-                  ) : (
-                    <>
-                      <span>Submit Trade Quote Request</span>
-                      <Send className="w-3.5 h-3.5 text-[#D4AF37]" />
-                    </>
-                  )}
-                </button>
+                <div className="pt-2 space-y-2.5">
+                  {/* WhatsApp Quote Button */}
+                  <a
+                    href={getWhatsAppQuoteUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
+                    title="Get instant trade quote on WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Get Quotes on WhatsApp (8007443071)</span>
+                  </a>
+
+                  {/* Email & Log Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer"
+                  >
+                    {isSubmitting ? (
+                      <span>Dispatching Request...</span>
+                    ) : (
+                      <>
+                        <span>Submit Trade Quote Request</span>
+                        <Send className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      </>
+                    )}
+                  </button>
+                </div>
               </form>
             )}
           </div>
