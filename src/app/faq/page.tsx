@@ -4,12 +4,13 @@ import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Aluminium Hardware FAQ — SA Codes & Delivery | Salasar',
+  title: 'Aluminium Hardware FAQ | Salasar Aluminium & Hardware',
   description: 'Find answers to common questions regarding wholesale trade orders, SA codes, delivery timelines, finishes, and hardware specifications in Raipur, Chhattisgarh.',
   alternates: {
     canonical: '/faq',
   },
 };
+
 
 export default function FAQPage() {
   return (

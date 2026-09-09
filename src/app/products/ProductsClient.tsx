@@ -6,6 +6,8 @@ import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, SAHProduct } from '@/lib/sahDa
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { QuickViewModal } from '@/components/product/QuickViewModal';
+import FAQSection from '@/components/FAQSection';
+
 
 import { useSearchParams } from 'next/navigation';
 
@@ -69,12 +71,13 @@ export default function ProductsClient() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight">
-                Full 86-SKU Product Range
+                Wholesale Aluminium Hardware Catalogue — 86 SKUs, 12 Categories
               </h1>
 
               <p className="text-sm sm:text-base text-[#475569] font-medium leading-relaxed">
-                Direct wholesale supply of architectural aluminium extrusions & hardware fittings (SA-1 to SA-86) for fabricators and dealers.
+                Every product in our catalogue is assigned a fixed SA product code, so dealers and fabricators can order precisely — no ambiguity, no substitutions without confirmation. Browse by category below, or contact our trade desk directly with an SA code for instant wholesale pricing.
               </p>
+
             </div>
 
             {/* Pure White Search Bar with Search Icon */}
@@ -243,6 +246,28 @@ export default function ProductsClient() {
           </div>
         )}
       </div>
+
+      {/* Products Page FAQ Section */}
+      <FAQSection
+        title="Frequently asked questions about our product catalogue."
+        faqs={[
+          {
+            question: 'What do the SA product codes mean?',
+            answer: 'Each product in our catalogue has a fixed SA code (e.g. SA-33 for our Aluminium Door Kit) so trade buyers can order exact specifications without confusion — quote your SA code when contacting our trade desk for instant pricing.',
+            category: 'Catalogue',
+          },
+          {
+            question: 'Is there a minimum order quantity (MOQ) for wholesale pricing?',
+            answer: 'We supply dealers, fabricators, and contractors with flexible order quantities — ranging from standard box packs (10–50 pieces) to full wholesale crates. Request a quote with your required quantity for exact trade pricing.',
+            category: 'Pricing',
+          },
+          {
+            question: 'Can I get custom lengths or finishes not listed in the catalogue?',
+            answer: 'Yes — we support custom trade orders including tailored extrusion lengths and project-specific hardware configurations. Contact our trade desk with your requirements.',
+            category: 'Customization',
+          },
+        ]}
+      />
 
       {/* Quick View Modal */}
       <QuickViewModal

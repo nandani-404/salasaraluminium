@@ -4,14 +4,17 @@ import { Metadata } from 'next';
 import { MapPin, Truck, ChevronRight, ShieldCheck, PhoneCall, Building2 } from 'lucide-react';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import FAQSection from '@/components/FAQSection';
+
 
 export const metadata: Metadata = {
-  title: 'Aluminium Hardware Supply Hubs & Locations | Salasar',
-  description: 'Salasar Aluminium & Hardware wholesale delivery network across Chhattisgarh and Madhya Pradesh: Raipur, Bhilai, Durg, Bilaspur, Korba, and Rajnandgaon.',
+  title: 'Aluminium Hardware Supplier Locations | Raipur & Chhattisgarh',
+  description: 'Salasar Aluminium & Hardware ships from our Raipur stock hub to fabricators and contractors across Chhattisgarh, including Bilaspur, Durg-Bhilai, Korba, and Raigarh.',
   alternates: {
     canonical: '/locations',
   },
 };
+
 
 export const CITIES_DATA = [
   {
@@ -94,11 +97,11 @@ export default function LocationsHubPage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-            Aluminium Hardware Supply Hubs & City Delivery Network
+            Where We Supply — Raipur & Across Chhattisgarh
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-3xl font-medium leading-relaxed">
-            Salasar Aluminium & Hardware operates a daily wholesale logistics network from our Bhaisthan, Raipur main store to key commercial hubs across Chhattisgarh.
+            Our main stock hub and showroom is located at Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001. From here, we dispatch same-day to fabricators and contractors across the region, with additional distribution through our Lieon Marketing branch.
           </p>
         </div>
       </div>
@@ -154,6 +157,24 @@ export default function LocationsHubPage() {
       </div>
 
       <TradeQuoteFormSection />
+
+      {/* Locations Page FAQ Block */}
+      <FAQSection
+        title="Frequently asked questions about our supply locations."
+        faqs={[
+          {
+            question: 'Where is your main hardware stock hub located?',
+            answer: 'Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001.',
+            category: 'Headquarters',
+          },
+          {
+            question: 'Do you deliver outside Raipur city?',
+            answer: 'Yes — we dispatch across Chhattisgarh and supply Pan-India for bulk trade orders.',
+            category: 'Delivery',
+          },
+        ]}
+      />
     </div>
   );
 }
+

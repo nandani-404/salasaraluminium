@@ -7,6 +7,8 @@ import { Factory, Building2, Truck, ShieldCheck, PhoneCall, ArrowRight, CheckCir
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import FAQSection from '@/components/FAQSection';
+
 
 export default function WholesaleClient() {
   const { openEnquiryModal } = useEnquiry();
@@ -108,6 +110,29 @@ export default function WholesaleClient() {
       </div>
 
       <TradeQuoteFormSection />
+
+      {/* Wholesale Page FAQ Block */}
+      <FAQSection
+        title="Frequently asked questions about wholesale trade orders."
+        faqs={[
+          {
+            question: 'How do I place a wholesale order or get a trade quote?',
+            answer: 'Submit an enquiry through our website\'s "Request Trade Quote" form, or call/WhatsApp our sales director Abhishek directly at +91 8007443071 / +91 9079332560 for instant wholesale pricing and order placement.',
+            category: 'Orders & Quotes',
+          },
+          {
+            question: 'Do you supply outside Chhattisgarh?',
+            answer: 'Yes — we supply Pan-India for bulk trade orders, in addition to same-day regional dispatch within Chhattisgarh.',
+            category: 'Logistics',
+          },
+          {
+            question: 'What quantity qualifies for wholesale/bulk pricing?',
+            answer: 'Our quote form supports order sizes from 10 boxes up to 100+ boxes / full bulk orders — request a quote with your required quantity for exact trade pricing.',
+            category: 'Pricing',
+          },
+        ]}
+      />
     </div>
   );
 }
+

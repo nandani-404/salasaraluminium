@@ -1,11 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Building2, Wrench, Compass, Store, CheckCircle2 } from 'lucide-react';
 import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
+import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve — Commercial & B2B Solutions | Salasar',
-  description: 'Aluminium profiles, extrusions, and architectural hardware supply for contractors, fabricators, commercial builders, modular furniture, and dealers across Chhattisgarh.',
+  title: 'Industries We Serve | Aluminium Hardware for Builders & Fabricators',
+  description: 'Salasar Aluminium & Hardware supplies fabricators, contractors, architects, and dealers across residential, commercial, and industrial construction in Chhattisgarh.',
   alternates: {
     canonical: '/industries-we-serve',
   },
@@ -26,18 +27,91 @@ export default function IndustriesWeServePage() {
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
-              Hardware & Extrusion Engineering Tailored for Every Sector
+              Built for the Trade — Industries We Serve
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-              Salasar Aluminium & Hardware is the direct wholesale partner for commercial builders, architects, glass fabricators, and interior designers across Central India.
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
+              Salasar Aluminium & Hardware supplies architectural aluminium extrusions and hardware fittings directly to trade buyers across residential, commercial, and industrial construction sectors in Chhattisgarh and Pan-India.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main 2-Panel B2B Industries We Serve Component */}
+      {/* Main Copy & Industries Breakdown */}
+      <section className="py-16 bg-slate-50 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-12">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] mb-4">
+              Direct Supply for Every B2B Construction Segment
+            </h2>
+            <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
+              We supply high-grade architectural aluminium hardware and standardized 86-SKU catalog items to:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Wrench className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#0B1F3A]">Aluminium & UPVC Fabricators</h3>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                Sliding door/window components, locks, rollers, friction stays, and weather seals for continuous fabrication production runs.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#0B1F3A]">Building Contractors</h3>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                Bulk trade hardware for residential multi-story towers, commercial complexes, and site-wide architectural projects.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Compass className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#0B1F3A]">Architects & Developers</h3>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                Curtain wall mullions, frameless glass railing channels, and structural extrusions specified for modern facade and interior work.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Store className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-bold text-[#0B1F3A]">Dealers & Retailers</h3>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                Trade resale stock at direct factory pricing with standardized SA codes for hassle-free reordering.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Extended Showcase Section */}
       <IndustriesWeServeSection />
+
+      {/* Industries FAQ Block */}
+      <FAQSection
+        title="Frequently asked questions."
+        faqs={[
+          {
+            question: 'Do you supply hardware for both residential and commercial projects?',
+            answer: 'Yes — our catalogue spans both residential-grade and heavier commercial-grade hardware, including reinforced door closers and higher wind-load-rated extrusions for commercial builds.',
+            category: 'Applications',
+          },
+          {
+            question: 'Can architects specify Salasar products directly in project documentation?',
+            answer: 'Yes — contact our trade desk for technical specifications (alloy grades, load ratings, finish options) to include in project specs.',
+            category: 'Specification',
+          },
+        ]}
+      />
     </div>
   );
 }

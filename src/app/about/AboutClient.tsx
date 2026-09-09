@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { Award, ShieldCheck, Factory, Truck, CheckCircle2, MapPin, Building2, PhoneCall, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS } from '@/lib/sahData';
+import FAQSection from '@/components/FAQSection';
+
 
 export default function AboutClient() {
   const { openEnquiryModal } = useEnquiry();
@@ -44,11 +46,29 @@ export default function AboutClient() {
               </div>
 
               {/* Main Copy Narrative */}
-              <p className="text-base sm:text-lg text-[#334155] font-medium leading-relaxed">
-                Welcome to <strong className="text-[#0B1F3A] underline decoration-[#B8860B]/40 underline-offset-4">Salasar Aluminium & Hardware</strong>. We are a premier wholesale manufacturer and direct distributor of high-grade architectural aluminium extrusions, hardware fittings, and door systems based in Raipur, Chhattisgarh.
-              </p>
+              <div className="space-y-4 text-base sm:text-lg text-[#334155] font-medium leading-relaxed">
+                <p>
+                  <strong className="text-[#0B1F3A] underline decoration-[#B8860B]/40 underline-offset-4">Salasar Aluminium & Hardware (SAH)</strong> supplies architectural aluminium extrusions and hardware directly to the trade — dealers, fabricators, contractors, and project developers across Chhattisgarh and beyond. Our products are manufactured by Swastik Industries in Mumbai and stocked at our Raipur distribution hub for same-day regional dispatch.
+                </p>
+                <p className="text-sm sm:text-base text-[#475569]">
+                  Our tagline — <strong>Quality, Strength, Trust</strong> — reflects how we operate: direct factory pricing with no retail markup, a standardized 86-SKU catalogue so dealers always know exactly what they're ordering by SA product code, and reliable stock availability from our Bhaisthan branch in Raipur.
+                </p>
+              </div>
+
+              {/* Company Facts Card */}
+              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
+                <h3 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider mb-2">Company Facts</h3>
+                <ul className="space-y-1.5 text-xs text-[#334155]">
+                  <li>• <strong>Operates as:</strong> Salasar Aluminium & Hardware, Bhaisthan, Raipur, Chhattisgarh</li>
+                  <li>• <strong>Second distribution branch:</strong> Lieon Marketing, Raipur</li>
+                  <li>• <strong>Manufactured by:</strong> Swastik Industries, Mumbai</li>
+                  <li>• <strong>Business model:</strong> B2B wholesale trade supply only — no public retail cart</li>
+                  <li>• <strong>Trade Heritage:</strong> Established supplier serving Chhattisgarh for over 15+ years</li>
+                </ul>
+              </div>
 
               {/* Unique Dual Feature Cards with Metallic Accent Borders */}
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
@@ -239,6 +259,29 @@ export default function AboutClient() {
 
         </div>
       </div>
+
+      {/* About Page FAQ Block */}
+      <FAQSection
+        title="Frequently asked questions about Salasar Aluminium."
+        faqs={[
+          {
+            question: 'Where is Salasar Aluminium & Hardware manufactured?',
+            answer: 'Our aluminium hardware and extrusions are manufactured by Swastik Industries in Mumbai, and stocked and distributed from our Raipur branches for regional trade supply.',
+            category: 'Manufacturing',
+          },
+          {
+            question: 'How long has Salasar Aluminium & Hardware been supplying the trade in Chhattisgarh?',
+            answer: 'We have been serving dealers, fabricators, and building contractors across Chhattisgarh with reliable trade supply for over 15+ years.',
+            category: 'Heritage',
+          },
+          {
+            question: 'Can architects and project developers order directly, or only fabricators?',
+            answer: 'We supply directly to architects, contractors, fabricators, dealers, and project developers — any trade buyer placing a wholesale order.',
+            category: 'Trade Supply',
+          },
+        ]}
+      />
+
 
       {/* Direct Wholesale CTA - Compact Height Section */}
       <div className="relative py-12 sm:py-16 overflow-hidden bg-slate-950 border-t border-[#E2E8F0] text-white">

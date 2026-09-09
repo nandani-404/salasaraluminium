@@ -86,8 +86,8 @@ export default function ContactClient() {
           <span className="text-xs font-bold text-[#C9A227] uppercase tracking-widest">
             Direct Trade Support & Location
           </span>
-          <h1 className="text-4xl font-serif font-extrabold text-[#0B1F3A]">
-            Contact Salasar Aluminium & Hardware
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B1F3A] tracking-tight">
+            Contact Our Raipur Trade Desk
           </h1>
           <p className="text-gray-700 text-sm leading-relaxed">
             Reach out to Abhishek for direct trade orders, catalogue pricing, and store inquiries in Raipur.
@@ -392,7 +392,22 @@ export default function ContactClient() {
       </div>
 
       {/* FAQ Section */}
-      <FAQSection />
+      <FAQSection
+        title="Frequently asked questions."
+        faqs={[
+          {
+            question: "What's the fastest way to get a wholesale quote?",
+            answer: 'WhatsApp Abhishek directly at +91 8007443071 with your SA product code and required quantity for the fastest response.',
+            category: 'Quotes',
+          },
+          {
+            question: 'What are your business hours?',
+            answer: 'We\'re open 9:00 AM to 9:00 PM, daily.',
+            category: 'Hours',
+          },
+        ]}
+      />
     </div>
   );
 }
+
