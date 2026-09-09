@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CheckCircle2, Send, ShieldCheck, PhoneCall, MessageCircle } from 'lucide-react';
+import { CheckCircle2, Send, ShieldCheck, PhoneCall, MapPin, ExternalLink } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function TradeQuoteFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,12 +110,24 @@ export default function TradeQuoteFormSection() {
                 <span className="text-sm font-semibold text-[#0B1F3A] block mt-0.5">Abhishek — Sales Director</span>
               </div>
 
-              <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#94A3B8] block">Raipur Main Showroom</span>
+              <a
+                href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs block hover:border-[#C9A227] hover:shadow-sm transition-all group cursor-pointer"
+                title="Open in Google Maps"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#94A3B8] block">Raipur Main Showroom</span>
+                  <span className="inline-flex items-center space-x-1 text-[11px] font-medium text-[#C9A227] group-hover:underline">
+                    <span>Open in Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+                </div>
                 <span className="text-xs text-[#334155] leading-relaxed block mt-1">
                   {SAH_BUSINESS_DETAILS.address}
                 </span>
-              </div>
+              </a>
 
               {/* Normal Sized Call Button Below Cards */}
               <div className="pt-1">
@@ -152,7 +165,7 @@ export default function TradeQuoteFormSection() {
                     rel="noopener noreferrer"
                     className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-sm flex items-center space-x-1.5"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>WhatsApp Quote</span>
                   </a>
                   <button
@@ -329,7 +342,7 @@ export default function TradeQuoteFormSection() {
                     className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
                     title="Get instant trade quote on WhatsApp"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>Get Quotes on WhatsApp</span>
                   </a>
 

@@ -26,6 +26,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { EnquiryRecord } from '@/lib/enquiryService';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 const STATUS_CONFIG: Record<
   string,
@@ -676,7 +677,7 @@ CREATE INDEX IF NOT EXISTS idx_enquiries_status ON public.enquiries (status);`;
                             className="inline-flex items-center space-x-1 px-2.5 py-1.5 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-lg text-xs font-bold transition-all shadow-2xs"
                             title="Chat on WhatsApp"
                           >
-                            <MessageSquare className="w-3 h-3" />
+                            <WhatsAppIcon className="w-3 h-3 shrink-0" />
                             <span className="hidden lg:inline">WhatsApp</span>
                           </a>
 

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
-import { MapPin, Phone, Building2, Factory } from 'lucide-react';
+import { MapPin, Phone, Building2, Factory, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Footer() {
@@ -113,10 +113,16 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4 pb-1 border-b border-white/10">
               Raipur Store Desk
             </h4>
-            <div className="flex items-start space-x-2 text-xs text-slate-300 leading-relaxed">
-              <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
+            <a
+              href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start space-x-2 text-xs text-slate-300 hover:text-white transition-colors leading-relaxed group cursor-pointer"
+              title="View on Google Maps"
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
               <span>{SAH_BUSINESS_DETAILS.address}</span>
-            </div>
+            </a>
 
             <div className="pt-1 text-xs text-slate-300">
               <div className="flex items-center space-x-2 whitespace-nowrap">

@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award, ShieldCheck, Factory, Truck, CheckCircle2, MapPin, Building2, PhoneCall } from 'lucide-react';
+import { Award, ShieldCheck, Factory, Truck, CheckCircle2, MapPin, Building2, PhoneCall, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS } from '@/lib/sahData';
 
@@ -135,21 +135,30 @@ export default function AboutClient() {
                     </div>
 
                     {/* Floating Badge 2: Bottom Address Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 bg-white p-3.5 rounded-xl border border-slate-200">
+                    <a
+                      href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute bottom-4 left-4 right-4 bg-white p-3.5 rounded-xl border border-slate-200 block hover:border-[#C9A227] hover:shadow-md transition-all group cursor-pointer"
+                      title="Open store on Google Maps"
+                    >
                       <div className="flex items-start space-x-2.5">
-                        <div className="p-1.5 rounded-lg bg-[#0B1F3A] text-[#D4AF37] shrink-0 mt-0.5">
+                        <div className="p-1.5 rounded-lg bg-[#0B1F3A] text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
                           <MapPin className="w-4 h-4" />
                         </div>
-                        <div>
-                          <span className="text-[11px] font-bold text-[#0B1F3A] uppercase tracking-wider block">
-                            Raipur Main Outlet
-                          </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[11px] font-bold text-[#0B1F3A] uppercase tracking-wider block">
+                              Raipur Main Outlet
+                            </span>
+                            <ExternalLink className="w-3 h-3 text-[#C9A227] shrink-0 ml-1" />
+                          </div>
                           <p className="text-xs text-[#475569] font-medium leading-tight mt-0.5 line-clamp-2">
                             {SAH_BUSINESS_DETAILS.address}
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </a>
 
                   </div>
 

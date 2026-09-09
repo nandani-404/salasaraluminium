@@ -5,10 +5,11 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { X, CheckCircle2, ArrowRight, PhoneCall, Shield, MessageCircle } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, PhoneCall, Shield } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 const QUANTITY_PRESETS = ['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'];
 
@@ -207,7 +208,7 @@ export default function EnquiryModal() {
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto px-4 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>WhatsApp Quote</span>
                   </a>
                   <button
@@ -388,7 +389,7 @@ export default function EnquiryModal() {
                     className="px-4 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5 cursor-pointer active:scale-95"
                     title="Get instant quotes on WhatsApp"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>Get Quotes on WhatsApp</span>
                   </a>
 

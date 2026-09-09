@@ -17,7 +17,7 @@ export function getOrganizationSchema() {
     email: 'sales@salasaraluminium.shop',
     priceRange: '₹₹',
     currenciesAccepted: 'INR',
-    hasMap: 'https://maps.google.com/?q=Salasar+Aluminium+%26+Hardware+Raipur',
+    hasMap: SAH_BUSINESS_DETAILS.googleMapsUrl,
     sameAs: [
       'https://www.indiamart.com/salasar-aluminium-hardware-raipur',
       'https://www.tradeindia.com/Seller-15792038-Salasar-Aluminium-Hardware/',
@@ -35,7 +35,7 @@ export function getOrganizationSchema() {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Shop No. 3, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan',
+      streetAddress: 'Shop No. 3, JK Steel Gali, Near Mahavir Traders, Bhaisthan',
       addressLocality: 'Raipur',
       addressRegion: 'Chhattisgarh',
       postalCode: '492001',
@@ -43,8 +43,8 @@ export function getOrganizationSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '21.2514',
-      longitude: '81.6296',
+      latitude: '21.2480001',
+      longitude: '81.6280388',
     },
     branch: SAH_BUSINESS_DETAILS.branches.map(b => ({
       '@type': 'LocalBusiness',

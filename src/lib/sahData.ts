@@ -33,7 +33,9 @@ export const SAH_BUSINESS_DETAILS = {
     { name: 'Lieon Marketing', location: 'Raipur' },
     { name: 'Finetek', location: 'Raipur' }
   ],
-  address: 'Shop No. 3, Salasar Aluminium & Hardware, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan, Raipur, Chhattisgarh – 492001',
+  address: 'Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Near Mahavir Traders, Bhaisthan, Raipur, Chhattisgarh – 492001',
+  googleMapsUrl: 'https://www.google.com/maps/place/Salasar+Aluminium+hardware/@21.2480051,81.6254585,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28ddad7a46804b:0xb79590d9017166be!8m2!3d21.2480001!4d81.6280388!16s%2Fg%2F11nblxggfj?hl=en',
+  googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.5924176815556!2d81.6254585!3d21.2480051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28ddad7a46804b%3A0xb79590d9017166be!2sSalasar%20Aluminium%20hardware!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   contactPersons: [
     { name: 'Abhishek', phoneNumbers: ['+91 8007443071', '+91 9079332560'] }
   ],

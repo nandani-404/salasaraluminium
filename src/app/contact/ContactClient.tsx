@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall, ExternalLink } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 import FAQSection from '@/components/FAQSection';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function ContactClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -134,7 +135,7 @@ export default function ContactClient() {
                     rel="noopener noreferrer"
                     className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center space-x-1.5"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>WhatsApp Quote</span>
                   </a>
                   <button
@@ -301,7 +302,7 @@ export default function ContactClient() {
                     className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm flex items-center justify-center space-x-2 active:scale-[0.99] cursor-pointer"
                     title="Get instant trade quote on WhatsApp"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>Get Quotes on WhatsApp</span>
                   </a>
 
@@ -322,12 +323,29 @@ export default function ContactClient() {
           {/* Right Column: Address & Map Embed */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-[#0B1F3A] text-white p-6 rounded-2xl border-t-4 border-[#C9A227] space-y-4">
-              <h3 className="text-lg font-serif font-bold text-white">Raipur Store & Outlets</h3>
-              
-              <div className="flex items-start space-x-3 text-xs text-gray-300">
-                <MapPin className="w-4 h-4 text-[#C9A227] shrink-0 mt-0.5" />
-                <span>{SAH_BUSINESS_DETAILS.address}</span>
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-serif font-bold text-white">Raipur Store & Outlets</h3>
+                <a
+                  href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 text-xs text-[#C9A227] hover:text-[#e0b93e] font-semibold transition-colors"
+                >
+                  <span>Open in Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
+              
+              <a
+                href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3 text-xs text-gray-300 hover:text-white transition-colors group cursor-pointer"
+                title="Click to view store on Google Maps"
+              >
+                <MapPin className="w-4 h-4 text-[#C9A227] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <span>{SAH_BUSINESS_DETAILS.address}</span>
+              </a>
 
               <div className="pt-2 space-y-1.5 text-xs text-gray-300 border-t border-white/10">
                 <div className="font-bold text-[#C9A227]">Direct Wholesale Contacts:</div>
@@ -342,11 +360,11 @@ export default function ContactClient() {
               </div>
             </div>
 
-            {/* Embedded Google Map */}
+            {/* Embedded Google Map (Native Google card provides top-left direct Open in Maps button) */}
             <div className="rounded-2xl overflow-hidden border border-[#E8E6E1] shadow-sm h-[320px] bg-gray-100">
               <iframe
                 title="Salasar Aluminium & Hardware Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.790938634931!2d81.62740000000001!3d21.2514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDE1JzA1LjAiTiA4McKwMzcnMzguNiJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src={SAH_BUSINESS_DETAILS.googleMapsEmbedUrl}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -354,6 +372,19 @@ export default function ContactClient() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+            </div>
+
+            <div className="flex items-center justify-between px-1">
+              <span className="text-xs text-slate-500">Need directions?</span>
+              <a
+                href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1.5 text-xs font-semibold text-[#0B1F3A] hover:text-[#C9A227] transition-colors"
+              >
+                <span>Get Driving Directions</span>
+                <ExternalLink className="w-3.5 h-3.5 text-[#C9A227]" />
+              </a>
             </div>
           </div>
 
