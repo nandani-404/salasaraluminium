@@ -1,18 +1,38 @@
 import { SAH_BUSINESS_DETAILS, SAHProduct } from './sahData';
 
-export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://salasaraluminium.com';
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.salasaraluminium.shop';
 
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['Organization', 'LocalBusiness'],
+    '@type': ['Organization', 'LocalBusiness', 'HardwareStore'],
     '@id': `${BASE_URL}/#organization`,
     name: SAH_BUSINESS_DETAILS.brandName,
     legalName: 'Salasar Aluminium & Hardware',
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
+    image: [`${BASE_URL}/salasar-storefront.png`, `${BASE_URL}/salasar-store-main.png`],
     description: 'Wholesale manufacturer & supplier of architectural aluminium extrusions, locks, hinges, door kits, door closers, fasteners, and shower fittings based in Raipur, Chhattisgarh.',
     telephone: SAH_BUSINESS_DETAILS.contactPersons[0].phoneNumbers[0],
+    email: 'sales@salasaraluminium.shop',
+    priceRange: '₹₹',
+    currenciesAccepted: 'INR',
+    hasMap: 'https://maps.google.com/?q=Salasar+Aluminium+%26+Hardware+Raipur',
+    sameAs: [
+      'https://www.indiamart.com/salasar-aluminium-hardware-raipur',
+      'https://www.tradeindia.com/Seller-15792038-Salasar-Aluminium-Hardware/',
+      'https://www.justdial.com/Raipur/Salasar-Aluminium-Hardware-Near-Mahavir-Traders-Bhaisthan/0771PX771-X771-240101120000-A1B2_BZDET',
+    ],
+    areaServed: [
+      { '@type': 'State', name: 'Chhattisgarh' },
+      { '@type': 'State', name: 'Madhya Pradesh' },
+      { '@type': 'City', name: 'Raipur' },
+      { '@type': 'City', name: 'Bhilai' },
+      { '@type': 'City', name: 'Durg' },
+      { '@type': 'City', name: 'Bilaspur' },
+      { '@type': 'City', name: 'Korba' },
+      { '@type': 'City', name: 'Rajnandgaon' },
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Shop No. 3, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan',

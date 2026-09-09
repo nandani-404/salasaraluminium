@@ -390,14 +390,181 @@ export const PROJECTS: Project[] = [
 
 export const BLOG_POSTS: BlogPost[] = [
   {
-    slug: 'aluminium-finishes-explained-mill-anodized-powder-coated',
-    title: 'Aluminium Finishes Explained: Mill, Anodized & Powder-Coated',
-    excerpt: 'Understand the key differences, micron thickness standards, corrosion resistance ratings, and architectural applications for Mill Finish, Anodizing, and Powder Coating.',
-    author: 'Salasar Technical Engineering Team',
-    date: 'August 2, 2026',
+    slug: 'dealers-guide-to-salasar-aluminium-door-kit-range',
+    title: "A Dealer's Guide to Salasar's Aluminium Door Kit Range (SA-33)",
+    excerpt: 'Detailed breakdown of finishes (Black, Brown, Champion, Matt, CP), component specifications, and sizing for aluminium door kits supplied from Raipur.',
+    author: 'Salasar Technical Team',
+    date: 'August 24, 2026',
+    readTime: '5 min read',
+    category: 'Product Buying Guide',
+    image: '/salasar-doorkit-hero-clean.jpg',
+    qaBlocks: [
+      {
+        question: 'What finishes are available for the SA-33 Aluminium Door Kit?',
+        answer: 'The SA-33 Aluminium Door Kit is supplied in 5 finishes: Black, Brown, Champion, Matt, and CP (Chrome Plated).'
+      },
+      {
+        question: 'What items are included in a standard door kit assembly?',
+        answer: 'Each kit includes matching pull handles, mortise lock cylinder/latching bolt, tower bolts, and heavy door stoppers.'
+      }
+    ],
+    content: `
+### Comprehensive Overview of the SA-33 Aluminium Door Kit
+
+The SA-33 Aluminium Door Kit is Salasar's flagship architectural hardware package designed specifically for residential and commercial aluminium door fabricators, contractors, and retail dealers.
+
+---
+
+### Available Premium Finishes
+
+1. **Matte Black (Powder Coated)**: Ultra-sleek electro-statically applied finish with high UV and scratch resistance.
+2. **Brown / Chocolate (Powder Coated)**: Deep rich brown tone perfectly matched for wooden texture aluminium profiles.
+3. **Champion (Anodized Satin Finish)**: Luxurious Champagne/Gold metallic finish for premium interior suites.
+4. **Matt Silver (Anodized)**: Classic architectural anodized silver with anti-fingerprint coating.
+5. **CP (Chrome Plated)**: Mirror polish chrome finish engineered for moisture and humidity resistance.
+
+---
+
+### Complete Assembly Components
+
+Every SA-33 Door Kit standard box comes with factory-calibrated components:
+- **Pair of Heavy Aluminium Pull Handles**: Ergonomically shaped for smooth touch and grip.
+- **Mortise Cylinder & Latch Assembly**: Brass key cylinder mechanism with smooth spring bolt action.
+- **Matching Tower Bolts (Top & Bottom)**: High shear-strength locking bolts for security.
+- **Heavy Duty Floor & Wall Door Stoppers**: Cushioned rubber buffer to prevent glass and profile impact.
+
+---
+
+### Wholesale Ordering & Technical Support
+
+Salasar Aluminium & Hardware supplies full carton packs with custom branding options for wholesale distributors across Raipur, Bilaspur, Durg, Bhilai, and pan-Chhattisgarh.
+    `
+  },
+  {
+    slug: 'choosing-the-right-door-closer-aluminium-vs-ss-vs-capsule',
+    title: 'Choosing the Right Door Closer: Aluminium vs SS vs Capsule (SA-42 to SA-44)',
+    excerpt: 'Compare hydraulic force ratings, door weight limits, and pneumatic pencil closers vs heavy capsule closers for commercial entryways.',
+    author: 'Salasar Technical Team',
+    date: 'August 18, 2026',
     readTime: '6 min read',
-    category: 'Material Science & Finishes',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80',
+    category: 'Technical Specification',
+    image: '/salasar-doorcloser-hero-clean.jpg',
+    qaBlocks: [
+      {
+        question: 'When should a capsule door closer (SA-44) be specified over a standard closer?',
+        answer: 'Capsule door closers (SA-44) are engineered for heavy high-traffic commercial doors weighing over 80kg requiring heavy hydraulic damping.'
+      }
+    ],
+    content: `
+### How to Select the Ideal Overhead Door Closer
+
+Selecting the right door closer ensures occupant safety, smooth latching, acoustic sealing, and prolonged door frame lifespan.
+
+---
+
+### Comparison of Salasar Door Closer Series
+
+#### 1. SA-42 Aluminium Hydraulic Door Closer (Light to Medium Duty)
+- **Door Weight**: Up to 45 - 65 kg
+- **Max Door Width**: 950 mm
+- **Ideal Application**: Residential interior doors, office wooden doors, aluminium section doors.
+
+#### 2. SA-43 Stainless Steel Finish Heavy Door Closer (Medium Duty Commercial)
+- **Door Weight**: Up to 65 - 85 kg
+- **Max Door Width**: 1100 mm
+- **Features**: Dual valve speed control (closing speed & latching speed), fire-rated hydraulic oil.
+
+#### 3. SA-44 Capsule Heavy Hydraulic Door Closer (Heavy Commercial High-Traffic)
+- **Door Weight**: Up to 80 - 120 kg
+- **Max Door Width**: 1250 mm
+- **Features**: Heavy-duty rack and pinion mechanism, heavy capsule body housing, anti-freeze hydraulic fluid.
+    `
+  },
+  {
+    slug: 'understanding-shower-hinge-types-fix-clip-wall-to-glass-glass-to-glass',
+    title: 'Understanding Shower Hinge Types: 0° Fix Clip, 90° Wall-to-Glass, 180° Glass-to-Glass (SA-75 to SA-78)',
+    excerpt: 'Engineering guide on CP mirror polish brass & SS shower hinges, glass cutout dimensions, and self-closing spring angles.',
+    author: 'Salasar Technical Team',
+    date: 'August 10, 2026',
+    readTime: '4 min read',
+    category: 'Glass Hardware Guide',
+    image: '/salasar-showerhinge-hero-clean.jpg',
+    qaBlocks: [
+      {
+        question: 'What glass thickness is compatible with Salasar CP shower hinges?',
+        answer: 'Salasar CP shower hinges (SA-75 to SA-78) are engineered for 8mm to 12mm toughened safety glass panels.'
+      }
+    ],
+    content: `
+### Glass Hardware Architecture for Frameless Shower Cubicles
+
+Frameless glass shower enclosures demand high precision hardware engineered to support heavy toughened glass while remaining completely rust-proof in wet, humid environments.
+
+---
+
+### Key Hinge Configurations
+
+1. **SA-75 (90° Wall-to-Glass Hinge)**: Connects a fixed wall to an opening glass door panel. Features automatic self-closing mechanism from 25° angle.
+2. **SA-76 (180° Glass-to-Glass Hinge)**: Joins two inline glass panels at 180° alignment for continuous glass facades.
+3. **SA-77 (90° Glass-to-Glass Corner Hinge)**: Connects two glass panels at right angles for corner shower cubicles.
+4. **SA-78 (0° / 90° Fix Bracket Clip)**: Rigid wall clamping bracket to secure fixed glass panels safely without motion.
+
+---
+
+### Material Specifications & Loading Limits
+
+- **Material**: Solid Brass & 304 Grade Stainless Steel
+- **Finish**: Mirror Chrome Plated (CP) / Matt Black
+- **Load Limit**: 45 kg per pair (Max door width 800 mm)
+    `
+  },
+  {
+    slug: 'aluminium-hardware-wholesale-in-chhattisgarh-what-dealers-should-know',
+    title: 'Aluminium Hardware Wholesale in Chhattisgarh: What Dealers & Fabricators Should Know',
+    excerpt: 'Overview of B2B supply chains, direct trade pricing through our Finetek branch, and ready outlet stocking in Raipur.',
+    author: 'Abhishek (Salasar Trade Team)',
+    date: 'August 02, 2026',
+    readTime: '5 min read',
+    category: 'Trade & Wholesale',
+    image: '/salasar-warehouse-hub.png',
+    qaBlocks: [
+      {
+        question: 'Where is the Salasar Aluminium & Hardware main store in Raipur?',
+        answer: 'Shop No. 3, Salasar Aluminium & Hardware, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan, Raipur, Chhattisgarh – 492001.'
+      }
+    ],
+    content: `
+### B2B Supply Chain for Hardware Dealers in Chhattisgarh
+
+Chhattisgarh's expanding construction sector in Raipur, Bilaspur, Korba, and Durg-Bhilai requires a steady, reliable supply of architectural aluminium hardware and glass fittings.
+
+---
+
+### Advantages of Partnering with Salasar Aluminium & Hardware
+
+1. **Direct Factory Outlet & Ex-Stock Supply**: Minimal lead times with extensive warehouse stocking at our Bhaisthan depot in Raipur.
+2. **Competitive Wholesale Tier Pricing**: Bulk rates tailored for regional dealers, fabricators, and hardware retailers.
+3. **Comprehensive Catalog Range**: From sliding door channels, weather seals, track brushes to door kit handles and floor springs.
+
+---
+
+### Retail & Wholesale Depot Address
+
+**Salasar Aluminium & Hardware**  
+Shop No. 3, Near Mahavir Traders, Punjab Oil Mill Road,  
+Bhaisthan, Raipur, Chhattisgarh – 492001  
+**Call / WhatsApp**: +91 98271 11322 / +91 88711 11322
+    `
+  },
+  {
+    slug: 'architectural-aluminium-finishes-mill-anodized-powder-coated',
+    title: 'Architectural Aluminium Finishes: Mill, Anodized, vs Powder Coated',
+    excerpt: 'Detailed comparison of surface treatment processes, micron layer thickness, corrosion resistance, and aesthetic selection for architectural profiles.',
+    author: 'Salasar Technical Engineering Team',
+    date: 'August 12, 2026',
+    readTime: '8 min read',
+    category: 'Material Science',
+    image: '/salasar-finishes-hero-clean.jpg',
     qaBlocks: [
       {
         question: 'What is the main difference between anodized and powder-coated aluminium finishes?',
@@ -412,62 +579,6 @@ export const BLOG_POSTS: BlogPost[] = [
 ### Introduction to Architectural Aluminium Finishes
 
 When specifying aluminium extrusions for residential windows, commercial facades, or industrial machinery, selecting the correct surface finish is as crucial as choosing the structural alloy grade. The surface finish defines not only the visual aesthetic but also the material's lifespan, UV resistance, and resistance to environmental corrosion.
-
----
-
-### 1. Mill Finish (Raw Extruded Aluminium)
-
-**Mill Finish** refers to aluminium extrusions directly out of the extrusion die without any subsequent mechanical or chemical surface treatment. 
-
-- **Appearance**: Natural metallic silver with subtle longitudinal die lines.
-- **Oxide Layer**: Naturally forms a thin (0.01 µm) passivation layer of aluminium oxide ($Al_2O_3$).
-- **Primary Uses**: Internal structural framing, concealed brackets, industrial components that will be painted or hidden inside assemblies.
-
----
-
-### 2. Anodized Finishes (Anodizing)
-
-**Anodizing** is an electrolytic passivation process that converts the aluminium metal surface into a durable, decorative, and highly corrosion-resistant anodic oxide layer.
-
-- **How It Works**: The extrusion is submerged in an acid electrolyte bath while electric current passes through it. The oxide layer grows from the aluminum substrate itself.
-- **Key Advantages**:
-  - **Integral Bond**: Cannot peel, flake, or chip because it is an integral part of the metal.
-  - **Metallic Luster**: Preserves the natural metallic sheen of aluminium.
-  - **Color Options**: Satin Silver, Champagne, Bronze, Rose Gold, Matte Black.
-- **Micron Thickness Standards**:
-  - **Class 2 (10 - 15 microns)**: Interior applications and mild outdoor environments.
-  - **Class 1 (15 - 25 microns)**: Architectural exteriors, high-traffic commercial facades, coastal regions.
-
----
-
-### 3. Powder-Coated Finishes
-
-**Powder Coating** involves spraying electrostatically charged dry resin and pigment powder onto the pre-treated aluminium extrusion, followed by curing in a thermal oven at approximately 200°C.
-
-- **Key Advantages**:
-  - **Vast Color Spectrum**: Available in over 200+ RAL shades, custom wood-grain textures, and metallic effects.
-  - **Uniform Thickness**: Covers sharp corners and complex geometry evenly (60 to 80 microns).
-  - **Environmental Friendly**: Zero Volatile Organic Compounds (VOCs) emitted during application.
-
----
-
-### Comparison Matrix
-
-| Property | Mill Finish | Anodized Finish | Powder Coating |
-| :--- | :--- | :--- | :--- |
-| **Film Thickness** | None | 10 – 25 Microns | 60 – 80 Microns |
-| **Corrosion Resistance** | Moderate | Exceptional | High |
-| **UV Resistance** | High | Extreme (No Fading) | Excellent (Qualicoat 2) |
-| **Peeling Risk** | Zero | Zero | Very Low |
-| **Color Customization**| Natural Silver | Metallic Shades | Unlimited RAL Colors |
-
----
-
-### Recommendation Summary
-
-- For **coastal villas & sea-facing balconies**: Specify **20µm Anodized Bronze or Satin Silver**.
-- For **modern minimalist interiors**: Specify **Matte Black Powder Coating (RAL 9005)**.
-- For **industrial machine frames**: Specify **15µm Anodized Silver** for easy cleaning and scratch protection.
     `
   },
   {
@@ -475,10 +586,10 @@ When specifying aluminium extrusions for residential windows, commercial facades
     title: 'How to Choose Aluminium Hardware for Residential vs Commercial Use',
     excerpt: 'A comprehensive engineering guide on structural load requirements, wind pressure ratings, alloy selection (6063 vs 6061), and cycle testing for residential vs commercial projects.',
     author: 'Salasar Technical Engineering Team',
-    date: 'August 5, 2026',
+    date: 'August 05, 2026',
     readTime: '7 min read',
     category: 'Engineering & Specification',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+    image: '/salasar-hardware-hero-clean.jpg',
     qaBlocks: [
       {
         question: 'What is the main difference between residential and commercial aluminium extrusions?',
@@ -489,32 +600,10 @@ When specifying aluminium extrusions for residential windows, commercial facades
 ### Key Engineering Considerations for Hardware Selection
 
 Choosing the right aluminium profile system requires evaluating four structural parameters:
-1. **Structural Alloy Grade & Temper**
-2. **Profile Wall Thickness & Inertia ($I_x, I_y$)**
-3. **Wind Load & Deflection Limits**
-4. **Hardware Duty Cycle Ratings**
-
----
-
-### Residential Specifications
-
-For residential villas and multi-family apartments, visual minimalism and smooth effortless operation take precedence.
-
-- **Alloy Grade**: EN AW 6063-T6 is the standard choice, offering exceptional surface finish quality and smooth anodizing characteristics.
-- **Typical Wall Thickness**: 1.4mm to 1.8mm.
-- **Sightlines**: Ultra-thin interlocks (21mm to 28mm) for unobstructed panoramic views.
-- **Glass Load**: Engineered for 8mm single glass up to 28mm double-glazed low-E IGUs.
-
----
-
-### Commercial Specifications
-
-Commercial buildings (office towers, malls, airports) experience continuous high traffic, mechanical door closers, and severe wind pressure at elevated heights.
-
-- **Alloy Grade**: 6061-T6 or 6005A-T6 high-tensile structural alloys.
-- **Typical Wall Thickness**: 2.2mm to 4.0mm heavy structural wall.
-- **Wind Load Compliance**: Certified to EN 12210 Class C5 / B5 (up to 3000 Pa wind pressures).
-- **Cycle Testing**: Hardware tested to 500,000 continuous opening/closing cycles.
+1. Structural Alloy Grade & Temper
+2. Profile Wall Thickness & Inertia
+3. Wind Load & Deflection Limits
+4. Hardware Duty Cycle Ratings
     `
   },
   {
@@ -525,7 +614,7 @@ Commercial buildings (office towers, malls, airports) experience continuous high
     date: 'July 28, 2026',
     readTime: '5 min read',
     category: 'Material Comparison',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80',
+    image: '/salasar-steel-vs-alum-hero-clean.jpg',
     qaBlocks: [
       {
         question: 'Is structural aluminium stronger than steel?',
@@ -536,27 +625,17 @@ Commercial buildings (office towers, malls, airports) experience continuous high
 ### Structural Overview: Aluminium vs Steel
 
 When designing structural framing, solar racking systems, or building enclosures, engineers frequently compare structural T6 aluminium extrusions against fabricated mild steel sections.
-
----
-
-### 1. Weight & Transport Efficiency
-Aluminium has a density of approximately **2.7 g/cm³**, compared to steel's **7.85 g/cm³**. Structural aluminium is roughly **one-third the weight of steel**, drastically reducing dead loads on building foundations and transport logistics costs.
-
----
-
-### 2. Corrosion Resistance & Maintenance
-Unlike carbon steel, which requires regular painting or galvanizing to prevent rust, aluminium naturally forms a self-healing protective oxide layer. When anodized or powder-coated, aluminium framing offers a **50+ year maintenance-free lifespan**.
     `
   },
   {
     slug: 'buyers-guide-to-aluminium-railing-systems',
-    title: 'A Buyer\'s Guide to Aluminium Railing Systems',
+    title: "A Buyer's Guide to Aluminium Railing Systems",
     excerpt: 'Everything architects and contractors need to know about base shoe glass channels, post-and-spigot balustrades, building code safety loads, and glass compatibility.',
     author: 'Salasar Technical Engineering Team',
     date: 'July 20, 2026',
     readTime: '6 min read',
     category: 'Buyer Guides',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80',
+    image: '/salasar-railing-hero-clean.jpg',
     qaBlocks: [
       {
         question: 'What aluminum alloy is recommended for glass railing shoe channels?',
@@ -567,12 +646,6 @@ Unlike carbon steel, which requires regular painting or galvanizing to prevent r
 ### Designing Safe & Elegant Glass Railings
 
 Frameless glass balustrades have become the hallmark of modern architecture. The structural safety of any glass balustrade relies heavily on the aluminum mounting shoe channel engineered to anchor the glass panels.
-
----
-
-### Base-Mounted Shoe Channels vs Post Systems
-- **Base-Mounted Shoe Channels**: Offer continuous floor anchoring with zero vertical posts. The glass appears to rise seamlessly from the slab.
-- **Post & Glass Clamps**: Utilize vertical aluminum posts with mechanical clamps. Ideal for budget-conscious projects or retrofit installations.
     `
   }
 ];

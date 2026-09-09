@@ -4,8 +4,11 @@ import { Sparkles } from 'lucide-react';
 import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Salasar Aluminium & Hardware Raipur',
+  title: 'Industries We Serve — Commercial & B2B Solutions | Salasar',
   description: 'Aluminium profiles, extrusions, and architectural hardware supply for contractors, fabricators, commercial builders, modular furniture, and dealers across Chhattisgarh.',
+  alternates: {
+    canonical: '/industries-we-serve',
+  },
 };
 
 export default function IndustriesWeServePage() {

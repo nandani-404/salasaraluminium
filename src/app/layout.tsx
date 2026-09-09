@@ -23,8 +23,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.salasaraluminium.shop'),
   title: {
-    default: 'Salasar Aluminium & Hardware | Architectural Extrusions & Hardware Supplier',
-    template: '%s | Salasar Aluminium & Hardware',
+    default: 'Aluminium Hardware Shop in Raipur | Salasar Aluminium & Hardware',
+    template: '%s | Salasar Aluminium',
   },
   description:
     'Premier supplier of architectural aluminium extrusions, slimline sliding door systems, glass balustrade channels, curtain wall mullions, and custom industrial T-slot profiles for builders, architects, and industrial manufacturers.',
@@ -65,9 +65,6 @@ export const metadata: Metadata = {
     ],
     shortcut: '/favicon.png',
     apple: '/logo.png',
-  },
-  alternates: {
-    canonical: 'https://www.salasaraluminium.shop',
   },
   robots: {
     index: true,

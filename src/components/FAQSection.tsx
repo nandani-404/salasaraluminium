@@ -52,9 +52,9 @@ export default function FAQSection({
               COMMON QUESTIONS
             </span>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight leading-[1.15]">
-              Frequently<br className="hidden sm:inline" /> asked questions.
-            </h2>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight leading-[1.15]">
+              {title}
+            </h1>
 
             <div className="pt-2 text-xs sm:text-sm text-[#64748B] leading-relaxed">
               <span>Can't find what you're looking for? </span>

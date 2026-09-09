@@ -139,9 +139,9 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
             <span className="w-2 h-2 rounded-full bg-[#B8860B]"></span>
             WHY CHOOSE US
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-4 leading-tight">
-            Why Businesses Choose <span className="text-[#0B1F3A] underline decoration-[#B8860B]/50 underline-offset-8">Salasar Aluminium</span>
-          </h2>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-4 leading-tight">
+            Why Fabricators in Chhattisgarh Buy From <span className="text-[#0B1F3A] underline decoration-[#B8860B]/50 underline-offset-8">Salasar</span>
+          </h1>
           <p className="text-sm sm:text-base md:text-lg text-[#475569] leading-relaxed font-normal">
             We make aluminium and hardware procurement simpler for fabricators, contractors, dealers and project buyers through a broad product range, wholesale supply and responsive project support.
           </p>

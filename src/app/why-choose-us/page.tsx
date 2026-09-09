@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 
 export const metadata: Metadata = {
-  title: 'Why Choose Us | Salasar Aluminium & Hardware Wholesale Supplier',
+  title: 'Why Choose Us — Wholesale Supply | Salasar Aluminium',
   description: 'Learn why fabricators, contractors, dealers and project buyers choose Salasar Aluminium & Hardware for wholesale supply, broad product range, and dependable project support.',
   keywords: [
     'why choose us aluminium supplier',
@@ -13,11 +13,14 @@ export const metadata: Metadata = {
     'fabricator aluminium supply',
     'contractor hardware procurement'
   ],
+  alternates: {
+    canonical: '/why-choose-us',
+  },
 };
 
 export default function WhyChooseUsPage() {
   return (
-    <main className="min-h-screen bg-white pt-6">
+    <main className="min-h-screen bg-white pt-24">
       <WhyChooseUsSection />
     </main>
   );

@@ -25,8 +25,12 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
+    { name: 'Products', href: '/products' },
     { name: 'Industries We Serve', href: '/industries-we-serve' },
     { name: 'Why Choose Us', href: '/why-choose-us' },
+    { name: 'Wholesale', href: '/wholesale' },
+    { name: 'Locations', href: '/locations' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -34,16 +38,16 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-[#E2E8F0] py-3.5'
-          : 'bg-white/80 backdrop-blur-md border-b border-[#E2E8F0]/60 py-4 shadow-sm'
+          ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-[#E2E8F0] py-2.5'
+          : 'bg-white/90 backdrop-blur-md border-b border-[#E2E8F0]/60 py-3 shadow-xs'
       }`}
     >
-      <div className="w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between relative">
+      <div className="w-full px-3 sm:px-6 lg:px-8 flex items-center justify-between relative">
         {/* Left: Brand Logo & Monogram */}
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-3.5 group">
+        <div className="flex items-center shrink-0">
+          <Link href="/" className="flex items-center space-x-2.5 group">
             {/* Elegant Navy & Gold Extruded Emblem */}
-            <div className="relative w-10 h-10 bg-[#0B1F3A] rounded-xl flex items-center justify-center p-1 shadow-md border border-[#C9A227]/40 group-hover:border-[#D4AF37] transition-all">
+            <div className="relative w-9 h-9 bg-[#0B1F3A] rounded-xl flex items-center justify-center p-1 shadow-md border border-[#C9A227]/40 group-hover:border-[#D4AF37] transition-all shrink-0">
               <svg viewBox="0 0 44 44" fill="none" className="w-full h-full">
                 <defs>
                   <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -53,11 +57,9 @@ export default function Header() {
                   </linearGradient>
                 </defs>
                 
-                {/* Outer Beam Geometry in Gold */}
                 <path d="M22 4L38 12V32L22 40L6 32V12L22 4Z" stroke="url(#goldGrad)" strokeWidth="2" strokeLinejoin="round" />
                 <path d="M6 12L22 20L38 12" stroke="url(#goldGrad)" strokeWidth="1.2" opacity="0.6" />
 
-                {/* SAH Gold Monogram Text */}
                 <text x="22" y="27" textAnchor="middle" fill="url(#goldGrad)" fontSize="13" fontWeight="900" fontFamily="var(--font-plus-jakarta), sans-serif" letterSpacing="0.8">
                   SAH
                 </text>
@@ -66,24 +68,24 @@ export default function Header() {
 
             <div className="flex flex-col">
               <div className="flex items-center space-x-1">
-                <span className="font-serif font-black text-lg tracking-tight text-[#0B1F3A] leading-none group-hover:text-[#9A7B1C] transition-colors">
+                <span className="font-serif font-black text-base tracking-tight text-[#0B1F3A] leading-none group-hover:text-[#9A7B1C] transition-colors">
                   SALASAR
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
               </div>
-              <span className="text-[8px] tracking-[0.2em] text-[#B8860B] uppercase font-extrabold mt-0.5">
+              <span className="text-[7.5px] tracking-[0.18em] text-[#B8860B] uppercase font-extrabold mt-0.5">
                 Aluminium & Hardware
               </span>
             </div>
           </Link>
         </div>
 
-        {/* Center: Navigation Links centered across navbar */}
-        <nav className="hidden lg:flex flex-1 items-center justify-center space-x-8 px-6">
+        {/* Center: Navigation Links */}
+        <nav className="hidden xl:flex items-center justify-center space-x-3.5 2xl:space-x-5 px-2">
           <Link
             href="/"
-            className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
             }`}
           >
             Home
@@ -91,8 +93,8 @@ export default function Header() {
 
           <Link
             href="/about"
-            className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/about' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/about' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
             }`}
           >
             About Us
@@ -106,8 +108,8 @@ export default function Header() {
           >
             <Link
               href="/products"
-              className={`inline-flex items-center space-x-1 text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-                pathname.startsWith('/products') ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+              className={`inline-flex items-center space-x-1 text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+                pathname.startsWith('/products') ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
               }`}
             >
               <span>Products</span>
@@ -115,14 +117,14 @@ export default function Header() {
             </Link>
 
             {megaMenuOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[820px] bg-white border border-[#E2E8F0] rounded-xl shadow-xl p-6 grid grid-cols-3 gap-3 z-50 normal-case">
-                <div className="col-span-3 pb-3 mb-1 border-b border-[#E2E8F0] flex justify-between items-center">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#0F172A]">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-[760px] bg-white border border-[#E2E8F0] rounded-xl shadow-xl p-5 grid grid-cols-3 gap-2.5 z-50 normal-case">
+                <div className="col-span-3 pb-2.5 mb-1 border-b border-[#E2E8F0] flex justify-between items-center">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#0F172A]">
                     Standardized 86-SKU Product Range
                   </span>
                   <Link
                     href="/products"
-                    className="text-xs text-[#0F172A] font-bold hover:underline"
+                    className="text-[11px] text-[#0F172A] font-bold hover:underline"
                   >
                     View Full Catalogue →
                   </Link>
@@ -150,43 +152,70 @@ export default function Header() {
 
           <Link
             href="/industries-we-serve"
-            className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/industries-we-serve' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/industries-we-serve' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
             }`}
           >
-            Industries We Serve
+            Industries
           </Link>
 
           <Link
             href="/why-choose-us"
-            className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/why-choose-us' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/why-choose-us' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
             }`}
           >
-            Why Choose Us
+            Why Us
+          </Link>
+
+          <Link
+            href="/wholesale"
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/wholesale' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
+            }`}
+          >
+            Wholesale
+          </Link>
+
+          <Link
+            href="/locations"
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname.startsWith('/locations') ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
+            }`}
+          >
+            Locations
+          </Link>
+
+          <Link
+            href="/blog"
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/blog' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
+            }`}
+          >
+            Blog
           </Link>
 
           <Link
             href="/contact"
-            className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-[#0B1F3A] ${
-              pathname === '/contact' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-1' : 'text-[#475569]'
+            className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
+              pathname === '/contact' ? 'text-[#0B1F3A] border-b-2 border-[#D4AF37] pb-0.5' : 'text-[#475569]'
             }`}
           >
-            Contact Us
+            Contact
           </Link>
         </nav>
 
-        {/* Right: Action Buttons pinned to far right corner */}
-        <div className="hidden lg:flex items-center space-x-3">
+        {/* Right: Action Buttons */}
+        <div className="hidden xl:flex items-center space-x-2.5 shrink-0">
           <a
             href="tel:+918007443071"
             title="Click to call Salasar Aluminium Order Desk"
-            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3.5 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-sm active:scale-95"
+            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform" />
+            <PhoneCall className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform shrink-0" />
             <div className="flex flex-col text-left leading-tight">
-              <span className="text-[9px] uppercase tracking-wider text-[#8C6B1B] font-extrabold">Call for Orders</span>
-              <span className="font-sans text-xs tracking-normal text-[#0B1F3A] font-bold">8007443071</span>
+              <span className="text-[8.5px] uppercase tracking-wider text-[#8C6B1B] font-extrabold">Call for Orders</span>
+              <span className="font-sans text-[11px] tracking-tight text-[#0B1F3A] font-bold">8007443071</span>
             </div>
           </a>
 
@@ -203,23 +232,23 @@ export default function Header() {
               openEnquiryModal();
             }}
             title="Request Wholesale Trade Quote"
-            className="px-4 py-2 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-md hover:bg-[#1E293B] active:scale-95 border border-[#0B1F3A] transition-all shadow-sm hover:shadow whitespace-nowrap cursor-pointer"
+            className="px-3.5 py-2 bg-[#0B1F3A] text-white text-[11px] font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 border border-[#0B1F3A] transition-all shadow-2xs hover:shadow-xs whitespace-nowrap cursor-pointer shrink-0"
           >
             <span>Request Trade Quote</span>
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="lg:hidden flex items-center space-x-2">
+        {/* Mobile Hamburger Toggle (hidden on xl and up) */}
+        <div className="xl:hidden flex items-center space-x-2">
           <button
             onClick={() => openEnquiryModal()}
-            className="px-3 py-1.5 bg-[#0F172A] text-white text-xs font-bold rounded"
+            className="px-3 py-1.5 bg-[#0F172A] text-white text-xs font-bold rounded-lg"
           >
             Enquire
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#0B1F3A] focus:outline-none"
+            className="p-1.5 text-[#0B1F3A] focus:outline-none"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -229,7 +258,7 @@ export default function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-[#E8E6E1] px-4 pt-2 pb-6 space-y-3">
+        <div className="xl:hidden bg-white border-b border-[#E8E6E1] px-4 pt-2 pb-6 space-y-3">
           {navLinks.map((link) => (
             <Link
               key={link.name}
