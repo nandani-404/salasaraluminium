@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import EnquiryModal from '@/components/EnquiryModal';
 import { EnquiryProvider } from '@/context/EnquiryContext';
 import JsonLd from '@/components/JsonLd';
-import { getOrganizationSchema, BASE_URL } from '@/lib/jsonld';
+import { getOrganizationSchema, getWebSiteSchema, BASE_URL } from '@/lib/jsonld';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -78,6 +78,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({
@@ -86,11 +89,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const orgSchema = getOrganizationSchema();
+  const webSiteSchema = getWebSiteSchema();
 
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <JsonLd schema={orgSchema} />
+        <JsonLd schema={webSiteSchema} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
         <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />

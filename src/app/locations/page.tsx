@@ -21,7 +21,7 @@ export const CITIES_DATA = [
     tagline: 'Main Bhaisthan Store & Warehouse Hub',
     distance: '0 km (Headquarters)',
     dispatchTime: 'Immediate counter pickup & same-day local auto/rickshaw delivery',
-    keyMarkets: 'Bhaisthan Hardware Market, Punjab Oil Mill Road, Bhanpuri Industrial Area, Urla Industrial Complex',
+    keyMarkets: 'Bhaisthan Hardware Market, JK Steel Gali, Bhanpuri Industrial Area, Urla Industrial Complex',
     popularSkus: 'All 86 SKUs — SA-33 Door Kits, SA-42 Door Closers, SA-76 Shower Hinges, Slimline Extrusions',
     description: 'Our primary warehouse and sales outlet in Bhaisthan stocks the complete 86-SKU catalogue for walk-in fabricators and instant dispatch across Raipur capital region.',
   },

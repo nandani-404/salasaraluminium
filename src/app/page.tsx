@@ -58,8 +58,9 @@ export default function Home() {
                   <div className="relative h-44 overflow-hidden bg-slate-100/60 border-b border-slate-200">
                     <Image
                       src={cat.image}
-                      alt={cat.name}
+                      alt={`${cat.name} – Aluminium Hardware by Salasar, Raipur`}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
 
@@ -141,8 +142,9 @@ export default function Home() {
                   <div className="relative h-60 overflow-hidden bg-[#F8FAFC] border-b border-slate-100">
                     <Image
                       src={prod.image}
-                      alt={prod.name}
+                      alt={`${prod.name} (${prod.saCode}) – ${prod.categoryName} by Salasar Aluminium`}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-contain group-hover:scale-105 transition-transform duration-500"
                       suppressHydrationWarning
                     />
@@ -308,7 +310,7 @@ export default function Home() {
               <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-xs border border-[#E2E8F0] bg-[#0F172A] p-4 flex items-center justify-center">
                 <Image
                   src="/salasar-store-main.png"
-                  alt="Salasar Aluminium & Hardware Storefront & Stock Hub"
+                  alt="Salasar Aluminium & Hardware Storefront & Stock Hub in Raipur, Chhattisgarh"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-2 rounded-xl"

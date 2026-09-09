@@ -68,9 +68,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
 
   const faqSchema = generateFaqSchema(categoryFaqs);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://salasarhardware.com' },
-    { name: segment, url: `https://salasarhardware.com/${segment}` },
-    { name: categoryObj.label, url: `https://salasarhardware.com/${segment}/${category}` },
+    { name: 'Home', url: 'https://www.salasaraluminium.shop' },
+    { name: segment, url: `https://www.salasaraluminium.shop/${segment}` },
+    { name: categoryObj.label, url: `https://www.salasaraluminium.shop/${segment}/${category}` },
   ]);
 
   return (

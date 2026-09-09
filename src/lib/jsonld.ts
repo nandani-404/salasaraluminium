@@ -35,7 +35,7 @@ export function getOrganizationSchema() {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Shop No. 3, JK Steel Gali, Near Mahavir Traders, Bhaisthan',
+      streetAddress: 'Shop No. 3, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar',
       addressLocality: 'Raipur',
       addressRegion: 'Chhattisgarh',
       postalCode: '492001',
@@ -54,9 +54,9 @@ export function getOrganizationSchema() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '09:00',
-        closes: '20:00',
+        closes: '21:00',
       },
     ],
   };
@@ -152,5 +152,27 @@ export function getFaqSchema(qaBlocks: { question: string; answer: string }[]) {
         text: qa.answer,
       },
     })),
+  };
+}
+
+export function getWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${BASE_URL}/#website`,
+    url: BASE_URL,
+    name: 'Salasar Aluminium & Hardware',
+    description: 'Wholesale manufacturer & supplier of architectural aluminium extrusions, locks, hinges, door kits, door closers, fasteners, and shower fittings based in Raipur, Chhattisgarh.',
+    publisher: {
+      '@id': `${BASE_URL}/#organization`,
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${BASE_URL}/products?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 }

@@ -530,7 +530,7 @@ Frameless glass shower enclosures demand high precision hardware engineered to s
     qaBlocks: [
       {
         question: 'Where is the Salasar Aluminium & Hardware main store in Raipur?',
-        answer: 'Shop No. 3, Salasar Aluminium & Hardware, Near Mahavir Traders, Punjab Oil Mill Road, Bhaisthan, Raipur, Chhattisgarh – 492001.'
+        answer: 'Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001.'
       }
     ],
     content: `
@@ -551,9 +551,9 @@ Chhattisgarh's expanding construction sector in Raipur, Bilaspur, Korba, and Dur
 ### Retail & Wholesale Depot Address
 
 **Salasar Aluminium & Hardware**  
-Shop No. 3, Near Mahavir Traders, Punjab Oil Mill Road,  
-Bhaisthan, Raipur, Chhattisgarh – 492001  
-**Call / WhatsApp**: +91 98271 11322 / +91 88711 11322
+Shop No. 3, JK Steel Gali, Bhaisthan, Bhawani Patna,  
+Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001  
+**Call / WhatsApp**: +91 8007443071 / +91 9079332560
     `
   },
   {
