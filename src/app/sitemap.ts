@@ -4,8 +4,8 @@ import { products } from '@/lib/data/products';
 import { getCombinationByIndex, TOTAL_PSEO_COMBINATIONS } from '@/lib/data/pseoData';
 
 const TIER1_CITIES = ['raipur', 'bhilai', 'durg', 'bilaspur', 'korba', 'rajnandgaon'];
-const TOTAL_CHUNKS = 20; // 20 chunks x 50,000 URLs = 1,000,000 URLs
-const CHUNK_SIZE = 50000;
+const CHUNK_SIZE = 45000; // 45,000 URLs per chunk ensures every sitemap stays strictly under Google's 50,000 limit
+const TOTAL_CHUNKS = Math.ceil(TOTAL_PSEO_COMBINATIONS / CHUNK_SIZE);
 
 // Next.js App Router API: generateSitemaps creates a Sitemap Index at /sitemap.xml
 export async function generateSitemaps() {
