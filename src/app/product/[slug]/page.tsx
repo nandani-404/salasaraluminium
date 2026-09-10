@@ -34,9 +34,14 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     img.startsWith('http') ? img : `${baseUrl}${img.startsWith('/') ? '' : '/'}${img}`
   );
 
+  const rawTitle = `${product.name} (${product.sku})`;
+  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
+  const rawDesc = `${product.shortDescription} Alloy ${product.alloyGrade}, ${product.finish} finish. Trade quotes available.`;
+  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
+
   return {
-    title: `${product.name} (${product.sku}) | Salasar Hardware`,
-    description: `${product.shortDescription} Alloy: ${product.alloyGrade}, Finish: ${product.finish}. Order direct with trade pricing.`,
+    title,
+    description,
     alternates: {
       canonical: `/product/${product.slug}`,
     },

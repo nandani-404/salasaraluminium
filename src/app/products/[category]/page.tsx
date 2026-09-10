@@ -18,9 +18,14 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const category = CATEGORIES.find((c) => c.slug === resolvedParams.category);
   if (!category) return {};
 
+  const rawTitle = `${category.name} Hardware`;
+  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
+  const rawDesc = `${category.description} Direct wholesale supply & same-day dispatch in Raipur, Chhattisgarh.`;
+  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
+
   return {
-    title: `${category.name} Extrusions & Hardware`,
-    description: category.description,
+    title,
+    description,
   };
 }
 

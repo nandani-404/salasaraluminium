@@ -24,9 +24,14 @@ export async function generateMetadata({
   const product = PRODUCTS.find((p) => p.slug === resolvedParams.slug);
   if (!product) return {};
 
+  const rawTitle = product.name;
+  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
+  const rawDesc = `${product.shortDescription} Direct trade supply & wholesale pricing in Raipur, Chhattisgarh.`;
+  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
+
   return {
-    title: `${product.name} | Architectural Extrusion Specs`,
-    description: product.shortDescription,
+    title,
+    description,
   };
 }
 

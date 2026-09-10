@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import WholesaleClient from './WholesaleClient';
 
 export const metadata: Metadata = {
-  title: 'Wholesale Trade Pricing & Bulk Orders | Salasar Aluminium & Hardware',
-  description: 'Request wholesale trade pricing on aluminium hardware in Raipur — bulk box quotes, direct factory rates, and same-day dispatch. Contact our trade desk today.',
+  title: 'Wholesale Trade & Bulk Supply',
+  description: 'Request wholesale trade quotes on aluminium hardware in Raipur — bulk rates, direct factory pricing, and same-day dispatch for dealers & contractors.',
   alternates: {
     canonical: '/wholesale',
   },

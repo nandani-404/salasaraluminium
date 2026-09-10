@@ -4,8 +4,8 @@ import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Why Choose Salasar Aluminium & Hardware | Direct Trade Supplier Raipur',
-  description: 'Direct factory pricing, 86+ SKU stock availability, and same-day Raipur dispatch — see why fabricators and contractors trust Salasar Aluminium & Hardware.',
+  title: 'Why Choose Us',
+  description: 'Direct trade pricing, 86+ SKU stock, same-day Raipur dispatch — discover why fabricators and contractors choose Salasar Aluminium & Hardware.',
   alternates: {
     canonical: '/why-choose-us',
   },

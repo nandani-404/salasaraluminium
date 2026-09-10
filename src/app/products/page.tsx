@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import ProductsClient from './ProductsClient';
 
 export const metadata: Metadata = {
-  title: '86+ Aluminium Hardware Products | Wholesale Catalogue Raipur',
-  description: 'Browse our full wholesale catalogue: rollers, locks, hinges, door kits, closers, glass hardware, sealants & fasteners. 86 SA-coded SKUs, direct trade pricing.',
+  title: 'Aluminium Hardware Catalogue',
+  description: 'Browse 86+ wholesale hardware SKUs: rollers, locks, hinges, door kits, closers, glass fittings & sealants in Raipur, Chhattisgarh. Get direct trade pricing.',
   alternates: {
     canonical: '/products',
   },

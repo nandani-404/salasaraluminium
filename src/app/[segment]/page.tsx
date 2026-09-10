@@ -20,9 +20,14 @@ export async function generateMetadata({ params }: SegmentPageProps): Promise<Me
 
   if (!seg) return {};
 
+  const rawTitle = `${seg.label} Hardware`;
+  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
+  const rawDesc = `${seg.description} Direct trade supply & wholesale hardware pricing in Raipur, Chhattisgarh.`;
+  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
+
   return {
-    title: `${seg.label} Hardware & Profiles`,
-    description: `${seg.description}. Browse premium ${seg.label.toLowerCase()} aluminium profiles, handles, and fittings from Salasar.`,
+    title,
+    description,
   };
 }
 

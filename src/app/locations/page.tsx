@@ -8,8 +8,8 @@ import FAQSection from '@/components/FAQSection';
 
 
 export const metadata: Metadata = {
-  title: 'Aluminium Hardware Supplier Locations | Raipur & Chhattisgarh',
-  description: 'Salasar Aluminium & Hardware ships from our Raipur stock hub to fabricators and contractors across Chhattisgarh, including Bilaspur, Durg-Bhilai, Korba, and Raigarh.',
+  title: 'Supplier Locations & Delivery Network',
+  description: 'Salasar Aluminium & Hardware supplies fabricators and contractors across Chhattisgarh from our main Raipur warehouse hub. View local supply routes.',
   alternates: {
     canonical: '/locations',
   },

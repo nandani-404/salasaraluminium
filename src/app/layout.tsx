@@ -23,11 +23,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.salasaraluminium.shop'),
   title: {
-    default: 'Aluminium Hardware Shop in Raipur | Salasar Aluminium & Hardware',
+    default: 'Wholesale Aluminium Hardware Supplier Raipur | Salasar',
     template: '%s | Salasar Aluminium',
   },
   description:
-    'Premier supplier of architectural aluminium extrusions, slimline sliding door systems, glass balustrade channels, curtain wall mullions, and custom industrial T-slot profiles for builders, architects, and industrial manufacturers.',
+    'Direct wholesale supplier of aluminium extrusions, door hardware, locks & fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch. Get a trade quote.',
   keywords: [
     'aluminium hardware supplier',
     'architectural aluminium extrusions',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.salasaraluminium.shop',
     siteName: 'Salasar Aluminium & Hardware',
-    title: 'Salasar Aluminium & Hardware | Architectural Extrusions & Hardware',
+    title: 'Wholesale Aluminium Hardware Supplier Raipur | Salasar',
     description:
-      'Explore premier architectural extrusions, glass railing channels, curtain wall profiles, and anodized finishes. Direct trade supply for architects and contractors.',
+      'Direct wholesale supplier of aluminium extrusions, door hardware, locks & fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch. Get a trade quote.',
     images: [
       {
         url: 'https://www.salasaraluminium.shop/logo.png',

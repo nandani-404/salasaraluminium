@@ -5,8 +5,8 @@ import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
 import FAQSection from '@/components/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Aluminium Hardware for Builders & Fabricators',
-  description: 'Salasar Aluminium & Hardware supplies fabricators, contractors, architects, and dealers across residential, commercial, and industrial construction in Chhattisgarh.',
+  title: 'Industries We Serve',
+  description: 'Salasar Aluminium supplies fabricators, contractors, architects, and dealers across residential, commercial, and industrial construction in Chhattisgarh.',
   alternates: {
     canonical: '/industries-we-serve',
   },

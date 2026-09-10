@@ -20,9 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
   if (!post) return {};
 
+  const cleanTitle = post.title.length > 38 ? `${post.title.substring(0, 35)}...` : post.title;
+  const cleanDesc = post.excerpt.length > 158 ? `${post.excerpt.substring(0, 155)}...` : post.excerpt;
+
   return {
-    title: `${post.title} | Salasar Hardware Guide`,
-    description: post.excerpt,
+    title: cleanTitle,
+    description: cleanDesc,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },

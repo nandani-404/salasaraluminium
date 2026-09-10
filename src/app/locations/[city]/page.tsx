@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   if (!city) return {};
 
   return {
-    title: `Aluminium Hardware Shop in ${city.name} | Door & Glass Fittings`,
-    description: `Wholesale aluminium hardware in ${city.name}: door kits, locks, hinges, rollers & glass fittings. 86 trade SKUs, fast dispatch from our Raipur hub. Call +91 8007443071.`,
+    title: `Aluminium Hardware Supplier ${city.name}`,
+    description: `Wholesale aluminium hardware in ${city.name}: door kits, locks, hinges, rollers & glass fittings. 86 SKUs, fast dispatch from Raipur hub. Call today.`,
     alternates: {
       canonical: `/locations/${city.slug}`,
     },

@@ -6,8 +6,8 @@ import { Metadata } from 'next';
 import { BLOG_POSTS } from '@/lib/data';
 
 export const metadata: Metadata = {
-  title: 'Hardware Resources & Technical Guides | Salasar Aluminium',
-  description: 'Trade buyer guides for aluminium door kits, door closer selection, shower hinge types, and wholesale hardware distribution in Raipur & Chhattisgarh.',
+  title: 'Hardware Guides & Technical Specs',
+  description: 'Trade buyer guides for aluminium door kits, door closers, shower hinges, and wholesale hardware distribution in Raipur, Chhattisgarh.',
   alternates: {
     canonical: '/blog',
   },
