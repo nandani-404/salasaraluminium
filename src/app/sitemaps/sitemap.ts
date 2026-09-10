@@ -62,25 +62,24 @@ export default async function sitemap(props: {
   // Chunk 0 includes core static website pages alongside the first batch
   if (resolvedId === 0) {
     const corePages = [
-      { u: '', p: 1.0, f: 'weekly' as const, img: '/logo.png' },
-      { u: '/products', p: 0.9, f: 'weekly' as const, img: '/cat-rollers.png' },
-      { u: '/contact', p: 0.9, f: 'monthly' as const, img: '/salasar-store-main.png' },
-      { u: '/wholesale', p: 0.9, f: 'weekly' as const, img: '/wholesale-hub.png' },
-      { u: '/locations', p: 0.8, f: 'weekly' as const, img: '/trade-warehouse.png' },
-      { u: '/industries-we-serve', p: 0.7, f: 'monthly' as const, img: '/hardware-showcase-bg.png' },
-      { u: '/about', p: 0.6, f: 'monthly' as const, img: '/salasar-storefront.png' },
-      { u: '/why-choose-us', p: 0.6, f: 'monthly' as const, img: '/fabricator-workshop.jpg' },
+      { u: '', p: 1.0, f: 'weekly' as const },
+      { u: '/products', p: 0.9, f: 'weekly' as const },
+      { u: '/contact', p: 0.9, f: 'monthly' as const },
+      { u: '/wholesale', p: 0.9, f: 'weekly' as const },
+      { u: '/locations', p: 0.8, f: 'weekly' as const },
+      { u: '/industries-we-serve', p: 0.7, f: 'monthly' as const },
+      { u: '/about', p: 0.6, f: 'monthly' as const },
+      { u: '/why-choose-us', p: 0.6, f: 'monthly' as const },
       { u: '/faq', p: 0.6, f: 'monthly' as const },
       { u: '/blog', p: 0.7, f: 'weekly' as const },
       { u: '/llms.txt', p: 0.5, f: 'monthly' as const },
     ];
 
-    const staticEntries = corePages.map(({ u, p, f, img }) => ({
+    const staticEntries = corePages.map(({ u, p, f }) => ({
       url: escapeXmlUrl(`${BASE_URL}${u}`),
       lastModified: currentDate,
       changeFrequency: f,
       priority: p,
-      images: img ? [escapeXmlUrl(`${BASE_URL}${img}`)] : undefined,
     }));
 
     const cityPages = TIER1_CITIES.map((city) => ({
@@ -88,7 +87,6 @@ export default async function sitemap(props: {
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
-      images: [escapeXmlUrl(`${BASE_URL}/trade-warehouse.png`)],
     }));
 
     const productPages = products.map((p) => ({
@@ -96,7 +94,6 @@ export default async function sitemap(props: {
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
-      images: p.images.map((img) => escapeXmlUrl(img.startsWith('http') ? img : `${BASE_URL}${img.startsWith('/') ? '' : '/'}${img}`)),
     }));
 
     return [...staticEntries, ...cityPages, ...productPages, ...pseoEntries];
