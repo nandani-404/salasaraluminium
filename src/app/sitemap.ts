@@ -16,21 +16,24 @@ export async function generateSitemaps() {
   return sitemaps;
 }
 
+function escapeXmlUrl(url: string): string {
+  if (!url) return '';
+  return url
+    .replace(/&(?!(amp|lt|gt|quot|apos);)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 export default async function sitemap(props: {
-  id: Promise<{ id: string }> | { id: string } | string;
+  id?: Promise<{ id: string } | string> | { id: string } | string;
 }): Promise<MetadataRoute.Sitemap> {
-  // Resolve id safely across Next.js versions
+  // Resolve id safely across Next.js 16+ (which passes Promise<string>) and legacy versions
   let resolvedId = 0;
-  if (props && props.id) {
-    const rawId = props.id;
-    if (typeof rawId === 'object' && rawId !== null) {
-      if ('then' in rawId) {
-        const awaited = await rawId;
-        resolvedId = Number(awaited.id);
-      } else if ('id' in rawId) {
-        resolvedId = Number(rawId.id);
-      }
-    } else if (typeof rawId === 'string' || typeof rawId === 'number') {
+  if (props && props.id !== undefined) {
+    const rawId = await props.id;
+    if (typeof rawId === 'object' && rawId !== null && 'id' in rawId) {
+      resolvedId = Number((rawId as { id: string }).id);
+    } else {
       resolvedId = Number(rawId);
     }
   }
@@ -49,7 +52,7 @@ export default async function sitemap(props: {
   for (let i = startIndex; i < endIndex; i++) {
     const combo = getCombinationByIndex(i);
     pseoEntries.push({
-      url: `${BASE_URL}/supplier/${combo.location.slug}/${combo.product.slug}`,
+      url: escapeXmlUrl(`${BASE_URL}/supplier/${combo.location.slug}/${combo.product.slug}`),
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
@@ -73,27 +76,27 @@ export default async function sitemap(props: {
     ];
 
     const staticEntries = corePages.map(({ u, p, f, img }) => ({
-      url: `${BASE_URL}${u}`,
+      url: escapeXmlUrl(`${BASE_URL}${u}`),
       lastModified: currentDate,
       changeFrequency: f,
       priority: p,
-      images: img ? [`${BASE_URL}${img}`] : undefined,
+      images: img ? [escapeXmlUrl(`${BASE_URL}${img}`)] : undefined,
     }));
 
     const cityPages = TIER1_CITIES.map((city) => ({
-      url: `${BASE_URL}/locations/${city}`,
+      url: escapeXmlUrl(`${BASE_URL}/locations/${city}`),
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
-      images: [`${BASE_URL}/trade-warehouse.png`],
+      images: [escapeXmlUrl(`${BASE_URL}/trade-warehouse.png`)],
     }));
 
     const productPages = products.map((p) => ({
-      url: `${BASE_URL}/product/${p.slug}`,
+      url: escapeXmlUrl(`${BASE_URL}/product/${p.slug}`),
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
-      images: p.images.map((img) => (img.startsWith('http') ? img : `${BASE_URL}${img.startsWith('/') ? '' : '/'}${img}`)),
+      images: p.images.map((img) => escapeXmlUrl(img.startsWith('http') ? img : `${BASE_URL}${img.startsWith('/') ? '' : '/'}${img}`)),
     }));
 
     return [...staticEntries, ...cityPages, ...productPages, ...pseoEntries];
