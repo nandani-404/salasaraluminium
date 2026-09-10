@@ -7,7 +7,7 @@ const TIER1_CITIES = ['raipur', 'bhilai', 'durg', 'bilaspur', 'korba', 'rajnandg
 const CHUNK_SIZE = 45000; // 45,000 URLs per chunk ensures every sitemap stays strictly under Google's 50,000 limit
 const TOTAL_CHUNKS = Math.ceil(TOTAL_PSEO_COMBINATIONS / CHUNK_SIZE);
 
-// Next.js App Router API: generateSitemaps creates a Sitemap Index at /sitemap.xml
+// Next.js App Router API: generateSitemaps creates chunked sitemaps at /sitemaps/[id].xml
 export async function generateSitemaps() {
   const sitemaps = [];
   for (let i = 0; i < TOTAL_CHUNKS; i++) {
@@ -45,7 +45,7 @@ export default async function sitemap(props: {
   const startIndex = resolvedId * CHUNK_SIZE;
   const endIndex = Math.min(startIndex + CHUNK_SIZE, TOTAL_PSEO_COMBINATIONS);
 
-  // Generate 50,000 pSEO entries deterministically for this chunk
+  // Generate 45,000 pSEO entries deterministically for this chunk
   const pseoEntries: MetadataRoute.Sitemap = [];
   const currentDate = new Date();
 
