@@ -1,8 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { X, ChevronRight, CheckCircle2, ShieldCheck, Sparkles, ZoomIn } from 'lucide-react';
+import Link from 'next/link';
+import { X, ChevronRight, CheckCircle2, ShieldCheck, Sparkles, ZoomIn, ArrowLeft } from 'lucide-react';
 import { SAHProduct } from '@/lib/sahData';
 import { Product } from '@/lib/data/products';
 
@@ -13,7 +15,38 @@ interface QuickViewModalProps {
 }
 
 export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalProps) {
-  if (!product) return null;
+  // Declare all hooks at top level unconditionally (React Rules of Hooks)
+  const [mounted, setMounted] = useState(false);
+  const [selectedFinish, setSelectedFinish] = useState<string>('');
+  const [selectedSize, setSelectedSize] = useState<string>('');
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [lensPos, setLensPos] = useState({ x: 50, y: 50 });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (product) {
+      document.body.style.overflow = 'hidden';
+      const finishes = 'finishes' in product && product.finishes ? product.finishes : ('finish' in product && product.finish ? [product.finish] : []);
+      const sizes = ('sizes' in product && product.sizes) ? product.sizes : [];
+      setSelectedFinish(finishes[0] || '');
+      setSelectedSize(sizes[0] || '');
+      setIsZoomed(false);
+    } else {
+      document.body.style.overflow = '';
+      setSelectedFinish('');
+      setSelectedSize('');
+      setIsZoomed(false);
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [product]);
+
+  // Early return ONLY after all hooks have been declared and initialized
+  if (!mounted || !product) return null;
 
   const image = 'image' in product ? product.image : product.images[0];
   const saCode = 'saCode' in product ? product.saCode : product.sku;
@@ -23,12 +56,8 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
   const sizes = ('sizes' in product && product.sizes) ? product.sizes : [];
   const variants = ('variants' in product && product.variants) ? product.variants : [];
 
-  const [selectedFinish, setSelectedFinish] = useState<string>(finishes[0] || '');
-  const [selectedSize, setSelectedSize] = useState<string>(sizes[0] || '');
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [lensPos, setLensPos] = useState({ x: 50, y: 50 });
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
     const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
@@ -48,24 +77,58 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
     return 'bg-slate-200 border-slate-300';
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/70 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-4xl bg-white border border-slate-200 rounded-3xl shadow-2xl p-5 sm:p-8 overflow-hidden max-h-[92vh] overflow-y-auto">
+  const isDesktopZoom = isZoomed && typeof window !== 'undefined' && window.innerWidth >= 1024;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[99999] flex items-end sm:items-center justify-center p-0 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
+      {/* Backdrop Tap to Close */}
+      <div 
+        className="fixed inset-0 bg-transparent -z-10"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+      <div className="relative w-full h-full sm:h-auto sm:max-h-[92vh] max-w-4xl bg-white border-0 sm:border border-slate-200 rounded-none sm:rounded-3xl shadow-2xl p-4 sm:p-8 overflow-y-auto pb-28 sm:pb-8 flex flex-col justify-between">
         
-        {/* Close Button */}
+        {/* Mobile Top Navigation Header Bar */}
+        <div className="flex sm:hidden items-center justify-between border-b border-slate-100 pb-3 mb-3 sticky top-0 bg-white/95 backdrop-blur-md z-40 -mx-4 px-4 pt-1">
+          <button
+            onClick={onClose}
+            className="flex items-center space-x-1.5 text-xs font-bold text-[#0B1F3A] bg-slate-100 px-3 py-1.5 rounded-xl active:scale-95 transition-transform"
+          >
+            <ArrowLeft className="w-4 h-4 text-[#0B1F3A]" />
+            <span>Back to Products</span>
+          </button>
+          
+          <span className="text-xs font-mono font-bold bg-[#0B1F3A] text-[#D4AF37] px-2.5 py-1 rounded-md">
+            {saCode}
+          </span>
+
+          <button
+            onClick={onClose}
+            className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#0B1F3A]"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Desktop Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-40 w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 flex items-center justify-center text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition-all cursor-pointer shadow-xs"
+          className="hidden sm:flex absolute top-4 right-4 z-40 w-10 h-10 rounded-full bg-slate-100/80 border border-slate-200 items-center justify-center text-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition-all cursor-pointer shadow-xs"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch relative">
           
           {/* Left Column: Product Image with Blue Hover Lens Box */}
           <div 
-            className="lg:col-span-6 relative aspect-square w-full bg-[#F8FAFC] border border-slate-200 rounded-2xl overflow-hidden group flex items-center justify-center cursor-crosshair select-none"
-            onMouseEnter={() => setIsZoomed(true)}
+            className="lg:col-span-6 relative aspect-square w-full bg-[#F8FAFC] border border-slate-200 rounded-2xl overflow-hidden group flex items-center justify-center select-none"
+            onMouseEnter={() => {
+              if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
+                setIsZoomed(true);
+              }
+            }}
             onMouseLeave={() => setIsZoomed(false)}
             onMouseMove={handleMouseMove}
           >
@@ -79,8 +142,8 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                 suppressHydrationWarning
               />
 
-              {/* Amazon / Flipkart Style Semi-Transparent Lens Box */}
-              {isZoomed && (
+              {/* Amazon / Flipkart Style Semi-Transparent Lens Box (Desktop only) */}
+              {isDesktopZoom && (
                 <div 
                   className="absolute pointer-events-none border-2 border-[#0B1F3A] bg-[#0B1F3A]/25 rounded-lg shadow-sm z-20 transition-all duration-75"
                   style={{
@@ -94,17 +157,17 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
             </div>
 
             {/* SKU Badge */}
-            <div className="absolute top-4 left-4 bg-[#0B1F3A] text-[#D4AF37] text-xs font-mono font-bold px-3 py-1.5 rounded-lg shadow-md border border-[#D4AF37]/30 flex items-center space-x-1.5 pointer-events-none z-10">
+            <div className="hidden sm:flex absolute top-4 left-4 bg-[#0B1F3A] text-[#D4AF37] text-xs font-mono font-bold px-3 py-1.5 rounded-lg shadow-md border border-[#D4AF37]/30 items-center space-x-1.5 pointer-events-none z-10">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>{saCode}</span>
             </div>
           </div>
 
           {/* Right Column Container */}
-          <div className="lg:col-span-6 relative min-h-[380px] flex flex-col justify-between">
+          <div className="lg:col-span-6 relative min-h-[340px] flex flex-col justify-between">
             
-            {/* Amazon-Style Separate Large Zoom Window Box (Replaces details when hovering over image) */}
-            {isZoomed ? (
+            {/* Desktop Zoom Window Box */}
+            {isDesktopZoom ? (
               <div className="absolute inset-0 z-30 bg-white border-2 border-[#0B1F3A] rounded-2xl overflow-hidden shadow-2xl p-2 flex flex-col items-center justify-center animate-fadeIn">
                 <div className="absolute top-3 left-3 bg-[#0B1F3A] text-[#D4AF37] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md z-10 shadow-xs flex items-center space-x-1">
                   <ZoomIn className="w-3 h-3 text-[#D4AF37]" />
@@ -127,7 +190,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                 </div>
               </div>
             ) : (
-              /* Product Details Section (Shown when not zooming) */
+              /* Product Details Section */
               <div className="flex flex-col justify-between h-full space-y-4">
                 <div className="space-y-4">
                   
@@ -135,7 +198,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                     <span className="text-[11px] font-bold text-[#B8860B] uppercase tracking-wider block mb-1">
                       {categoryName}
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-black text-[#0B1F3A] tracking-tight leading-snug">
+                    <h2 className="text-xl sm:text-3xl font-black text-[#0B1F3A] tracking-tight leading-snug">
                       {product.name}
                     </h2>
                   </div>
@@ -239,18 +302,31 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-2">
+                <div className="pt-2 sm:pt-4 space-y-2">
                   <button
                     type="button"
                     onClick={() => {
                       onClose();
                       onEnquire?.(saCode);
                     }}
-                    className="w-full py-3.5 bg-[#0B1F3A] hover:bg-[#1E293B] active:scale-98 text-white text-xs font-extrabold uppercase tracking-wider rounded-2xl transition-all duration-200 shadow-lg flex items-center justify-center space-x-2 cursor-pointer group"
+                    className="w-full py-3.5 bg-[#0B1F3A] hover:bg-[#1E293B] active:scale-98 text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-2xl transition-all duration-200 shadow-lg flex items-center justify-center space-x-2 cursor-pointer group"
                   >
                     <span>Enquire SKU {saCode} {selectedFinish ? `(${selectedFinish})` : ''}</span>
                     <ChevronRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
                   </button>
+
+                  <Link
+                    href={`/product/${
+                      'slug' in product && product.slug
+                        ? product.slug
+                        : `${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}-${('saCode' in product ? product.saCode : product.sku).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+                    }`}
+                    onClick={onClose}
+                    className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center space-x-1.5"
+                  >
+                    <span>View Full Product Details & Specs</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-[#B8860B]" />
+                  </Link>
                 </div>
 
               </div>
@@ -261,8 +337,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
-
-

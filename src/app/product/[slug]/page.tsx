@@ -1,7 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getProductBySlug, getRelatedProducts, products } from '@/lib/data/products';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { SpecsTable } from '@/components/product/SpecsTable';
 import { FaqAccordion } from '@/components/product/FaqAccordion';
@@ -9,6 +8,11 @@ import { ProductCard } from '@/components/product/ProductCard';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Badge } from '@/components/ui/Badge';
 import { generateProductSchema, generateFaqSchema } from '@/lib/seo/schema';
+import {
+  findProductByAnySlug,
+  getAllProductStaticSlugs,
+  getRelatedProductsUniversal,
+} from '@/lib/productAdapter';
 import ProductDetailActions from './ProductDetailActions';
 
 interface ProductPageProps {
@@ -18,16 +22,18 @@ interface ProductPageProps {
 }
 
 export async function generateStaticParams() {
-  return products.map((p) => ({
-    slug: p.slug,
+  const slugs = getAllProductStaticSlugs();
+  return slugs.map((slug) => ({
+    slug,
   }));
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const product = getProductBySlug(resolvedParams.slug);
+  const match = findProductByAnySlug(resolvedParams.slug);
 
-  if (!product) return {};
+  if (!match) return {};
+  const product = match.product;
 
   const baseUrl = 'https://www.salasaraluminium.shop';
   const imageUrls = product.images.map((img) =>
@@ -43,12 +49,12 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     title,
     description,
     alternates: {
-      canonical: `/product/${product.slug}`,
+      canonical: `/product/${match.canonicalSlug}`,
     },
     openGraph: {
       title: product.name,
       description: product.shortDescription,
-      url: `${baseUrl}/product/${product.slug}`,
+      url: `${baseUrl}/product/${match.canonicalSlug}`,
       siteName: 'Salasar Aluminium & Hardware',
       images: imageUrls.map((url) => ({
         url,
@@ -66,21 +72,24 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const resolvedParams = await params;
-  const product = getProductBySlug(resolvedParams.slug);
+  const match = findProductByAnySlug(resolvedParams.slug);
 
-  if (!product) {
+  if (!match) {
     notFound();
   }
 
-  const related = getRelatedProducts(product);
+  const product = match.product;
+  const related = getRelatedProductsUniversal(product);
   const productSchema = generateProductSchema(product);
   const faqSchema = generateFaqSchema(product.faqs);
 
   const breadcrumbs = [
-    { label: `${product.segment.toUpperCase()} SEGMENT`, href: `/${product.segment}` },
-    { label: product.category, href: `/${product.segment}/${product.categorySlug}` },
+    { label: 'HOME', href: '/' },
+    { label: 'PRODUCTS', href: '/products' },
+    { label: product.category.toUpperCase(), href: `/products/${product.categorySlug}` },
     { label: product.name },
   ];
+
 
   return (
     <div className="container-luxury py-10 space-y-16">

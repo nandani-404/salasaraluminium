@@ -4,6 +4,7 @@ import { BLOG_POSTS } from '@/lib/data';
 import { products } from '@/lib/data/products';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
 import { getCombinationByIndex } from '@/lib/data/pseoData';
+import { getSAHProductSlug } from '@/lib/productAdapter';
 
 // Top High-Intent Trade Cities in Chhattisgarh & Central India
 const TOP_TRADE_CITIES = [
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === '' ? 1.0 : 0.8,
   }));
 
-  // 2. Hardware Category Hubs (10 URLs)
+  // 2. Hardware Category Hubs (12 URLs)
   const categoryPages = SAH_CATEGORIES.map((cat) => ({
     url: `${BASE_URL}/products/${cat.slug}`,
     lastModified: currentDate,
@@ -51,13 +52,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // 5. Full Catalogue Hardware Items (86 URLs)
+  // 5. Full Catalogue Hardware Items (86 URLs with canonical SEO slugs)
   const catalogueProductPages = FULL_CATALOGUE_PRODUCTS.map((p) => ({
-    url: `${BASE_URL}/product/${p.id}`,
+    url: `${BASE_URL}/product/${getSAHProductSlug(p)}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
+
 
   // 6. Blog Technical Guides (8 URLs)
   const blogPages = BLOG_POSTS.map((post) => ({

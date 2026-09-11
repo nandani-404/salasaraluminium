@@ -108,6 +108,17 @@ export default function EnquiryModal() {
     }
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const handleClose = () => {
     setIsSuccess(false);
     setSubmittedLeadId('');
@@ -118,32 +129,28 @@ export default function EnquiryModal() {
   if (!isOpen) return null;
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        {/* Minimal Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={handleClose}
-          className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs"
-        />
+    <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
+      {/* Minimal Backdrop */}
+      <div
+        onClick={handleClose}
+        className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs cursor-pointer"
+      />
 
-        {/* Minimal Classic Modal Box */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.98, y: 10 }}
-          className="relative w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden z-10 my-6 font-sans text-slate-900"
-        >
-          {/* Close Button */}
+      {/* Minimal Classic Modal Box */}
+      <div className="relative w-full h-full sm:h-auto max-h-full sm:max-h-[90vh] max-w-2xl bg-white rounded-none sm:rounded-2xl shadow-2xl border-0 sm:border border-slate-200 overflow-y-auto z-10 my-0 sm:my-auto font-sans text-slate-900 pb-20 sm:pb-0">
+        {/* Mobile Sticky Close Bar & Desktop Close Button */}
+        <div className="sticky top-0 right-0 z-30 bg-white/95 backdrop-blur-md border-b sm:border-b-0 border-slate-100 p-3 sm:p-0 flex justify-between sm:block items-center">
+          <span className="sm:hidden text-xs font-bold text-[#0B1F3A] uppercase tracking-wider">
+            Wholesale Quote Request
+          </span>
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+            className="sm:absolute sm:top-4 sm:right-4 z-20 w-8 h-8 rounded-full bg-slate-100/90 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer shadow-2xs"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
           </button>
+        </div>
 
           {/* Top Classic Product Header Card with Image Preview */}
           <div className="bg-slate-50 p-5 sm:p-6 border-b border-slate-200/80 flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-5">
@@ -405,10 +412,9 @@ export default function EnquiryModal() {
               </form>
             )}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </AnimatePresence>
-  );
+    );
 }
 
 

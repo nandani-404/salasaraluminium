@@ -32,17 +32,50 @@ export default function ProductsClient() {
   }, [searchParams]);
 
   React.useEffect(() => {
+    const handlePopState = () => {
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      if (pathParts.length >= 2 && pathParts[0] === 'products') {
+        const slug = pathParts[1];
+        const match = FULL_CATALOGUE_PRODUCTS.find((p) => {
+          const nameSlug = p.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '');
+          const saCodeSlug = p.saCode.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          return `${nameSlug}-${saCodeSlug}` === slug || p.saCode.toLowerCase() === slug;
+        });
+        setQuickViewProduct(match || null);
+      } else {
+        setQuickViewProduct(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    handlePopState();
+
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  React.useEffect(() => {
     if (quickViewProduct) {
       const nameSlug = quickViewProduct.name
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
       const saCodeSlug = quickViewProduct.saCode.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-      window.history.pushState(null, '', `/products/${nameSlug}-${saCodeSlug}`);
+      const targetUrl = `/products/${nameSlug}-${saCodeSlug}`;
+      if (window.location.pathname !== targetUrl) {
+        window.history.pushState({ quickView: true }, '', targetUrl);
+      }
     } else if (selectedCategory !== 'all') {
-      window.history.pushState(null, '', `/products?category=${selectedCategory}`);
+      const targetUrl = `/products?category=${selectedCategory}`;
+      if (window.location.search !== `?category=${selectedCategory}`) {
+        window.history.pushState(null, '', targetUrl);
+      }
     } else {
-      window.history.pushState(null, '', '/products');
+      if (window.location.pathname !== '/products') {
+        window.history.pushState(null, '', '/products');
+      }
     }
   }, [quickViewProduct, selectedCategory]);
 
@@ -319,15 +352,17 @@ function ProductCard({
 
       <div className="p-4 pt-0 grid grid-cols-2 gap-2">
         <button
+          type="button"
           onClick={onQuickView}
-          className="py-2.5 bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer"
+          className="py-2.5 bg-[#F8FAFC] hover:bg-[#F1F5F9] active:bg-[#E2E8F0] active:scale-95 border border-[#E2E8F0] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer select-none"
         >
           View Info
         </button>
 
         <button
+          type="button"
           onClick={onEnquire}
-          className="py-2.5 bg-[#0B1F3A] hover:bg-[#1E293B] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center space-x-1 cursor-pointer shadow-2xs group/btn"
+          className="py-2.5 bg-[#0B1F3A] hover:bg-[#1E293B] active:bg-[#020617] active:scale-95 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center space-x-1 cursor-pointer shadow-2xs group/btn select-none"
         >
           <span>Enquire</span>
           <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover/btn:translate-x-0.5 transition-transform" />

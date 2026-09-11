@@ -20,11 +20,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-xl border border-[#E5E3DC] overflow-hidden hover:border-[#B08D57]/60 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+      className="bg-white rounded-2xl border border-[#E5E3DC] overflow-hidden hover:border-[#B08D57]/60 shadow-sm hover:shadow-lg active:scale-[0.98] transition-all duration-300 flex flex-col justify-between group"
     >
       <div>
         {/* Product Image */}
-        <div className="relative h-52 overflow-hidden bg-[#FAF9F6]">
+        <div className="relative h-48 sm:h-52 overflow-hidden bg-[#FAF9F6]">
           <Image
             src={product.image}
             alt={product.name}
@@ -32,24 +32,24 @@ export default function ProductCard({ product }: ProductCardProps) {
             height={400}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <div className="absolute top-3 left-3 bg-[#22262A]/80 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded tracking-wide uppercase">
+          <div className="absolute top-3 left-3 bg-[#22262A]/85 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-lg tracking-wide uppercase border border-white/10">
             {product.category}
           </div>
           {product.featured && (
-            <div className="absolute top-3 right-3 bg-[#B08D57] text-white text-[10px] font-bold px-2 py-0.5 rounded tracking-wider uppercase">
+            <div className="absolute top-3 right-3 bg-[#B08D57] text-white text-[9.5px] font-extrabold px-2 py-0.5 rounded-md tracking-wider uppercase shadow-2xs">
               Featured SKU
             </div>
           )}
         </div>
 
         {/* Content Details */}
-        <div className="p-5 space-y-3">
-          <div className="flex items-center space-x-2 text-xs text-gray-500 font-medium">
+        <div className="p-4 sm:p-5 space-y-2.5">
+          <div className="flex items-center space-x-1.5 text-xs text-gray-500 font-medium">
             <Layers className="w-3.5 h-3.5 text-[#B08D57]" />
             <span>{product.subcategory}</span>
           </div>
 
-          <h3 className="text-lg font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors leading-snug">
+          <h3 className="text-base sm:text-lg font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors leading-snug">
             <Link href={`/products/${product.category}/${product.slug}`}>
               {product.name}
             </Link>
@@ -74,10 +74,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Action Footer (No price, Enquire CTA) */}
-      <div className="p-5 pt-0 space-y-2">
+      <div className="p-4 sm:p-5 pt-0 space-y-2">
         <button
           onClick={() => openEnquiryModal({ product: product.name, segment: product.category })}
-          className="w-full py-2.5 bg-[#22262A] text-white text-xs font-semibold uppercase tracking-wider rounded hover:bg-[#B08D57] transition-colors flex items-center justify-center space-x-2"
+          className="w-full py-2.5 bg-[#22262A] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#B08D57] active:scale-95 transition-all flex items-center justify-center space-x-2 shadow-2xs"
         >
           <FileCheck className="w-4 h-4 text-[#B08D57]" />
           <span>Enquire About Profile</span>

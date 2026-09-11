@@ -1,11 +1,31 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, PhoneCall } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  PhoneCall,
+  Home,
+  Package,
+  Building2,
+  Sparkles,
+  Shield,
+  Layers,
+  CheckCircle2,
+  MapPin,
+  HelpCircle,
+  BookOpen,
+  Award,
+  Search,
+} from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS } from '@/lib/sahData';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function Header() {
   const pathname = usePathname();
@@ -13,6 +33,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,20 +47,54 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Close mobile drawer when pathname changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Close mobile drawer if user resizes back to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (pathname?.startsWith('/admin')) {
     return null;
   }
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Products', href: '/products' },
-    { name: 'Industries We Serve', href: '/industries-we-serve' },
-    { name: 'Why Choose Us', href: '/why-choose-us' },
-    { name: 'Wholesale', href: '/wholesale' },
-    { name: 'Locations', href: '/locations' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+  const primaryPhone = SAH_BUSINESS_DETAILS.contactPersons[0]?.phoneNumbers[0] || '+918007443071';
+  const cleanPhone = primaryPhone.replace(/\D/g, '');
+
+  const allMobilePages = [
+    { name: 'Home', href: '/', icon: Home, desc: 'Overview & B2B trade hub' },
+    { name: 'All Products (86 SKUs)', href: '/products', icon: Package, badge: '86 SKUs', desc: 'Standardized profiles & hardware' },
+    { name: 'Wholesale Trade Supply', href: '/wholesale', icon: Building2, badge: 'B2B', desc: 'Factory pricing & bulk rates' },
+    { name: 'Finishes & Colors', href: '/finishes', icon: Sparkles, badge: 'Finishes', desc: 'Anodized, CP & powder coating' },
+    { name: 'Architectural Projects', href: '/projects', icon: Shield, badge: 'Projects', desc: 'Commercial & site installations' },
+    { name: 'Industries We Serve', href: '/industries-we-serve', icon: Layers, desc: 'Fabricators, builders, dealers' },
+    { name: 'Why Choose Salasar', href: '/why-choose-us', icon: CheckCircle2, desc: 'Raipur warehouse & same-day dispatch' },
+    { name: 'Locations & Branches', href: '/locations', icon: MapPin, desc: 'Finetek Raipur, Bhilai, Durg' },
+    { name: 'Frequently Asked Questions', href: '/faq', icon: HelpCircle, desc: 'MOQ, delivery & pricing answers' },
+    { name: 'Hardware Blog', href: '/blog', icon: BookOpen, desc: 'Technical fabrication guides' },
+    { name: 'About Salasar', href: '/about', icon: Award, desc: 'Company profile & heritage' },
+    { name: 'Contact Order Desk', href: '/contact', icon: PhoneCall, desc: 'Direct trade phone & WhatsApp' },
   ];
 
   return (
@@ -84,8 +143,8 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Center: Navigation Links */}
-        <nav className="hidden xl:flex items-center justify-center space-x-3.5 2xl:space-x-5 px-2">
+        {/* Center: Desktop Navigation Links (Untouched, visible on lg and up) */}
+        <nav className="hidden lg:flex items-center justify-center space-x-2 xl:space-x-3.5 2xl:space-x-5 px-1">
           <Link
             href="/"
             className={`text-[11px] 2xl:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors hover:text-[#0B1F3A] ${
@@ -209,10 +268,10 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Right: Action Buttons */}
-        <div className="hidden xl:flex items-center space-x-2.5 shrink-0">
+        {/* Right: Desktop Action Buttons (visible on lg and up) */}
+        <div className="hidden lg:flex items-center space-x-2 xl:space-x-2.5 shrink-0">
           <a
-            href="tel:+918007443071"
+            href={`tel:${cleanPhone}`}
             title="Click to call Salasar Aluminium Order Desk"
             className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0"
           >
@@ -242,111 +301,228 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle (hidden on xl and up) */}
-        <div className="xl:hidden flex items-center space-x-2">
+        {/* Mobile View Only: Hamburger Toggle & Quote Button (hidden on lg and up) */}
+        <div className="lg:hidden flex items-center space-x-2">
           <button
+            type="button"
             onClick={() => openEnquiryModal()}
-            className="px-3 py-1.5 bg-[#0F172A] text-white text-xs font-bold rounded-lg"
+            className="px-3 py-1.5 bg-[#0F172A] text-[#D4AF37] text-[11px] font-black uppercase tracking-wider rounded-lg active:scale-95 transition-transform border border-[#D4AF37]/30 shadow-2xs cursor-pointer"
           >
-            Enquire
+            Quote
           </button>
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 text-[#0B1F3A] focus:outline-none"
-            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#0B1F3A] pointer-events-none" /> : <Menu className="w-5 h-5 text-[#0B1F3A] pointer-events-none" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu Overlay & Drawer */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#0B1F3A]/70 backdrop-blur-xs xl:hidden flex flex-col justify-end sm:justify-start">
-          <div className="w-full bg-white h-[90vh] sm:h-full max-w-md ml-auto flex flex-col shadow-2xl overflow-y-auto animate-in slide-in-from-right duration-200">
-            {/* Drawer Top Header */}
-            <div className="p-4 border-b border-[#E2E8F0] flex items-center justify-between bg-[#FAF9F6]">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-[#0B1F3A] rounded-lg flex items-center justify-center p-1 border border-[#D4AF37]">
-                  <span className="text-white text-xs font-black">SAH</span>
+      {/* Mobile App Navigation Drawer via Portal (strictly mobile only, unaffected in desktop) */}
+      {mounted && mobileMenuOpen && createPortal(
+        <div 
+          className="fixed inset-0 z-[99999] bg-slate-950/70 backdrop-blur-sm flex flex-col justify-end lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
+        >
+          {/* Backdrop Tap to Dismiss */}
+          <div
+            className="fixed inset-0 bg-transparent -z-10"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Solid Full-Height Slide-In Drawer */}
+          <div className="relative z-10 w-full h-full sm:h-[95vh] sm:max-w-md sm:ml-auto bg-white flex flex-col sm:rounded-l-2xl shadow-2xl overflow-hidden">
+            {/* Top Brand & Close Bar */}
+            <div className="pt-3 pb-3 px-4 bg-[#0B1F3A] text-white flex items-center justify-between border-b border-[#D4AF37]/30 shrink-0">
+              <div className="flex items-center space-x-2.5">
+                <div className="w-8 h-8 bg-[#1E293B] rounded-lg flex items-center justify-center border border-[#D4AF37] shrink-0">
+                  <span className="text-[#D4AF37] text-xs font-black tracking-wider">SAH</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-serif font-black text-sm text-[#0B1F3A]">SALASAR</span>
-                  <span className="text-[7px] text-[#B8860B] uppercase font-bold tracking-wider">Aluminium & Hardware</span>
+                  <span className="font-serif font-black text-sm text-white tracking-wide leading-tight">
+                    SALASAR ALUMINIUM
+                  </span>
+                  <div className="flex items-center space-x-1.5 mt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[9px] text-[#D4AF37] font-extrabold uppercase tracking-wider">
+                      Raipur Hub • 9 AM - 9 PM
+                    </span>
+                  </div>
                 </div>
               </div>
+
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-[#0B1F3A] rounded-lg hover:bg-gray-100 transition-colors"
+                className="p-2 text-white bg-white/10 hover:bg-white/20 active:scale-90 rounded-xl transition-all cursor-pointer"
                 aria-label="Close menu"
               >
-                <X className="w-6 h-6" />
+                <X className="w-5 h-5 pointer-events-none" />
               </button>
             </div>
 
-            {/* Nav Items */}
-            <div className="p-4 space-y-1 flex-1 overflow-y-auto">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block px-3 py-1">
-                Navigation Menu
-              </span>
-
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between text-sm font-bold py-3 px-3 rounded-xl transition-all ${
-                    pathname === link.href
-                      ? 'bg-[#0B1F3A] text-white'
-                      : 'text-[#0B1F3A] hover:bg-[#FAF9F6] active:bg-[#F1F5F9]'
-                  }`}
-                >
-                  <span>{link.name}</span>
-                  <ChevronDown className="w-4 h-4 -rotate-90 opacity-60" />
-                </Link>
-              ))}
-
-              <div className="pt-4 border-t border-[#E2E8F0] mt-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block px-3 py-1">
-                  Product Categories
+            {/* Scrollable Nav Area */}
+            <div className="p-4 space-y-4 flex-1 overflow-y-auto overscroll-contain bg-slate-50">
+              {/* Quick Search Shortcut */}
+              <Link
+                href="/products"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-2.5 px-3.5 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs text-slate-600 shadow-2xs hover:border-[#D4AF37] active:scale-98 transition-all"
+              >
+                <div className="flex items-center space-x-2.5">
+                  <Search className="w-4 h-4 text-[#B8860B]" />
+                  <span className="font-medium text-slate-500">Search 86+ Hardware SKUs...</span>
+                </div>
+                <span className="px-2 py-0.5 bg-[#0B1F3A] text-[#D4AF37] text-[9.5px] font-bold rounded-md uppercase">
+                  Browse
                 </span>
-                <div className="grid grid-cols-2 gap-1.5 pt-1">
-                  {SAH_CATEGORIES.slice(0, 6).map((cat) => (
+              </Link>
+
+              {/* All 12 Website Pages */}
+              <div>
+                <div className="flex items-center justify-between px-1 mb-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#B8860B]">
+                    All Website Pages
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-bold">12 Pages</span>
+                </div>
+
+                <div className="space-y-1.5">
+                  {allMobilePages.map((page) => {
+                    const Icon = page.icon;
+                    const isActive = pathname === page.href;
+
+                    return (
+                      <Link
+                        key={page.name}
+                        href={page.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`flex items-center justify-between p-3 rounded-xl border transition-all active:scale-98 ${
+                          isActive
+                            ? 'bg-[#0B1F3A] text-white border-[#0B1F3A] shadow-xs'
+                            : 'bg-white text-[#0B1F3A] border-slate-200 hover:bg-slate-100 hover:border-slate-300 shadow-2xs'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-3 min-w-0">
+                          <div
+                            className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                              isActive ? 'bg-white/15 text-[#D4AF37]' : 'bg-slate-100 text-[#0B1F3A]'
+                            }`}
+                          >
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="flex items-center space-x-2">
+                              <span className="text-xs font-bold truncate">{page.name}</span>
+                              {page.badge && (
+                                <span className={`px-1.5 py-0.5 text-[9px] font-extrabold rounded ${
+                                  isActive ? 'bg-[#D4AF37] text-[#0B1F3A]' : 'bg-[#0B1F3A] text-[#D4AF37]'
+                                }`}>
+                                  {page.badge}
+                                </span>
+                              )}
+                            </div>
+                            <p className={`text-[10px] truncate ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
+                              {page.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        <ChevronRight
+                          className={`w-4 h-4 shrink-0 transition-transform ${
+                            isActive ? 'text-[#D4AF37]' : 'text-slate-400'
+                          }`}
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Product Category Quick Jump Grid */}
+              <div className="pt-2">
+                <div className="flex items-center justify-between px-1 mb-2">
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#B8860B]">
+                    12 Hardware Categories
+                  </span>
+                  <span className="text-[10px] text-slate-400 font-bold">Quick Jump</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {SAH_CATEGORIES.map((cat) => (
                     <Link
                       key={cat.slug}
                       href={`/products#${cat.slug}`}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="p-2.5 bg-[#FAF9F6] border border-[#E8E6E1] rounded-xl text-xs font-semibold text-[#0B1F3A] hover:border-[#D4AF37] transition-all truncate"
+                      className="p-2.5 bg-white border border-slate-200 hover:border-[#D4AF37] rounded-xl flex flex-col justify-between active:scale-95 transition-all shadow-2xs group"
                     >
-                      {cat.name}
+                      <span className="text-xs font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] truncate">
+                        {cat.name}
+                      </span>
+                      <span className="text-[9.5px] text-[#B8860B] font-mono font-bold mt-1">
+                        {cat.codePrefix}
+                      </span>
                     </Link>
                   ))}
                 </div>
               </div>
+
+              {/* Raipur Warehouse Info */}
+              <div className="p-3 bg-white border border-slate-200 rounded-xl space-y-1 text-slate-600 shadow-2xs">
+                <div className="flex items-center space-x-1.5 text-xs font-bold text-[#0B1F3A]">
+                  <MapPin className="w-3.5 h-3.5 text-[#B8860B]" />
+                  <span>Raipur Central Trade Depot</span>
+                </div>
+                <p className="text-[11px] text-slate-500 leading-tight">
+                  Ring Road No. 2, Raipur, Chhattisgarh • Same-Day Dispatch
+                </p>
+              </div>
             </div>
 
-            {/* Drawer Bottom Actions */}
-            <div className="p-4 border-t border-[#E2E8F0] bg-[#FAF9F6] space-y-2">
-              <a
-                href={`tel:${SAH_BUSINESS_DETAILS.contactPersons[0].phoneNumbers[0].replace(/\s/g, '')}`}
-                className="w-full py-3 px-4 bg-[#FAF9F6] border border-[#0B1F3A]/20 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-2"
-              >
-                <PhoneCall className="w-4 h-4 text-[#D4AF37]" />
-                <span>Call Sales Desk: {SAH_BUSINESS_DETAILS.contactPersons[0].phoneNumbers[0]}</span>
-              </a>
+            {/* Bottom Sticky Action Bar */}
+            <div className="p-3.5 border-t border-slate-200 bg-white space-y-2 shrink-0 pb-safe">
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={`tel:${primaryPhone.replace(/\s/g, '')}`}
+                  className="py-2.5 px-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-1.5 active:scale-98 transition-all"
+                >
+                  <PhoneCall className="w-3.5 h-3.5 text-[#B8860B]" />
+                  <span className="truncate">Call Desk</span>
+                </a>
+                <a
+                  href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent('Hello Salasar Aluminium, I would like to inquire about hardware pricing and catalogue.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 px-3 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-1.5 active:scale-98 transition-all"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+                  <span className="truncate">WhatsApp</span>
+                </a>
+              </div>
+
               <button
+                type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openEnquiryModal();
                 }}
-                className="w-full py-3 px-4 bg-[#0B1F3A] text-white text-xs font-bold uppercase tracking-wider rounded-xl text-center shadow-xs active:scale-98 transition-all"
+                className="w-full py-3 px-4 bg-[#0B1F3A] hover:bg-[#1E293B] text-[#D4AF37] text-xs font-black uppercase tracking-wider rounded-xl text-center shadow-md active:scale-98 transition-all cursor-pointer border border-[#D4AF37]/30 flex items-center justify-center space-x-1.5"
               >
-                Request Trade Quote
+                <span>Request Wholesale Trade Quote</span>
+                <ChevronRight className="w-4 h-4 text-[#D4AF37]" />
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );
 }
+

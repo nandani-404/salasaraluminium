@@ -32,7 +32,37 @@ export function EnquiryProvider({ children }: { children: ReactNode }) {
     setIsOpen(false);
     setSelectedProduct(undefined);
     setSelectedSegment(undefined);
+    if (typeof window !== 'undefined' && (window.location.hash === '#enquire' || window.location.hash === '#quote')) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   };
+
+  React.useEffect(() => {
+    const handleCustomEvent = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      openEnquiryModal(customEvent.detail);
+    };
+
+    const handleHash = () => {
+      if (typeof window !== 'undefined' && (window.location.hash === '#enquire' || window.location.hash === '#quote')) {
+        openEnquiryModal();
+      }
+    };
+
+    window.addEventListener('open-enquiry-modal', handleCustomEvent);
+    window.addEventListener('hashchange', handleHash);
+    handleHash();
+
+    // Attach global helper to window for cross-component triggers
+    if (typeof window !== 'undefined') {
+      (window as unknown as { openEnquiryModal?: typeof openEnquiryModal }).openEnquiryModal = openEnquiryModal;
+    }
+
+    return () => {
+      window.removeEventListener('open-enquiry-modal', handleCustomEvent);
+      window.removeEventListener('hashchange', handleHash);
+    };
+  }, []);
 
   return (
     <EnquiryContext.Provider
