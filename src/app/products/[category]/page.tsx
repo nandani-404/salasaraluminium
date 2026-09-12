@@ -44,7 +44,7 @@ export async function generateMetadata({
   if (productMatch) {
     const p = productMatch.product;
     return {
-      title: `${p.name} (${p.sku}) | Salasar Aluminium`,
+      title: `${p.name} (${p.sku})`,
       description: `${p.shortDescription} Wholesale trade supply in Raipur, Chhattisgarh.`,
       alternates: {
         canonical: `/product/${productMatch.canonicalSlug}`,

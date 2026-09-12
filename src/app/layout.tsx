@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: '%s | Salasar Aluminium',
   },
   description:
-    'Direct wholesale supplier of aluminium extrusions, door hardware, locks & fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch. Get a trade quote.',
+    'Direct wholesale supplier of aluminium extrusions, door hardware, locks and fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch.',
   keywords: [
     'aluminium hardware supplier',
     'architectural aluminium extrusions',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Salasar Aluminium & Hardware',
     title: 'Wholesale Aluminium Hardware Supplier Raipur | Salasar',
     description:
-      'Direct wholesale supplier of aluminium extrusions, door hardware, locks & fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch. Get a trade quote.',
+      'Direct wholesale supplier of aluminium extrusions, door hardware, locks and fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch.',
     images: [
       {
         url: 'https://www.salasaraluminium.shop/logo.png',

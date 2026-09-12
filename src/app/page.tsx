@@ -242,44 +242,44 @@ export default function Home() {
                 Empowering fabricators, contractors, and hardware dealers across Chhattisgarh with direct factory-grade architectural aluminium profiles and 86+ standardized trade SKUs.
               </p>
 
-              {/* Trade Key Pillars Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
-                <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors">
-                  <div className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                    <span>Factory Direct Rates</span>
+              {/* Trade Key Pillars Grid - 2x2 on mobile, 2 columns on web */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4 pt-1">
+                <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
+                  <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                    <span className="leading-tight">Factory Direct Rates</span>
                   </div>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
                     Bulk trade rates from our Finetek branch in Raipur.
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors">
-                  <div className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                    <span>Raipur Bulk Stocking</span>
+                <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
+                  <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                    <span className="leading-tight">Raipur Bulk Stocking</span>
                   </div>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
                     Same-day regional dispatch from our Bhaisthan & Lieon Marketing hubs.
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors">
-                  <div className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                    <span>Multi-Finish Extrusions</span>
+                <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
+                  <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                    <span className="leading-tight">Multi-Finish Extrusions</span>
                   </div>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
                     Anodized, powder-coated black, brown & CP finishes across categories.
                   </p>
                 </div>
 
-                <div className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors">
-                  <div className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-                    <span>Custom Trade Orders</span>
+                <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
+                  <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
+                    <span className="leading-tight">Custom Trade Orders</span>
                   </div>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
                     Tailored SKU length cuts & project quote support for sites.
                   </p>
                 </div>

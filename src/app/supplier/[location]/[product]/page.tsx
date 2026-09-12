@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const rawTitle = `Wholesale ${data.product.name} ${data.location.name}`;
   const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
-  const rawDesc = `Wholesale B2B supplier of ${data.product.name} (${data.product.saCode}) in ${data.location.name}. Direct trade pricing for fabricators & builders. Same-day dispatch.`;
-  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
+  const rawDesc = `Wholesale B2B supplier of ${data.product.name} (${data.product.saCode}) in ${data.location.name}. Direct trade pricing for fabricators and builders. Same-day dispatch.`;
+  const description = rawDesc.length > 150 ? `${rawDesc.substring(0, 147)}...` : rawDesc;
   const canonicalUrl = `${BASE_URL}/supplier/${data.location.slug}/${data.product.slug}`;
 
   return {

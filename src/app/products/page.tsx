@@ -4,7 +4,7 @@ import ProductsClient from './ProductsClient';
 
 export const metadata: Metadata = {
   title: 'Aluminium Hardware Catalogue',
-  description: 'Browse 86+ wholesale hardware SKUs: rollers, locks, hinges, door kits, closers, glass fittings & sealants in Raipur, Chhattisgarh. Get direct trade pricing.',
+  description: 'Browse 86+ wholesale hardware SKUs: rollers, locks, hinges, door kits, glass fittings and sealants in Raipur, Chhattisgarh. Direct trade pricing.',
   alternates: {
     canonical: '/products',
   },
