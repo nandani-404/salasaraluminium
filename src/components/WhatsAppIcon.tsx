@@ -3,9 +3,36 @@ import React from 'react';
 interface WhatsAppIconProps {
   className?: string;
   size?: number;
+  original?: boolean;
 }
 
-export default function WhatsAppIcon({ className = 'w-4 h-4', size = 20 }: WhatsAppIconProps) {
+export default function WhatsAppIcon({
+  className = 'w-4 h-4',
+  size = 20,
+  original = false,
+}: WhatsAppIconProps) {
+  if (original) {
+    return (
+      <svg
+        viewBox="0 0 32 32"
+        width={size}
+        height={size}
+        className={className}
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <circle cx="16" cy="16" r="16" fill="#25D366" />
+        <path
+          fill="#FFFFFF"
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M23.5 8.5C21.5 6.5 18.8 5.4 16 5.4C10.2 5.4 5.5 10.1 5.5 15.9C5.5 17.8 6 19.6 6.9 21.2L5.4 26.6L11 25.1C12.5 25.9 14.2 26.4 16 26.4C21.8 26.4 26.5 21.7 26.5 15.9C26.5 13.1 25.4 10.4 23.5 8.5ZM16 24.6C14.4 24.6 12.9 24.2 11.6 23.4L11.3 23.2L8 24.1L8.9 20.9L8.7 20.6C7.8 19.2 7.3 17.6 7.3 15.9C7.3 11.1 11.2 7.2 16 7.2C18.3 7.2 20.5 8.1 22.1 9.7C23.7 11.3 24.7 13.5 24.7 15.9C24.7 20.7 20.8 24.6 16 24.6ZM20.8 18.2C20.5 18.1 19.2 17.4 18.9 17.3C18.7 17.2 18.5 17.2 18.3 17.5C18.1 17.8 17.6 18.4 17.4 18.6C17.3 18.8 17.1 18.8 16.8 18.7C16.5 18.5 15.6 18.2 14.6 17.3C13.8 16.6 13.2 15.7 13.1 15.4C12.9 15.1 13.1 15 13.2 14.8C13.4 14.7 13.5 14.5 13.6 14.3C13.7 14.1 13.8 14 13.9 13.8C14 13.6 13.9 13.4 13.9 13.3C13.8 13.2 13.3 11.9 13.1 11.3C12.9 10.8 12.6 10.8 12.5 10.8C12.3 10.8 12.1 10.8 12 10.8C11.8 10.8 11.5 10.9 11.2 11.2C11 11.4 10.3 12.1 10.3 13.5C10.3 14.9 11.3 16.2 11.5 16.4C11.7 16.6 13.5 19.4 16.2 20.6C16.8 20.9 17.3 21.1 17.7 21.2C18.4 21.4 19 21.4 19.5 21.3C20.1 21.2 21.3 20.6 21.5 19.9C21.7 19.2 21.7 18.6 21.7 18.5C21.6 18.4 21.1 18.3 20.8 18.2Z"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 24 24"
