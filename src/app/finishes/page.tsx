@@ -10,9 +10,9 @@ export default function FinishesPage() {
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF9F6]">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6]">
       {/* Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-[#E5E3DC]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC]">
         <div className="max-w-3xl space-y-3">
           <span className="text-xs font-semibold text-[#B08D57] uppercase tracking-widest">
             Surface Engineering & Anodizing
@@ -30,7 +30,7 @@ export default function FinishesPage() {
       <FinishSwatches />
 
       {/* Technical Comparison Table */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
         <h2 className="text-2xl font-serif font-bold text-[#22262A] mb-6">
           Surface Treatment Technical Comparison Matrix
         </h2>
@@ -61,7 +61,7 @@ export default function FinishesPage() {
       </div>
 
       {/* Custom Finish Request CTA */}
-      <div className="max-w-5xl mx-auto px-4 py-12 text-center bg-[#22262A] text-white rounded-2xl shadow-xl space-y-6">
+      <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12 text-center bg-[#22262A] text-white rounded-2xl shadow-xl space-y-6">
         <span className="text-xs font-semibold text-[#B08D57] uppercase tracking-widest">
           Custom Color Matching
         </span>

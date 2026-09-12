@@ -89,7 +89,7 @@ export default function ProductsClient() {
   });
 
   return (
-    <div className="pt-20 sm:pt-28 pb-16 sm:pb-20 bg-white">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white">
       {/* Pure White Minimal Hero Header */}
       <div className="bg-white border-b border-[#E2E8F0] pt-4 pb-6 sm:pt-8 sm:pb-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 space-y-5 sm:space-y-7">

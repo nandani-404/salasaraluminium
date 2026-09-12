@@ -89,12 +89,12 @@ export default async function CityLocationPage({ params }: { params: Promise<{ c
   ];
 
   return (
-    <div className="pt-24 pb-20 bg-white min-h-screen">
+    <div className="pt-16 sm:pt-24 pb-8 sm:pb-20 bg-white min-h-screen">
       <JsonLd schema={serviceSchema} />
       <JsonLd schema={breadcrumbSchema} />
 
       {/* Hero Header */}
-      <div className="bg-[#0B1F3A] text-white py-16 sm:py-20 relative overflow-hidden">
+      <div className="bg-[#0B1F3A] text-white py-8 sm:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
           <div className="flex items-center space-x-2 text-xs text-slate-300 font-mono">
             <Link href="/locations" className="hover:text-[#D4AF37]">Locations</Link>

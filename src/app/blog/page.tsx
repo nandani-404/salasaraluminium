@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="pt-28 pb-20 bg-white min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
       {/* Header Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-[#E8E6E1]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E8E6E1]">
         <div className="max-w-3xl space-y-3">
           <span className="text-xs font-bold text-[#C9A227] uppercase tracking-widest flex items-center space-x-1">
             <BookOpen className="w-4 h-4 text-[#C9A227]" />
@@ -32,7 +32,7 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12 space-y-8 sm:space-y-16">
         <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-8">
           {BLOG_POSTS.map((post) => (
             <Link

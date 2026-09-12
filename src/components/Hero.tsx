@@ -11,7 +11,7 @@ export default function Hero() {
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex items-center pt-24 pb-24 sm:pt-28 sm:pb-16 overflow-hidden bg-slate-950">
+    <section className="relative min-h-[75vh] sm:min-h-[90vh] lg:min-h-screen flex items-center pt-20 pb-12 sm:pt-28 sm:pb-16 overflow-hidden bg-slate-950">
       {/* Full-width Autoplay Background Video */}
       <div className="absolute inset-0 z-0">
         <video

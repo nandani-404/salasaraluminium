@@ -13,18 +13,18 @@ export default function AboutClient() {
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <div className="pt-28 bg-white">
+    <div className="pt-16 sm:pt-28 bg-white">
       {/* Premium Unique Architectural About Us Section */}
-      <div className="bg-white border-b border-[#E2E8F0] py-14 sm:py-20 relative overflow-hidden">
+      <div className="bg-white border-b border-[#E2E8F0] py-8 sm:py-20 relative overflow-hidden">
         
         {/* Subtle Decorative Background Geometric Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             
-            {/* Left Column: Premium Architectural Narrative */}
-            <div className="lg:col-span-7 space-y-8">
+            {/* Left Column: Premium Architectural Narrative (order-2 on mobile, order-1 on desktop) */}
+            <div className="lg:col-span-7 space-y-6 sm:space-y-8 order-2 lg:order-1">
               
               {/* Badge & Title */}
               <div className="space-y-3">
@@ -125,15 +125,15 @@ export default function AboutClient() {
 
             </div>
 
-            {/* Right Column: Unique Architectural Storefront Frame */}
-            <div className="lg:col-span-5 relative">
+            {/* Right Column: Unique Architectural Storefront Frame (order-1 on mobile, order-2 on desktop) */}
+            <div className="lg:col-span-5 relative order-1 lg:order-2">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
                 {/* Main Card Frame */}
-                <div className="relative rounded-3xl bg-slate-950 border border-[#D4AF37]/40 overflow-hidden p-3 group">
+                <div className="relative rounded-2xl sm:rounded-3xl bg-slate-950 border border-[#D4AF37]/40 overflow-hidden p-2 sm:p-3 group shadow-lg">
                   
                   {/* Storefront Image Container */}
-                  <div className="relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <div className="relative h-[250px] sm:h-[440px] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
                     <Image
                       src="/salasar-store-main.png"
                       alt="Salasar Aluminium & Hardware Storefront"
@@ -206,11 +206,11 @@ export default function AboutClient() {
       </div>
 
       {/* 4 Pillars Section - Minimal & Ultra-Clean */}
-      <div className="bg-white py-14 sm:py-18 border-b border-[#E2E8F0]">
+      <div className="bg-white py-8 sm:py-18 border-b border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header - Centered Minimal Layout */}
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-12 space-y-2 sm:space-y-3">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#B8860B]/10 border border-[#B8860B]/20 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
               <span className="text-xs font-bold text-[#B8860B] uppercase tracking-wider">

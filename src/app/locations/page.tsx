@@ -87,9 +87,9 @@ export const CITIES_DATA = [
 
 export default function LocationsHubPage() {
   return (
-    <div className="pt-28 pb-20 bg-white min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
       {/* Header Banner */}
-      <div className="bg-[#0B1F3A] text-white py-16 sm:py-20 relative overflow-hidden">
+      <div className="bg-[#0B1F3A] text-white py-8 sm:py-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-[#D4AF37]/15 border border-[#D4AF37]/30 rounded-full text-xs font-bold text-[#D4AF37] uppercase tracking-widest">
             <MapPin className="w-3.5 h-3.5" />
@@ -107,7 +107,7 @@ export default function LocationsHubPage() {
       </div>
 
       {/* Cities Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
         <div className="mb-10 space-y-2 border-b border-slate-200 pb-4">
           <h2 className="text-2xl font-extrabold text-[#0B1F3A]">Tier-1 Chhattisgarh Direct Supply Cities</h2>
           <p className="text-xs text-slate-600">Select a city to view local transit times, key trade markets, and popular SKU demand mix.</p>

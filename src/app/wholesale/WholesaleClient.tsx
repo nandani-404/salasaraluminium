@@ -14,9 +14,9 @@ export default function WholesaleClient() {
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <div className="pt-28 pb-20 bg-white min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
       {/* Hero Header */}
-      <div className="bg-slate-950 text-white py-16 sm:py-20 relative overflow-hidden">
+      <div className="bg-slate-950 text-white py-8 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-[#D4AF37]/15 border border-[#D4AF37]/30 rounded-full text-xs font-bold text-[#D4AF37] uppercase tracking-widest">
@@ -50,8 +50,8 @@ export default function WholesaleClient() {
       </div>
 
       {/* Wholesale Trade Pillars */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-8 mb-8 sm:mb-16">
           <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
             <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
               <Factory className="w-6 h-6" />

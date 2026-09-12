@@ -44,11 +44,11 @@ export default async function SegmentPage({ params }: SegmentPageProps) {
   const categories = CATEGORIES.filter((c) => c.segment === segKey);
 
   return (
-    <div className="container-luxury py-10 space-y-12">
+    <div className="container-luxury py-4 sm:py-10 space-y-6 sm:space-y-12">
       <Breadcrumbs items={[{ label: `${seg.label} Segment` }]} />
 
       {/* Segment Hero */}
-      <div className="bg-[#FFFFFF] border border-[#D8D1C4] p-10 md:p-14 space-y-6 shadow-luxury">
+      <div className="bg-[#FFFFFF] border border-[#D8D1C4] p-5 sm:p-10 md:p-14 space-y-4 sm:space-y-6 shadow-luxury">
         <div className="flex items-center gap-3">
           <span className="text-3xl">{seg.icon}</span>
           <span className="eyebrow">{seg.label} Collection</span>

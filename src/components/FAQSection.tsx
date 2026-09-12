@@ -33,7 +33,7 @@ export default function FAQSection({
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-white border-t border-[#E2E8F0] relative overflow-visible" style={{ overflow: 'visible' }}>
+    <section className="py-10 sm:py-24 bg-white border-t border-[#E2E8F0] relative overflow-visible" style={{ overflow: 'visible' }}>
       {/* FAQ Json-LD Schema for SEO */}
       <script
         type="application/ld+json"

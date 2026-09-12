@@ -56,7 +56,7 @@ export default async function ProductDetailPage({
   ]);
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF9F6] min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
       <JsonLd schema={productSchema} />
       <JsonLd schema={breadcrumbSchema} />
 

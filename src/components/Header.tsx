@@ -84,16 +84,13 @@ export default function Header() {
 
   const allMobilePages = [
     { name: 'Home', href: '/', icon: Home, desc: 'Overview & B2B trade hub' },
-    { name: 'All Products (86 SKUs)', href: '/products', icon: Package, badge: '86 SKUs', desc: 'Standardized profiles & hardware' },
-    { name: 'Wholesale Trade Supply', href: '/wholesale', icon: Building2, badge: 'B2B', desc: 'Factory pricing & bulk rates' },
-    { name: 'Finishes & Colors', href: '/finishes', icon: Sparkles, badge: 'Finishes', desc: 'Anodized, CP & powder coating' },
-    { name: 'Architectural Projects', href: '/projects', icon: Shield, badge: 'Projects', desc: 'Commercial & site installations' },
+    { name: 'About Us', href: '/about', icon: Award, desc: 'Company profile & heritage' },
+    { name: 'Products (86 SKUs)', href: '/products', icon: Package, badge: '86 SKUs', desc: 'Standardized profiles & hardware' },
     { name: 'Industries We Serve', href: '/industries-we-serve', icon: Layers, desc: 'Fabricators, builders, dealers' },
     { name: 'Why Choose Salasar', href: '/why-choose-us', icon: CheckCircle2, desc: 'Raipur warehouse & same-day dispatch' },
+    { name: 'Wholesale Trade', href: '/wholesale', icon: Building2, badge: 'B2B', desc: 'Factory pricing & bulk rates' },
     { name: 'Locations & Branches', href: '/locations', icon: MapPin, desc: 'Finetek Raipur, Bhilai, Durg' },
-    { name: 'Frequently Asked Questions', href: '/faq', icon: HelpCircle, desc: 'MOQ, delivery & pricing answers' },
     { name: 'Hardware Blog', href: '/blog', icon: BookOpen, desc: 'Technical fabrication guides' },
-    { name: 'About Salasar', href: '/about', icon: Award, desc: 'Company profile & heritage' },
     { name: 'Contact Order Desk', href: '/contact', icon: PhoneCall, desc: 'Direct trade phone & WhatsApp' },
   ];
 
@@ -386,13 +383,13 @@ export default function Header() {
                 </span>
               </Link>
 
-              {/* All 12 Website Pages */}
+              {/* Main Navigation Pages */}
               <div>
                 <div className="flex items-center justify-between px-1 mb-2">
                   <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#B8860B]">
-                    All Website Pages
+                    Main Navigation
                   </span>
-                  <span className="text-[10px] text-slate-400 font-bold">12 Pages</span>
+                  <span className="text-[10px] text-slate-400 font-bold">Navbar Pages</span>
                 </div>
 
                 <div className="space-y-1.5">

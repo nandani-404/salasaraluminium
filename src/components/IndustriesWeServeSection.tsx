@@ -174,12 +174,12 @@ export default function IndustriesWeServeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Column: Industry Selector (30%) */}
-          <div className="lg:col-span-4 bg-white rounded-xl border border-[#E2E8F0] p-3 shadow-2xs">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B8860B] block px-3 pt-2 pb-3">
+          <div className="lg:col-span-4 bg-white rounded-xl border border-[#E2E8F0] p-2.5 sm:p-3 shadow-2xs">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B8860B] block px-1.5 sm:px-3 pt-1 pb-2 sm:pb-3">
               SELECT INDUSTRY
             </span>
 
-            <nav role="tablist" aria-label="Industry Sector Selection" className="space-y-1.5">
+            <nav role="tablist" aria-label="Industry Sector Selection" className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible pb-1.5 lg:pb-0 gap-2 lg:gap-0 lg:space-y-1.5 no-scrollbar scroll-smooth">
               {INDUSTRIES_DATA.map((item) => {
                 const isActive = selectedId === item.id;
 
@@ -192,15 +192,15 @@ export default function IndustriesWeServeSection() {
                     aria-selected={isActive}
                     aria-controls={`panel-${item.id}`}
                     onClick={() => setSelectedId(item.id)}
-                    className={`w-full text-left p-3.5 rounded-lg transition-all duration-200 flex items-center justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1F3A] ${
+                    className={`shrink-0 lg:shrink w-auto lg:w-full min-w-[190px] sm:min-w-[240px] lg:min-w-0 text-left p-2.5 sm:p-3.5 rounded-lg transition-all duration-200 flex items-center justify-between group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0B1F3A] ${
                       isActive
                         ? 'bg-[#0B1F3A] text-white shadow-sm'
-                        : 'bg-white hover:bg-[#F8FAFC] text-[#0B1F3A]'
+                        : 'bg-white hover:bg-[#F8FAFC] text-[#0B1F3A] border border-slate-200 lg:border-transparent'
                     }`}
                   >
-                    <div className="flex items-center space-x-3.5 min-w-0">
+                    <div className="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0">
                       {/* Number Badge */}
-                      <span className={`w-8 h-8 rounded-md text-xs font-mono font-bold flex items-center justify-center shrink-0 transition-colors ${
+                      <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-md text-[11px] sm:text-xs font-mono font-bold flex items-center justify-center shrink-0 transition-colors ${
                         isActive
                           ? 'bg-[#D4AF37] text-[#0B1F3A]'
                           : 'bg-[#F1F5F9] text-[#64748B] group-hover:bg-[#E2E8F0]'
@@ -213,13 +213,13 @@ export default function IndustriesWeServeSection() {
                         <span className={`text-xs sm:text-sm font-bold truncate ${isActive ? 'text-white' : 'text-[#0B1F3A]'}`}>
                           {item.name}
                         </span>
-                        <span className={`text-[10px] truncate ${isActive ? 'text-slate-300' : 'text-[#64748B]'}`}>
+                        <span className={`text-[9.5px] sm:text-[10px] truncate ${isActive ? 'text-slate-300' : 'text-[#64748B]'}`}>
                           {item.subtitle}
                         </span>
                       </div>
                     </div>
 
-                    <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${
+                    <ChevronRight className={`hidden lg:block w-4 h-4 shrink-0 transition-transform ${
                       isActive ? 'text-[#D4AF37] translate-x-0.5' : 'text-[#94A3B8] opacity-0 group-hover:opacity-100'
                     }`} />
                   </button>

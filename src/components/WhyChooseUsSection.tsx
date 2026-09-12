@@ -128,13 +128,13 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
   const { openEnquiryModal } = useEnquiry();
 
   return (
-    <section className="bg-white py-16 md:py-24 text-slate-900 border-b border-slate-100 overflow-hidden" id="why-choose-us">
+    <section className="bg-white py-10 sm:py-16 md:py-24 text-slate-900 border-b border-slate-100 overflow-hidden" id="why-choose-us">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================================================== */}
         {/* SECTION HEADER                                     */}
         {/* ================================================== */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-[#0B1F3A] tracking-wider uppercase mb-4">
             <span className="w-2 h-2 rounded-full bg-[#B8860B]"></span>
             WHY CHOOSE US
@@ -148,40 +148,40 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
         </div>
 
         {/* ================================================== */}
-        {/* MAIN BENEFITS (3x2 Grid on Desktop)                */}
+        {/* MAIN BENEFITS (2-cols on mobile, 3x2 on desktop)   */}
         {/* ================================================== */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 mb-12 sm:mb-20">
           {mainBenefits.map((benefit) => {
             const IconComponent = benefit.icon;
             return (
               <div 
                 key={benefit.id}
-                className="group relative bg-white border border-slate-200/95 rounded-xl p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 hover:border-[#B8860B]/40"
+                className="group relative bg-white border border-slate-200/95 rounded-xl p-3.5 sm:p-7 lg:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-slate-200/50 hover:border-[#B8860B]/40 shadow-2xs"
               >
                 <div>
                   {/* Top Bar: Number & Icon */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="text-xs font-bold tracking-widest text-[#B8860B] bg-[#B8860B]/10 border border-[#B8860B]/20 px-3 py-1 rounded-md font-mono">
+                  <div className="flex items-center justify-between mb-3 sm:mb-6">
+                    <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#B8860B] bg-[#B8860B]/10 border border-[#B8860B]/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md font-mono">
                       {benefit.id}
                     </span>
-                    <div className="w-12 h-12 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-[#0B1F3A] transition-colors duration-300 group-hover:bg-[#0B1F3A] group-hover:text-white group-hover:border-[#0B1F3A]">
-                      <IconComponent className="w-6 h-6 stroke-[1.75]" />
+                    <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-[#0B1F3A] transition-colors duration-300 group-hover:bg-[#0B1F3A] group-hover:text-white group-hover:border-[#0B1F3A]">
+                      <IconComponent className="w-4 h-4 sm:w-6 sm:h-6 stroke-[1.75]" />
                     </div>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-lg md:text-xl font-bold text-[#0B1F3A] mb-3 group-hover:text-[#0B1F3A] transition-colors leading-snug">
+                  <h3 className="text-xs sm:text-lg md:text-xl font-bold text-[#0B1F3A] mb-1.5 sm:mb-3 group-hover:text-[#0B1F3A] transition-colors leading-snug line-clamp-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-[#475569] text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                  <p className="text-[#475569] text-[10px] sm:text-xs sm:text-sm leading-relaxed mb-3 sm:mb-6 font-normal line-clamp-3 sm:line-clamp-none">
                     {benefit.description}
                   </p>
                 </div>
 
                 {/* Subtle Visual Indicator / Internal Link */}
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#64748B] group-hover:text-[#0B1F3A] transition-colors">
-                  <span>{benefit.linkText}</span>
-                  <ChevronRight className="w-4 h-4 text-[#B8860B] transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="pt-2 sm:pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-xs font-semibold text-[#64748B] group-hover:text-[#0B1F3A] transition-colors">
+                  <span className="truncate">{benefit.linkText}</span>
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B8860B] transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                 </div>
               </div>
             );
@@ -191,33 +191,33 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
         {/* ================================================== */}
         {/* PROOF / FACTS STRIP ("WHAT SETS US APART")        */}
         {/* ================================================== */}
-        <div className="mb-24">
-          <div className="bg-[#0B1F3A] rounded-2xl p-6 md:p-10 text-white shadow-xl shadow-slate-900/10 border border-slate-800">
-            <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 mb-8 border-b border-slate-700/80 gap-4">
+        <div className="mb-14 sm:mb-24">
+          <div className="bg-[#0B1F3A] rounded-2xl p-5 sm:p-6 md:p-10 text-white shadow-xl shadow-slate-900/10 border border-slate-800">
+            <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 sm:pb-8 mb-5 sm:mb-8 border-b border-slate-700/80 gap-2 sm:gap-4">
               <div>
-                <span className="text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1">
+                <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1">
                   FACTUAL OVERVIEW
                 </span>
-                <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
                   WHAT SETS US APART
                 </h3>
               </div>
-              <p className="text-xs md:text-sm text-slate-300 max-w-md font-normal">
+              <p className="text-[11px] sm:text-xs md:text-sm text-slate-300 max-w-md font-normal">
                 Direct, transparent business parameters structured for quick B2B evaluation and reliable sourcing.
               </p>
             </div>
 
             {/* 5 Compact Factual Items */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 divide-y sm:divide-y-0 divide-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-6 lg:gap-4 divide-y-0">
               {factsData.map((fact, idx) => (
-                <div key={idx} className={`${idx > 0 ? 'pt-4 sm:pt-0' : ''} sm:px-2 first:px-0`}>
-                  <div className="text-[11px] font-bold text-[#B8860B] tracking-wider uppercase mb-1">
+                <div key={idx} className="p-2 sm:px-2 first:px-0">
+                  <div className="text-[10px] sm:text-[11px] font-bold text-[#B8860B] tracking-wider uppercase mb-0.5 sm:mb-1">
                     {fact.label}
                   </div>
-                  <div className="text-sm md:text-base font-bold text-white mb-1 leading-snug">
+                  <div className="text-xs sm:text-sm md:text-base font-bold text-white mb-0.5 sm:mb-1 leading-snug truncate">
                     {fact.value}
                   </div>
-                  <div className="text-xs text-slate-400 font-normal">
+                  <div className="text-[10px] sm:text-xs text-slate-400 font-normal truncate">
                     {fact.subtext}
                   </div>
                 </div>
@@ -229,12 +229,12 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
         {/* ================================================== */}
         {/* HOW WE WORK (4-Step Process)                       */}
         {/* ================================================== */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-2">
+        <div className="mb-12 sm:mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+            <span className="text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1.5 sm:mb-2">
               HOW WE WORK
             </span>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mb-2 sm:mb-3">
               Simple Procurement. Clear Communication.
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-[#475569] leading-relaxed">
@@ -242,13 +242,13 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
             </p>
           </div>
 
-          {/* 4-Step Process Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 relative">
+          {/* 4-Step Process Grid (2-cols on mobile, 4-cols on desktop) */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 relative">
             {processSteps.map((step, idx) => (
-              <div key={step.step} className="relative bg-slate-50 border border-slate-200/90 rounded-xl p-6 lg:p-7 flex flex-col justify-between">
+              <div key={step.step} className="relative bg-slate-50 border border-slate-200/90 rounded-xl p-3.5 sm:p-6 lg:p-7 flex flex-col justify-between">
                 {/* Step Number & Connector */}
-                <div className="flex items-center justify-between mb-5">
-                  <span className="w-10 h-10 rounded-full bg-[#0B1F3A] text-white font-mono font-bold text-sm flex items-center justify-center shadow-md">
+                <div className="flex items-center justify-between mb-3 sm:mb-5">
+                  <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-[#0B1F3A] text-white font-mono font-bold text-xs sm:text-sm flex items-center justify-center shadow-md">
                     {step.step}
                   </span>
                   {idx < processSteps.length - 1 && (
@@ -257,20 +257,13 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-xs sm:text-sm font-bold text-[#0B1F3A] tracking-wider uppercase mb-2">
+                  <h3 className="text-[11px] sm:text-xs sm:text-sm font-bold text-[#0B1F3A] tracking-wider uppercase mb-1 sm:mb-2 leading-tight">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
+                  <p className="text-[10px] sm:text-xs sm:text-sm text-[#475569] leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {step.description}
                   </p>
                 </div>
-
-                {/* Mobile Connecting Arrow */}
-                {idx < processSteps.length - 1 && (
-                  <div className="md:hidden flex justify-center pt-4">
-                    <span className="text-slate-300 font-bold text-lg">↓</span>
-                  </div>
-                )}
               </div>
             ))}
           </div>

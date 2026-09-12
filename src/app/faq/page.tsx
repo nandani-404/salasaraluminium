@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="pt-16 sm:pt-24 min-h-screen bg-white">
       <FAQSection
         title="Aluminium Hardware FAQ — Trade Orders & Delivery"
         subtitle="Everything you need to know about placing wholesale hardware orders, matching SA codes, custom extrusion finishes, and shipping across Chhattisgarh."

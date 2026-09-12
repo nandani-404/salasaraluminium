@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .replace(/^---\s*$/gm, '');
 
   return (
-    <div className="pt-28 pb-24 bg-white min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-24 bg-white min-h-screen">
       <JsonLd schema={articleSchema} />
       <JsonLd schema={faqSchema} />
       <JsonLd schema={breadcrumbSchema} />

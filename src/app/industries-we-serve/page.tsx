@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 
 export default function IndustriesWeServePage() {
   return (
-    <div className="min-h-screen bg-white text-[#0B1F3A] pt-24 pb-20">
+    <div className="min-h-screen bg-white text-[#0B1F3A] pt-16 sm:pt-24 pb-8 sm:pb-20">
       {/* Hero Header Section */}
-      <section className="bg-gradient-to-r from-[#0B1F3A] via-[#1E293B] to-[#0F172A] text-white py-16 sm:py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-r from-[#0B1F3A] via-[#1E293B] to-[#0F172A] text-white py-8 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-10" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -38,7 +38,7 @@ export default function IndustriesWeServePage() {
       </section>
 
       {/* Main Copy & Industries Breakdown */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      <section className="py-8 sm:py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B1F3A] mb-4">

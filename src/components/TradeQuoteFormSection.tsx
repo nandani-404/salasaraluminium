@@ -84,7 +84,7 @@ export default function TradeQuoteFormSection() {
   };
 
   return (
-    <section id="trade-quote" className="py-20 bg-[#F8FAFC] border-t border-[#E2E8F0] scroll-mt-24">
+    <section id="trade-quote" className="py-10 sm:py-20 bg-[#F8FAFC] border-t border-[#E2E8F0] scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           

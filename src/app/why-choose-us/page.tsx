@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function WhyChooseUsPage() {
   return (
-    <main className="min-h-screen bg-white pt-24">
+    <main className="min-h-screen bg-white pt-16 sm:pt-24">
       <WhyChooseUsSection />
       
       {/* Why Choose Us FAQ Block */}

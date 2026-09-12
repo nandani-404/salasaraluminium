@@ -121,12 +121,12 @@ export default async function CategoryPage({
     ]);
 
     return (
-      <div className="pt-28 pb-20 bg-[#FAF9F6] min-h-screen">
+      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
         <JsonLd schema={faqSchema} />
         <JsonLd schema={breadcrumbSchema} />
 
         {/* Category Hero */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-[#E5E3DC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC]">
           <Link
             href="/products"
             className="inline-flex items-center space-x-1.5 text-xs text-gray-500 hover:text-[#22262A] mb-4 font-medium transition-colors"
@@ -136,7 +136,7 @@ export default async function CategoryPage({
           </Link>
 
           <div className="space-y-3 max-w-3xl">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center space-x-3">
               <span className="text-xs font-semibold text-[#B08D57] uppercase tracking-widest">
                 Trade Hardware Category
               </span>
@@ -152,7 +152,7 @@ export default async function CategoryPage({
         </div>
 
         {/* Product List Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {categoryProducts.map((prod) => {
               const canonicalSlug = getSAHProductSlug(prod);
@@ -213,7 +213,7 @@ export default async function CategoryPage({
           </div>
 
           {/* Category FAQ Section */}
-          <div className="mt-20 pt-12 border-t border-[#E5E3DC]">
+          <div className="mt-8 sm:mt-20 pt-6 sm:pt-12 border-t border-[#E5E3DC]">
             <h2 className="text-2xl font-serif font-bold text-[#22262A] mb-6">
               Frequently Asked Questions — {sahCategory.name}
             </h2>
@@ -255,12 +255,12 @@ export default async function CategoryPage({
     ]);
 
     return (
-      <div className="pt-28 pb-20 bg-[#FAF9F6] min-h-screen">
+      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
         <JsonLd schema={faqSchema} />
         <JsonLd schema={breadcrumbSchema} />
 
         {/* Category Hero */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-[#E5E3DC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC]">
           <Link
             href="/products"
             className="inline-flex items-center space-x-1.5 text-xs text-gray-500 hover:text-[#22262A] mb-4 font-medium"
@@ -279,7 +279,7 @@ export default async function CategoryPage({
         </div>
 
         {/* Product List */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {categoryProducts.map((prod) => (
               <ProductCard key={prod.id} product={prod} />
@@ -287,7 +287,7 @@ export default async function CategoryPage({
           </div>
 
           {/* Category FAQ Section */}
-          <div className="mt-20 pt-12 border-t border-[#E5E3DC]">
+          <div className="mt-8 sm:mt-20 pt-6 sm:pt-12 border-t border-[#E5E3DC]">
             <h2 className="text-2xl font-serif font-bold text-[#22262A] mb-6">
               Frequently Asked Questions — {archCategory.name}
             </h2>

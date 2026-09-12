@@ -145,7 +145,7 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <main className="min-h-screen bg-neutral-950 text-neutral-100 pt-28 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-neutral-950 text-neutral-100 pt-16 sm:pt-28 pb-8 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumbs */}
           <nav className="flex items-center gap-2 text-xs text-neutral-400 mb-6 overflow-x-auto no-scrollbar whitespace-nowrap py-1">

@@ -15,8 +15,8 @@ export default function ProjectsPage() {
   );
 
   return (
-    <div className="pt-28 pb-20 bg-[#FAF9F6] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-b border-[#E5E3DC]">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC]">
         <div className="max-w-3xl space-y-3">
           <span className="text-xs font-semibold text-[#B08D57] uppercase tracking-widest">
             Portfolio & Case Studies
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
           {filteredProjects.map((project) => (
             <div

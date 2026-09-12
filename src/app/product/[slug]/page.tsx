@@ -92,7 +92,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
 
   return (
-    <div className="container-luxury py-10 space-y-16">
+    <div className="container-luxury py-4 sm:py-10 space-y-8 sm:space-y-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -105,7 +105,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Main PDP Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
         {/* Left Column: High-Res Image Gallery */}
         <div className="lg:col-span-6">
           <ProductGallery images={product.images} productName={product.name} />
