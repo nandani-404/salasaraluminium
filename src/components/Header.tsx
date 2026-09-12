@@ -10,22 +10,9 @@ import {
   ChevronDown,
   ChevronRight,
   PhoneCall,
-  Home,
-  Package,
-  Building2,
-  Sparkles,
-  Shield,
-  Layers,
-  CheckCircle2,
-  MapPin,
-  HelpCircle,
-  BookOpen,
-  Award,
-  Search,
 } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS } from '@/lib/sahData';
-import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function Header() {
   const pathname = usePathname();
@@ -82,16 +69,17 @@ export default function Header() {
   const primaryPhone = SAH_BUSINESS_DETAILS.contactPersons[0]?.phoneNumbers[0] || '+918007443071';
   const cleanPhone = primaryPhone.replace(/\D/g, '');
 
-  const allMobilePages = [
-    { name: 'Home', href: '/', icon: Home, desc: 'Overview & B2B trade hub' },
-    { name: 'About Us', href: '/about', icon: Award, desc: 'Company profile & heritage' },
-    { name: 'Products (86 SKUs)', href: '/products', icon: Package, badge: '86 SKUs', desc: 'Standardized profiles & hardware' },
-    { name: 'Industries We Serve', href: '/industries-we-serve', icon: Layers, desc: 'Fabricators, builders, dealers' },
-    { name: 'Why Choose Salasar', href: '/why-choose-us', icon: CheckCircle2, desc: 'Raipur warehouse & same-day dispatch' },
-    { name: 'Wholesale Trade', href: '/wholesale', icon: Building2, badge: 'B2B', desc: 'Factory pricing & bulk rates' },
-    { name: 'Locations & Branches', href: '/locations', icon: MapPin, desc: 'Finetek Raipur, Bhilai, Durg' },
-    { name: 'Hardware Blog', href: '/blog', icon: BookOpen, desc: 'Technical fabrication guides' },
-    { name: 'Contact Order Desk', href: '/contact', icon: PhoneCall, desc: 'Direct trade phone & WhatsApp' },
+  // Exact page names and paths matching top navbar on web view
+  const topNavPages = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Products', href: '/products' },
+    { name: 'Industries', href: '/industries-we-serve' },
+    { name: 'Why Us', href: '/why-choose-us' },
+    { name: 'Wholesale', href: '/wholesale' },
+    { name: 'Locations', href: '/locations' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -320,200 +308,74 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile App Navigation Drawer via Portal (strictly mobile only, unaffected in desktop) */}
+      {/* Mobile Small Right-Side Popup Menu via Portal (strictly mobile only, unaffected in desktop) */}
       {mounted && mobileMenuOpen && createPortal(
         <div 
-          className="fixed inset-0 z-[99999] bg-slate-950/70 backdrop-blur-sm flex flex-col justify-end lg:hidden"
+          className="fixed inset-0 z-[99999] lg:hidden"
           role="dialog"
           aria-modal="true"
-          aria-label="Mobile Navigation Menu"
+          aria-label="Navigation Menu"
         >
-          {/* Backdrop Tap to Dismiss */}
+          {/* Dimmed backdrop - tap to close popup */}
           <div
-            className="fixed inset-0 bg-transparent -z-10"
+            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs transition-opacity duration-200"
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
 
-          {/* Solid Full-Height Slide-In Drawer */}
-          <div className="relative z-10 w-full h-full sm:h-[95vh] sm:max-w-md sm:ml-auto bg-white flex flex-col sm:rounded-l-2xl shadow-2xl overflow-hidden">
-            {/* Top Brand & Close Bar */}
-            <div className="pt-3 pb-3 px-4 bg-[#0B1F3A] text-white flex items-center justify-between border-b border-[#D4AF37]/30 shrink-0">
-              <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 bg-[#1E293B] rounded-lg flex items-center justify-center border border-[#D4AF37] shrink-0">
-                  <span className="text-[#D4AF37] text-xs font-black tracking-wider">SAH</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-serif font-black text-sm text-white tracking-wide leading-tight">
-                    SALASAR ALUMINIUM
-                  </span>
-                  <div className="flex items-center space-x-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[9px] text-[#D4AF37] font-extrabold uppercase tracking-wider">
-                      Raipur Hub • 9 AM - 9 PM
-                    </span>
-                  </div>
-                </div>
+          {/* Small Right-Side Popup Menu */}
+          <div className="fixed top-0 right-0 bottom-0 z-10 w-[260px] max-w-[78vw] h-full bg-white shadow-2xl flex flex-col border-l border-slate-200">
+            {/* Header: Menu title & Close button */}
+            <div className="px-4 py-3.5 border-b border-slate-200 bg-white flex items-center justify-between shrink-0">
+              <div className="flex items-center space-x-2">
+                <span className="w-1.5 h-4 bg-[#D4AF37] rounded-full" />
+                <span className="font-bold text-sm text-[#0B1F3A] tracking-wide">Menu</span>
               </div>
-
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-white bg-white/10 hover:bg-white/20 active:scale-90 rounded-xl transition-all cursor-pointer"
+                className="p-1.5 text-slate-500 hover:text-[#0B1F3A] hover:bg-slate-100 rounded-lg active:scale-90 transition-all cursor-pointer"
                 aria-label="Close menu"
               >
-                <X className="w-5 h-5 pointer-events-none" />
+                <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Scrollable Nav Area */}
-            <div className="p-4 space-y-4 flex-1 overflow-y-auto overscroll-contain bg-slate-50">
-              {/* Quick Search Shortcut */}
-              <Link
-                href="/products"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2.5 px-3.5 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs text-slate-600 shadow-2xs hover:border-[#D4AF37] active:scale-98 transition-all"
-              >
-                <div className="flex items-center space-x-2.5">
-                  <Search className="w-4 h-4 text-[#B8860B]" />
-                  <span className="font-medium text-slate-500">Search 86+ Hardware SKUs...</span>
-                </div>
-                <span className="px-2 py-0.5 bg-[#0B1F3A] text-[#D4AF37] text-[9.5px] font-bold rounded-md uppercase">
-                  Browse
-                </span>
-              </Link>
+            {/* Normal Clean List of Top Navbar Pages */}
+            <nav className="flex-1 overflow-y-auto py-2 divide-y divide-slate-100">
+              {topNavPages.map((page) => {
+                const isActive = page.href === '/' ? pathname === '/' : pathname?.startsWith(page.href);
+                return (
+                  <Link
+                    key={page.href}
+                    href={page.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center justify-between px-4 py-3 text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'text-[#0B1F3A] font-bold bg-amber-50/70 border-l-4 border-l-[#D4AF37]'
+                        : 'text-slate-700 hover:text-[#0B1F3A] hover:bg-slate-50'
+                    }`}
+                  >
+                    <span>{page.name}</span>
+                    <ChevronRight
+                      className={`w-4 h-4 ${isActive ? 'text-[#D4AF37]' : 'text-slate-300'}`}
+                    />
+                  </Link>
+                );
+              })}
+            </nav>
 
-              {/* Main Navigation Pages */}
-              <div>
-                <div className="flex items-center justify-between px-1 mb-2">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#B8860B]">
-                    Main Navigation
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-bold">Navbar Pages</span>
-                </div>
-
-                <div className="space-y-1.5">
-                  {allMobilePages.map((page) => {
-                    const Icon = page.icon;
-                    const isActive = pathname === page.href;
-
-                    return (
-                      <Link
-                        key={page.name}
-                        href={page.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`flex items-center justify-between p-3 rounded-xl border transition-all active:scale-98 ${
-                          isActive
-                            ? 'bg-[#0B1F3A] text-white border-[#0B1F3A] shadow-xs'
-                            : 'bg-white text-[#0B1F3A] border-slate-200 hover:bg-slate-100 hover:border-slate-300 shadow-2xs'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-3 min-w-0">
-                          <div
-                            className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                              isActive ? 'bg-white/15 text-[#D4AF37]' : 'bg-slate-100 text-[#0B1F3A]'
-                            }`}
-                          >
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <div className="min-w-0">
-                            <div className="flex items-center space-x-2">
-                              <span className="text-xs font-bold truncate">{page.name}</span>
-                              {page.badge && (
-                                <span className={`px-1.5 py-0.5 text-[9px] font-extrabold rounded ${
-                                  isActive ? 'bg-[#D4AF37] text-[#0B1F3A]' : 'bg-[#0B1F3A] text-[#D4AF37]'
-                                }`}>
-                                  {page.badge}
-                                </span>
-                              )}
-                            </div>
-                            <p className={`text-[10px] truncate ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
-                              {page.desc}
-                            </p>
-                          </div>
-                        </div>
-
-                        <ChevronRight
-                          className={`w-4 h-4 shrink-0 transition-transform ${
-                            isActive ? 'text-[#D4AF37]' : 'text-slate-400'
-                          }`}
-                        />
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Product Category Quick Jump Grid */}
-              <div className="pt-2">
-                <div className="flex items-center justify-between px-1 mb-2">
-                  <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#B8860B]">
-                    12 Hardware Categories
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-bold">Quick Jump</span>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {SAH_CATEGORIES.map((cat) => (
-                    <Link
-                      key={cat.slug}
-                      href={`/products#${cat.slug}`}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="p-2.5 bg-white border border-slate-200 hover:border-[#D4AF37] rounded-xl flex flex-col justify-between active:scale-95 transition-all shadow-2xs group"
-                    >
-                      <span className="text-xs font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] truncate">
-                        {cat.name}
-                      </span>
-                      <span className="text-[9.5px] text-[#B8860B] font-mono font-bold mt-1">
-                        {cat.codePrefix}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Raipur Warehouse Info */}
-              <div className="p-3 bg-white border border-slate-200 rounded-xl space-y-1 text-slate-600 shadow-2xs">
-                <div className="flex items-center space-x-1.5 text-xs font-bold text-[#0B1F3A]">
-                  <MapPin className="w-3.5 h-3.5 text-[#B8860B]" />
-                  <span>Raipur Central Trade Depot</span>
-                </div>
-                <p className="text-[11px] text-slate-500 leading-tight">
-                  Ring Road No. 2, Raipur, Chhattisgarh • Same-Day Dispatch
-                </p>
-              </div>
-            </div>
-
-            {/* Bottom Sticky Action Bar */}
-            <div className="p-3.5 border-t border-slate-200 bg-white space-y-2 shrink-0 pb-safe">
-              <div className="grid grid-cols-2 gap-2">
-                <a
-                  href={`tel:${primaryPhone.replace(/\s/g, '')}`}
-                  className="py-2.5 px-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-1.5 active:scale-98 transition-all"
-                >
-                  <PhoneCall className="w-3.5 h-3.5 text-[#B8860B]" />
-                  <span className="truncate">Call Desk</span>
-                </a>
-                <a
-                  href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent('Hello Salasar Aluminium, I would like to inquire about hardware pricing and catalogue.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-2.5 px-3 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 text-[#128C7E] text-xs font-bold uppercase tracking-wider rounded-xl flex items-center justify-center space-x-1.5 active:scale-98 transition-all"
-                >
-                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
-                  <span className="truncate">WhatsApp</span>
-                </a>
-              </div>
-
+            {/* Bottom: Request Trade Quote CTA matching web top navbar action */}
+            <div className="p-3 border-t border-slate-100 bg-slate-50/50 shrink-0">
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openEnquiryModal();
                 }}
-                className="w-full py-3 px-4 bg-[#0B1F3A] hover:bg-[#1E293B] text-[#D4AF37] text-xs font-black uppercase tracking-wider rounded-xl text-center shadow-md active:scale-98 transition-all cursor-pointer border border-[#D4AF37]/30 flex items-center justify-center space-x-1.5"
+                className="w-full py-2.5 px-3 bg-[#0B1F3A] text-[#D4AF37] text-xs font-bold uppercase tracking-wider rounded-lg text-center shadow-2xs active:scale-95 transition-transform cursor-pointer"
               >
-                <span>Request Wholesale Trade Quote</span>
-                <ChevronRight className="w-4 h-4 text-[#D4AF37]" />
+                Request Trade Quote
               </button>
             </div>
           </div>
