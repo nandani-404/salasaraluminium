@@ -33,15 +33,15 @@ export default function BlogPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-8">
           {BLOG_POSTS.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E8E6E1] hover:border-[#C9A227] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
+              className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E6E1] hover:border-[#C9A227] shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer block"
             >
               <div>
-                <div className="relative h-64 overflow-hidden bg-gray-100">
+                <div className="relative h-32 sm:h-64 overflow-hidden bg-gray-100">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -49,34 +49,34 @@ export default function BlogPage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#0B1F3A] text-[#C9A227] text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded shadow z-10 border border-[#C9A227]/30">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0B1F3A] text-[#C9A227] text-[8.5px] sm:text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded shadow z-10 border border-[#C9A227]/30">
                     {post.category}
                   </div>
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <div className="flex items-center space-x-4 text-xs text-gray-400">
-                    <span className="flex items-center space-x-1">
-                      <User className="w-3.5 h-3.5 text-[#C9A227]" />
-                      <span>{post.author}</span>
+                <div className="p-2.5 sm:p-6 space-y-1.5 sm:space-y-3">
+                  <div className="flex items-center space-x-2 sm:space-x-4 text-[10px] sm:text-xs text-gray-400">
+                    <span className="flex items-center space-x-1 truncate">
+                      <User className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C9A227] shrink-0" />
+                      <span className="truncate">{post.author}</span>
                     </span>
-                    <span className="flex items-center space-x-1">
-                      <Clock className="w-3.5 h-3.5 text-[#C9A227]" />
+                    <span className="flex items-center space-x-1 shrink-0">
+                      <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#C9A227] shrink-0" />
                       <span>{post.readTime}</span>
                     </span>
                   </div>
 
-                  <h2 className="text-xl font-serif font-bold text-[#0B1F3A] group-hover:text-[#C9A227] transition-colors leading-snug">
+                  <h2 className="text-xs sm:text-xl font-serif font-bold text-[#0B1F3A] group-hover:text-[#C9A227] transition-colors leading-tight sm:leading-snug line-clamp-2">
                     {post.title}
                   </h2>
 
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed line-clamp-2">
                     {post.excerpt}
                   </p>
 
                   {/* Direct FAQ Highlight */}
                   {post.qaBlocks && post.qaBlocks.length > 0 && (
-                    <div className="pt-3 border-t border-[#E8E6E1] space-y-2">
+                    <div className="pt-3 border-t border-[#E8E6E1] space-y-2 hidden sm:block">
                       {post.qaBlocks.slice(0, 2).map((faq, i) => (
                         <div key={i} className="bg-[#FAF9F6] p-3 rounded-lg border border-[#E8E6E1] space-y-1">
                           <p className="text-xs font-bold text-[#0B1F3A] flex items-center space-x-1">
@@ -91,9 +91,9 @@ export default function BlogPage() {
                     </div>
                   )}
 
-                  <div className="pt-2 text-xs font-bold text-[#C9A227] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
-                    <span>Read Full Technical Guide</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                  <div className="pt-1 sm:pt-2 text-[10px] sm:text-xs font-bold text-[#C9A227] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                    <span>Read Guide</span>
+                    <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   </div>
                 </div>
               </div>

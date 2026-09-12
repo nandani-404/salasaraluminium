@@ -167,7 +167,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       {related.length > 0 && (
         <section className="space-y-8 pt-8 border-t border-[#D8D1C4]">
           <h2 className="font-serif text-2xl text-[#2B2620]">Complementary Architectural Hardware</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {related.map((relProduct) => (
               <ProductCard key={relProduct.id} product={relProduct} />
             ))}

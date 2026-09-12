@@ -176,12 +176,12 @@ export default async function CityLocationPage({ params }: { params: Promise<{ c
             <p className="text-sm font-bold text-slate-200">{city.popularSkus}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 pt-2">
             {SAH_CATEGORIES.slice(0, 4).map((cat) => (
-              <div key={cat.slug} className="p-4 bg-white border border-[#E2E8F0] rounded-xl space-y-1">
+              <div key={cat.slug} className="p-3 sm:p-4 bg-white border border-[#E2E8F0] rounded-xl space-y-1">
                 <span className="text-[10px] font-mono text-[#B8860B] font-bold">{cat.codePrefix}</span>
-                <h3 className="text-xs font-bold text-[#0B1F3A]">{cat.name}</h3>
-                <p className="text-[11px] text-slate-500 line-clamp-2">{cat.description}</p>
+                <h3 className="text-xs font-bold text-[#0B1F3A] line-clamp-1">{cat.name}</h3>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 line-clamp-2">{cat.description}</p>
               </div>
             ))}
           </div>

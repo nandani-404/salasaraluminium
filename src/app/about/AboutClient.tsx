@@ -69,25 +69,25 @@ export default function AboutClient() {
 
               {/* Unique Dual Feature Cards with Metallic Accent Borders */}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4">
+                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
-                    <Factory className="w-5 h-5" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
+                    <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-sm font-extrabold text-[#0B1F3A] mb-1">Precision Manufacturing</h3>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Precision Manufacturing</h3>
+                  <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                     Produced at our Finetek branch in Raipur using modern extrusion techniques & strict ISO-grade quality standards.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
+                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
-                    <Building2 className="w-5 h-5" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
+                    <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-sm font-extrabold text-[#0B1F3A] mb-1">Direct Wholesale Hub</h3>
-                  <p className="text-xs text-[#64748B] leading-relaxed">
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Direct Wholesale Hub</h3>
+                  <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                     Distributed via Lieon Marketing & SAH Raipur warehouse ensuring immediate stock readiness across Central India.
                   </p>
                 </div>
@@ -226,7 +226,7 @@ export default function AboutClient() {
           </div>
 
           {/* Minimal Horizontal Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
             {SAH_BUSINESS_DETAILS.pillars.map((pillar, idx) => {
               const icons = [ShieldCheck, Award, Factory, Truck];
               const IconComp = icons[idx % icons.length];
@@ -234,21 +234,21 @@ export default function AboutClient() {
               return (
                 <div 
                   key={idx} 
-                  className="p-5 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#0B1F3A] transition-colors group flex flex-col justify-between"
+                  className="p-3 sm:p-5 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#0B1F3A] transition-colors group flex flex-col justify-between"
                 >
-                  <div className="space-y-3">
+                  <div className="space-y-1.5 sm:space-y-3">
                     <div className="flex items-center justify-between">
-                      <IconComp className="w-5 h-5 text-[#B8860B]" />
-                      <span className="text-xs font-mono text-[#94A3B8] group-hover:text-[#0B1F3A] transition-colors">
+                      <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-[#B8860B]" />
+                      <span className="text-[10px] sm:text-xs font-mono text-[#94A3B8] group-hover:text-[#0B1F3A] transition-colors">
                         0{idx + 1}
                       </span>
                     </div>
 
-                    <h3 className="text-sm font-bold text-[#0B1F3A]">
+                    <h3 className="text-xs sm:text-sm font-bold text-[#0B1F3A] leading-tight">
                       {pillar.title}
                     </h3>
                     
-                    <p className="text-xs text-[#475569] leading-relaxed">
+                    <p className="text-[10px] sm:text-xs text-[#475569] leading-relaxed line-clamp-3 sm:line-clamp-none">
                       {pillar.desc}
                     </p>
                   </div>

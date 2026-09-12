@@ -90,19 +90,22 @@ export default function WholesaleClient() {
             <p className="text-xs text-[#475569]">Bulk box packaging & dealer rates available on all 12 product categories.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
             {SAH_CATEGORIES.map((cat) => (
               <Link 
                 key={cat.slug} 
                 href={`/products?category=${cat.slug}`}
-                className="p-4 rounded-xl border border-[#E2E8F0] hover:border-[#0B1F3A] bg-white hover:bg-[#F8FAFC] shadow-2xs hover:shadow-md transition-all space-y-2 group cursor-pointer block"
+                className="p-3 sm:p-4 rounded-xl border border-[#E2E8F0] hover:border-[#0B1F3A] bg-white hover:bg-[#F8FAFC] shadow-2xs hover:shadow-md transition-all space-y-1.5 sm:space-y-2 group cursor-pointer block"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#B8860B]">{cat.codePrefix}</span>
-                  <span className="text-[10px] bg-[#F8FAFC] group-hover:bg-white px-2 py-0.5 rounded border border-[#E2E8F0] text-[#0B1F3A] font-bold">View Category →</span>
+                  <span className="text-[11px] sm:text-xs font-mono font-bold text-[#B8860B]">{cat.codePrefix}</span>
+                  <span className="text-[9px] sm:text-[10px] bg-[#F8FAFC] group-hover:bg-white px-1.5 sm:px-2 py-0.5 rounded border border-[#E2E8F0] text-[#0B1F3A] font-bold">
+                    <span className="hidden sm:inline">View Category →</span>
+                    <span className="sm:hidden">View →</span>
+                  </span>
                 </div>
-                <h3 className="text-sm font-bold text-[#0B1F3A] group-hover:text-[#B8860B] transition-colors">{cat.name}</h3>
-                <p className="text-[11px] text-[#475569] line-clamp-2">{cat.description}</p>
+                <h3 className="text-xs sm:text-sm font-bold text-[#0B1F3A] group-hover:text-[#B8860B] transition-colors leading-tight line-clamp-1">{cat.name}</h3>
+                <p className="text-[10px] sm:text-[11px] text-[#475569] line-clamp-2 leading-relaxed">{cat.description}</p>
               </Link>
             ))}
           </div>

@@ -48,37 +48,37 @@ export default function ProjectsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-white rounded-xl overflow-hidden border border-[#E5E3DC] hover:border-[#B08D57] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-xl overflow-hidden border border-[#E5E3DC] hover:border-[#B08D57] shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-36 sm:h-64 overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#22262A]/90 text-white text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#22262A]/90 text-white text-[8.5px] sm:text-[10px] uppercase tracking-wider font-semibold px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded">
                     {project.location} • {project.completionYear}
                   </div>
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <span className="text-[10px] font-semibold text-[#B08D57] uppercase tracking-wider block">
+                <div className="p-3 sm:p-6 space-y-1.5 sm:space-y-3">
+                  <span className="text-[9px] sm:text-[10px] font-semibold text-[#B08D57] uppercase tracking-wider block">
                     {project.segment} Application
                   </span>
-                  <h3 className="text-xl font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors">
+                  <h3 className="text-xs sm:text-xl font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors leading-tight line-clamp-2">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
 
-                  <div className="pt-3 border-t border-[#E5E3DC]">
+                  <div className="pt-2 sm:pt-3 border-t border-[#E5E3DC] hidden sm:block">
                     <span className="text-[11px] font-semibold text-gray-400 block mb-1.5">
                       Profiles Supplied:
                     </span>
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
+              <div className="p-3 sm:p-6 pt-0">
                 <button
                   onClick={() =>
                     openEnquiryModal({
@@ -104,10 +104,10 @@ export default function ProjectsPage() {
                       segment: project.segment,
                     })
                   }
-                  className="w-full py-2.5 bg-[#22262A] text-white text-xs font-semibold uppercase tracking-wider rounded hover:bg-[#B08D57] transition-colors flex items-center justify-center space-x-1"
+                  className="w-full py-2 sm:py-2.5 bg-[#22262A] text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded sm:rounded-md hover:bg-[#B08D57] transition-colors flex items-center justify-center space-x-1"
                 >
-                  <span>Enquire for Similar Project</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#B08D57]" />
+                  <span>Enquire <span className="hidden sm:inline">for Similar Project</span></span>
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B08D57]" />
                 </button>
               </div>
             </div>

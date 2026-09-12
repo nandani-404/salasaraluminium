@@ -278,16 +278,16 @@ export default function IndustriesWeServeSection() {
                       PRODUCTS SUPPLIED
                     </h4>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
                       {item.productsSupplied.map((prod) => (
                         <div
                           key={prod.name}
-                          className="p-3 bg-[#FAF9F6] border border-[#E8E6E1] rounded-lg flex items-center justify-between group hover:border-[#0B1F3A] transition-colors"
+                          className="p-2 sm:p-3 bg-[#FAF9F6] border border-[#E8E6E1] rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 group hover:border-[#0B1F3A] transition-colors"
                         >
-                          <div className="flex items-center space-x-3">
+                          <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
                             {/* Product Thumbnail Image */}
                             {prod.image ? (
-                              <div className="relative w-11 h-11 rounded-md bg-white border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-1 shadow-2xs">
+                              <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-md bg-white border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center p-0.5 sm:p-1 shadow-2xs">
                                 <Image
                                   src={prod.image}
                                   alt={prod.name}
@@ -301,12 +301,12 @@ export default function IndustriesWeServeSection() {
                                 <Check className="w-3 h-3 stroke-[3]" />
                               </span>
                             )}
-                            <span className="text-xs font-bold text-[#0B1F3A]">{prod.name}</span>
+                            <span className="text-[11px] sm:text-xs font-bold text-[#0B1F3A] line-clamp-1">{prod.name}</span>
                           </div>
 
                           <Link
                             href={prod.link}
-                            className="text-[11px] font-semibold text-[#8C6B1B] hover:text-[#0B1F3A] hover:underline flex items-center space-x-1 transition-colors"
+                            className="text-[10px] sm:text-[11px] font-semibold text-[#8C6B1B] hover:text-[#0B1F3A] hover:underline flex items-center space-x-1 transition-colors self-end sm:self-auto"
                             aria-label={prod.anchorText}
                           >
                             <span>{prod.anchorText}</span>

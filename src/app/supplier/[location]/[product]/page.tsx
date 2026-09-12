@@ -204,30 +204,30 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
                   Product Specifications & Trade Details
                 </h2>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Product Name</span>
-                    <span className="text-sm font-semibold text-white">{prod.name}</span>
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4">
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Product Name</span>
+                    <span className="text-xs sm:text-sm font-semibold text-white line-clamp-1">{prod.name}</span>
                   </div>
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Catalog Item Code</span>
-                    <span className="text-sm font-bold text-amber-400">{prod.saCode}</span>
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Catalog Code</span>
+                    <span className="text-xs sm:text-sm font-bold text-amber-400 truncate block">{prod.saCode}</span>
                   </div>
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Category</span>
-                    <span className="text-sm font-medium text-neutral-200">{prod.category}</span>
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Category</span>
+                    <span className="text-xs sm:text-sm font-medium text-neutral-200 line-clamp-1">{prod.category}</span>
                   </div>
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Material Alloy / Grade</span>
-                    <span className="text-sm font-medium text-neutral-200">{prod.material}</span>
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Alloy / Grade</span>
+                    <span className="text-xs sm:text-sm font-medium text-neutral-200 truncate block">{prod.material}</span>
                   </div>
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Surface Finish</span>
-                    <span className="text-sm font-medium text-neutral-200">{prod.finish}</span>
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Surface Finish</span>
+                    <span className="text-xs sm:text-sm font-medium text-neutral-200 truncate block">{prod.finish}</span>
                   </div>
-                  <div className="bg-neutral-950 p-4 rounded-lg border border-neutral-800/80">
-                    <span className="text-xs text-neutral-400 block uppercase tracking-wider mb-1">Supply Region</span>
-                    <span className="text-sm font-medium text-amber-300">{loc.name}, {loc.state}</span>
+                  <div className="bg-neutral-950 p-2.5 sm:p-4 rounded-lg border border-neutral-800/80">
+                    <span className="text-[10px] sm:text-xs text-neutral-400 block uppercase tracking-wider mb-0.5 sm:mb-1 truncate">Supply Region</span>
+                    <span className="text-xs sm:text-sm font-medium text-amber-300 truncate block">{loc.name}, {loc.state}</span>
                   </div>
                 </div>
               </div>

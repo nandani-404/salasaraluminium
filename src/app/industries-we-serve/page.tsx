@@ -49,43 +49,43 @@ export default function IndustriesWeServePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-                <Wrench className="w-5 h-5" />
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+            <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 shadow-2xs space-y-2 sm:space-y-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Wrench className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-[#0B1F3A]">Aluminium & UPVC Fabricators</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
+              <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Aluminium & UPVC Fabricators</h3>
+              <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Sliding door/window components, locks, rollers, friction stays, and weather seals for continuous fabrication production runs.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-                <Building2 className="w-5 h-5" />
+            <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 shadow-2xs space-y-2 sm:space-y-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-[#0B1F3A]">Building Contractors</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
+              <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Building Contractors</h3>
+              <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Bulk trade hardware for residential multi-story towers, commercial complexes, and site-wide architectural projects.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-                <Compass className="w-5 h-5" />
+            <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 shadow-2xs space-y-2 sm:space-y-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Compass className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-[#0B1F3A]">Architects & Developers</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
+              <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Architects & Developers</h3>
+              <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Curtain wall mullions, frameless glass railing channels, and structural extrusions specified for modern facade and interior work.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-                <Store className="w-5 h-5" />
+            <div className="bg-white p-3.5 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-200 shadow-2xs space-y-2 sm:space-y-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
+                <Store className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-[#0B1F3A]">Dealers & Retailers</h3>
-              <p className="text-xs text-[#64748B] leading-relaxed">
+              <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Dealers & Retailers</h3>
+              <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Trade resale stock at direct factory pricing with standardized SA codes for hassle-free reordering.
               </p>
             </div>
