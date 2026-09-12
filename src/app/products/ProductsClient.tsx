@@ -89,26 +89,26 @@ export default function ProductsClient() {
   });
 
   return (
-    <div className="pt-28 pb-20 bg-white">
+    <div className="pt-20 sm:pt-28 pb-16 sm:pb-20 bg-white">
       {/* Pure White Minimal Hero Header */}
-      <div className="bg-white border-b border-[#E2E8F0] pt-6 pb-8 sm:pt-8 sm:pb-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-7">
+      <div className="bg-white border-b border-[#E2E8F0] pt-4 pb-6 sm:pt-8 sm:pb-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 space-y-5 sm:space-y-7">
           
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="space-y-2.5 max-w-2xl">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-full">
-                <span className="w-2 h-2 rounded-full bg-[#B8860B]" />
-                <span className="text-xs font-bold text-[#B8860B] uppercase tracking-wider">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-4 sm:gap-6">
+            <div className="space-y-2 sm:space-y-2.5 max-w-2xl">
+              <div className="inline-flex items-center space-x-1.5 sm:space-x-2 px-2.5 py-0.5 sm:px-3 sm:py-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-full">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#B8860B]" />
+                <span className="text-[10px] sm:text-xs font-bold text-[#B8860B] uppercase tracking-wider">
                   Official Trade Catalogue
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight">
-                Wholesale Aluminium Hardware Catalogue — 86 SKUs, 12 Categories
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#0B1F3A] tracking-tight leading-tight">
+                Wholesale Aluminium Hardware Catalogue
               </h1>
 
-              <p className="text-sm sm:text-base text-[#475569] font-medium leading-relaxed">
-                Every product in our catalogue is assigned a fixed SA product code, so dealers and fabricators can order precisely — no ambiguity, no substitutions without confirmation. Browse by category below, or contact our trade desk directly with an SA code for instant wholesale pricing.
+              <p className="text-xs sm:text-base text-[#475569] font-medium leading-relaxed">
+                Every product in our catalogue is assigned a fixed SA product code, so dealers and fabricators can order precisely — no ambiguity. Browse by category below, or contact our trade desk for instant wholesale pricing.
               </p>
 
             </div>
@@ -124,7 +124,7 @@ export default function ProductsClient() {
                   placeholder="Search SKU code or name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-10 py-3 bg-[#F8FAFC] focus:bg-white border border-[#E2E8F0] rounded-xl text-sm text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-all"
+                  className="w-full pl-10 pr-10 py-2.5 sm:py-3 bg-[#F8FAFC] focus:bg-white border border-[#E2E8F0] rounded-xl text-xs sm:text-sm text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-all"
                 />
                 {searchQuery && (
                   <button 
@@ -147,7 +147,7 @@ export default function ProductsClient() {
                 if (nav) nav.scrollBy({ left: -250, behavior: 'smooth' });
               }}
               aria-label="Scroll left"
-              className="p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer"
+              className="hidden sm:flex p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer items-center justify-center"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -158,7 +158,7 @@ export default function ProductsClient() {
             >
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                   selectedCategory === 'all'
                     ? 'bg-[#0B1F3A] text-white shadow-xs'
                     : 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0] hover:border-[#0B1F3A] hover:text-[#0B1F3A]'
@@ -170,13 +170,13 @@ export default function ProductsClient() {
                 <button
                   key={cat.slug}
                   onClick={() => setSelectedCategory(cat.slug)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     selectedCategory === cat.slug
                       ? 'bg-[#0B1F3A] text-white shadow-xs'
                       : 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0] hover:border-[#0B1F3A] hover:text-[#0B1F3A]'
                   }`}
                 >
-                  {cat.name} <span className="opacity-60 text-[10px]">({cat.codePrefix})</span>
+                  {cat.name} <span className="opacity-60 text-[9.5px] sm:text-[10px]">({cat.codePrefix})</span>
                 </button>
               ))}
             </div>
@@ -188,7 +188,7 @@ export default function ProductsClient() {
                 if (nav) nav.scrollBy({ left: 250, behavior: 'smooth' });
               }}
               aria-label="Scroll right"
-              className="p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer"
+              className="hidden sm:flex p-2 rounded-xl bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] hover:border-[#0B1F3A] transition-all shadow-xs shrink-0 cursor-pointer items-center justify-center"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -222,7 +222,7 @@ export default function ProductsClient() {
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
                     {catProducts.map((prod) => (
                       <ProductCard 
                         key={prod.id} 
@@ -265,7 +265,7 @@ export default function ProductsClient() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
                 {filteredProducts.map((prod) => (
                   <ProductCard 
                     key={prod.id} 
@@ -299,15 +299,25 @@ export default function ProductsClient() {
             answer: 'Yes — we support custom trade orders including tailored extrusion lengths and project-specific hardware configurations. Contact our trade desk with your requirements.',
             category: 'Customization',
           },
+          {
+            question: 'Where can I inspect physical samples in Raipur?',
+            answer: 'Visit our Finetek branch or main showroom in Bhaisthan, Raipur. Complete physical hardware catalogues, finish swatches, and extrusion cut samples are available on-site.',
+            category: 'Showroom',
+          },
         ]}
       />
 
       {/* Quick View Modal */}
-      <QuickViewModal
-        product={quickViewProduct}
-        onClose={() => setQuickViewProduct(null)}
-        onEnquire={(saCode) => openEnquiryModal(saCode)}
-      />
+      {quickViewProduct && (
+        <QuickViewModal
+          product={quickViewProduct}
+          onClose={() => setQuickViewProduct(null)}
+          onEnquire={(code) => {
+            setQuickViewProduct(null);
+            openEnquiryModal(code);
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -322,47 +332,47 @@ function ProductCard({
   onEnquire: () => void; 
 }) {
   return (
-    <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#0B1F3A]/40 transition-all flex flex-col justify-between group">
+    <div className="bg-white border border-[#E2E8F0] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#0B1F3A]/40 transition-all flex flex-col justify-between group">
       <div>
-        <div className="relative h-64 bg-white overflow-hidden border-b border-[#E2E8F0] flex items-center justify-center cursor-pointer" onClick={onQuickView}>
+        <div className="relative h-36 sm:h-64 bg-white overflow-hidden border-b border-[#E2E8F0] flex items-center justify-center cursor-pointer" onClick={onQuickView}>
           <Image
             src={product.image}
             alt={product.name}
             width={300}
             height={300}
-            sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 240px"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 30vw, 240px"
             loading="lazy"
             className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500 p-2"
           />
           
-          <div className="absolute top-3 left-3 bg-[#0B1F3A] text-[#D4AF37] text-[11px] font-mono font-bold px-2.5 py-1 rounded-md shadow-xs z-10 border border-[#D4AF37]/30">
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0B1F3A] text-[#D4AF37] text-[9px] sm:text-[11px] font-mono font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md shadow-xs z-10 border border-[#D4AF37]/30">
             {product.saCode}
           </div>
         </div>
 
-        <div className="p-4 space-y-2 cursor-pointer" onClick={onQuickView}>
-          <h3 className="text-sm sm:text-base font-extrabold text-[#0B1F3A] leading-tight line-clamp-1 group-hover:text-[#B8860B] transition-colors">
+        <div className="p-2.5 sm:p-4 space-y-1 sm:space-y-2 cursor-pointer" onClick={onQuickView}>
+          <h3 className="text-xs sm:text-base font-extrabold text-[#0B1F3A] leading-tight line-clamp-1 group-hover:text-[#B8860B] transition-colors">
             {product.name}
           </h3>
-          <p className="text-xs text-[#475569] line-clamp-2 leading-relaxed">
+          <p className="text-xs text-[#475569] line-clamp-2 leading-relaxed hidden sm:block">
             {product.shortDesc}
           </p>
         </div>
       </div>
 
-      <div className="p-4 pt-0 grid grid-cols-2 gap-2">
+      <div className="p-2.5 sm:p-4 pt-0 grid grid-cols-2 gap-1.5 sm:gap-2">
         <button
           type="button"
           onClick={onQuickView}
-          className="py-2.5 bg-[#F8FAFC] hover:bg-[#F1F5F9] active:bg-[#E2E8F0] active:scale-95 border border-[#E2E8F0] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer select-none"
+          className="py-1.5 sm:py-2.5 bg-[#F8FAFC] hover:bg-[#F1F5F9] active:bg-[#E2E8F0] active:scale-95 border border-[#E2E8F0] text-[#0B1F3A] text-[10.5px] sm:text-xs font-bold uppercase tracking-wider rounded-lg sm:rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer select-none"
         >
-          View Info
+          <span className="hidden sm:inline">View </span>Info
         </button>
 
         <button
           type="button"
           onClick={onEnquire}
-          className="py-2.5 bg-[#0B1F3A] hover:bg-[#1E293B] active:bg-[#020617] active:scale-95 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-200 flex items-center justify-center space-x-1 cursor-pointer shadow-2xs group/btn select-none"
+          className="py-1.5 sm:py-2.5 bg-[#0B1F3A] hover:bg-[#1E293B] active:bg-[#020617] active:scale-95 text-white text-[10.5px] sm:text-xs font-bold uppercase tracking-wider rounded-lg sm:rounded-xl transition-all duration-200 flex items-center justify-center space-x-1 cursor-pointer shadow-2xs group/btn select-none"
         >
           <span>Enquire</span>
           <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37] group-hover/btn:translate-x-0.5 transition-transform" />

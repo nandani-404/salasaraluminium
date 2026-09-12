@@ -129,11 +129,11 @@ export default function TradeQuoteFormSection() {
                 </span>
               </a>
 
-              {/* Normal Sized Call Button Below Cards */}
+              {/* Call Button */}
               <div className="pt-1">
                 <a
                   href="tel:+918007443071"
-                  className="inline-flex items-center space-x-2 px-4 py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-3 sm:py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group"
                 >
                   <PhoneCall className="w-4 h-4 text-[#D4AF37] group-hover:rotate-12 transition-transform" />
                   <span>Call Direct Sales: +91 8007443071</span>
@@ -143,7 +143,7 @@ export default function TradeQuoteFormSection() {
           </div>
 
           {/* Right Column: Clean Minimal Form */}
-          <div className="lg:col-span-7 bg-white text-[#0B1F3A] rounded-2xl border border-[#E2E8F0] shadow-sm p-6 sm:p-8">
+          <div className="lg:col-span-7 bg-white text-[#0B1F3A] rounded-2xl border border-[#E2E8F0] shadow-sm p-4 sm:p-8">
             {isSuccess ? (
               <div className="py-12 text-center flex flex-col items-center justify-center space-y-3">
                 <div className="w-14 h-14 bg-[#F0FDF4] border border-[#BBF7D0] rounded-full flex items-center justify-center text-[#166534]">

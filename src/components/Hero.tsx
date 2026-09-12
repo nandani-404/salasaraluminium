@@ -54,7 +54,7 @@ export default function Hero() {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-lg">
+          <h1 className="text-[26px] sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.18] sm:leading-[1.15] drop-shadow-lg">
             Architectural Aluminium & Hardware
           </h1>
 
@@ -64,30 +64,35 @@ export default function Hero() {
           </p>
 
           {/* Action Buttons */}
-          <div className="pt-1 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-3.5">
+          <div className="pt-2 grid grid-cols-2 gap-2.5 w-full sm:flex sm:flex-row sm:w-auto sm:items-center sm:gap-3.5">
             <button
               type="button"
               onClick={() => openEnquiryModal()}
-              className="px-5 py-3 sm:px-6 sm:py-3.5 bg-[#B8860B] hover:bg-[#a07509] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer active:scale-95 self-start shrink-0 select-none relative z-30 pointer-events-auto"
+              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#B8860B] hover:bg-[#a07509] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30 pointer-events-auto"
             >
               <span>Request Quote</span>
-              <ArrowRight className="w-4 h-4 text-white" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
             </button>
 
             <Link
               href="/products"
-              className="px-5 py-3 sm:px-6 sm:py-3.5 bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg border border-white/30 backdrop-blur-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 self-start shrink-0"
+              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg border border-white/30 backdrop-blur-md transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer active:scale-95 shrink-0"
             >
-              <Layers className="w-4 h-4 text-slate-300" />
-              <span>Browse Catalog</span>
+              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
+              <span>Catalogue</span>
             </Link>
           </div>
 
           {/* Factual Footnote */}
-          <div className="pt-2 sm:pt-4 flex items-center justify-between sm:justify-start gap-3 sm:gap-6 text-[10px] sm:text-xs text-slate-200 font-medium drop-shadow-sm">
-            <span>Branch: Finetek • Raipur</span>
-            <span className="hidden sm:inline">•</span>
+          <div className="pt-2 sm:pt-4 flex items-center justify-between sm:justify-start gap-2 sm:gap-6 text-[10px] sm:text-xs text-slate-200 font-medium drop-shadow-sm">
+            <span className="flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+              Finetek Raipur
+            </span>
+            <span className="text-slate-400">•</span>
             <span>86+ SKUs In Stock</span>
+            <span className="text-slate-400">•</span>
+            <span>Same-Day Dispatch</span>
           </div>
         </div>
       </div>

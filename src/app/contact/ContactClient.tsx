@@ -99,7 +99,7 @@ export default function ContactClient() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Form */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-9 rounded-2xl border border-slate-200/80 shadow-xl space-y-6">
+          <div className="lg:col-span-7 bg-white p-4 sm:p-9 rounded-2xl border border-slate-200/80 shadow-xl space-y-6">
             <div className="border-b border-slate-100 pb-4">
               <span className="text-[10px] font-semibold text-amber-700 uppercase tracking-widest block mb-1">
                 Direct Wholesale Support

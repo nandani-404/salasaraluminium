@@ -55,7 +55,7 @@ export default function MobileQuickActionBar() {
       aria-label="Mobile App Bottom Dock Navigation"
       className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-t border-[#E2E8F0] shadow-[0_-4px_25px_rgba(11,31,58,0.12)] md:hidden px-2 py-1.5 pb-safe"
     >
-      <div className="flex items-center justify-around max-w-md mx-auto">
+      <div className="flex items-center justify-between max-w-md mx-auto px-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
 
@@ -66,12 +66,12 @@ export default function MobileQuickActionBar() {
                 href={tab.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all active:scale-85 text-[#64748B] hover:text-[#0B1F3A]"
+                className="flex-1 min-w-0 max-w-[76px] flex flex-col items-center justify-center py-1 rounded-xl transition-all active:scale-85 text-[#64748B] hover:text-[#0B1F3A]"
               >
                 <div className="relative p-0.5">
                   <Icon className={`w-5 h-5 ${tab.color || 'text-[#0B1F3A]'}`} />
                 </div>
-                <span className="text-[9.5px] font-bold tracking-tight mt-0.5 text-[#25D366]">
+                <span className="text-[10px] font-bold tracking-tight mt-0.5 text-[#25D366] truncate">
                   {tab.name}
                 </span>
               </a>
@@ -82,7 +82,7 @@ export default function MobileQuickActionBar() {
             <Link
               key={tab.name}
               href={tab.href}
-              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all active:scale-85 ${
+              className={`flex-1 min-w-0 max-w-[76px] flex flex-col items-center justify-center py-1 rounded-xl transition-all active:scale-85 ${
                 tab.isActive
                   ? 'text-[#0B1F3A]'
                   : 'text-[#64748B] hover:text-[#0B1F3A]'
@@ -99,7 +99,7 @@ export default function MobileQuickActionBar() {
                 )}
               </div>
               <span
-                className={`text-[9.5px] font-bold tracking-tight mt-0.5 ${
+                className={`text-[10px] font-bold tracking-tight mt-0.5 truncate ${
                   tab.isActive ? 'text-[#0B1F3A]' : 'text-[#64748B]'
                 }`}
               >
@@ -113,13 +113,13 @@ export default function MobileQuickActionBar() {
         <button
           type="button"
           onClick={() => openEnquiryModal()}
-          className="flex flex-col items-center justify-center py-1 px-3.5 bg-[#0B1F3A] text-white rounded-xl shadow-md active:scale-90 transition-all border border-[#C9A227]/30"
+          className="flex-1 min-w-0 max-w-[76px] flex flex-col items-center justify-center py-1 px-1 bg-[#0B1F3A] text-white rounded-xl shadow-md active:scale-90 transition-all border border-[#C9A227]/30 cursor-pointer"
           title="Get Wholesale Quote"
         >
           <div className="flex items-center space-x-1">
             <FileText className="w-4 h-4 text-[#D4AF37]" />
           </div>
-          <span className="text-[9px] font-black uppercase tracking-wider text-[#D4AF37] mt-0.5">
+          <span className="text-[9.5px] font-black uppercase tracking-wider text-[#D4AF37] mt-0.5 truncate">
             Quote
           </span>
         </button>

@@ -16,12 +16,12 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-[#0B1F3A] text-white pt-16 pb-10 border-t border-white/10">
+    <footer className="bg-[#0B1F3A] text-white pt-12 sm:pt-16 pb-24 md:pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10 pb-8 sm:pb-12 border-b border-white/10">
           
           {/* Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="col-span-2 lg:col-span-2 space-y-3 sm:space-y-4">
             <div className="flex items-center space-x-3.5 group">
               {/* Logo Emblem with White Background */}
               <div className="relative w-10 h-10 bg-white rounded-xl flex items-center justify-center p-1 shadow-md border border-[#D4AF37]/60">
@@ -58,7 +58,7 @@ export default function Footer() {
               Wholesale manufacturer & direct supplier of high-tensile aluminium extrusions, door kits, locks, closers, and structural fittings in Raipur.
             </p>
 
-            <div className="space-y-2 pt-1 text-xs text-slate-300">
+            <div className="space-y-1.5 sm:space-y-2 pt-1 text-xs text-slate-300">
               <div className="flex items-center space-x-2">
                 <Factory className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                 <span>Branch: <strong className="text-white font-semibold">Finetek, Raipur</strong></span>
@@ -72,15 +72,15 @@ export default function Footer() {
 
           {/* Categories 1 */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4 pb-1 border-b border-white/10">
-              Hardware Categories
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
+              Hardware
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-1.5 sm:space-y-2 text-xs">
               {SAH_CATEGORIES.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
                   <Link
                     href={`/products#${cat.slug}`}
-                    className="text-slate-300 hover:text-white transition-colors"
+                    className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {cat.name}
                   </Link>
@@ -91,15 +91,15 @@ export default function Footer() {
 
           {/* Categories 2 */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4 pb-1 border-b border-white/10">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Fittings & Seals
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-1.5 sm:space-y-2 text-xs">
               {SAH_CATEGORIES.slice(6, 12).map((cat) => (
                 <li key={cat.slug}>
                   <Link
                     href={`/products#${cat.slug}`}
-                    className="text-slate-300 hover:text-white transition-colors"
+                    className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {cat.name}
                   </Link>
@@ -109,8 +109,8 @@ export default function Footer() {
           </div>
 
           {/* Raipur Showroom Contact */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-4 pb-1 border-b border-white/10">
+          <div className="col-span-2 sm:col-span-1 space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Raipur Store Desk
             </h4>
             <a

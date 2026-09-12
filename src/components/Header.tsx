@@ -301,15 +301,16 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile View Only: Hamburger Toggle & Quote Button (hidden on lg and up) */}
+        {/* Mobile View Only: Direct Call & Hamburger Toggle (hidden on lg and up) */}
         <div className="lg:hidden flex items-center space-x-2">
-          <button
-            type="button"
-            onClick={() => openEnquiryModal()}
-            className="px-3 py-1.5 bg-[#0F172A] text-[#D4AF37] text-[11px] font-black uppercase tracking-wider rounded-lg active:scale-95 transition-transform border border-[#D4AF37]/30 shadow-2xs cursor-pointer"
+          <a
+            href={`tel:${cleanPhone}`}
+            title="Call Salasar Order Desk"
+            className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
+            aria-label="Call Salasar Aluminium Order Desk"
           >
-            Quote
-          </button>
+            <PhoneCall className="w-4 h-4 text-[#B8860B]" />
+          </a>
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
