@@ -161,7 +161,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                 <div>
                   {/* Top Bar: Number & Icon */}
                   <div className="flex items-center justify-between mb-3 sm:mb-6">
-                    <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#B8860B] bg-[#B8860B]/10 border border-[#B8860B]/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md font-mono">
+                    <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#8A6408] bg-[#B8860B]/10 border border-[#B8860B]/20 px-2 sm:px-3 py-0.5 sm:py-1 rounded-md font-mono">
                       {benefit.id}
                     </span>
                     <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-center text-[#0B1F3A] transition-colors duration-300 group-hover:bg-[#0B1F3A] group-hover:text-white group-hover:border-[#0B1F3A]">
@@ -181,7 +181,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                 {/* Subtle Visual Indicator / Internal Link */}
                 <div className="pt-2 sm:pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-xs font-semibold text-[#64748B] group-hover:text-[#0B1F3A] transition-colors">
                   <span className="truncate">{benefit.linkText}</span>
-                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B8860B] transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8A6408] transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
                 </div>
               </div>
             );
@@ -195,7 +195,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
           <div className="bg-[#0B1F3A] rounded-2xl p-5 sm:p-6 md:p-10 text-white shadow-xl shadow-slate-900/10 border border-slate-800">
             <div className="flex flex-col md:flex-row md:items-center justify-between pb-5 sm:pb-8 mb-5 sm:mb-8 border-b border-slate-700/80 gap-2 sm:gap-4">
               <div>
-                <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1">
+                <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#8A6408] uppercase block mb-1">
                   FACTUAL OVERVIEW
                 </span>
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
@@ -211,7 +211,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-6 lg:gap-4 divide-y-0">
               {factsData.map((fact, idx) => (
                 <div key={idx} className="p-2 sm:px-2 first:px-0">
-                  <div className="text-[10px] sm:text-[11px] font-bold text-[#B8860B] tracking-wider uppercase mb-0.5 sm:mb-1">
+                  <div className="text-[10px] sm:text-[11px] font-bold text-[#8A6408] tracking-wider uppercase mb-0.5 sm:mb-1">
                     {fact.label}
                   </div>
                   <div className="text-xs sm:text-sm md:text-base font-bold text-white mb-0.5 sm:mb-1 leading-snug truncate">
@@ -231,7 +231,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
         {/* ================================================== */}
         <div className="mb-12 sm:mb-20">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
-            <span className="text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1.5 sm:mb-2">
+            <span className="text-xs font-bold tracking-widest text-[#8A6408] uppercase block mb-1.5 sm:mb-2">
               HOW WE WORK
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mb-2 sm:mb-3">
@@ -287,7 +287,7 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => openEnquiryModal('')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B8860B] hover:bg-[#a07509] text-white px-7 py-3.5 rounded-lg font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-xl focus:ring-2 focus:ring-[#B8860B] focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#8A6408] hover:bg-[#6F5006] text-white px-7 py-3.5 rounded-lg font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-xl focus:ring-2 focus:ring-[#B8860B] focus:ring-offset-2 focus:ring-offset-slate-900"
                 >
                   REQUEST A QUOTE
                   <ArrowRight className="w-4 h-4" />

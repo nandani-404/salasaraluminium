@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <HeroVideo
           src="/salasar-workshop-hero.mp4"
-          poster="/salasar-hardware-hero-clean.jpg"
+          poster="/salasar-workshop-hero-poster.jpg"
           className="w-full h-full object-cover opacity-95"
         />
         {/* Minimal Scrim Overlay for Maximum Video Clarity */}
@@ -65,7 +65,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => openEnquiryModal()}
-              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#B8860B] hover:bg-[#a07509] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30 pointer-events-auto"
+              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#8A6408] hover:bg-[#6F5006] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30 pointer-events-auto"
             >
               <span>Request Quote</span>
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />

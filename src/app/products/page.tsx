@@ -67,7 +67,7 @@ export default function ProductsPage() {
             href={TEL_HREF}
             data-analytics="click_call"
             data-analytics-location="products-header"
-            className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#B8860B] hover:bg-[#a07509] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
           >
             <PhoneCall className="w-4 h-4" aria-hidden="true" />
             Call {BUSINESS.phones.primary.display}
@@ -92,7 +92,7 @@ export default function ProductsPage() {
         aria-label="Product categories"
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7"
       >
-        <h2 className="text-xs font-bold uppercase tracking-widest text-[#B8860B] mb-3">
+        <h2 className="text-xs font-bold uppercase tracking-widest text-[#8A6408] mb-3">
           Jump to a category
         </h2>
         <ul className="flex flex-wrap gap-2">

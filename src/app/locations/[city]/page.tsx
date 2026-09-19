@@ -197,7 +197,7 @@ export default async function CityLocationPage({
               Trade markets we supply in {city.name}
             </h2>
             <p className="p-5 bg-white border border-[#E2E8F0] rounded-xl text-sm text-slate-700 leading-relaxed">
-              <Store className="w-4 h-4 inline-block mr-1.5 text-[#B8860B]" aria-hidden="true" />
+              <Store className="w-4 h-4 inline-block mr-1.5 text-[#8A6408]" aria-hidden="true" />
               {city.keyMarkets}
             </p>
           </section>

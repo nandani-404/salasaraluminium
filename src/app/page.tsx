@@ -53,7 +53,7 @@ export default function Home() {
 
           {/* Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">
               Standardized Product Range
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#0B1F3A] tracking-tight">
@@ -104,7 +104,7 @@ export default function Home() {
                 <div className="px-3 pb-3 pt-0 sm:px-5 sm:pb-5">
                   <div className="pt-2 sm:pt-3 border-t border-slate-100 text-[11px] sm:text-xs font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] flex items-center justify-between transition-colors">
                     <span>Explore</span>
-                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#94A3B8] group-hover:text-[#0B1F3A] group-hover:translate-x-0.5 transition-all" />
+                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#64748B] group-hover:text-[#0B1F3A] group-hover:translate-x-0.5 transition-all" />
                   </div>
                 </div>
               </Link>
@@ -132,7 +132,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 space-y-3 md:space-y-0 pb-4 sm:pb-6 border-b border-[#E2E8F0]">
             <div className="space-y-1 sm:space-y-1.5">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">
                 High Demand Trade Items
               </span>
               <h2 className="text-2xl sm:text-4xl font-bold text-[#0B1F3A] tracking-tight">
@@ -260,7 +260,7 @@ export default function Home() {
             {/* Context & Info Column */}
             <div className="lg:col-span-6 space-y-4 sm:space-y-6">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#B8860B]">
+                <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6408]">
                   Direct Manufacturer Advantage
                 </span>
 

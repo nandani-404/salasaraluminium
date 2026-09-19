@@ -10,32 +10,32 @@ export default function TrustBar() {
     {
       title: 'Premium Quality',
       desc: 'Superior grade extruded alloys',
-      icon: <Award className="w-4 h-4 text-[#B8860B]" />
+      icon: <Award className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Wide Catalogue',
       desc: '86+ trade hardware SKUs in stock',
-      icon: <Layers className="w-4 h-4 text-[#B8860B]" />
+      icon: <Layers className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Durable Finish',
       desc: 'Anodized & powder-coated protection',
-      icon: <Shield className="w-4 h-4 text-[#B8860B]" />
+      icon: <Shield className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Trusted Partner',
       desc: 'Direct factory trade pricing',
-      icon: <CheckCircle2 className="w-4 h-4 text-[#B8860B]" />
+      icon: <CheckCircle2 className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Raipur Stock Hub',
       desc: 'Same-day regional dispatch',
-      icon: <Truck className="w-4 h-4 text-[#B8860B]" />
+      icon: <Truck className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Custom Orders',
       desc: 'Tailored extrusion lengths & specs',
-      icon: <Wrench className="w-4 h-4 text-[#B8860B]" />
+      icon: <Wrench className="w-4 h-4 text-[#8A6408]" />
     }
   ];
 

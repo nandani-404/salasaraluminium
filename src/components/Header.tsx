@@ -122,7 +122,7 @@ export default function Header() {
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
               </div>
-              <span className="text-[7.5px] tracking-[0.18em] text-[#B8860B] uppercase font-extrabold mt-0.5">
+              <span className="text-[7.5px] tracking-[0.18em] text-[#8A6408] uppercase font-extrabold mt-0.5">
                 Aluminium & Hardware
               </span>
             </div>
@@ -293,7 +293,7 @@ export default function Header() {
             title="Call Salasar Order Desk"
             className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
             aria-label="Call Salasar Aluminium Order Desk" data-analytics="click_call" data-analytics-location="header">
-            <PhoneCall className="w-4 h-4 text-[#B8860B]" />
+            <PhoneCall className="w-4 h-4 text-[#8A6408]" />
           </a>
           <button
             type="button"

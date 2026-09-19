@@ -137,7 +137,7 @@ export default async function CategoryPage({
           </nav>
 
           <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs font-semibold text-[#B8860B] uppercase tracking-widest">
+            <span className="text-xs font-semibold text-[#8A6408] uppercase tracking-widest">
               Hardware category
             </span>
             <span className="text-xs font-mono bg-[#0B1F3A] text-[#D4AF37] px-2 py-0.5 rounded font-bold">
@@ -150,7 +150,7 @@ export default async function CategoryPage({
           </h1>
 
           <div className="max-w-3xl p-5 bg-white border-l-4 border-[#B8860B] border-y border-r border-[#E2E8F0] rounded-r-xl">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[#B8860B] mb-2">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-[#8A6408] mb-2">
               Quick answer
             </h2>
             <p className="text-base text-[#1E293B] leading-relaxed">{quickAnswer}</p>
@@ -161,7 +161,7 @@ export default async function CategoryPage({
               href={TEL_HREF}
               data-analytics="click_call"
               data-analytics-location={`category-${sahCategory.slug}`}
-              className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#B8860B] hover:bg-[#a07509] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
             >
               Call {BUSINESS.phones.primary.display}
             </a>

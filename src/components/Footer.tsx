@@ -136,7 +136,7 @@ export default function Footer() {
                 href={TEL_HREF}
                 data-analytics="click_call"
                 data-analytics-location="footer"
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="flex items-center gap-2 min-h-11 hover:text-white transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
                 <span>{BUSINESS.phones.primary.display}</span>
@@ -145,7 +145,7 @@ export default function Footer() {
                 href={`tel:${BUSINESS.phones.secondary.href}`}
                 data-analytics="click_call"
                 data-analytics-location="footer-secondary"
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="flex items-center gap-2 min-h-11 hover:text-white transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
                 <span>{BUSINESS.phones.secondary.display}</span>

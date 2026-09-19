@@ -98,13 +98,13 @@ export default function WholesaleClient() {
                 className="p-3 sm:p-4 rounded-xl border border-[#E2E8F0] hover:border-[#0B1F3A] bg-white hover:bg-[#F8FAFC] shadow-2xs hover:shadow-md transition-all space-y-1.5 sm:space-y-2 group cursor-pointer block"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] sm:text-xs font-mono font-bold text-[#B8860B]">{cat.codePrefix}</span>
+                  <span className="text-[11px] sm:text-xs font-mono font-bold text-[#8A6408]">{cat.codePrefix}</span>
                   <span className="text-[9px] sm:text-[10px] bg-[#F8FAFC] group-hover:bg-white px-1.5 sm:px-2 py-0.5 rounded border border-[#E2E8F0] text-[#0B1F3A] font-bold">
                     <span className="hidden sm:inline">View Category →</span>
                     <span className="sm:hidden">View →</span>
                   </span>
                 </div>
-                <h2 className="text-xs sm:text-sm font-bold text-[#0B1F3A] group-hover:text-[#B8860B] transition-colors leading-tight line-clamp-1">{cat.name}</h2>
+                <h2 className="text-xs sm:text-sm font-bold text-[#0B1F3A] group-hover:text-[#8A6408] transition-colors leading-tight line-clamp-1">{cat.name}</h2>
                 <p className="text-[10px] sm:text-[11px] text-[#475569] line-clamp-2 leading-relaxed">{cat.description}</p>
               </Link>
             ))}

@@ -195,7 +195,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                 <div className="space-y-4">
                   
                   <div>
-                    <span className="text-[11px] font-bold text-[#B8860B] uppercase tracking-wider block mb-1">
+                    <span className="text-[11px] font-bold text-[#8A6408] uppercase tracking-wider block mb-1">
                       {categoryName}
                     </span>
                     <h2 className="text-xl sm:text-3xl font-black text-[#0B1F3A] tracking-tight leading-snug">
@@ -258,7 +258,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                               onClick={() => setSelectedSize(size)}
                               className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                                 isSelected
-                                  ? 'bg-[#B8860B] text-white border-[#B8860B] shadow-xs'
+                                  ? 'bg-[#8A6408] text-white border-[#B8860B] shadow-xs'
                                   : 'bg-[#F8FAFC] text-[#0B1F3A] border-slate-200 hover:border-slate-300'
                               }`}
                             >
@@ -290,11 +290,11 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                   {/* Guarantees */}
                   <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-[#0B1F3A] space-y-1.5">
                     <div className="flex items-center space-x-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#B8860B]" />
+                      <CheckCircle2 className="w-4 h-4 text-[#8A6408]" />
                       <span className="font-semibold">Direct Wholesale Trade Pricing</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <ShieldCheck className="w-4 h-4 text-[#B8860B]" />
+                      <ShieldCheck className="w-4 h-4 text-[#8A6408]" />
                       <span className="font-semibold">Ready Warehouse Stock in Raipur</span>
                     </div>
                   </div>
@@ -325,7 +325,7 @@ export function QuickViewModal({ product, onClose, onEnquire }: QuickViewModalPr
                     className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center space-x-1.5"
                   >
                     <span>View Full Product Details & Specs</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-[#B8860B]" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#8A6408]" />
                   </Link>
                 </div>
 

@@ -108,7 +108,7 @@ export default function TradeQuoteFormSection() {
           {/* Left Column: Direct Trade Info */}
           <div className="lg:col-span-5 space-y-6 pt-2">
             <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#B8860B]">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6408]">
                 Direct Trade Desk
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B1F3A] tracking-tight mt-1.5 leading-snug">
@@ -123,7 +123,7 @@ export default function TradeQuoteFormSection() {
             {/* Direct Contact Cards */}
             <div className="space-y-3 pt-2">
               <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#94A3B8] block">Direct Sales Desk</span>
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] block">Direct Sales Desk</span>
                 <span className="text-sm font-semibold text-[#0B1F3A] block mt-0.5">Abhishek — Sales Director</span>
               </div>
 
@@ -135,7 +135,7 @@ export default function TradeQuoteFormSection() {
                 title="Open in Google Maps"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#94A3B8] block">Raipur Main Showroom</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] block">Raipur Main Showroom</span>
                   <span className="inline-flex items-center space-x-1 text-[11px] font-medium text-[#C9A227] group-hover:underline">
                     <span>Open in Maps</span>
                     <ExternalLink className="w-3 h-3" />
@@ -285,10 +285,11 @@ export default function TradeQuoteFormSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Target Product / SA Code */}
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label htmlFor="saProductCode" className="block text-xs font-medium text-slate-700 mb-1.5">
                       Target Product / SA Code
                     </label>
                     <select
+                      id="saProductCode"
                       {...register('saProductCode')}
                       className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
                     >
@@ -303,10 +304,11 @@ export default function TradeQuoteFormSection() {
 
                   {/* State / Region */}
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label htmlFor="state" className="block text-xs font-medium text-slate-700 mb-1.5">
                       State / Region
                     </label>
                     <select
+                      id="state"
                       {...register('state')}
                       className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
                     >

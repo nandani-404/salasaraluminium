@@ -42,7 +42,7 @@ export default function FAQSection({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div className="lg:col-span-5 space-y-4">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">
               Common questions
             </p>
 

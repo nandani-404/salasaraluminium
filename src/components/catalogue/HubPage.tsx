@@ -69,7 +69,7 @@ export default function HubPage({
           <span className="text-[#0B1F3A] font-semibold">{h1}</span>
         </nav>
 
-        <p className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">{eyebrow}</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">{eyebrow}</p>
 
         <h1 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] tracking-tight max-w-4xl">
           {h1}
@@ -80,7 +80,7 @@ export default function HubPage({
           answer engine can lift verbatim without needing the rest of the page.
         */}
         <div className="max-w-3xl p-5 bg-white border-l-4 border-[#B8860B] border-y border-r border-[#E2E8F0] rounded-r-xl">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[#B8860B] mb-2">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-[#8A6408] mb-2">
             Quick answer
           </h2>
           <p className="text-base text-[#1E293B] leading-relaxed">{quickAnswer}</p>
@@ -93,7 +93,7 @@ export default function HubPage({
             href={TEL_HREF}
             data-analytics="click_call"
             data-analytics-location={`hub${path}`}
-            className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#B8860B] hover:bg-[#a07509] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
           >
             <PhoneCall className="w-4 h-4" aria-hidden="true" />
             Call {BUSINESS.phones.primary.display}

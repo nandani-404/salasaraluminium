@@ -52,6 +52,17 @@ export default function HeroVideo({
     if (conn?.saveData) return;
     if (conn?.effectiveType && /(^|-)2g$/.test(conn.effectiveType)) return;
 
+    /*
+     * Skip the video entirely on phones.
+     *
+     * Most of this site's traffic is mobile, on metered Indian mobile data.
+     * A decorative background video is worth several megabytes of someone's
+     * data plan and delivers least on the smallest screen, where it is mostly
+     * hidden behind the headline and the scrim. Below 768px the optimised
+     * poster is the whole background, which is both faster and cheaper.
+     */
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+
     const start = () => setShouldLoad(true);
 
     if (document.readyState === 'complete') {

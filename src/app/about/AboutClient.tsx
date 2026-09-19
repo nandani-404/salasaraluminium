@@ -114,7 +114,7 @@ export default function AboutClient() {
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4">
                 <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
                     <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   {/*
@@ -134,7 +134,7 @@ export default function AboutClient() {
 
                 <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
                     <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h3>
@@ -147,21 +147,21 @@ export default function AboutClient() {
               {/* 4 Pillars Strip */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
                 <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <ShieldCheck className="w-5 h-5 text-[#B8860B] mx-auto mb-1" />
+                  <ShieldCheck className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
                   <span className="text-[11px] font-bold text-[#0B1F3A] block">High-Grade Stock</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <div className="w-5 h-5 border border-[#B8860B] text-[#B8860B] rounded font-bold text-[10px] flex items-center justify-center mx-auto mb-1">
+                  <div className="w-5 h-5 border border-[#B8860B] text-[#8A6408] rounded font-bold text-[10px] flex items-center justify-center mx-auto mb-1">
                     %
                   </div>
                   <span className="text-[11px] font-bold text-[#0B1F3A] block">Wholesale Rate</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <Truck className="w-5 h-5 text-[#B8860B] mx-auto mb-1" />
+                  <Truck className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
                   <span className="text-[11px] font-bold text-[#0B1F3A] block">Fast Logistics</span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <Award className="w-5 h-5 text-[#B8860B] mx-auto mb-1" />
+                  <Award className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
                   <span className="text-[11px] font-bold text-[#0B1F3A] block">Top Satisfaction</span>
                 </div>
               </div>
@@ -238,13 +238,13 @@ export default function AboutClient() {
                 {/* Bottom Floating Stats Tag */}
                 <div className="mt-4 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <PhoneCall className="w-5 h-5 text-[#B8860B]" />
+                    <PhoneCall className="w-5 h-5 text-[#8A6408]" />
                     <div>
                       <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">Trade Desk / Inquiry</span>
                       <span className="text-xs font-extrabold text-[#0B1F3A]">Abhishek: +91 8007443071</span>
                     </div>
                   </div>
-                  <div className="px-2.5 py-1 bg-[#B8860B]/10 rounded-md text-[#B8860B] font-bold text-[10px] uppercase">
+                  <div className="px-2.5 py-1 bg-[#B8860B]/10 rounded-md text-[#8A6408] font-bold text-[10px] uppercase">
                     Wholesale
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function AboutClient() {
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-12 space-y-2 sm:space-y-3">
             <div className="inline-flex items-center space-x-2 px-3 py-1 bg-[#B8860B]/10 border border-[#B8860B]/20 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B]" />
-              <span className="text-xs font-bold text-[#B8860B] uppercase tracking-wider">
+              <span className="text-xs font-bold text-[#8A6408] uppercase tracking-wider">
                 Core Brand Pillars
               </span>
             </div>
@@ -289,8 +289,8 @@ export default function AboutClient() {
                 >
                   <div className="space-y-1.5 sm:space-y-3">
                     <div className="flex items-center justify-between">
-                      <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-[#B8860B]" />
-                      <span className="text-[10px] sm:text-xs font-mono text-[#94A3B8] group-hover:text-[#0B1F3A] transition-colors">
+                      <IconComp className="w-4 h-4 sm:w-5 sm:h-5 text-[#8A6408]" />
+                      <span className="text-[10px] sm:text-xs font-mono text-[#64748B] group-hover:text-[#0B1F3A] transition-colors">
                         0{idx + 1}
                       </span>
                     </div>

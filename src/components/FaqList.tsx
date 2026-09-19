@@ -30,7 +30,7 @@ export default function FaqList({
             <span>{faq.question}</span>
             <span
               aria-hidden="true"
-              className="shrink-0 mt-0.5 text-[#B8860B] text-xl leading-none transition-transform group-open:rotate-45"
+              className="shrink-0 mt-0.5 text-[#8A6408] text-xl leading-none transition-transform group-open:rotate-45"
             >
               +
             </span>

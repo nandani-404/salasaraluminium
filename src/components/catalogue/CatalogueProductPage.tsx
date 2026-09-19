@@ -136,7 +136,7 @@ export default function CatalogueProductPage({ product }: { product: CataloguePr
 
           <div className="space-y-5">
             <div className="space-y-2">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">
                 {product.category}
               </p>
               {/* H1 carries the product name, the SKU and the city. */}
@@ -178,7 +178,7 @@ export default function CatalogueProductPage({ product }: { product: CataloguePr
                   data-analytics="click_call"
                   data-analytics-sku={product.sku}
                   data-analytics-location="product-cta"
-                  className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#B8860B] hover:bg-[#a07509] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
                 >
                   <PhoneCall className="w-4 h-4" aria-hidden="true" />
                   {BUSINESS.phones.primary.display}

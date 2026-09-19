@@ -76,7 +76,7 @@ export default function LocationsHubPage() {
                 className="h-full bg-white border border-[#E2E8F0] hover:border-[#0B1F3A] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div className="space-y-3">
-                  <span className="inline-block text-xs font-mono font-bold text-[#B8860B] bg-[#F8FAFC] px-2.5 py-1 rounded-md border border-[#E2E8F0]">
+                  <span className="inline-block text-xs font-mono font-bold text-[#8A6408] bg-[#F8FAFC] px-2.5 py-1 rounded-md border border-[#E2E8F0]">
                     {city.distance}
                   </span>
 
@@ -92,7 +92,7 @@ export default function LocationsHubPage() {
 
                 <span className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0B1F3A] group-hover:text-[#8A6408]">
                   <span>{city.name} supply detail</span>
-                  <ChevronRight className="w-4 h-4 text-[#B8860B]" aria-hidden="true" />
+                  <ChevronRight className="w-4 h-4 text-[#8A6408]" aria-hidden="true" />
                 </span>
               </Link>
             </li>

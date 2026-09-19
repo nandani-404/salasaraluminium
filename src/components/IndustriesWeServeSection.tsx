@@ -157,7 +157,7 @@ export default function IndustriesWeServeSection() {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B] block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#8A6408] block">
             INDUSTRIES WE SERVE
           </span>
 
@@ -175,7 +175,7 @@ export default function IndustriesWeServeSection() {
           
           {/* Left Column: Industry Selector (30%) */}
           <div className="lg:col-span-4 bg-white rounded-xl border border-[#E2E8F0] p-2.5 sm:p-3 shadow-2xs">
-            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B8860B] block px-1.5 sm:px-3 pt-1 pb-2 sm:pb-3">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8A6408] block px-1.5 sm:px-3 pt-1 pb-2 sm:pb-3">
               SELECT INDUSTRY
             </span>
 
@@ -220,7 +220,7 @@ export default function IndustriesWeServeSection() {
                     </div>
 
                     <ChevronRight className={`hidden lg:block w-4 h-4 shrink-0 transition-transform ${
-                      isActive ? 'text-[#D4AF37] translate-x-0.5' : 'text-[#94A3B8] opacity-0 group-hover:opacity-100'
+                      isActive ? 'text-[#D4AF37] translate-x-0.5' : 'text-[#64748B] opacity-0 group-hover:opacity-100'
                     }`} />
                   </button>
                 );
@@ -243,7 +243,7 @@ export default function IndustriesWeServeSection() {
                 >
                   {/* Top Header & Subtitle */}
                   <div className="space-y-2 border-b border-[#F1F5F9] pb-6">
-                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#B8860B] block">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#8A6408] block">
                       {item.rightEyebrow}
                     </span>
 
@@ -382,7 +382,7 @@ export default function IndustriesWeServeSection() {
 
                       <Link
                         href="/products"
-                        className="text-xs font-bold text-[#0B1F3A] hover:text-[#B8860B] uppercase tracking-wider hover:underline"
+                        className="text-xs font-bold text-[#0B1F3A] hover:text-[#8A6408] uppercase tracking-wider hover:underline"
                       >
                         VIEW PRODUCTS →
                       </Link>

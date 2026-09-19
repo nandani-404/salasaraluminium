@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local data backups
 src/data/*.json
+
+# Lighthouse run artefacts (scripts/lighthouse-run.mjs)
+.lighthouse/

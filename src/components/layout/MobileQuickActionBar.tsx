@@ -92,7 +92,7 @@ export default function MobileQuickActionBar() {
           <div className="relative">
             <WhatsAppIcon original size={22} className="w-5 h-5 shrink-0 shadow-2xs" />
           </div>
-          <span className="text-[10px] font-semibold tracking-tight mt-1 text-[#25D366] truncate">
+          <span className="text-[10px] font-semibold tracking-tight mt-1 text-[#0B6B37] truncate">
             WhatsApp
           </span>
         </a>
