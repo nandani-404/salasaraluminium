@@ -14,6 +14,7 @@ import {
   getRelatedProductsUniversal,
 } from '@/lib/productAdapter';
 import ProductDetailActions from './ProductDetailActions';
+import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
 
 interface ProductPageProps {
   params: Promise<{
@@ -35,39 +36,24 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   if (!match) return {};
   const product = match.product;
 
-  const baseUrl = 'https://www.salasaraluminium.shop';
-  const imageUrls = product.images.map((img) =>
-    img.startsWith('http') ? img : `${baseUrl}${img.startsWith('/') ? '' : '/'}${img}`
+  /*
+   * Title pattern: "{Product} (SA-xx) - Buy in Raipur | Salasar", trimmed on a
+   * word boundary. The previous version cut at 35 characters mid-word and
+   * appended "...", so most product titles read like
+   * "Shower Hinge - 90 Wall to Glass ..." with no city and no brand.
+   */
+  const title = truncateTitle(`${product.name} (${product.sku}) — Raipur | Salasar`);
+
+  const description = clampDescription(
+    `${product.shortDescription} Stocked in Raipur, Chhattisgarh and supplied across the state. Call or WhatsApp with code ${product.sku} for a quote.`
   );
 
-  const rawTitle = `${product.name} (${product.sku})`;
-  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
-  const rawDesc = `${product.shortDescription} Alloy ${product.alloyGrade}, ${product.finish} finish. Trade quotes available.`;
-  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
-
-  return {
+  return buildMetadata({
     title,
     description,
-    alternates: {
-      canonical: `/product/${match.canonicalSlug}`,
-    },
-    openGraph: {
-      title: product.name,
-      description: product.shortDescription,
-      url: `${baseUrl}/product/${match.canonicalSlug}`,
-      siteName: 'Salasar Aluminium & Hardware',
-      images: imageUrls.map((url) => ({
-        url,
-        alt: `${product.name} - ${product.sku}`,
-      })),
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: product.name,
-      description: product.shortDescription,
-      images: imageUrls,
-    },
-  };
+    path: `/product/${match.canonicalSlug}`,
+    image: product.images?.[0],
+  });
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {

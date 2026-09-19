@@ -2,14 +2,14 @@ import React from 'react';
 import FAQSection from '@/components/FAQSection';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Hardware FAQ & Trade Order Guide',
-  description: 'Find answers to common trade questions on wholesale hardware orders, SA product codes, delivery times, finishes, and shipping in Chhattisgarh.',
-  alternates: {
-    canonical: '/faq',
-  },
-};
+export const metadata: Metadata = buildMetadata({
+  title: 'Aluminium Hardware FAQ, Raipur | Salasar',
+  description:
+    'How to order by SA code, what we stock, delivery across Chhattisgarh, finishes and sizes, and whether we sell to homeowners. Straight answers, no sign-up.',
+  path: '/faq',
+});
 
 
 export default function FAQPage() {

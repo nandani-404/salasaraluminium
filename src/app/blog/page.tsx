@@ -3,15 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BookOpen, ArrowRight, Clock, User, HelpCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo/metadata';
 import { BLOG_POSTS } from '@/lib/data';
 
-export const metadata: Metadata = {
-  title: 'Hardware Guides & Technical Specs',
-  description: 'Trade buyer guides for aluminium door kits, door closers, shower hinges, and wholesale hardware distribution in Raipur, Chhattisgarh.',
-  alternates: {
-    canonical: '/blog',
-  },
-};
+export const metadata: Metadata = buildMetadata({
+  title: 'Hardware Guides & How-To | Salasar Raipur',
+  description:
+    'Practical guides to choosing door closers, shower hinges, sliding window rollers and door kits, written for fabricators and homeowners in Chhattisgarh.',
+  path: '/blog',
+});
 
 export default function BlogPage() {
   return (

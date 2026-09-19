@@ -8,6 +8,7 @@ import { getArticleSchema, getBreadcrumbSchema, getFaqSchema } from '@/lib/jsonl
 import { Clock, User, Eye, Heart, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import ArticleClientCTA from './ArticleClientCTA';
 import ArticleLikeShareBar from './ArticleLikeShareBar';
+import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
 
 export async function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({
@@ -20,16 +21,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
   if (!post) return {};
 
-  const cleanTitle = post.title.length > 38 ? `${post.title.substring(0, 35)}...` : post.title;
-  const cleanDesc = post.excerpt.length > 158 ? `${post.excerpt.substring(0, 155)}...` : post.excerpt;
+  /*
+   * The old version cut the title at 35 characters and appended "...", then the
+   * layout template appended "| Salasar Aluminium" — producing mid-word titles
+   * with the brand named twice, e.g.
+   *   "A Dealer's Guide to Salasar's Alumi... | Salasar Aluminium"
+   * Titles are now trimmed on a word boundary, and the brand suffix is only
+   * added when the title does not already contain it.
+   */
+  const hasBrand = /salasar/i.test(post.title);
+  const title = truncateTitle(hasBrand ? post.title : `${post.title} | Salasar`);
 
-  return {
-    title: cleanTitle,
-    description: cleanDesc,
-    alternates: {
-      canonical: `/blog/${post.slug}`,
-    },
-  };
+  return buildMetadata({
+    title,
+    description: clampDescription(post.excerpt),
+    path: `/blog/${post.slug}`,
+    image: post.image,
+    type: 'article',
+    publishedTime: new Date(post.date).toISOString(),
+    authors: [post.author],
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

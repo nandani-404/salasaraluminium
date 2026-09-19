@@ -1,16 +1,16 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo/metadata';
 import { Sparkles, Building2, Wrench, Compass, Store, CheckCircle2 } from 'lucide-react';
 import IndustriesWeServeSection from '@/components/IndustriesWeServeSection';
 import FAQSection from '@/components/FAQSection';
 
-export const metadata: Metadata = {
-  title: 'Industries We Serve',
-  description: 'Salasar Aluminium supplies fabricators, contractors, architects, and dealers across residential, commercial, and industrial construction in Chhattisgarh.',
-  alternates: {
-    canonical: '/industries-we-serve',
-  },
-};
+export const metadata: Metadata = buildMetadata({
+  title: 'Who We Supply in Chhattisgarh | Salasar Raipur',
+  description:
+    'Fabricators, contractors, architects, interior designers, builders, dealers and homeowners across Chhattisgarh. What each typically orders, and how to buy.',
+  path: '/industries-we-serve',
+});
 
 export default function IndustriesWeServePage() {
   return (

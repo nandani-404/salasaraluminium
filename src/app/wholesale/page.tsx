@@ -1,14 +1,14 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo/metadata';
 import WholesaleClient from './WholesaleClient';
 
-export const metadata: Metadata = {
-  title: 'Wholesale Trade & Bulk Supply',
-  description: 'Request wholesale trade quotes on aluminium hardware in Raipur — bulk rates, direct factory pricing, and same-day dispatch for dealers & contractors.',
-  alternates: {
-    canonical: '/wholesale',
-  },
-};
+export const metadata: Metadata = buildMetadata({
+  title: 'Aluminium Hardware Wholesaler Chhattisgarh | Salasar',
+  description:
+    'Bulk hardware supply for dealers, fabricators and contractors across Chhattisgarh from our Raipur stock point. Send your item list for a trade quote.',
+  path: '/wholesale',
+});
 
 export default function WholesalePage() {
   return <WholesaleClient />;

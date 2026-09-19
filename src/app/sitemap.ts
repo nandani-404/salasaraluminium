@@ -3,7 +3,7 @@ import { SITE_URL } from '@/config/business';
 import { BLOG_POSTS } from '@/lib/data';
 import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
 import { CITIES_DATA } from '@/lib/data/cities';
-import { getAllProductStaticSlugs } from '@/lib/productAdapter';
+import { getCanonicalProductSlugs } from '@/lib/productAdapter';
 
 /**
  * Every URL here is derived from the same data the pages themselves render
@@ -53,11 +53,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/products/${cat.slug}`, 0.85, 'monthly')
   );
 
+  // The three legacy showcase category pages. They are live and indexable, so
+  // omitting them left three crawlable URLs outside the sitemap.
+  // [CONFIRM] These overlap with the /residential, /commercial and /industrial
+  // segment routes, which cover the same ground; one of the two sets should
+  // eventually be retired. See SEO-CONFIRM.md.
+  const showcaseCategoryPages = ['residential', 'commercial', 'industrial'].map((slug) =>
+    entry(`/products/${slug}`, 0.5, 'monthly')
+  );
+
   const cityPages = CITIES_DATA.map((city) => entry(`/locations/${city.slug}`, 0.8, 'monthly'));
 
-  // getAllProductStaticSlugs() covers both the 86 catalogue SKUs and the
-  // showcase range, and is the same list /product/[slug] prerenders from.
-  const productPages = getAllProductStaticSlugs().map((slug) =>
+  // Canonical slugs only. The route also prerenders `sa-1`-style id aliases so
+  // those URLs resolve, but they canonicalise to the real slug and must not be
+  // submitted — the previous sitemap listed all 86 of them.
+  const productPages = getCanonicalProductSlugs().map((slug) =>
     entry(`/product/${slug}`, 0.7, 'monthly')
   );
 
@@ -65,7 +75,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/blog/${post.slug}`, 0.6, 'monthly', postDate(post.date))
   );
 
-  const all = [...staticPages, ...categoryPages, ...cityPages, ...productPages, ...blogPages];
+  const all = [
+    ...staticPages,
+    ...categoryPages,
+    ...showcaseCategoryPages,
+    ...cityPages,
+    ...productPages,
+    ...blogPages,
+  ];
 
   // Belt and braces: a duplicate <loc> is a validation error in some crawlers.
   const seen = new Set<string>();

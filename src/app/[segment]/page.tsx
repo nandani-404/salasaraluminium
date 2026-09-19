@@ -6,6 +6,7 @@ import { SEGMENTS, Segment, getProductsBySegment, CATEGORIES } from '@/lib/data/
 import { ProductCard } from '@/components/product/ProductCard';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
+import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
 
 interface SegmentPageProps {
   params: Promise<{
@@ -20,15 +21,15 @@ export async function generateMetadata({ params }: SegmentPageProps): Promise<Me
 
   if (!seg) return {};
 
-  const rawTitle = `${seg.label} Hardware`;
-  const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
-  const rawDesc = `${seg.description} Direct trade supply & wholesale hardware pricing in Raipur, Chhattisgarh.`;
-  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
-
-  return {
-    title,
-    description,
-  };
+  // Previously returned only a title and description — no canonical, so these
+  // segment pages had no self-referencing canonical at all.
+  return buildMetadata({
+    title: truncateTitle(`${seg.label} Hardware in Raipur | Salasar`),
+    description: clampDescription(
+      `${seg.description}. Door and window hardware for ${seg.label.toLowerCase()} projects, supplied from our Raipur counter across Chhattisgarh. Call for a quote.`
+    ),
+    path: `/${segKey}`,
+  });
 }
 
 export default async function SegmentPage({ params }: SegmentPageProps) {

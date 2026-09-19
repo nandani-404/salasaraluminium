@@ -1,15 +1,15 @@
 import React from 'react';
 import { Metadata } from 'next';
+import { buildMetadata } from '@/lib/seo/metadata';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import FAQSection from '@/components/FAQSection';
 
-export const metadata: Metadata = {
-  title: 'Why Choose Us',
-  description: 'Direct trade pricing, 86+ SKU stock, same-day Raipur dispatch — discover why fabricators and contractors choose Salasar Aluminium & Hardware.',
-  alternates: {
-    canonical: '/why-choose-us',
-  },
-};
+export const metadata: Metadata = buildMetadata({
+  title: 'Why Buy Hardware From Salasar, Raipur',
+  description:
+    '86 SKUs under SA codes you can quote by phone, one counter in Raipur you can actually visit, and staff who will match an old part from a photograph.',
+  path: '/why-choose-us',
+});
 
 export default function WhyChooseUsPage() {
   return (

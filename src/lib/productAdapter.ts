@@ -154,6 +154,22 @@ export function findProductByAnySlug(slugOrId: string): MatchedProduct | undefin
  * Get all static params for the /product/[slug] route
  * Includes canonical slugs and short IDs for full backwards compatibility
  */
+/**
+ * Canonical product slugs only — one URL per product, no aliases.
+ *
+ * `getAllProductStaticSlugs()` deliberately also returns the `sa-1`-style id
+ * aliases so those URLs prerender and resolve (they canonicalise to the real
+ * slug). Those aliases must never reach the sitemap: submitting a URL that
+ * canonicalises elsewhere is a duplicate-content signal and burns crawl budget.
+ * The sitemap uses this function instead.
+ */
+export function getCanonicalProductSlugs(): string[] {
+  const slugs = new Set<string>();
+  for (const p of products) slugs.add(p.slug);
+  for (const p of FULL_CATALOGUE_PRODUCTS) slugs.add(getSAHProductSlug(p));
+  return Array.from(slugs);
+}
+
 export function getAllProductStaticSlugs(): string[] {
   const slugs = new Set<string>();
 

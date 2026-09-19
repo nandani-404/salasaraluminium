@@ -6,7 +6,8 @@ import Footer from '@/components/Footer';
 import EnquiryModal from '@/components/EnquiryModal';
 import { EnquiryProvider } from '@/context/EnquiryContext';
 import JsonLd from '@/components/JsonLd';
-import { getOrganizationSchema, getWebSiteSchema, BASE_URL } from '@/lib/jsonld';
+import { getOrganizationSchema, getWebSiteSchema } from '@/lib/jsonld';
+import { BUSINESS, SITE_URL } from '@/config/business';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -21,41 +22,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.salasaraluminium.shop'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Wholesale Aluminium Hardware Supplier Raipur | Salasar',
-    template: '%s | Salasar Aluminium',
+    default: 'Aluminium Door & Window Hardware Raipur | Salasar',
+    template: '%s',
   },
-  description:
-    'Direct wholesale supplier of aluminium extrusions, door hardware, locks and fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch.',
-  keywords: [
-    'aluminium hardware supplier',
-    'architectural aluminium extrusions',
-    'slimline sliding door profiles',
-    'glass railing U-channel',
-    'commercial curtain wall mullion',
-    'industrial T-slot 4040 profile',
-    'anodized aluminium finishes',
-    'solar PV mounting rails',
-  ],
-  authors: [{ name: 'Salasar Aluminium & Hardware Solutions' }],
-  creator: 'Salasar Aluminium & Hardware',
+  description: BUSINESS.description,
+  // `keywords` removed: ignored by Google since 2009 and by every other major
+  // engine, and the previous list described extrusion products this business
+  // does not actually sell.
+  authors: [{ name: BUSINESS.name }],
+  creator: BUSINESS.name,
+  publisher: BUSINESS.name,
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://www.salasaraluminium.shop',
-    siteName: 'Salasar Aluminium & Hardware',
-    title: 'Wholesale Aluminium Hardware Supplier Raipur | Salasar',
-    description:
-      'Direct wholesale supplier of aluminium extrusions, door hardware, locks and fittings in Raipur, Chhattisgarh. 86+ SKUs, same-day dispatch.',
-    images: [
-      {
-        url: 'https://www.salasaraluminium.shop/logo.png',
-        width: 1200,
-        height: 630,
-        alt: 'Salasar Architectural Aluminium Systems',
-      },
-    ],
+    locale: 'en_IN',
+    url: '/',
+    siteName: BUSINESS.name,
+    title: 'Aluminium Door & Window Hardware Raipur | Salasar',
+    description: BUSINESS.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
   icons: {
     icon: [
@@ -82,9 +70,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  alternates: {
-    canonical: '/',
   },
 };
 

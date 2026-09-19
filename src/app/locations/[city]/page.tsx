@@ -10,6 +10,7 @@ import JsonLd from '@/components/JsonLd';
 import FaqList from '@/components/FaqList';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import { getCityServiceSchema, getBreadcrumbSchema, getFaqSchema } from '@/lib/jsonld';
+import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
 
 export async function generateStaticParams() {
   return CITIES_DATA.map((c) => ({ city: c.slug }));
@@ -24,20 +25,13 @@ export async function generateMetadata({
   const city = getCity(slug);
   if (!city) return {};
 
-  const title = `Aluminium Hardware Supplier in ${city.name} | Salasar`;
-  const description = `Door and window hardware for ${city.name}, ${city.state} — rollers, locks, hinges, door kits, closers and shower fittings from our Raipur counter. Call ${BUSINESS.phones.primary.display}.`;
-
-  return {
-    title,
-    description,
-    alternates: { canonical: `/locations/${city.slug}` },
-    openGraph: {
-      type: 'website',
-      url: `/locations/${city.slug}`,
-      title,
-      description,
-    },
-  };
+  return buildMetadata({
+    title: truncateTitle(`Aluminium Hardware Supplier in ${city.name} | Salasar`),
+    description: clampDescription(
+      `Door and window hardware for ${city.name}, ${city.state} — rollers, locks, hinges, door kits, closers and shower fittings from our Raipur counter. Call us.`
+    ),
+    path: `/locations/${city.slug}`,
+  });
 }
 
 export default async function CityLocationPage({

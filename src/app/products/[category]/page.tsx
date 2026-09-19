@@ -12,6 +12,7 @@ import {
 import ProductCard from '@/components/ProductCard';
 import JsonLd from '@/components/JsonLd';
 import { getFaqSchema, getBreadcrumbSchema } from '@/lib/jsonld';
+import { categoryMeta } from '@/lib/seo/metadata';
 import { ArrowLeft, Layers, ShieldCheck, ChevronRight, CheckCircle2 } from 'lucide-react';
 
 export async function generateStaticParams() {
@@ -42,38 +43,18 @@ export async function generateMetadata({
   // 1. If it's a product slug, point metadata to the canonical product page
   const productMatch = findProductByAnySlug(slug);
   if (productMatch) {
-    const p = productMatch.product;
-    return {
-      title: `${p.name} (${p.sku})`,
-      description: `${p.shortDescription} Wholesale trade supply in Raipur, Chhattisgarh.`,
-      alternates: {
-        canonical: `/product/${productMatch.canonicalSlug}`,
-      },
-    };
+    // This path 308s to /product/<slug>, so its only job is to point the
+    // canonical at the destination.
+    return { alternates: { canonical: `/product/${productMatch.canonicalSlug}` } };
   }
 
   // 2. Check categories
   const categoryMatch = findCategoryBySlug(slug);
   if (!categoryMatch) return {};
 
-  const rawTitle = `${categoryMatch.name} Hardware & Fittings`;
-  const title = rawTitle.length > 55 ? `${rawTitle.substring(0, 52)}...` : rawTitle;
-  const rawDesc = `${categoryMatch.description} Direct wholesale trade supply, same-day dispatch in Raipur, Chhattisgarh.`;
-  const description = rawDesc.length > 158 ? `${rawDesc.substring(0, 155)}...` : rawDesc;
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `/products/${categoryMatch.slug}`,
-    },
-    openGraph: {
-      title,
-      description,
-      url: `https://www.salasaraluminium.shop/products/${categoryMatch.slug}`,
-      siteName: 'Salasar Aluminium & Hardware',
-    },
-  };
+  // Title pattern: "{Category} Wholesale in Raipur | Salasar", trimmed on a
+  // word boundary rather than cut mid-word with an ellipsis.
+  return categoryMeta(categoryMatch.name, categoryMatch.description, categoryMatch.slug);
 }
 
 export default async function CategoryPage({
