@@ -386,8 +386,7 @@ export default function AboutClient() {
 
               <a
                 href={TEL_HREF}
-                className="w-full sm:w-auto px-7 py-4 bg-black/60 hover:bg-black/80 border border-white/40 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 backdrop-blur-md flex items-center justify-center space-x-2.5 cursor-pointer shadow-xl"
-              >
+                className="w-full sm:w-auto px-7 py-4 bg-black/60 hover:bg-black/80 border border-white/40 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 backdrop-blur-md flex items-center justify-center space-x-2.5 cursor-pointer shadow-xl" data-analytics="click_call" data-analytics-location="about">
                 <PhoneCall className="w-4 h-4 text-[#D4AF37]" />
                 <span>Call: +91 8007443071</span>
               </a>

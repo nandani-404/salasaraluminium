@@ -88,8 +88,7 @@ export default function MobileQuickActionBar() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex flex-col items-center justify-center py-1 transition-all active:scale-95"
-          title="Chat on WhatsApp"
-        >
+          title="Chat on WhatsApp" data-analytics="click_whatsapp" data-analytics-location="mobile-bar">
           <div className="relative">
             <WhatsAppIcon original size={22} className="w-5 h-5 shrink-0 shadow-2xs" />
           </div>

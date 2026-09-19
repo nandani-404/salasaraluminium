@@ -259,8 +259,7 @@ export default function Header() {
           <a
             href={TEL_HREF}
             title="Click to call Salasar Aluminium Order Desk"
-            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0"
-          >
+            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0" data-analytics="click_call" data-analytics-location="header">
             <PhoneCall className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform shrink-0" />
             <div className="flex flex-col text-left leading-tight">
               <span className="text-[8.5px] uppercase tracking-wider text-[#8C6B1B] font-extrabold">Call for Orders</span>
@@ -293,8 +292,7 @@ export default function Header() {
             href={TEL_HREF}
             title="Call Salasar Order Desk"
             className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
-            aria-label="Call Salasar Aluminium Order Desk"
-          >
+            aria-label="Call Salasar Aluminium Order Desk" data-analytics="click_call" data-analytics-location="header">
             <PhoneCall className="w-4 h-4 text-[#B8860B]" />
           </a>
           <button

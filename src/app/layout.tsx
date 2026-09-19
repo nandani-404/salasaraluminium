@@ -60,6 +60,14 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
+  verification: {
+    // Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION / _BING_ in the deployment
+    // environment. The DNS TXT method is an alternative that needs no code.
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   robots: {
     index: true,
     follow: true,
@@ -74,6 +82,7 @@ export const metadata: Metadata = {
 };
 
 import MobileQuickActionBar from '@/components/layout/MobileQuickActionBar';
+import Analytics from '@/components/Analytics';
 
 export default function RootLayout({
   children,
@@ -101,6 +110,7 @@ export default function RootLayout({
           <Footer />
           <MobileQuickActionBar />
           <EnquiryModal />
+          <Analytics />
         </EnquiryProvider>
       </body>
     </html>

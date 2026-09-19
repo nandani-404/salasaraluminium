@@ -213,8 +213,7 @@ export default function EnquiryModal() {
                     href={getWhatsAppQuoteUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-4 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5"
-                  >
+                    className="w-full sm:w-auto px-4 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5" data-analytics="click_whatsapp" data-analytics-location="enquiry-modal">
                     <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>WhatsApp Quote</span>
                   </a>
@@ -394,8 +393,7 @@ export default function EnquiryModal() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5 cursor-pointer active:scale-95"
-                    title="Get instant quotes on WhatsApp"
-                  >
+                    title="Get instant quotes on WhatsApp" data-analytics="click_whatsapp" data-analytics-location="enquiry-modal">
                     <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>Get Quotes on WhatsApp</span>
                   </a>

@@ -50,7 +50,7 @@ export default function FAQPage() {
           Answers to what people actually ask before ordering: how SA codes work, how to identify a
           part you cannot name, whether we sell to homeowners, and what delivery across Chhattisgarh
           involves. If your question is not here, call{' '}
-          <a href={TEL_HREF} className="text-[#0B1F3A] font-semibold underline">
+          <a href={TEL_HREF} className="text-[#0B1F3A] font-semibold underline" data-analytics="click_call" data-analytics-location="faq-intro">
             {BUSINESS.phones.primary.display}
           </a>{' '}
           or{' '}

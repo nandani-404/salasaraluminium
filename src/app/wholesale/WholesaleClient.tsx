@@ -41,8 +41,7 @@ export default function WholesaleClient() {
             </button>
             <a
               href={TEL_HREF}
-              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center space-x-2"
-            >
+              className="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center space-x-2" data-analytics="click_call" data-analytics-location="wholesale">
               <PhoneCall className="w-4 h-4 text-[#D4AF37]" />
               <span>Call Abhishek: +91 8007443071</span>
             </a>

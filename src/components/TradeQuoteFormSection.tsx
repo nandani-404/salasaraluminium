@@ -7,7 +7,8 @@ import { CheckCircle2, Send, ShieldCheck, PhoneCall, MapPin, ExternalLink } from
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import { TEL_HREF } from '@/config/business';
+import { BUSINESS, TEL_HREF } from '@/config/business';
+import { track } from '@/lib/analytics';
 
 export default function TradeQuoteFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,6 +77,21 @@ export default function TradeQuoteFormSection() {
       setSubmittedLeadId(result.leadId || '');
       setIsSuccess(true);
       reset();
+
+      // Fired only after the API confirms the lead was stored, so the GA4
+      // count matches the number of enquiries actually received rather than
+      // the number of times the button was pressed.
+      track('form_submit', {
+        location: 'trade-quote-form',
+        sku: data.saProductCode || undefined,
+        business_type: data.businessType || undefined,
+      });
+      if (data.saProductCode) {
+        track('quote_request_sku', {
+          sku: data.saProductCode,
+          location: 'trade-quote-form',
+        });
+      }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'An unexpected error occurred. Please try again.';
       setErrorMessage(msg);
@@ -134,8 +150,7 @@ export default function TradeQuoteFormSection() {
               <div className="pt-1">
                 <a
                   href={TEL_HREF}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-3 sm:py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group"
-                >
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-3 sm:py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group" data-analytics="click_call" data-analytics-location="trade-quote-form">
                   <PhoneCall className="w-4 h-4 text-[#D4AF37] group-hover:rotate-12 transition-transform" />
                   <span>Call Direct Sales: +91 8007443071</span>
                 </a>
@@ -146,7 +161,13 @@ export default function TradeQuoteFormSection() {
           {/* Right Column: Clean Minimal Form */}
           <div className="lg:col-span-7 bg-white text-[#0B1F3A] rounded-2xl border border-[#E2E8F0] shadow-sm p-4 sm:p-8">
             {isSuccess ? (
-              <div className="py-12 text-center flex flex-col items-center justify-center space-y-3">
+              /* role="status" + aria-live so a screen-reader user is told the
+                 form succeeded — the form simply vanishing is otherwise silent. */
+              <div
+                role="status"
+                aria-live="polite"
+                className="py-12 text-center flex flex-col items-center justify-center space-y-3"
+              >
                 <div className="w-14 h-14 bg-[#F0FDF4] border border-[#BBF7D0] rounded-full flex items-center justify-center text-[#166534]">
                   <CheckCircle2 className="w-8 h-8 text-[#16A34A]" />
                 </div>
@@ -156,14 +177,22 @@ export default function TradeQuoteFormSection() {
                     Quote Reference: {submittedLeadId}
                   </span>
                 )}
-                <p className="text-[#475569] max-w-md text-sm leading-relaxed">
-                  Thank you! Your quote request has been logged into our system and an email notification has been dispatched to Abhishek at Salasar Aluminium & Hardware.
+                <p className="text-[#475569] max-w-md text-base leading-relaxed">
+                  Thank you — your request has reached {BUSINESS.contactPerson} at {BUSINESS.name}.
+                  We will come back to you with a price and availability. If you need an answer
+                  sooner, WhatsApp the same details below or call{' '}
+                  <a href={TEL_HREF} data-analytics="click_call" data-analytics-location="form-success" className="font-semibold text-[#0B1F3A] underline">
+                    {BUSINESS.phones.primary.display}
+                  </a>
+                  .
                 </p>
                 <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
                   <a
                     href={getWhatsAppQuoteUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-analytics="click_whatsapp"
+                    data-analytics-location="form-success"
                     className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-sm flex items-center space-x-1.5"
                   >
                     <WhatsAppIcon className="w-4 h-4 shrink-0" />
@@ -341,8 +370,7 @@ export default function TradeQuoteFormSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-all shadow-xs flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
-                    title="Get instant trade quote on WhatsApp"
-                  >
+                    title="Get instant trade quote on WhatsApp" data-analytics="click_whatsapp" data-analytics-location="trade-quote-form">
                     <WhatsAppIcon className="w-4 h-4 shrink-0" />
                     <span>Get Quotes on WhatsApp</span>
                   </a>

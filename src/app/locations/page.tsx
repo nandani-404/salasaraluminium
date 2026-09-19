@@ -49,7 +49,7 @@ export default function LocationsHubPage() {
             Our counter and stock point is at {BUSINESS.addressLine}. We supply dealers, fabricators
             and contractors from there, and sell to homeowners, architects, interior designers and
             builders buying for a single project. Pick your city below for local detail, or call{' '}
-            <a href={TEL_HREF} className="text-[#D4AF37] underline">
+            <a href={TEL_HREF} className="text-[#D4AF37] underline" data-analytics="click_call" data-analytics-location="locations-intro">
               {BUSINESS.phones.primary.display}
             </a>
             .
