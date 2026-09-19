@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MapPin, Truck, PhoneCall, Package, Store } from 'lucide-react';
 import { CITIES_DATA, getCity } from '@/lib/data/cities';
+import { getCityCategoryAngle } from '@/lib/data/cityCategory';
 import { CATALOGUE_CATEGORIES, CATALOGUE_SKU_COUNT } from '@/data/products';
 import { BUSINESS, TEL_HREF, whatsappLink } from '@/config/business';
 import JsonLd from '@/components/JsonLd';
@@ -215,22 +216,38 @@ export default async function CityLocationPage({
           </section>
         )}
 
-        {/* Category links — real internal links to the 12 hubs */}
+        {/*
+          Category links. Where a hand-written local angle exists for this city
+          the link goes to the city-specific category page; otherwise it goes to
+          the general category page. Without this the city-category pages would
+          be orphaned — in the sitemap with nothing linking to them, which is
+          the state that keeps pages out of the index.
+        */}
         <section className="space-y-4">
           <h2 className="text-2xl font-bold text-[#0B1F3A]">
             Browse the catalogue for your {city.name} project
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 list-none p-0">
-            {CATALOGUE_CATEGORIES.map((cat) => (
-              <li key={cat.slug}>
-                <Link
-                  href={`/products/${cat.slug}`}
-                  className="flex items-center min-h-11 px-4 bg-white border border-[#E2E8F0] rounded-xl text-sm font-semibold text-[#0B1F3A] hover:border-[#0B1F3A] transition-colors"
-                >
-                  {cat.name}
-                </Link>
-              </li>
-            ))}
+            {CATALOGUE_CATEGORIES.map((cat) => {
+              const hasLocalPage = Boolean(getCityCategoryAngle(city.slug, cat.slug));
+              return (
+                <li key={cat.slug}>
+                  <Link
+                    href={
+                      hasLocalPage
+                        ? `/locations/${city.slug}/${cat.slug}`
+                        : `/products/${cat.slug}`
+                    }
+                    className="flex items-center min-h-11 px-4 bg-white border border-[#E2E8F0] rounded-xl text-sm font-semibold text-[#0B1F3A] hover:border-[#0B1F3A] transition-colors"
+                  >
+                    {cat.name}
+                    {hasLocalPage && (
+                      <span className="ml-1 text-[#64748B] font-normal">in {city.name}</span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
 

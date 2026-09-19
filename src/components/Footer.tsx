@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0B1F3A] text-white pt-12 sm:pt-16 pb-24 md:pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-10 pb-8 sm:pb-12 border-b border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-10 pb-8 sm:pb-12 border-b border-white/10">
           
           {/* Brand Info */}
           <div className="col-span-2 lg:col-span-2 space-y-3 sm:space-y-4">
@@ -103,6 +103,41 @@ export default function Footer() {
                     className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {cat.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/*
+            Guides and pages column.
+
+            /window-hardware, /bathroom-glass-hardware, /finishes and /projects
+            were ORPHANED — in the sitemap but with zero inbound internal links,
+            so nothing could crawl to them. A sitemap is a hint; internal links
+            are the signal Google actually follows, and an orphaned page is
+            routinely crawled once and then dropped. Caught by
+            scripts/verify-links.mjs.
+          */}
+          <div>
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
+              Guides &amp; More
+            </h2>
+            <ul className="space-y-1.5 sm:space-y-2 text-xs">
+              {[
+                { href: '/window-hardware', label: 'Window hardware' },
+                { href: '/bathroom-glass-hardware', label: 'Bathroom & shower' },
+                { href: '/blog', label: 'Buying guides' },
+                { href: '/finishes', label: 'Finishes & colours' },
+                { href: '/projects', label: 'Project types' },
+                { href: '/faq', label: 'FAQ' },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}

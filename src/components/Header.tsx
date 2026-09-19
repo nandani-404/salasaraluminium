@@ -178,6 +178,28 @@ export default function Header() {
                     View Full Catalogue →
                   </Link>
                 </div>
+                {/*
+                  The two cross-category hubs sit first: they match how buyers
+                  phrase the search ("window fittings", "shower hinge") rather
+                  than our internal category names, and both were orphaned —
+                  in the sitemap with no inbound internal link at all.
+                */}
+                {[
+                  { slug: 'window-hardware', name: 'Window hardware', note: 'Rollers, locks, mesh' },
+                  { slug: 'bathroom-glass-hardware', name: 'Bathroom & shower', note: 'Hinges, connectors' },
+                ].map((hub) => (
+                  <Link
+                    key={hub.slug}
+                    href={`/${hub.slug}`}
+                    onClick={() => setMegaMenuOpen(false)}
+                    className="p-2 rounded-md bg-[#FFFBEB] hover:bg-[#FEF3C7] transition-colors group flex flex-col"
+                  >
+                    <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#8A6408]">
+                      {hub.name}
+                    </span>
+                    <span className="text-[10px] text-gray-500 mt-0.5">{hub.note}</span>
+                  </Link>
+                ))}
                 {SAH_CATEGORIES.map((cat) => (
                   <Link
                     key={cat.slug}

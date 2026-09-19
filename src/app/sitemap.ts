@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/config/business';
-import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
+import { BLOG_POSTS } from '@/lib/data';
 import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
 import { CITIES_DATA } from '@/lib/data/cities';
+import { cityCategoryPairs } from '@/lib/data/cityCategory';
 import { getCanonicalProductSlugs } from '@/lib/productAdapter';
 
 /**
@@ -53,31 +54,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/products/${cat.slug}`, 0.85, 'monthly')
   );
 
-  // The three legacy showcase category pages. They are live and indexable, so
-  // omitting them left three crawlable URLs outside the sitemap.
-  // [CONFIRM] These overlap with the /residential, /commercial and /industrial
-  // segment routes, which cover the same ground; one of the two sets should
-  // eventually be retired. See SEO-CONFIRM.md.
-  const showcaseCategoryPages = ['residential', 'commercial', 'industrial'].map((slug) =>
-    entry(`/products/${slug}`, 0.5, 'monthly')
-  );
+  /*
+   * The legacy showcase branch — /products/{residential,commercial,industrial},
+   * their 8 detail pages, and the 12 /product/<marketing-name> pages — is
+   * deliberately NOT submitted.
+   *
+   * Two reasons, and they compound:
+   *   1. scripts/verify-links.mjs shows all 23 are unreachable: no internal
+   *      link path leads to any of them, so Google would not index them even
+   *      if submitted.
+   *   2. [CONFIRM] They describe curtain wall mullions, T-slot profiles, solar
+   *      mounting rails and Italianate handle names with SKU codes absent from
+   *      the real 86-item catalogue — see SEO-CONFIRM.md item 2.
+   *
+   * Submitting URLs that are both unreachable and probably not real products
+   * wastes crawl budget on the pages that ARE real. The routes still resolve,
+   * so nothing 404s. Re-add them here the moment the owner confirms the
+   * products exist, and link them from the catalogue at the same time.
+   */
 
   const cityPages = CITIES_DATA.map((city) => entry(`/locations/${city.slug}`, 0.8, 'monthly'));
+
+  // City + category pages. Only pairs with a hand-written local angle exist —
+  // see src/lib/data/cityCategory.ts for why there is no template fallback.
+  const cityCategoryPages = cityCategoryPairs().map(({ city, category }) =>
+    entry(`/locations/${city}/${category}`, 0.75, 'monthly')
+  );
 
   // Canonical slugs only. The route also prerenders `sa-1`-style id aliases so
   // those URLs resolve, but they canonicalise to the real slug and must not be
   // submitted — the previous sitemap listed all 86 of them.
-  const productPages = getCanonicalProductSlugs().map((slug) =>
-    entry(`/product/${slug}`, 0.7, 'monthly')
-  );
-
-  // The eight showcase profile pages at /products/<category>/<slug>. They are
-  // live and indexable, so leaving them out left eight crawlable URLs outside
-  // the sitemap. [CONFIRM] see SEO-CONFIRM.md item 2 — these describe curtain
-  // wall and solar mounting products, which may not be sold at all.
-  const showcaseProductPages = PRODUCTS.map((p) =>
-    entry(`/products/${p.category}/${p.slug}`, 0.4, 'monthly')
-  );
+  // Catalogue SKUs only. getCanonicalProductSlugs() also returns the showcase
+  // range, which is unreachable and unconfirmed (see the note above).
+  const catalogueSlugs = new Set(CATALOGUE.map((p) => p.slug));
+  const productPages = getCanonicalProductSlugs()
+    .filter((slug) => catalogueSlugs.has(slug))
+    .map((slug) => entry(`/product/${slug}`, 0.7, 'monthly'));
 
   const blogPages = BLOG_POSTS.map((post) =>
     entry(`/blog/${post.slug}`, 0.6, 'monthly', postDate(post.date))
@@ -86,9 +98,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const all = [
     ...staticPages,
     ...categoryPages,
-    ...showcaseCategoryPages,
-    ...showcaseProductPages,
     ...cityPages,
+    ...cityCategoryPages,
     ...productPages,
     ...blogPages,
   ];
