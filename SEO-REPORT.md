@@ -296,34 +296,74 @@ question standalone.
 
 ## 9. What was built
 
+| | Before | After |
+|---|---:|---:|
+| Indexable pages | 165 | **282** |
+| Sitemap URLs | 264 (11 of them 404) | **259, none 404** |
+| Orphaned pages (zero inbound links) | 4 | **0** |
+| Unreachable pages in the sitemap | 23 | **0** |
+
+Sitemap composition:
+
 | | Count |
 |---|---:|
-| Indexable pages | 165 |
-| Catalogue SKUs rendered server-side | 86 |
+| Product pages | 86 |
+| City x category pages | 72 |
+| Buying guides | 28 |
+| Hindi pages | 28 |
+| Static pages + topic hubs | 19 |
+| City pages | 14 |
 | Category pages | 12 |
-| City pages (was 6) | 14 |
-| New topic hubs | 2 |
-| New buying guides | 8 |
-| Blog posts total | 16 |
+| **Total** | **259** |
 
-New pages: `/window-hardware` and `/bathroom-glass-hardware` gather SKUs across
-several categories under the words buyers actually search — "sliding window
-roller", "shower hinge", "wall to glass connector" — rather than the internal
-category names, and link down into the category pages instead of competing with
-them.
+### Internal linking was the real blocker
 
-Eight cities added: Naya Raipur, Raigarh, Jagdalpur, Ambikapur, Dhamtari,
-Mahasamund, Bemetara, Kanker. Each carries real district, road-distance,
-highway-route and local-economy content. The three owner-supplied fields
-(markets, dispatch schedule, best-selling SKUs) are **omitted rather than
-invented** — see SEO-CONFIRM.md item 9.
+`scripts/verify-links.mjs` builds the link graph from the prerendered HTML.
+It found **27 of 165 indexable pages were unreachable by crawling**, and 4 had
+zero inbound internal links at all — including two hubs built earlier in this
+same project.
 
-Eight guides written against real pre-purchase questions: shower hinge selection
-for 8–12 mm glass, sliding window roller sizes, door closer size by door weight,
-machar jaali sizes and materials, crescent vs touch vs Domal vs Maruti locks,
-tower bolt sizing, C-channel vs G-channel, floor spring vs door closer.
+A sitemap is a hint. Internal links are what Google follows, and an orphaned
+page is routinely crawled once and dropped. A sixth of the site could not be
+reached from the homepage. That, far more than page count, is why pages were
+not ranking.
 
----
+All orphans are now linked. Click depth from the homepage:
+
+| Depth | Pages |
+|---|---:|
+| 0 clicks | 1 |
+| 1 click | 37 |
+| 2 clicks | 149 |
+| 3 clicks | 72 |
+
+Nothing indexable sits deeper than three clicks.
+
+### Why 259 rather than "as many as possible"
+
+The site already had a 1,000,000-URL generator (`pseoData.ts`: 2,000 invented
+localities x 500 invented SKUs). It was live, and it did not rank. Page count is
+not the lever, and Google's scaled-content-abuse policy means a generator like
+that can demote the whole domain.
+
+Every page added here corresponds to something people actually search for, and
+every one carries content that exists nowhere else on the site:
+
+- **72 city x category pages** — all 72 angles are hand-written in
+  `src/lib/data/cityCategory.ts`, grounded in what is actually built in each
+  city. Korba's coal dust destroying roller tracks. Bhilai as a retrofit market
+  where matching a discontinued profile matters more than specifying a new one.
+  Bilaspur's stairwell pressure raising closer sizing above what the door leaf
+  alone suggests. The route has `dynamicParams = false` and **no fallback
+  string**: add a city without writing its 12 angles and the routes are simply
+  not emitted.
+- **28 Hindi pages** — written for a Hindi-speaking buyer, not translated.
+  Trade vocabulary stays Hinglish because that is what people type. Bidirectional
+  hreflang on both sides of every pair, plus `x-default`.
+- **7 topic hubs** — organised by the job (window, door, sliding, bathroom,
+  partition, mesh, consumables) rather than by our internal filing system.
+- **28 buying guides** — several of which say plainly where the cheaper option
+  is the right one. A guide that only ever recommends upgrading is an advert.
 
 ## 10. Lead tracking
 
