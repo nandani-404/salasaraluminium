@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SAH_CATEGORIES } from '@/lib/sahData';
 import { BUSINESS, TEL_HREF } from '@/config/business';
+import { TOPIC_HUBS } from '@/lib/data/hubs';
 import { MapPin, Phone, Building2, Factory, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
@@ -125,8 +126,7 @@ export default function Footer() {
             </h2>
             <ul className="space-y-1.5 sm:space-y-2 text-xs">
               {[
-                { href: '/window-hardware', label: 'Window hardware' },
-                { href: '/bathroom-glass-hardware', label: 'Bathroom & shower' },
+                ...TOPIC_HUBS,
                 { href: '/blog', label: 'Buying guides' },
                 { href: '/finishes', label: 'Finishes & colours' },
                 { href: '/projects', label: 'Project types' },

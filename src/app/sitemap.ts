@@ -4,6 +4,7 @@ import { BLOG_POSTS } from '@/lib/data';
 import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
 import { CITIES_DATA } from '@/lib/data/cities';
 import { cityCategoryPairs } from '@/lib/data/cityCategory';
+import { TOPIC_HUBS } from '@/lib/data/hubs';
 import { getCanonicalProductSlugs } from '@/lib/productAdapter';
 
 /**
@@ -36,8 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     entry('', 1.0, 'weekly'),
     entry('/products', 0.9, 'weekly'),
-    entry('/window-hardware', 0.9, 'monthly'),
-    entry('/bathroom-glass-hardware', 0.9, 'monthly'),
     entry('/wholesale', 0.8, 'monthly'),
     entry('/locations', 0.8, 'monthly'),
     entry('/contact', 0.8, 'monthly'),
@@ -49,6 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry('/projects', 0.5, 'monthly'),
     entry('/finishes', 0.5, 'monthly'),
   ];
+
+  // Cross-category topic hubs, from the same list the nav renders.
+  const hubPages = TOPIC_HUBS.map((hub) => entry(hub.href, 0.9, 'monthly'));
 
   const categoryPages = CATALOGUE_CATEGORIES.map((cat) =>
     entry(`/products/${cat.slug}`, 0.85, 'monthly')
@@ -97,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const all = [
     ...staticPages,
+    ...hubPages,
     ...categoryPages,
     ...cityPages,
     ...cityCategoryPages,

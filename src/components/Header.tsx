@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { TEL_HREF } from '@/config/business';
+import { TOPIC_HUBS } from '@/lib/data/hubs';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -184,18 +185,15 @@ export default function Header() {
                   than our internal category names, and both were orphaned —
                   in the sitemap with no inbound internal link at all.
                 */}
-                {[
-                  { slug: 'window-hardware', name: 'Window hardware', note: 'Rollers, locks, mesh' },
-                  { slug: 'bathroom-glass-hardware', name: 'Bathroom & shower', note: 'Hinges, connectors' },
-                ].map((hub) => (
+                {TOPIC_HUBS.map((hub) => (
                   <Link
-                    key={hub.slug}
-                    href={`/${hub.slug}`}
+                    key={hub.href}
+                    href={hub.href}
                     onClick={() => setMegaMenuOpen(false)}
                     className="p-2 rounded-md bg-[#FFFBEB] hover:bg-[#FEF3C7] transition-colors group flex flex-col"
                   >
                     <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#8A6408]">
-                      {hub.name}
+                      {hub.label}
                     </span>
                     <span className="text-[10px] text-gray-500 mt-0.5">{hub.note}</span>
                   </Link>
