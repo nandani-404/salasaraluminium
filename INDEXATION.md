@@ -1,5 +1,11 @@
 # Getting these 259 pages indexed
 
+> **Read URGENT-DEINDEX.md first.** Search Console shows 9,850 pages indexed
+> against roughly 280 real ones — about 97% of your index is fabricated
+> `/supplier/` content submitted by a 20-chunk, 1,000,000-URL sitemap on
+> 9 September 2026. That has to come out before anything below matters.
+> Nothing here will move the needle while it stands.
+
 More pages only help once Google is actually indexing the ones you have. This
 is the order to work in.
 
