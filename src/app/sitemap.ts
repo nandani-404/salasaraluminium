@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/config/business';
-import { BLOG_POSTS } from '@/lib/data';
+import { BLOG_POSTS, PRODUCTS } from '@/lib/data';
 import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
 import { CITIES_DATA } from '@/lib/data/cities';
 import { getCanonicalProductSlugs } from '@/lib/productAdapter';
@@ -71,6 +71,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(`/product/${slug}`, 0.7, 'monthly')
   );
 
+  // The eight showcase profile pages at /products/<category>/<slug>. They are
+  // live and indexable, so leaving them out left eight crawlable URLs outside
+  // the sitemap. [CONFIRM] see SEO-CONFIRM.md item 2 — these describe curtain
+  // wall and solar mounting products, which may not be sold at all.
+  const showcaseProductPages = PRODUCTS.map((p) =>
+    entry(`/products/${p.category}/${p.slug}`, 0.4, 'monthly')
+  );
+
   const blogPages = BLOG_POSTS.map((post) =>
     entry(`/blog/${post.slug}`, 0.6, 'monthly', postDate(post.date))
   );
@@ -79,6 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...categoryPages,
     ...showcaseCategoryPages,
+    ...showcaseProductPages,
     ...cityPages,
     ...productPages,
     ...blogPages,
