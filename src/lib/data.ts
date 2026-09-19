@@ -1,4 +1,6 @@
 import { HARDWARE_GUIDES } from './data/guides';
+import { HARDWARE_GUIDES_2 } from './data/guides2';
+import { HARDWARE_GUIDES_3 } from './data/guides3';
 
 export interface Product {
   id: string;
@@ -657,7 +659,12 @@ Frameless glass balustrades have become the hallmark of modern architecture. The
  * manageable. The import is type-only in the other direction, so there is no
  * runtime cycle.
  */
-export const BLOG_POSTS: BlogPost[] = [...HARDWARE_GUIDES, ...LEGACY_BLOG_POSTS];
+export const BLOG_POSTS: BlogPost[] = [
+  ...HARDWARE_GUIDES_3,
+  ...HARDWARE_GUIDES_2,
+  ...HARDWARE_GUIDES,
+  ...LEGACY_BLOG_POSTS,
+];
 
 export const COMPANY_STATS = [
   { label: 'Years of Experience', value: '25+' },
