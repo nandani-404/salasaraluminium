@@ -29,8 +29,6 @@ export interface Product {
   description: string;
   specs: ProductSpec[];
   faqs: ProductFaq[];
-  rating: number;
-  reviewsCount: number;
   isFeatured?: boolean;
   isNew?: boolean;
   tags?: string[];
@@ -94,8 +92,6 @@ The brushed gold finish is applied through a multi-stage electroplating process,
       { question: 'Can the finish be customised?', answer: 'We offer Brushed Gold, Antique Bronze, and Matte Black finishes. Custom finishes are available for orders above 50 pairs.' },
       { question: 'Is it suitable for exterior doors?', answer: 'The Palazzo is designed for interior use. For exterior applications, we recommend our Imperiale series with marine-grade corrosion resistance.' },
     ],
-    rating: 4.9,
-    reviewsCount: 47,
     isFeatured: true,
     isNew: false,
     tags: ['door hardware', 'brass', 'luxury', 'residential'],
@@ -135,8 +131,6 @@ Constructed from Zamak 5 die-cast zinc alloy, the handle is both lightweight and
       { question: 'Does this fit standard spindle sizes?', answer: 'Yes, the Venezia fits standard 7mm square spindles, used across most uPVC and aluminium window profiles.' },
       { question: 'Is it available in other finishes?', answer: 'Available in Satin Chrome, Matte Black, and Brushed Gold. Mixed-finish orders accepted above 10 units.' },
     ],
-    rating: 4.7,
-    reviewsCount: 83,
     isFeatured: true,
     isNew: false,
     tags: ['window hardware', 'chrome', 'tilt & turn'],
@@ -176,8 +170,6 @@ The system's self-closing mechanism ensures the door always returns to a soft-cl
       { question: 'Can this be retrofitted into existing walls?', answer: 'The Sereno requires a minimum wall cavity depth of 80mm. Retrofit installations are possible in dry-wall constructions but require structural consultation.' },
       { question: 'What panel types are compatible?', answer: 'Timber, MDF, glass (with glass adaptor kit), and composite panels up to 45mm thickness.' },
     ],
-    rating: 4.8,
-    reviewsCount: 31,
     isFeatured: true,
     isNew: true,
     tags: ['sliding door', 'concealed', 'soft-close', 'residential'],
@@ -212,8 +204,6 @@ The system's self-closing mechanism ensures the door always returns to a soft-cl
     faqs: [
       { question: 'Can these be cut to custom lengths?', answer: 'Yes, custom cutting is available for orders of 5 units or more. Specify lengths at order time.' },
     ],
-    rating: 4.6,
-    reviewsCount: 22,
     isFeatured: false,
     isNew: false,
     tags: ['wardrobe', 'aluminium profile', 'residential'],
@@ -257,8 +247,6 @@ The satin chrome finish on marine-grade SS 316L resists tarnishing in both inter
       { question: 'Is it suitable for frameless glass partitions?', answer: 'Yes, the Imperiale is specifically designed for frameless and minimal-frame glass configurations.' },
       { question: 'What is the minimum glass thickness?', answer: 'Minimum 10mm tempered glass. For exterior use, 12mm minimum for wind-load compliance.' },
     ],
-    rating: 4.9,
-    reviewsCount: 38,
     isFeatured: true,
     isNew: false,
     tags: ['glass hardware', 'commercial', 'stainless steel', 'office'],
@@ -300,8 +288,6 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
       { question: 'What is the maximum panel size?', answer: 'Standard panels up to 2.5m x 4.5m. Engineered solutions for larger panels available subject to structural review.' },
       { question: 'Can this be used with photovoltaic glass?', answer: 'Yes, the Atrium system is compatible with BIPV (Building-Integrated Photovoltaics) modules up to 50mm thickness.' },
     ],
-    rating: 4.8,
-    reviewsCount: 14,
     isFeatured: true,
     isNew: false,
     tags: ['curtain wall', 'façade', 'commercial', 'structural'],
@@ -336,8 +322,6 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
     faqs: [
       { question: 'Is this fire-rated?', answer: 'Yes, the Titan Pro carries EN 1634-1 fire certification for use in fire-rated door assemblies up to 120 minutes.' },
     ],
-    rating: 4.7,
-    reviewsCount: 29,
     isFeatured: false,
     isNew: false,
     tags: ['floor spring', 'door closer', 'commercial', 'glass door'],
@@ -373,8 +357,6 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
     faqs: [
       { question: 'Can this be motorised?', answer: 'Yes, motorised drive units can be integrated. We partner with certified building automation suppliers for motorised configurations.' },
     ],
-    rating: 4.6,
-    reviewsCount: 18,
     isFeatured: true,
     isNew: true,
     tags: ['window system', 'commercial', 'slim profile', 'matte black'],
@@ -419,8 +401,6 @@ Extruded from EN AW-6063 T6, the profile achieves an excellent strength-to-weigh
       { question: 'Can I get anodized profiles?', answer: 'Yes, clear anodized (15 microns) and black anodized finishes are available for orders above 50 units.' },
       { question: 'What is the load-bearing capacity?', answer: 'In a simple-span configuration, a 1000mm length carries 85kg centre load before reaching the deflection limit of L/200.' },
     ],
-    rating: 4.8,
-    reviewsCount: 126,
     isFeatured: true,
     isNew: false,
     tags: ['t-slot', 'structural', 'industrial', 'automation', 'machine frame'],
@@ -458,8 +438,6 @@ Its reinforced corner chambers and double-wall construction provide torsional ri
     faqs: [
       { question: 'What is the maximum unsupported span?', answer: 'For a max deflection of L/360, the 80×80 spans 2200mm carrying 500kg centre load.' },
     ],
-    rating: 4.9,
-    reviewsCount: 74,
     isFeatured: false,
     isNew: false,
     tags: ['heavy duty', 'structural', 'industrial', 'robotic'],
@@ -496,8 +474,6 @@ Available in standard and EHEDG-compliant food-grade versions for pharmaceutical
     faqs: [
       { question: 'Is a food-grade version available?', answer: 'Yes, our EHEDG-certified food-grade version uses a 25-micron clear anodize and eliminates internal voids that could harbour bacteria.' },
     ],
-    rating: 4.7,
-    reviewsCount: 52,
     isFeatured: true,
     isNew: true,
     tags: ['conveyor', 'industrial', 'food-grade', 'material handling'],
@@ -533,8 +509,6 @@ Available in standard and EHEDG-compliant food-grade versions for pharmaceutical
     faqs: [
       { question: 'What panel sizes are compatible?', answer: 'The profile is compatible with standard 60-cell, 72-cell, and 144-half-cell panels from all major manufacturers.' },
     ],
-    rating: 4.8,
-    reviewsCount: 89,
     isFeatured: false,
     isNew: false,
     tags: ['solar', 'renewable energy', 'racking', 'industrial'],

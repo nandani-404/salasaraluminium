@@ -162,8 +162,14 @@ export function Header() {
                     </div>
                     <div>
                       <h4 className="font-serif text-sm text-[#2B2620]">{product.name}</h4>
+                      {/*
+                        Price removed: `product.price` is a placeholder value,
+                        not a real rate card, and showing an invented rupee
+                        figure in search results misleads buyers. Quotes are
+                        given on enquiry.
+                      */}
                       <p className="text-xs text-[#2B2620]/60">
-                        {product.sku} &nbsp;|&nbsp; {product.material} &nbsp;|&nbsp; ₹{product.price.toLocaleString('en-IN')}
+                        {product.sku} &nbsp;|&nbsp; {product.material}
                       </p>
                     </div>
                   </Link>

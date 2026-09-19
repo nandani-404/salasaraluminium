@@ -88,8 +88,6 @@ export function convertSAHProductToProduct(sah: SAHProduct): Product {
     description: `${sah.shortDesc} Supplied by Salasar Aluminium & Hardware, Raipur. Manufactured to strict architectural tolerances for smooth operation, corrosion resistance, and high structural reliability in residential and commercial installations.`,
     specs,
     faqs,
-    rating: 4.9,
-    reviewsCount: 32,
     isFeatured: ['sa-1', 'sa-11', 'sa-30', 'sa-33', 'sa-42', 'sa-81'].includes(sah.id),
     tags: [sah.categoryName, sah.saCode, 'Hardware', 'Wholesale Raipur', 'Aluminium Fittings'],
   };

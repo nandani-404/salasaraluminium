@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -8,12 +6,30 @@ import TrustBar from '@/components/TrustBar';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import FAQSection from '@/components/FAQSection';
 import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
+import { productSlug } from '@/data/products';
 import { ArrowRight, Layers, Award, Sparkles, Building2, BookOpen, ChevronRight, ShieldCheck, MapPin, PhoneCall } from 'lucide-react';
-import { useEnquiry } from '@/context/EnquiryContext';
+import EnquireButton from '@/components/EnquireButton';
+import JsonLd from '@/components/JsonLd';
+import { getLocalBusinessSchema } from '@/lib/jsonld';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  // Set here rather than inherited, so the homepage does not reuse the layout
+  // default and end up with the same <title> as a fallback page.
+  title: 'Aluminium Door & Window Hardware Raipur | Salasar',
+  description:
+    'Aluminium door and window hardware in Raipur, Chhattisgarh — rollers, locks, hinges, door kits, closers, shower fittings. 86 SKUs at trade rates. Call for a quote.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: 'Aluminium Door & Window Hardware Raipur | Salasar',
+    description:
+      'Aluminium door and window hardware in Raipur, Chhattisgarh — 86 SKUs covering rollers, locks, hinges, door kits, closers and shower fittings.',
+  },
+};
 
 export default function Home() {
-  const { openEnquiryModal } = useEnquiry();
-
   // Featured selection across key categories
   const featuredProducts = FULL_CATALOGUE_PRODUCTS.filter((p) =>
     ['SA-33', 'SA-11', 'SA-35', 'SA-42', 'SA-76', 'SA-81'].includes(p.saCode)
@@ -21,6 +37,9 @@ export default function Home() {
 
   return (
     <div className="space-y-0 bg-white">
+      {/* HardwareStore schema for the single physical counter in Raipur. */}
+      <JsonLd schema={getLocalBusinessSchema()} />
+
       {/* Hero Banner */}
       <Hero />
 
@@ -47,10 +66,10 @@ export default function Home() {
 
           {/* Categories Grid (2-cols on mobile, 4-cols on desktop) */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            {SAH_CATEGORIES.slice(0, 4).map((cat) => (
+            {SAH_CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
-                href={`/products#${cat.slug}`}
+                href={`/products/${cat.slug}`}
                 className="bg-white border border-slate-300 rounded-xl overflow-hidden hover:border-[#0B1F3A] transition-colors duration-200 flex flex-col justify-between group cursor-pointer shadow-2xs hover:shadow-sm"
               >
                 <div>
@@ -138,8 +157,16 @@ export default function Home() {
                 className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#0B1F3A]/40 transition-colors duration-200 flex flex-col justify-between group shadow-2xs hover:shadow-xs"
               >
                 <div>
-                  {/* SKU Product Image */}
-                  <div className="relative h-36 sm:h-60 overflow-hidden bg-[#F8FAFC] border-b border-slate-100">
+                  {/*
+                    Every card now links to its product page. Previously the
+                    only action was an "Enquire" button that opened a modal, so
+                    the homepage passed no link equity to any product URL and a
+                    crawler found nothing to follow.
+                  */}
+                  <Link
+                    href={`/product/${productSlug({ name: prod.name, saCode: prod.saCode })}`}
+                    className="relative h-36 sm:h-60 overflow-hidden bg-[#F8FAFC] border-b border-slate-100 block"
+                  >
                     <Image
                       src={prod.image}
                       alt={`${prod.name} (${prod.saCode}) – ${prod.categoryName} by Salasar Aluminium`}
@@ -148,10 +175,10 @@ export default function Home() {
                       className="object-contain group-hover:scale-105 transition-transform duration-500"
                       suppressHydrationWarning
                     />
-                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0B1F3A] text-[#D4AF37] text-[9px] sm:text-[10px] font-mono font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded shadow-xs">
+                    <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0B1F3A] text-[#D4AF37] text-[9px] sm:text-[10px] font-mono font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded shadow-xs">
                       {prod.saCode}
-                    </div>
-                  </div>
+                    </span>
+                  </Link>
 
                   {/* Body Details */}
                   <div className="p-3 sm:p-5 space-y-1 sm:space-y-2">
@@ -160,7 +187,9 @@ export default function Home() {
                     </span>
 
                     <h3 className="text-xs sm:text-lg font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] transition-colors leading-snug line-clamp-1 sm:line-clamp-none">
-                      {prod.name}
+                      <Link href={`/product/${productSlug({ name: prod.name, saCode: prod.saCode })}`}>
+                        {prod.name}
+                      </Link>
                     </h3>
 
                     <p className="text-xs text-[#64748B] leading-relaxed line-clamp-2 hidden sm:block">
@@ -205,15 +234,15 @@ export default function Home() {
                 {/* Enquire Button */}
                 <div className="px-3 pb-3 pt-0 sm:px-5 sm:pb-5">
                   <div className="pt-2 sm:pt-3 border-t border-[#F1F5F9]">
-                    <button
-                      type="button"
-                      onClick={() => openEnquiryModal(prod.saCode)}
-                      className="w-full py-2 sm:py-2.5 bg-[#0B1F3A] text-white text-[10.5px] sm:text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all cursor-pointer truncate"
+                    <EnquireButton
+                      sku={prod.saCode}
+                      analyticsLocation="home-featured"
+                      className="w-full min-h-11 px-3 bg-[#0B1F3A] text-white text-[10.5px] sm:text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all cursor-pointer truncate"
                     >
                       <span className="hidden sm:inline">Enquire Item </span>
                       <span className="sm:hidden">Enquire </span>
                       {prod.saCode}
-                    </button>
+                    </EnquireButton>
                   </div>
                 </div>
               </div>
@@ -289,14 +318,13 @@ export default function Home() {
 
               {/* Action Buttons */}
               <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <button
-                  type="button"
-                  onClick={() => openEnquiryModal()}
-                  className="px-4 py-2.5 sm:px-5 sm:py-2.5 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-2xs inline-flex items-center space-x-2 cursor-pointer"
+                <EnquireButton
+                  analyticsLocation="home-trade-cta"
+                  className="min-h-11 px-5 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-2xs inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>Request Trade Quote</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
-                </button>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" aria-hidden="true" />
+                </EnquireButton>
 
                 <Link
                   href="/about"

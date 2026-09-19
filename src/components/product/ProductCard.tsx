@@ -52,12 +52,16 @@ export function ProductCard({ product, onQuickView }: ProductCardProps) {
 
         {/* Content */}
         <div className="p-5 space-y-3">
+          {/*
+            A star rating was shown here, sourced from a hard-coded `rating` /
+            `reviewsCount` on each product record — the business collects no
+            on-site reviews, so the figure was invented. Displaying fabricated
+            ratings is both misleading to buyers and a spam signal, so the
+            rating is gone and the category is shown instead.
+          */}
           <div className="flex items-center justify-between text-[11px] text-[#2B2620]/60 uppercase tracking-wider">
             <span>{product.sku}</span>
-            <span className="flex items-center gap-1 text-[#B08D57]">
-              <Star className="w-3 h-3 fill-[#B08D57]" />
-              {product.rating} ({product.reviewsCount})
-            </span>
+            <span className="text-[#B08D57]">{product.category}</span>
           </div>
 
           <Link href={`/product/${product.slug}`} className="block">

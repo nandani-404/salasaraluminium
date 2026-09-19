@@ -180,7 +180,7 @@ export default function Header() {
                 {SAH_CATEGORIES.map((cat) => (
                   <Link
                     key={cat.slug}
-                    href={`/products#${cat.slug}`}
+                    href={`/products/${cat.slug}`}
                     onClick={() => setMegaMenuOpen(false)}
                     className="p-2 rounded-md hover:bg-[#F8FAFC] transition-colors group flex flex-col"
                   >

@@ -30,13 +30,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
-    keywords: [
-      `${data.product.name} ${data.location.name}`,
-      `wholesale ${data.product.name} supplier`,
-      `aluminium hardware dealer in ${data.location.name}`,
-      `${data.product.saCode} price`,
-      `hardware distributor ${data.location.state}`
-    ],
+    /*
+     * DEINDEXED ON PURPOSE.
+     *
+     * This route is generated from `pseoData.ts`, which fabricates 2,000
+     * locality names ("Bhilai Steel Yard Area") and 500 products with SA-101+
+     * codes that do not exist in the real 86-SKU catalogue — roughly 1,000,000
+     * URLs of templated, invented content. Google classifies that as
+     * scaled content abuse, and the penalty applies site-wide, not just here.
+     *
+     * The route still responds so no previously-linked URL 404s, but it is
+     * excluded from search. The pages remain crawlable (see app/robots.ts) so
+     * that this noindex can actually be read and acted on.
+     *
+     * [CONFIRM] Owner decision pending on whether to delete the route outright.
+     */
+    robots: { index: false, follow: false },
+    // `keywords` removed — ignored by every major engine since 2009.
     alternates: {
       canonical: canonicalUrl,
     },

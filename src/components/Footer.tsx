@@ -79,7 +79,7 @@ export default function Footer() {
               {SAH_CATEGORIES.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
                   <Link
-                    href={`/products#${cat.slug}`}
+                    href={`/products/${cat.slug}`}
                     className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {cat.name}
@@ -98,7 +98,7 @@ export default function Footer() {
               {SAH_CATEGORIES.slice(6, 12).map((cat) => (
                 <li key={cat.slug}>
                   <Link
-                    href={`/products#${cat.slug}`}
+                    href={`/products/${cat.slug}`}
                     className="text-slate-300 hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {cat.name}

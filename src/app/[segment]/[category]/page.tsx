@@ -45,7 +45,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
     .filter((p) => (selectedAlloy === 'all' ? true : p.alloyGrade === selectedAlloy))
     .sort((a, b) => {
       if (sortBy === 'name') return a.name.localeCompare(b.name);
-      if (sortBy === 'rating') return b.rating - a.rating;
+      // "Top rated" sorting was dropped along with the invented per-product
+      // ratings it read from. Sort by SKU instead — a real, stable attribute.
+      if (sortBy === 'sku') return a.sku.localeCompare(b.sku, undefined, { numeric: true });
       return 0;
     });
 
@@ -163,8 +165,8 @@ export default function CategoryPage({ params }: CategoryPageProps) {
               onChange={(e) => setSortBy(e.target.value)}
               className="w-full p-2.5 bg-[#FAF7F0] border border-[#D8D1C4] text-xs text-[#2B2620] focus-ring"
             >
-              <option value="featured">Featured / Popular</option>
-              <option value="rating">Top Rated</option>
+              <option value="featured">Featured</option>
+              <option value="sku">SKU code</option>
               <option value="name">Name (A-Z)</option>
             </select>
           </div>

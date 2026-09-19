@@ -1,92 +1,80 @@
 import type { MetadataRoute } from 'next';
-import { BASE_URL } from '@/lib/jsonld';
+import { SITE_URL } from '@/config/business';
 import { BLOG_POSTS } from '@/lib/data';
-import { products } from '@/lib/data/products';
-import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS } from '@/lib/sahData';
-import { getCombinationByIndex } from '@/lib/data/pseoData';
-import { getSAHProductSlug } from '@/lib/productAdapter';
+import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
+import { CITIES_DATA } from '@/lib/data/cities';
+import { getAllProductStaticSlugs } from '@/lib/productAdapter';
 
-// Top High-Intent Trade Cities in Chhattisgarh & Central India
-const TOP_TRADE_CITIES = [
-  'raipur', 'bhilai', 'durg', 'bilaspur', 'korba', 'rajnandgaon',
-  'jagdalpur', 'ambikapur', 'raigarh', 'nagpur', 'pune', 'mumbai',
-  'indore', 'bhopal', 'jabalpur', 'rourkela', 'sambalpur'
-];
+/**
+ * Every URL here is derived from the same data the pages themselves render
+ * from, so the sitemap cannot drift out of sync with what actually exists.
+ *
+ * The previous version hard-coded a 17-city list against a 6-city dataset and
+ * submitted 11 URLs that returned 404, plus 115 generated /supplier/ URLs and
+ * the /cart and /checkout pages. All of those are gone.
+ */
+
+const BUILD_DATE = new Date();
+
+/** Parses the human-readable blog date, falling back to the build date. */
+function postDate(raw: string): Date {
+  const d = new Date(raw);
+  return Number.isNaN(d.getTime()) ? BUILD_DATE : d;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = new Date();
+  const entry = (
+    path: string,
+    priority: number,
+    changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+    lastModified: Date = BUILD_DATE
+  ) => ({ url: `${SITE_URL}${path}`, lastModified, changeFrequency, priority });
 
-  // 1. Core Static Pages (14 URLs)
+  // Core pages. /cart, /checkout and /admin are intentionally absent —
+  // they are transactional or private and must not be indexed.
   const staticPages = [
-    '', '/products', '/contact', '/wholesale', '/locations',
-    '/industries-we-serve', '/about', '/why-choose-us', '/faq',
-    '/blog', '/projects', '/finishes', '/cart', '/checkout'
-  ].map((path) => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: path === '' ? 1.0 : 0.8,
-  }));
-
-  // 2. Hardware Category Hubs (12 URLs)
-  const categoryPages = SAH_CATEGORIES.map((cat) => ({
-    url: `${BASE_URL}/products/${cat.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  // 3. City Location Hubs (17 URLs)
-  const cityPages = TOP_TRADE_CITIES.map((city) => ({
-    url: `${BASE_URL}/locations/${city}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  // 4. Showcase Product Detail Pages (12 URLs)
-  const showcaseProductPages = products.map((p) => ({
-    url: `${BASE_URL}/product/${p.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  // 5. Full Catalogue Hardware Items (86 URLs with canonical SEO slugs)
-  const catalogueProductPages = FULL_CATALOGUE_PRODUCTS.map((p) => ({
-    url: `${BASE_URL}/product/${getSAHProductSlug(p)}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-
-  // 6. Blog Technical Guides (8 URLs)
-  const blogPages = BLOG_POSTS.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  // 7. Curated High-Intent Trade Supplier Pages (115 URLs)
-  const supplierPages = Array.from({ length: 115 }, (_, i) => {
-    const combo = getCombinationByIndex(i * 12);
-    return {
-      url: `${BASE_URL}/supplier/${combo.location.slug}/${combo.product.slug}`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    };
-  });
-
-  return [
-    ...staticPages,
-    ...categoryPages,
-    ...cityPages,
-    ...showcaseProductPages,
-    ...catalogueProductPages,
-    ...blogPages,
-    ...supplierPages,
+    entry('', 1.0, 'weekly'),
+    entry('/products', 0.9, 'weekly'),
+    entry('/window-hardware', 0.9, 'monthly'),
+    entry('/bathroom-glass-hardware', 0.9, 'monthly'),
+    entry('/wholesale', 0.8, 'monthly'),
+    entry('/locations', 0.8, 'monthly'),
+    entry('/contact', 0.8, 'monthly'),
+    entry('/about', 0.7, 'monthly'),
+    entry('/industries-we-serve', 0.7, 'monthly'),
+    entry('/why-choose-us', 0.6, 'monthly'),
+    entry('/faq', 0.7, 'monthly'),
+    entry('/blog', 0.7, 'weekly'),
+    entry('/projects', 0.5, 'monthly'),
+    entry('/finishes', 0.5, 'monthly'),
   ];
+
+  const categoryPages = CATALOGUE_CATEGORIES.map((cat) =>
+    entry(`/products/${cat.slug}`, 0.85, 'monthly')
+  );
+
+  const cityPages = CITIES_DATA.map((city) => entry(`/locations/${city.slug}`, 0.8, 'monthly'));
+
+  // getAllProductStaticSlugs() covers both the 86 catalogue SKUs and the
+  // showcase range, and is the same list /product/[slug] prerenders from.
+  const productPages = getAllProductStaticSlugs().map((slug) =>
+    entry(`/product/${slug}`, 0.7, 'monthly')
+  );
+
+  const blogPages = BLOG_POSTS.map((post) =>
+    entry(`/blog/${post.slug}`, 0.6, 'monthly', postDate(post.date))
+  );
+
+  const all = [...staticPages, ...categoryPages, ...cityPages, ...productPages, ...blogPages];
+
+  // Belt and braces: a duplicate <loc> is a validation error in some crawlers.
+  const seen = new Set<string>();
+  return all.filter((e) => {
+    if (seen.has(e.url)) return false;
+    seen.add(e.url);
+    return true;
+  });
 }
+
+/** Exported for the verification script so the count can be asserted in CI. */
+export const SITEMAP_SKU_COUNT = CATALOGUE.length;
