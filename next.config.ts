@@ -15,6 +15,16 @@ const nextConfig: NextConfig = {
     '127.0.0.1:3000',
   ],
   images: {
+    /*
+     * AVIF first, WebP as fallback. The product catalogue is ~180 PNGs, several
+     * over 1 MB; AVIF typically lands these around a quarter of the PNG size at
+     * the same visual quality, which matters a great deal on the mobile
+     * connections most of this traffic arrives on.
+     */
+    formats: ['image/avif', 'image/webp'],
+    // Long cache: product images are content-addressed by the optimizer and
+    // change only when the source file changes.
+    minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
       {
         protocol: "https",
@@ -25,6 +35,22 @@ const nextConfig: NextConfig = {
         hostname: "plus.unsplash.com",
       },
     ],
+  },
+  /*
+   * One canonical host and one trailing-slash policy. `trailingSlash: false`
+   * (the default, stated explicitly here so it is not changed by accident)
+   * means /products and /products/ are not both served as 200s.
+   */
+  trailingSlash: false,
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        // The generated text profiles are plain text and safe to cache hard.
+        source: '/:path(llms.txt|llms-full.txt)',
+        headers: [{ key: 'X-Robots-Tag', value: 'all' }],
+      },
+    ];
   },
 };
 

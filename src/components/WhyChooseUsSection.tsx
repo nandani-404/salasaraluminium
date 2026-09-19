@@ -170,9 +170,9 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xs sm:text-lg md:text-xl font-bold text-[#0B1F3A] mb-1.5 sm:mb-3 group-hover:text-[#0B1F3A] transition-colors leading-snug line-clamp-2">
+                  <h2 className="text-xs sm:text-lg md:text-xl font-bold text-[#0B1F3A] mb-1.5 sm:mb-3 group-hover:text-[#0B1F3A] transition-colors leading-snug line-clamp-2">
                     {benefit.title}
-                  </h3>
+                  </h2>
                   <p className="text-[#475569] text-[10px] sm:text-xs sm:text-sm leading-relaxed mb-3 sm:mb-6 font-normal line-clamp-3 sm:line-clamp-none">
                     {benefit.description}
                   </p>
@@ -198,9 +198,9 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                 <span className="text-[10px] sm:text-xs font-bold tracking-widest text-[#B8860B] uppercase block mb-1">
                   FACTUAL OVERVIEW
                 </span>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight">
                   WHAT SETS US APART
-                </h3>
+                </h2>
               </div>
               <p className="text-[11px] sm:text-xs md:text-sm text-slate-300 max-w-md font-normal">
                 Direct, transparent business parameters structured for quick B2B evaluation and reliable sourcing.
@@ -257,9 +257,9 @@ export default function WhyChooseUsSection({ showCta = true }: WhyChooseUsSectio
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-[11px] sm:text-xs sm:text-sm font-bold text-[#0B1F3A] tracking-wider uppercase mb-1 sm:mb-2 leading-tight">
+                  <h2 className="text-[11px] sm:text-xs sm:text-sm font-bold text-[#0B1F3A] tracking-wider uppercase mb-1 sm:mb-2 leading-tight">
                     {step.title}
-                  </h3>
+                  </h2>
                   <p className="text-[10px] sm:text-xs sm:text-sm text-[#475569] leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {step.description}
                   </p>

@@ -38,7 +38,7 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                   : 'border-[#D8D1C4] opacity-70 hover:opacity-100'
               }`}
             >
-              <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" />
+              <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 120px" />
             </button>
           ))}
         </div>

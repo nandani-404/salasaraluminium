@@ -32,9 +32,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const hasBrand = /salasar/i.test(post.title);
   const title = truncateTitle(hasBrand ? post.title : `${post.title} | Salasar`);
 
+  // A few excerpts fall short of the ~140-char window a SERP snippet will show.
+  // Rather than let the engine pick its own trailing text, top the short ones up
+  // with the one line that is true of every guide here.
+  const description = clampDescription(
+    post.excerpt.length < 140
+      ? `${post.excerpt.replace(/\s*$/, '')} From Salasar Aluminium & Hardware, Raipur.`
+      : post.excerpt
+  );
+
   return buildMetadata({
     title,
-    description: clampDescription(post.excerpt),
+    description,
     path: `/blog/${post.slug}`,
     image: post.image,
     type: 'article',
@@ -118,6 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Main Cover Image - Premium Full-Width Cover Frame */}
         <div className="my-8 relative h-72 sm:h-[450px] w-full rounded-2xl overflow-hidden bg-gray-100 border border-gray-200/80 shadow-md">
           <Image
+            sizes="(max-width: 1024px) 100vw, 800px"
             src={post.image}
             alt={post.title}
             fill
@@ -316,6 +326,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <div className="p-2.5 sm:p-5 space-y-1.5 sm:space-y-3">
                     <div className="relative h-28 sm:h-44 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-1 sm:p-2">
                       <Image
+                        sizes="(max-width: 640px) 100vw, 320px"
                         src={op.image}
                         alt={op.title}
                         fill

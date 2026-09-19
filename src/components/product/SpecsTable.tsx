@@ -9,7 +9,8 @@ export function SpecsTable({ specs }: SpecsTableProps) {
   return (
     <div className="w-full bg-[#FFFFFF] border border-[#D8D1C4] overflow-hidden shadow-luxury">
       <div className="bg-[#FAF7F0] px-6 py-4 border-b border-[#D8D1C4]">
-        <h4 className="font-serif text-base text-[#2B2620]">Technical & Architectural Specifications</h4>
+        {/* h3, not h4: this sits under the section <h2> on the product page. */}
+        <h3 className="font-serif text-base text-[#2B2620]">Technical &amp; Architectural Specifications</h3>
       </div>
       <table className="w-full text-left text-xs divide-y divide-[#D8D1C4]/60">
         <tbody>

@@ -57,6 +57,7 @@ export default function ProjectsPage() {
               <div>
                 <div className="relative h-36 sm:h-64 overflow-hidden">
                   <Image
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     src={project.image}
                     alt={project.title}
                     fill
@@ -71,9 +72,9 @@ export default function ProjectsPage() {
                   <span className="text-[9px] sm:text-[10px] font-semibold text-[#B08D57] uppercase tracking-wider block">
                     {project.segment} Application
                   </span>
-                  <h3 className="text-xs sm:text-xl font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors leading-tight line-clamp-2">
+                  <h2 className="text-xs sm:text-xl font-serif font-bold text-[#22262A] group-hover:text-[#B08D57] transition-colors leading-tight line-clamp-2">
                     {project.title}
-                  </h3>
+                  </h2>
                   <p className="text-[11px] sm:text-xs text-gray-600 leading-relaxed line-clamp-2">
                     {project.description}
                   </p>

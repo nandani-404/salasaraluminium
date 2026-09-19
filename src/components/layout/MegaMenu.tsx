@@ -67,6 +67,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           </p>
           <div className="relative h-32 w-full overflow-hidden">
             <Image
+              sizes="(max-width: 1024px) 50vw, 240px"
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85"
               alt="Palazzo Brass Handle"
               fill

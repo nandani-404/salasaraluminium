@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Layers, Sparkles, Building2, MapPin } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS } from '@/lib/sahData';
+import HeroVideo from '@/components/HeroVideo';
 
 export default function Hero() {
   const { openEnquiryModal } = useEnquiry();
@@ -14,15 +15,11 @@ export default function Hero() {
     <section className="relative min-h-[75vh] sm:min-h-[90vh] lg:min-h-screen flex items-center pt-20 pb-12 sm:pt-28 sm:pb-16 overflow-hidden bg-slate-950">
       {/* Full-width Autoplay Background Video */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <HeroVideo
+          src="/salasar-workshop-hero.mp4"
+          poster="/salasar-hardware-hero-clean.jpg"
           className="w-full h-full object-cover opacity-95"
-        >
-          <source src="/1 (online-video-cutter.com) (1).mp4" type="video/mp4" />
-        </video>
+        />
         {/* Minimal Scrim Overlay for Maximum Video Clarity */}
         <div className="absolute inset-0 bg-slate-950/30 sm:bg-gradient-to-r sm:from-slate-950/20 sm:via-slate-950/5 sm:to-transparent pointer-events-none" />
       </div>

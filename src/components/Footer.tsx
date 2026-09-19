@@ -73,9 +73,9 @@ export default function Footer() {
 
           {/* Categories 1 */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Hardware
-            </h4>
+            </h2>
             <ul className="space-y-1.5 sm:space-y-2 text-xs">
               {SAH_CATEGORIES.slice(0, 6).map((cat) => (
                 <li key={cat.slug}>
@@ -92,9 +92,9 @@ export default function Footer() {
 
           {/* Categories 2 */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Fittings & Seals
-            </h4>
+            </h2>
             <ul className="space-y-1.5 sm:space-y-2 text-xs">
               {SAH_CATEGORIES.slice(6, 12).map((cat) => (
                 <li key={cat.slug}>
@@ -111,9 +111,9 @@ export default function Footer() {
 
           {/* Raipur Showroom Contact */}
           <div className="col-span-2 sm:col-span-1 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Raipur Store Desk
-            </h4>
+            </h2>
             <a
               href={BUSINESS.maps.url}
               target="_blank"

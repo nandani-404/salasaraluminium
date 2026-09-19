@@ -20,7 +20,7 @@ export function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
     <div className="flex flex-col sm:flex-row items-center justify-between p-4 bg-[#FFFFFF] border border-[#D8D1C4] gap-4 shadow-luxury">
       <div className="flex items-center space-x-4 w-full sm:w-auto">
         <div className="relative w-20 h-20 bg-[#FAF7F0] border border-[#D8D1C4] flex-shrink-0">
-          <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+          <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="96px" />
         </div>
         <div>
           <Link href={`/product/${product.slug}`} className="font-serif text-base text-[#2B2620] hover:text-[#B08D57] transition-colors">

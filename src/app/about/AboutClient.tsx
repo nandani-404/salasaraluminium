@@ -338,13 +338,19 @@ export default function AboutClient() {
       <div className="relative py-12 sm:py-16 overflow-hidden bg-slate-950 border-t border-[#E2E8F0] text-white">
         
         {/* Brand New Unique Background Image */}
+        {/*
+          `priority` removed. This is a decorative background on a CTA band at
+          the very bottom of the page, so preloading it made it compete with the
+          real LCP image higher up — two priority images on one page halves the
+          benefit of having any. It loads lazily like any other below-fold image.
+        */}
         <Image
           src="/hardware-showcase-bg.png"
-          alt="Architectural Hardware Trade Showcase"
+          alt=""
           fill
           sizes="100vw"
           className="object-cover opacity-80"
-          priority
+          loading="lazy"
         />
 
         {/* Overlay */}

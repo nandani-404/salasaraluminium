@@ -135,6 +135,33 @@ assertUnique('title');
 assertUnique('description');
 assertUnique('canonical');
 
+// --- heading hierarchy -------------------------------------------------
+// Exactly one <h1>, and no skipped levels (h2 -> h4). A broken outline hurts
+// screen-reader navigation and weakens the page's topical structure.
+for (const p of indexable) {
+  const headings = [...p.html.matchAll(/<h([1-6])\b[^>]*>/g)].map((m) => Number(m[1]));
+  const h1s = headings.filter((h) => h === 1).length;
+
+  if (h1s === 0) errors.push(`no <h1>: ${p.route}`);
+  if (h1s > 1) errors.push(`${h1s} <h1> elements (expected 1): ${p.route}`);
+
+  let deepest = 0;
+  for (const level of headings) {
+    if (deepest && level > deepest + 1) {
+      warnings.push(`heading skips h${deepest} -> h${level}: ${p.route}`);
+      break;
+    }
+    deepest = level;
+  }
+}
+
+// --- images have alt text ----------------------------------------------
+for (const p of indexable) {
+  const imgs = [...p.html.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
+  const missing = imgs.filter((t) => !/\balt=/.test(t)).length;
+  if (missing) warnings.push(`${missing} <img> without alt: ${p.route}`);
+}
+
 // --- catalogue renders server-side -------------------------------------
 const productsPage = pages.find((p) => p.route === '/products');
 if (!productsPage) {

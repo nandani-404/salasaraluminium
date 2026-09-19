@@ -158,7 +158,7 @@ export function Header() {
                     className="flex items-center p-3 hover:bg-[#FAF7F0] transition-colors gap-4"
                   >
                     <div className="relative w-12 h-12 flex-shrink-0">
-                      <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+                      <Image src={product.images[0]} alt={product.name} fill className="object-cover" sizes="48px" />
                     </div>
                     <div>
                       <h4 className="font-serif text-sm text-[#2B2620]">{product.name}</h4>

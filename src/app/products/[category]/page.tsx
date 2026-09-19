@@ -268,6 +268,9 @@ export default async function CategoryPage({
 
         {/* Product List */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
+          {/* The cards below are <h3>; without this <h2> the outline jumped
+              straight from the page <h1> to level 3. */}
+          <h2 className="sr-only">{archCategory.name} products</h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {categoryProducts.map((prod) => (
               <ProductCard key={prod.id} product={prod} />

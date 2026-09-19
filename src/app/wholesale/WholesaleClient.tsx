@@ -57,7 +57,7 @@ export default function WholesaleClient() {
             <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
               <Factory className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-[#0B1F3A]">Finetek Extrusions</h3>
+            <h2 className="text-lg font-bold text-[#0B1F3A]">Finetek Extrusions</h2>
             <p className="text-xs text-[#475569] leading-relaxed">
               Extruded architectural sections and customized industrial T-slot profiles produced under strict ISO tolerance standards.
             </p>
@@ -67,7 +67,7 @@ export default function WholesaleClient() {
             <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
               <Building2 className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-[#0B1F3A]">Lieon Marketing Hub</h3>
+            <h2 className="text-lg font-bold text-[#0B1F3A]">Lieon Marketing Hub</h2>
             <p className="text-xs text-[#475569] leading-relaxed">
               Central Bhaisthan warehouse carrying ready stock of 86 standardized hardware SKUs for instant trade dispatch.
             </p>
@@ -77,7 +77,7 @@ export default function WholesaleClient() {
             <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
               <Truck className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-[#0B1F3A]">Same-Day Dispatch</h3>
+            <h2 className="text-lg font-bold text-[#0B1F3A]">Same-Day Dispatch</h2>
             <p className="text-xs text-[#475569] leading-relaxed">
               Daily transport dispatch to Bhilai, Durg, Bilaspur, Korba, Rajnandgaon, and all major Chhattisgarh trade hubs.
             </p>
@@ -105,7 +105,7 @@ export default function WholesaleClient() {
                     <span className="sm:hidden">View →</span>
                   </span>
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold text-[#0B1F3A] group-hover:text-[#B8860B] transition-colors leading-tight line-clamp-1">{cat.name}</h3>
+                <h2 className="text-xs sm:text-sm font-bold text-[#0B1F3A] group-hover:text-[#B8860B] transition-colors leading-tight line-clamp-1">{cat.name}</h2>
                 <p className="text-[10px] sm:text-[11px] text-[#475569] line-clamp-2 leading-relaxed">{cat.description}</p>
               </Link>
             ))}
