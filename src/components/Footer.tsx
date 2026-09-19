@@ -131,6 +131,8 @@ export default function Footer() {
                 { href: '/finishes', label: 'Finishes & colours' },
                 { href: '/projects', label: 'Project types' },
                 { href: '/faq', label: 'FAQ' },
+                // The Hindi section needs an inbound link like any other page.
+                { href: '/hi', label: 'हिन्दी में देखें' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

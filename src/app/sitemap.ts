@@ -5,6 +5,7 @@ import { CATALOGUE_CATEGORIES, CATALOGUE } from '@/data/products';
 import { CITIES_DATA } from '@/lib/data/cities';
 import { cityCategoryPairs } from '@/lib/data/cityCategory';
 import { TOPIC_HUBS } from '@/lib/data/hubs';
+import { HI } from '@/lib/i18n/hi';
 import { getCanonicalProductSlugs } from '@/lib/productAdapter';
 
 /**
@@ -93,6 +94,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((slug) => catalogueSlugs.has(slug))
     .map((slug) => entry(`/product/${slug}`, 0.7, 'monthly'));
 
+  /*
+   * Hindi section. Listed alongside the English pages rather than in a separate
+   * sitemap: both are the same site, and each page declares its counterpart via
+   * hreflang, which is what Google uses to pair them.
+   */
+  const hindiPages = [
+    entry('/hi', 0.9, 'weekly'),
+    entry('/hi/faq', 0.7, 'monthly'),
+    ...CATALOGUE_CATEGORIES.filter((c) => HI.categories[c.slug]).map((c) =>
+      entry(`/hi/products/${c.slug}`, 0.8, 'monthly')
+    ),
+    ...CITIES_DATA.map((city) => entry(`/hi/locations/${city.slug}`, 0.75, 'monthly')),
+  ];
+
   const blogPages = BLOG_POSTS.map((post) =>
     entry(`/blog/${post.slug}`, 0.6, 'monthly', postDate(post.date))
   );
@@ -104,6 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cityPages,
     ...cityCategoryPages,
     ...productPages,
+    ...hindiPages,
     ...blogPages,
   ];
 

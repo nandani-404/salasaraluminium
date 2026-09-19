@@ -13,6 +13,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     'How to order by SA code, what we stock, delivery across Chhattisgarh, finishes and sizes, and whether we sell to homeowners. Straight answers, no sign-up.',
   path: '/faq',
+  languages: { 'en-IN': '/faq', 'hi-IN': '/hi/faq' },
 });
 
 export default function FAQPage() {

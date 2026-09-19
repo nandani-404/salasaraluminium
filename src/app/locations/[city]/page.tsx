@@ -32,6 +32,10 @@ export async function generateMetadata({
       `Door and window hardware for ${city.name}, ${city.state} — rollers, locks, hinges, door kits, closers and shower fittings from our Raipur counter. Call us.`
     ),
     path: `/locations/${city.slug}`,
+    languages: {
+      'en-IN': `/locations/${city.slug}`,
+      'hi-IN': `/hi/locations/${city.slug}`,
+    },
   });
 }
 

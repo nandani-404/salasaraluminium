@@ -31,6 +31,15 @@ export interface PageMetaInput {
   index?: boolean;
   publishedTime?: string;
   authors?: string[];
+  /**
+   * Language alternates for this page, e.g. { 'hi-IN': '/hi/products' }.
+   * Both sides of a pair must declare each other — an hreflang annotation
+   * pointing one way only is ignored by Google, which is the commonest way
+   * multilingual sections fail to get picked up.
+   */
+  languages?: Record<string, string>;
+  /** Marks this page as the Hindi variant, so og:locale is set accordingly. */
+  locale?: 'en_IN' | 'hi_IN';
 }
 
 /**
@@ -58,6 +67,8 @@ export function buildMetadata({
   index = true,
   publishedTime,
   authors,
+  languages,
+  locale = 'en_IN',
 }: PageMetaInput): Metadata {
   warnOnLength(title, description, path);
 
@@ -69,7 +80,19 @@ export function buildMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(languages
+        ? {
+            languages: {
+              ...languages,
+              // x-default points at the English page: it is what a user with
+              // no matching language preference should land on.
+              'x-default': languages['en-IN'] ?? url,
+            },
+          }
+        : {}),
+    },
     ...(index ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
       type,
@@ -78,7 +101,7 @@ export function buildMetadata({
       title,
       description,
       siteName: 'Salasar Aluminium & Hardware',
-      locale: 'en_IN',
+      locale,
       ...(images ? { images } : {}),
       ...(type === 'article' && publishedTime ? { publishedTime } : {}),
       ...(type === 'article' && authors ? { authors } : {}),
@@ -95,6 +118,7 @@ export function buildMetadata({
 /** Category page title/description, per the agreed pattern. */
 export function categoryMeta(name: string, description: string, slug: string): Metadata {
   return buildMetadata({
+    languages: { 'en-IN': `/products/${slug}`, 'hi-IN': `/hi/products/${slug}` },
     title: truncateTitle(`${name} Wholesale in Raipur | Salasar`),
     description: clampDescription(
       `${description} Trade rates for dealers and fabricators in Raipur, Chhattisgarh, and single-project supply. Call or WhatsApp for a quote.`

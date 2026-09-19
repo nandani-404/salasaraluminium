@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   title: 'Aluminium Door & Window Hardware Raipur | Salasar',
   description:
     'Aluminium door and window hardware in Raipur, Chhattisgarh — rollers, locks, hinges, door kits, closers, shower fittings. 86 SKUs at trade rates. Call for a quote.',
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    // Both sides of a language pair must declare each other.
+    languages: { 'en-IN': '/', 'hi-IN': '/hi', 'x-default': '/' },
+  },
   openGraph: {
     type: 'website',
     url: '/',
