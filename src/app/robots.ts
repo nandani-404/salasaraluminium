@@ -5,16 +5,14 @@ import { SITE_URL } from '@/config/business';
  * Only genuinely non-content routes are disallowed. Everything a buyer or an
  * answer engine might want to read stays crawlable.
  *
- * `/supplier/` is NOT listed here on purpose, even though those pages must
- * leave the index. That route is backed by a generator producing ~1,000,000
- * permutations of invented locality names and SKU codes absent from the real
- * 86-item catalogue — a scaled-content-abuse risk for the whole domain.
+ * `/supplier/` is NOT listed here on purpose, and must not be added.
  *
- * The fix is `robots: { index: false }` on the route itself, not a Disallow
- * here: a disallowed URL is never fetched, so Google would never see the
- * noindex and anything already indexed would linger. Allowing the crawl lets
- * the noindex be read and the URLs dropped. Add a Disallow for `/supplier/`
- * only once Search Console shows the pages have fallen out of the index.
+ * Those URLs now return 410 Gone from src/proxy.ts. A robots.txt Disallow
+ * would stop Google fetching them, which means it would never see the 410 and
+ * the ~9,850 already-indexed pages would sit in the index indefinitely.
+ *
+ * Blocking crawling and removing from the index are opposite instructions.
+ * To remove, you must let the crawler in.
  */
 export default function robots(): MetadataRoute.Robots {
   const disallow = ['/api/', '/admin', '/cart', '/checkout'];

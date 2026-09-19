@@ -49,6 +49,48 @@ export async function proxy(request: NextRequest) {
   const url = request.nextUrl;
   const host = request.headers.get('host')?.toLowerCase() ?? '';
 
+  /*
+   * 0. /supplier/* is GONE — 410, not 404, and not a rendered noindex page.
+   *
+   * On 2026-09-09 a sitemap index of 20 chunks x 50,000 URLs submitted
+   * 1,000,000 generated /supplier/ URLs to Google: 2,000 invented locality
+   * names crossed with 500 invented products carrying SA-101+ codes that do
+   * not exist in the real 86-item catalogue.
+   *
+   * Google acted on it. Search Console showed 9,850 pages indexed against a
+   * site with roughly 280 real ones — about 97% of the index was fabricated
+   * doorway content, and the count was still climbing as Google worked through
+   * the submitted list.
+   *
+   * A `noindex` meta tag on a 200 response was the first fix, and it is too
+   * slow at this scale: every one of those URLs has to be re-crawled and
+   * re-rendered before the tag is even seen. 410 Gone is the strongest
+   * deindexing signal available — it tells Google the resource is permanently
+   * removed, is acted on faster than a 404, and stops further crawling of the
+   * pattern without needing a robots.txt rule.
+   *
+   * It is served here in the proxy rather than from the route so the response
+   * costs nothing to produce and applies to all 1,000,000 permutations,
+   * including any Google discovered that were never prerendered.
+   *
+   * Do NOT add `/supplier/` to robots.txt Disallow. A blocked URL is never
+   * fetched, so Google would never see this 410 and the pages would linger in
+   * the index indefinitely.
+   */
+  if (url.pathname.startsWith('/supplier/') || url.pathname === '/supplier') {
+    return new NextResponse(
+      'Gone. These pages were generated in error and have been permanently removed.',
+      {
+        status: 410,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      }
+    );
+  }
+
   // 1. One canonical host. Only rewrites hosts we explicitly own, so
   //    localhost and *.vercel.app preview URLs keep working untouched.
   if (REDIRECTABLE_HOSTS.has(host)) {
