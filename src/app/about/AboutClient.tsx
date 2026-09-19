@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { BUSINESS, TEL_HREF } from '@/config/business';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Award, ShieldCheck, Factory, Truck, CheckCircle2, MapPin, Building2, PhoneCall, ExternalLink } from 'lucide-react';
@@ -48,22 +49,63 @@ export default function AboutClient() {
               {/* Main Copy Narrative */}
               <div className="space-y-4 text-base sm:text-lg text-[#334155] font-medium leading-relaxed">
                 <p>
-                  <strong className="text-[#0B1F3A] underline decoration-[#B8860B]/40 underline-offset-4">Salasar Aluminium & Hardware (SAH)</strong> supplies architectural aluminium extrusions and hardware directly to the trade — dealers, fabricators, contractors, and project developers across Chhattisgarh and beyond. Our products are manufactured by Swastik Industries in Mumbai and stocked at our Raipur distribution hub for same-day regional dispatch.
+                  <strong className="text-[#0B1F3A] underline decoration-[#B8860B]/40 underline-offset-4">Salasar Aluminium &amp; Hardware</strong> supplies aluminium door and window hardware from a counter in Bhaisthan, Raipur. We sell to the trade — dealers, fabricators and contractors — at trade rates, and to homeowners, architects, interior designers and builders buying for a single project. There is no minimum order at the counter.
                 </p>
                 <p className="text-sm sm:text-base text-[#475569]">
-                  Our tagline — <strong>Quality, Strength, Trust</strong> — reflects how we operate: direct factory pricing with no retail markup, a standardized 86-SKU catalogue so dealers always know exactly what they're ordering by SA product code, and reliable stock availability from our Bhaisthan branch in Raipur.
+                  Everything we stock carries a fixed SA code, so an order is unambiguous: SA-33 is the aluminium door kit, SA-42 the hydraulic door closer, SA-76 the 90&deg; wall-to-glass shower hinge. If you do not know the code, bring the old part in or send a photograph on WhatsApp and we will identify it. Aluminium window and door sections vary between fabricators, so matching a physical part beats matching a description.
                 </p>
               </div>
+
+              {/*
+                Related businesses, stated once, in one place.
+                Four names appeared across the old site — Salasar, Lieon
+                Marketing, Finetek and Swastik Industries — with no explanation
+                of how they relate, and in places contradicting each other
+                (products were said to be manufactured in Mumbai by Swastik and
+                simultaneously produced in Raipur at Finetek). Naming related
+                entities without defining them confuses buyers and splits the
+                business's search identity across several unresolved names.
+
+                Descriptions come from src/config/business.ts and carry
+                [CONFIRM] markers where the relationship is not yet verified.
+              */}
+              <section className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-3">
+                <h2 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider">
+                  Related businesses, and what each one is
+                </h2>
+                <p className="text-xs text-[#64748B] leading-relaxed">
+                  You may see these names alongside ours. This is how they relate.
+                </p>
+                <dl className="space-y-2.5">
+                  {BUSINESS.entities.map((entity) => (
+                    <div key={entity.name} className="text-xs leading-relaxed">
+                      <dt className="font-bold text-[#0B1F3A] inline">{entity.name}: </dt>
+                      <dd className="inline text-[#475569]">{entity.role}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="text-xs text-[#64748B] leading-relaxed pt-1 border-t border-[#E2E8F0]">
+                  Whichever name is on the invoice, the counter is the same one:{' '}
+                  {BUSINESS.addressLine}.
+                </p>
+              </section>
 
               {/* Company Facts Card */}
               <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
                 <h3 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider mb-2">Company Facts</h3>
                 <ul className="space-y-1.5 text-xs text-[#334155]">
-                  <li>• <strong>Operates as:</strong> Salasar Aluminium & Hardware, Bhaisthan, Raipur, Chhattisgarh</li>
-                  <li>• <strong>Second distribution branch:</strong> Lieon Marketing, Raipur</li>
-                  <li>• <strong>Manufactured by:</strong> Swastik Industries, Mumbai</li>
-                  <li>• <strong>Business model:</strong> B2B wholesale trade supply only — no public retail cart</li>
-                  <li>• <strong>Trade Heritage:</strong> Established supplier serving Chhattisgarh for over 15+ years</li>
+                  {/*
+                    "Established supplier serving Chhattisgarh for over 15+ years"
+                    was removed: no founding date has been verified, and a
+                    fabricated trading history is exactly the kind of claim that
+                    costs trust when a buyer checks it. See SEO-CONFIRM.md — once
+                    the real founding year is supplied, put it back as a fact.
+                  */}
+                  <li>• <strong>Counter and stock point:</strong> {BUSINESS.addressLine}</li>
+                  <li>• <strong>Open:</strong> {BUSINESS.hours.display}</li>
+                  <li>• <strong>Catalogue:</strong> 86 items across 12 categories, each with an SA code</li>
+                  <li>• <strong>Who we sell to:</strong> trade buyers at trade rates, and individual buyers for single projects</li>
+                  <li>• <strong>Prices:</strong> quoted on enquiry — they depend on quantity and finish</li>
                 </ul>
               </div>
 
@@ -75,9 +117,18 @@ export default function AboutClient() {
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
                     <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Precision Manufacturing</h3>
+                  {/*
+                    Previously: "Produced at our Finetek branch in Raipur using
+                    modern extrusion techniques & strict ISO-grade quality
+                    standards." Two problems. "ISO-grade quality standards" is an
+                    invented certification claim — ISO certification is either
+                    held and numbered, or it is not held. And it contradicted the
+                    adjacent statement that products are manufactured by Swastik
+                    Industries in Mumbai. Both claims cannot be true as written.
+                  */}
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">One counter, real stock</h3>
                   <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
-                    Produced at our Finetek branch in Raipur using modern extrusion techniques & strict ISO-grade quality standards.
+                    Everything we list is held at the Bhaisthan counter, so you can match a part by hand before you buy it.
                   </p>
                 </div>
 
@@ -86,9 +137,9 @@ export default function AboutClient() {
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#B8860B] group-hover:text-white transition-colors">
                     <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Direct Wholesale Hub</h3>
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h3>
                   <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
-                    Distributed via Lieon Marketing & SAH Raipur warehouse ensuring immediate stock readiness across Central India.
+                    Box and bulk quantities for dealers and fabricators, single pieces for a homeowner fixing one window.
                   </p>
                 </div>
               </div>
@@ -266,7 +317,7 @@ export default function AboutClient() {
         faqs={[
           {
             question: 'Where is Salasar Aluminium & Hardware manufactured?',
-            answer: 'Our aluminium hardware and extrusions are manufactured by Swastik Industries in Mumbai, and stocked and distributed from our Raipur branches for regional trade supply.',
+            answer: 'We are a supplier and stockist. Products are sourced from manufacturers and held at our Raipur counter, where they are sold to trade buyers and to individual buyers. [CONFIRM] The exact relationship with Swastik Industries, Lieon Marketing and Finetek is set out in the Related Businesses section on this page and needs owner confirmation.',
             category: 'Manufacturing',
           },
           {
@@ -328,7 +379,7 @@ export default function AboutClient() {
               </button>
 
               <a
-                href="tel:8007443071"
+                href={TEL_HREF}
                 className="w-full sm:w-auto px-7 py-4 bg-black/60 hover:bg-black/80 border border-white/40 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all duration-200 backdrop-blur-md flex items-center justify-center space-x-2.5 cursor-pointer shadow-xl"
               >
                 <PhoneCall className="w-4 h-4 text-[#D4AF37]" />

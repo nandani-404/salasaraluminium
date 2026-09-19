@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { TEL_HREF } from '@/config/business';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Factory, Building2, Truck, ShieldCheck, PhoneCall, ArrowRight, CheckCircle2, Award } from 'lucide-react';
@@ -39,7 +40,7 @@ export default function WholesaleClient() {
               Request Wholesale Price List
             </button>
             <a
-              href="tel:8007443071"
+              href={TEL_HREF}
               className="px-6 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center space-x-2"
             >
               <PhoneCall className="w-4 h-4 text-[#D4AF37]" />

@@ -7,6 +7,7 @@ import { CheckCircle2, Send, ShieldCheck, PhoneCall, MapPin, ExternalLink } from
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
 import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { TEL_HREF } from '@/config/business';
 
 export default function TradeQuoteFormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -132,7 +133,7 @@ export default function TradeQuoteFormSection() {
               {/* Call Button */}
               <div className="pt-1">
                 <a
-                  href="tel:+918007443071"
+                  href={TEL_HREF}
                   className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-3 sm:py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group"
                 >
                   <PhoneCall className="w-4 h-4 text-[#D4AF37] group-hover:rotate-12 transition-transform" />

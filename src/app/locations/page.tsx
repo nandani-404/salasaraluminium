@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MapPin, ChevronRight } from 'lucide-react';
 import { CITIES_DATA } from '@/lib/data/cities';
-import { BUSINESS } from '@/config/business';
+import { BUSINESS, TEL_HREF } from '@/config/business';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
 import FAQSection from '@/components/FAQSection';
 import JsonLd from '@/components/JsonLd';
@@ -49,7 +49,7 @@ export default function LocationsHubPage() {
             Our counter and stock point is at {BUSINESS.addressLine}. We supply dealers, fabricators
             and contractors from there, and sell to homeowners, architects, interior designers and
             builders buying for a single project. Pick your city below for local detail, or call{' '}
-            <a href={`tel:${BUSINESS.phones.primary.href}`} className="text-[#D4AF37] underline">
+            <a href={TEL_HREF} className="text-[#D4AF37] underline">
               {BUSINESS.phones.primary.display}
             </a>
             .

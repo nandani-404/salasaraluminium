@@ -1,115 +1,75 @@
-'use client';
-
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { SAH_FAQS, SAHFAQ } from '@/lib/sahData';
+import FaqList from '@/components/FaqList';
+import JsonLd from '@/components/JsonLd';
+import EnquireButton from '@/components/EnquireButton';
 import { getFaqSchema } from '@/lib/jsonld';
-import { useEnquiry } from '@/context/EnquiryContext';
+import { SITE_FAQS, type SiteFaq } from '@/lib/data/faqs';
 
-interface FAQSectionProps {
-  title?: string;
-  subtitle?: string;
-  faqs?: SAHFAQ[];
-  limit?: number;
-  showContactCTA?: boolean;
-}
-
+/**
+ * Server-rendered FAQ block.
+ *
+ * This was a Client Component using a framer-motion accordion that mounted only
+ * the currently-open answer. With twelve questions that meant eleven answers
+ * were absent from the HTML entirely, and all twelve were absent with
+ * JavaScript disabled — while FAQPage schema was emitted for every one of them.
+ * Google requires the answer text in FAQ markup to be present on the page, so
+ * the markup was asserting content the page did not contain.
+ *
+ * It now renders through native <details>/<summary>, so every answer is in the
+ * initial HTML, the schema matches what a reader sees, and the expand/collapse
+ * behaviour costs no JavaScript.
+ */
 export default function FAQSection({
-  title = 'Frequently asked questions.',
-  subtitle = "Can't find what you're looking for?",
-  faqs = SAH_FAQS,
+  title = 'Frequently asked questions',
+  subtitle,
+  faqs = SITE_FAQS,
   limit,
   showContactCTA = true,
-}: FAQSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const { openEnquiryModal } = useEnquiry();
-
-  const displayedFaqs = limit ? faqs.slice(0, limit) : faqs;
-  const jsonLdSchema = getFaqSchema(displayedFaqs);
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+}: {
+  title?: string;
+  subtitle?: string;
+  faqs?: SiteFaq[];
+  limit?: number;
+  showContactCTA?: boolean;
+}) {
+  const displayed = limit ? faqs.slice(0, limit) : faqs;
+  if (displayed.length === 0) return null;
 
   return (
-    <section className="py-10 sm:py-24 bg-white border-t border-[#E2E8F0] relative overflow-visible" style={{ overflow: 'visible' }}>
-      {/* FAQ Json-LD Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
-      />
+    <section className="py-10 sm:py-20 bg-white border-t border-[#E2E8F0]">
+      {/* Generated from the same array rendered below, never a separate list. */}
+      <JsonLd schema={getFaqSchema(displayed)} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Heading & Contact Support Link */}
-          <div className="lg:col-span-5 space-y-4 pt-1">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#B8860B] block">
-              COMMON QUESTIONS
-            </span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div className="lg:col-span-5 space-y-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#B8860B]">
+              Common questions
+            </p>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B1F3A] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B1F3A] tracking-tight leading-tight">
               {title}
             </h2>
 
-            <div className="pt-2 text-xs sm:text-sm text-[#64748B] leading-relaxed">
-              <span>Can't find what you're looking for? </span>
-              <button
-                type="button"
-                onClick={() => openEnquiryModal()}
-                className="text-[#0B1F3A] font-bold underline hover:text-[#9A7B1C] transition-colors cursor-pointer inline-flex items-center"
-              >
-                Contact support
-              </button>
-            </div>
+            {subtitle && (
+              <p className="text-base text-[#475569] leading-relaxed">{subtitle}</p>
+            )}
+
+            {showContactCTA && (
+              <p className="pt-2 text-base text-[#475569] leading-relaxed">
+                Not answered here?{' '}
+                <EnquireButton
+                  analyticsLocation="faq-section"
+                  className="text-[#0B1F3A] font-bold underline hover:text-[#8A6408] transition-colors cursor-pointer"
+                >
+                  Send us your question
+                </EnquireButton>
+              </p>
+            )}
           </div>
 
-          {/* Right Column: All Questions Shown Openly on Screen Without Any Scroll Bar */}
-          <div className="lg:col-span-7 divide-y divide-[#E2E8F0] border-t border-b border-[#E2E8F0]">
-            {displayedFaqs.map((faq, idx) => {
-                const isOpen = openIndex === idx;
-
-                return (
-                  <div key={faq.question} className="py-5">
-                    <button
-                      type="button"
-                      onClick={() => toggleAccordion(idx)}
-                      className="w-full text-left flex items-start justify-between space-x-4 cursor-pointer focus:outline-none group py-1"
-                      aria-expanded={isOpen}
-                    >
-                      <span className="text-base sm:text-lg font-bold text-[#0B1F3A] group-hover:text-[#9A7B1C] transition-colors leading-snug pr-2">
-                        {faq.question}
-                      </span>
-
-                      <span className="shrink-0 text-[#64748B] group-hover:text-[#0B1F3A] transition-colors pt-0.5">
-                        {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-[#0B1F3A]" />
-                        ) : (
-                          <ChevronDown className="w-5 h-5 text-[#94A3B8]" />
-                        )}
-                      </span>
-                    </button>
-
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.2, ease: 'easeInOut' }}
-                        >
-                          <p className="pt-3 pb-2 text-xs sm:text-sm text-[#475569] leading-relaxed pr-6">
-                            {faq.answer}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
+          <div className="lg:col-span-7">
+            <FaqList faqs={displayed} />
           </div>
-
         </div>
       </div>
     </section>

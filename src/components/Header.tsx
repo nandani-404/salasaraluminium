@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { TEL_HREF } from '@/config/business';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -256,7 +257,7 @@ export default function Header() {
         {/* Right: Desktop Action Buttons (visible on lg and up) */}
         <div className="hidden lg:flex items-center space-x-2 xl:space-x-2.5 shrink-0">
           <a
-            href={`tel:${cleanPhone}`}
+            href={TEL_HREF}
             title="Click to call Salasar Aluminium Order Desk"
             className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0"
           >
@@ -289,7 +290,7 @@ export default function Header() {
         {/* Mobile View Only: Direct Call & Hamburger Toggle (hidden on lg and up) */}
         <div className="lg:hidden flex items-center space-x-2">
           <a
-            href={`tel:${cleanPhone}`}
+            href={TEL_HREF}
             title="Call Salasar Order Desk"
             className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
             aria-label="Call Salasar Aluminium Order Desk"

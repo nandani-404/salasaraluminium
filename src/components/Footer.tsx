@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
+import { SAH_CATEGORIES } from '@/lib/sahData';
+import { BUSINESS, TEL_HREF } from '@/config/business';
 import { MapPin, Phone, Building2, Factory, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
@@ -114,21 +115,42 @@ export default function Footer() {
               Raipur Store Desk
             </h4>
             <a
-              href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+              href={BUSINESS.maps.url}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-start space-x-2 text-xs text-slate-300 hover:text-white transition-colors leading-relaxed group cursor-pointer"
               title="View on Google Maps"
             >
               <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-              <span>{SAH_BUSINESS_DETAILS.address}</span>
+              <span>{BUSINESS.addressLine}</span>
             </a>
 
-            <div className="pt-1 text-xs text-slate-300">
-              <div className="flex items-center space-x-2 whitespace-nowrap">
-                <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span>+91 8007443071 / +91 9079332560</span>
-              </div>
+            {/*
+              Phone numbers read from src/config/business.ts and render as real
+              tel: links. They were previously hard-coded plain text here, so
+              the footer number could drift from the one in schema and llms.txt,
+              and a mobile visitor could not tap to call.
+            */}
+            <div className="pt-1 text-xs text-slate-300 space-y-1.5">
+              <a
+                href={TEL_HREF}
+                data-analytics="click_call"
+                data-analytics-location="footer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
+                <span>{BUSINESS.phones.primary.display}</span>
+              </a>
+              <a
+                href={`tel:${BUSINESS.phones.secondary.href}`}
+                data-analytics="click_call"
+                data-analytics-location="footer-secondary"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
+                <span>{BUSINESS.phones.secondary.display}</span>
+              </a>
+              <p className="pt-1 text-slate-400">{BUSINESS.hours.display}</p>
             </div>
 
             <button
@@ -143,7 +165,7 @@ export default function Footer() {
 
         {/* Footer Bottom Line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
-          <p>© 2026 {SAH_BUSINESS_DETAILS.brandName}. All rights reserved.</p>
+          <p>© 2026 {BUSINESS.name}. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-3 mt-3 sm:mt-0">
             <Link href="/wholesale" className="hover:text-white transition-colors">Wholesale</Link>
             <span>•</span>
