@@ -254,10 +254,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       
                       const isTitle = trimmed.length < 80 && !trimmed.endsWith('.');
                       if (isTitle) {
+                        // H2, not H3: these are the article's top-level section
+                        // headings, sitting directly under the H1. Emitting H3
+                        // skipped a level, which breaks the document outline
+                        // screen readers and search engines rely on.
                         return (
-                          <h3 key={idx} className="text-xl font-bold text-[#0B1F3A] pt-3">
+                          <h2 key={idx} className="text-xl font-bold text-[#0B1F3A] pt-3">
                             {trimmed.replace(/\*/g, '')}
-                          </h3>
+                          </h2>
                         );
                       }
                       return (

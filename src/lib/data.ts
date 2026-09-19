@@ -1,3 +1,5 @@
+import { HARDWARE_GUIDES } from './data/guides';
+
 export interface Product {
   id: string;
   slug: string;
@@ -388,7 +390,7 @@ export const PROJECTS: Project[] = [
   }
 ];
 
-export const BLOG_POSTS: BlogPost[] = [
+const LEGACY_BLOG_POSTS: BlogPost[] = [
   {
     slug: 'dealers-guide-to-salasar-aluminium-door-kit-range',
     title: "A Dealer's Guide to Salasar's Aluminium Door Kit Range (SA-33)",
@@ -649,6 +651,13 @@ Frameless glass balustrades have become the hallmark of modern architecture. The
     `
   }
 ];
+
+/**
+ * The eight hardware buying guides live in `./data/guides.ts` to keep this file
+ * manageable. The import is type-only in the other direction, so there is no
+ * runtime cycle.
+ */
+export const BLOG_POSTS: BlogPost[] = [...HARDWARE_GUIDES, ...LEGACY_BLOG_POSTS];
 
 export const COMPANY_STATS = [
   { label: 'Years of Experience', value: '25+' },

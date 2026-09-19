@@ -15,6 +15,8 @@ import {
 } from '@/lib/productAdapter';
 import ProductDetailActions from './ProductDetailActions';
 import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
+import { getCatalogueProduct } from '@/data/products';
+import CatalogueProductPage from '@/components/catalogue/CatalogueProductPage';
 
 interface ProductPageProps {
   params: Promise<{
@@ -58,6 +60,21 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const resolvedParams = await params;
+
+  /*
+   * The 86 real catalogue SKUs get the catalogue template, which renders only
+   * the specifications actually held on record. The older showcase range keeps
+   * the original template below.
+   *
+   * Previously every catalogue SKU was pushed through an adapter that invented
+   * a uniform set of specs for all 86 — alloy grade 6063-T6, MOQ 50, "Mill Test
+   * Certified" — none of which came from the product data.
+   */
+  const catalogueProduct = getCatalogueProduct(resolvedParams.slug);
+  if (catalogueProduct) {
+    return <CatalogueProductPage product={catalogueProduct} />;
+  }
+
   const match = findProductByAnySlug(resolvedParams.slug);
 
   if (!match) {
@@ -116,16 +133,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </p>
           </div>
 
+          {/*
+            "Mill Test Certified" was displayed here on every product. No mill
+            test certification has been verified for this business, and an
+            invented certification claim is a trust and compliance problem, not
+            just an SEO one — removed. MOQ is a real field on these records, so
+            it stays.
+          */}
           <div className="border-t border-b border-[#D8D1C4] py-4 flex items-baseline justify-between">
             <div>
-              <span className="text-[10px] uppercase tracking-widest text-[#B08D57] block font-semibold">B2B Trade Specification</span>
+              <span className="text-[10px] uppercase tracking-widest text-[#B08D57] block font-semibold">Trade specification</span>
               <span className="font-serif text-xl font-bold text-[#2B2620]">
-                Custom Factory Extrusion & Hardware
+                Quoted on enquiry
               </span>
             </div>
             <div className="text-right text-xs text-[#2B2620]/80">
-              <span className="block font-medium">MOQ: {product.moq} Units / Meters</span>
-              <span className="text-[#B08D57]">Mill Test Certified</span>
+              <span className="block font-medium">MOQ: {product.moq} units</span>
             </div>
           </div>
 
