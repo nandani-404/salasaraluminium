@@ -190,7 +190,7 @@ export default function Header() {
                     key={hub.href}
                     href={hub.href}
                     onClick={() => setMegaMenuOpen(false)}
-                    className="p-2 rounded-md bg-[#FFFBEB] hover:bg-[#FEF3C7] transition-colors group flex flex-col"
+                    className="p-2 rounded-md hover:bg-[#F8FAFC] transition-colors group flex flex-col"
                   >
                     <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#8A6408]">
                       {hub.label}
@@ -206,7 +206,7 @@ export default function Header() {
                     className="p-2 rounded-md hover:bg-[#F8FAFC] transition-colors group flex flex-col"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#9A7B1C]">
+                      <span className="text-xs font-bold text-[#0F172A] group-hover:text-[#8A6408]">
                         {cat.name}
                       </span>
                     </div>
@@ -279,7 +279,7 @@ export default function Header() {
           <a
             href={TEL_HREF}
             title="Click to call Salasar Aluminium Order Desk"
-            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] hover:bg-white transition-all group shadow-2xs active:scale-95 shrink-0" data-analytics="click_call" data-analytics-location="header">
+            className="text-xs font-semibold text-[#0B1F3A] flex items-center space-x-2 py-1.5 px-3 rounded-full bg-white border border-slate-200 hover:border-[#D4AF37] transition-all group shadow-2xs active:scale-95 shrink-0" data-analytics="click_call" data-analytics-location="header">
             <PhoneCall className="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform shrink-0" />
             <div className="flex flex-col text-left leading-tight">
               <span className="text-[8.5px] uppercase tracking-wider text-[#8C6B1B] font-extrabold">Call for Orders</span>
@@ -311,14 +311,14 @@ export default function Header() {
           <a
             href={TEL_HREF}
             title="Call Salasar Order Desk"
-            className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
+            className="p-2 text-[#0B1F3A] bg-white border border-slate-200 hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs flex items-center justify-center"
             aria-label="Call Salasar Aluminium Order Desk" data-analytics="click_call" data-analytics-location="header">
             <PhoneCall className="w-4 h-4 text-[#8A6408]" />
           </a>
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="p-2 text-[#0B1F3A] bg-[#FAF9F6] border border-[#E8E6E1] hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs"
+            className="p-2 text-[#0B1F3A] bg-white border border-slate-200 hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >

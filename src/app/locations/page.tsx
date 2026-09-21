@@ -68,31 +68,33 @@ export default function LocationsHubPage() {
           </p>
         </div>
 
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 list-none p-0">
+        <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 list-none p-0">
           {CITIES_DATA.map((city) => (
-            <li key={city.slug}>
+            <li key={city.slug} className="h-full">
               <Link
                 href={`/locations/${city.slug}`}
-                className="h-full bg-white border border-[#E2E8F0] hover:border-[#0B1F3A] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group"
+                className="h-full bg-white border border-[#E2E8F0] hover:border-[#0B1F3A] rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group"
               >
-                <div className="space-y-3">
-                  <span className="inline-block text-xs font-mono font-bold text-[#8A6408] bg-[#F8FAFC] px-2.5 py-1 rounded-md border border-[#E2E8F0]">
+                <div className="space-y-2 sm:space-y-3">
+                  <span className="inline-block text-[9px] sm:text-xs font-mono font-bold text-[#8A6408] bg-[#F8FAFC] px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md border border-[#E2E8F0] line-clamp-1 max-w-full">
                     {city.distance}
                   </span>
 
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#0B1F3A] group-hover:text-[#8A6408] transition-colors leading-tight">
-                      {city.name}, {city.state}
+                    <h3 className="text-xs sm:text-xl font-bold text-[#0B1F3A] group-hover:text-[#8A6408] transition-colors leading-tight">
+                      <span>{city.name}</span>
+                      <span className="hidden sm:inline">, {city.state}</span>
                     </h3>
-                    <p className="text-xs font-semibold text-slate-500">{city.tagline}</p>
+                    <p className="text-[10px] sm:text-xs font-semibold text-slate-500 line-clamp-1 mt-0.5">{city.tagline}</p>
                   </div>
 
-                  <p className="text-sm text-slate-600 leading-relaxed">{city.description}</p>
+                  <p className="text-[11px] sm:text-sm text-slate-600 leading-relaxed line-clamp-2 sm:line-clamp-none min-h-[2rem] sm:min-h-0">{city.description}</p>
                 </div>
 
-                <span className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0B1F3A] group-hover:text-[#8A6408]">
-                  <span>{city.name} supply detail</span>
-                  <ChevronRight className="w-4 h-4 text-[#8A6408]" aria-hidden="true" />
+                <span className="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] sm:text-xs font-bold text-[#0B1F3A] group-hover:text-[#8A6408]">
+                  <span className="hidden sm:inline">{city.name} supply detail</span>
+                  <span className="sm:hidden">Supply Detail</span>
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8A6408]" aria-hidden="true" />
                 </span>
               </Link>
             </li>

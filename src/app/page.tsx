@@ -52,7 +52,7 @@ export default function Home() {
 
       {/* Category Overview Grid (12 Categories) */}
       {/* 12 Specialized Hardware Categories Section */}
-      <section className="py-12 sm:py-20 bg-slate-50/70 border-y border-slate-200">
+      <section className="py-12 sm:py-20 bg-white border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 
           {/* Section Header */}
@@ -74,7 +74,7 @@ export default function Home() {
               <Link
                 key={cat.slug}
                 href={`/products/${cat.slug}`}
-                className="bg-white border border-slate-300 rounded-xl overflow-hidden hover:border-[#0B1F3A] transition-colors duration-200 flex flex-col justify-between group cursor-pointer shadow-2xs hover:shadow-sm"
+                className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:border-[#0B1F3A] transition-all duration-200 flex flex-col justify-between group cursor-pointer shadow-xs hover:shadow-md"
               >
                 <div>
                   {/* Category Image Header */}
@@ -321,20 +321,20 @@ export default function Home() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <div className="pt-2 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3 w-full sm:w-auto">
                 <EnquireButton
                   analyticsLocation="home-trade-cta"
-                  className="min-h-11 px-5 bg-[#0B1F3A] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-2xs inline-flex items-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto min-h-11 px-2 sm:px-5 bg-[#0B1F3A] text-white text-[10.5px] sm:text-xs font-bold sm:font-semibold uppercase tracking-tight sm:tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-2xs inline-flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer text-center"
                 >
-                  <span>Request Trade Quote</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" aria-hidden="true" />
+                  <span className="truncate">Request Trade Quote</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
                 </EnquireButton>
 
                 <Link
                   href="/about"
-                  className="px-4 py-2.5 sm:px-5 sm:py-2.5 bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] text-xs font-semibold uppercase tracking-wider rounded-lg transition-all inline-flex items-center space-x-1"
+                  className="w-full sm:w-auto min-h-11 px-2 py-2.5 sm:px-5 sm:py-2.5 bg-white border border-[#E2E8F0] text-[#0B1F3A] hover:bg-[#F8FAFC] text-[10.5px] sm:text-xs font-bold sm:font-semibold uppercase tracking-tight sm:tracking-wider rounded-lg transition-all inline-flex items-center justify-center text-center"
                 >
-                  <span>Company Profile</span>
+                  <span className="truncate">Company Profile</span>
                 </Link>
               </div>
             </div>

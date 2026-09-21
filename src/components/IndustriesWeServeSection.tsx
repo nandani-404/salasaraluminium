@@ -335,7 +335,7 @@ export default function IndustriesWeServeSection() {
                   </div>
 
                   {/* B2B Supply Information Box */}
-                  <div className="p-5 bg-[#0B1F3A] text-white rounded-lg space-y-3 shadow-2xs">
+                  <div className="p-3.5 sm:p-5 bg-[#0B1F3A] text-white rounded-lg space-y-3 shadow-2xs">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-700/80 pb-3">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
                         PROJECT & WHOLESALE SUPPLY
@@ -345,20 +345,32 @@ export default function IndustriesWeServeSection() {
                       </span>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-                      <div className="p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center space-y-0.5">
-                        <span className="text-[10px] uppercase font-bold text-slate-400 block">Supply Type</span>
-                        <span className="text-xs font-bold text-white">Wholesale & Bulk</span>
+                    <div className="grid grid-cols-3 gap-1.5 sm:gap-3 pt-1">
+                      <div className="p-1.5 sm:p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 block truncate">
+                          Supply Type
+                        </span>
+                        <span className="text-[10px] sm:text-xs font-bold text-white leading-tight">
+                          Wholesale &amp; Bulk
+                        </span>
                       </div>
 
-                      <div className="p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center space-y-0.5">
-                        <span className="text-[10px] uppercase font-bold text-slate-400 block">Product Range</span>
-                        <span className="text-xs font-bold text-white">Aluminium + Hardware</span>
+                      <div className="p-1.5 sm:p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 block truncate">
+                          Product Range
+                        </span>
+                        <span className="text-[10px] sm:text-xs font-bold text-white leading-tight">
+                          Aluminium + Hardware
+                        </span>
                       </div>
 
-                      <div className="p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center space-y-0.5">
-                        <span className="text-[10px] uppercase font-bold text-slate-400 block">Requirements</span>
-                        <span className="text-xs font-bold text-white">Project & Recurring</span>
+                      <div className="p-1.5 sm:p-2.5 bg-slate-800/80 rounded border border-slate-700 text-center flex flex-col justify-center space-y-0.5">
+                        <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider font-bold text-slate-400 block truncate">
+                          Requirements
+                        </span>
+                        <span className="text-[10px] sm:text-xs font-bold text-white leading-tight">
+                          Project &amp; Recurring
+                        </span>
                       </div>
                     </div>
                   </div>

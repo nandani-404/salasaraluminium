@@ -51,33 +51,42 @@ export default function WholesaleClient() {
 
       {/* Wholesale Trade Pillars */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-8 mb-8 sm:mb-16">
-          <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-              <Factory className="w-6 h-6" />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-6 md:gap-8 mb-8 sm:mb-16">
+          <div className="col-span-1 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 sm:space-y-3 flex flex-col justify-between">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold shrink-0">
+                <Factory className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Finetek Extrusions</h2>
             </div>
-            <h2 className="text-lg font-bold text-[#0B1F3A]">Finetek Extrusions</h2>
-            <p className="text-xs text-[#475569] leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
               Extruded architectural sections and customized industrial T-slot profiles produced under strict ISO tolerance standards.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-              <Building2 className="w-6 h-6" />
+          <div className="col-span-1 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 sm:space-y-3 flex flex-col justify-between">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold shrink-0">
+                <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Lieon Marketing Hub</h2>
             </div>
-            <h2 className="text-lg font-bold text-[#0B1F3A]">Lieon Marketing Hub</h2>
-            <p className="text-xs text-[#475569] leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
               Central Bhaisthan warehouse carrying ready stock of 86 standardized hardware SKUs for instant trade dispatch.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold">
-              <Truck className="w-6 h-6" />
+          <div className="col-span-2 md:col-span-1 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 sm:space-y-3">
+            <div className="flex sm:block items-center gap-3 sm:gap-0 sm:space-y-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold shrink-0">
+                <Truck className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+              <div>
+                <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Same-Day Dispatch</h2>
+                <p className="text-[10px] text-[#8A6408] font-bold sm:hidden">Priority Regional Transport</p>
+              </div>
             </div>
-            <h2 className="text-lg font-bold text-[#0B1F3A]">Same-Day Dispatch</h2>
-            <p className="text-xs text-[#475569] leading-relaxed">
+            <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
               Daily transport dispatch to Bhilai, Durg, Bilaspur, Korba, Rajnandgaon, and all major Chhattisgarh trade hubs.
             </p>
           </div>

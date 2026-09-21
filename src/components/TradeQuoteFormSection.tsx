@@ -120,8 +120,8 @@ export default function TradeQuoteFormSection() {
               Connect directly with Abhishek at Salasar Aluminium & Hardware for wholesale catalog pricing, bulk box quotes, and direct manufacturing stock availability in Raipur.
             </p>
 
-            {/* Direct Contact Cards */}
-            <div className="space-y-3 pt-2">
+            {/* Direct Contact Cards - Desktop View */}
+            <div className="hidden sm:block space-y-3 pt-2">
               <div className="p-4 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs">
                 <span className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] block">Direct Sales Desk</span>
                 <span className="text-sm font-semibold text-[#0B1F3A] block mt-0.5">Abhishek — Sales Director</span>
@@ -150,9 +150,55 @@ export default function TradeQuoteFormSection() {
               <div className="pt-1">
                 <a
                   href={TEL_HREF}
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-3 sm:py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group" data-analytics="click_call" data-analytics-location="trade-quote-form">
+                  className="w-auto inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-[#0B1F3A] text-white font-bold text-xs uppercase tracking-wider rounded-lg hover:bg-[#1E293B] active:scale-95 transition-all shadow-xs group"
+                  data-analytics="click_call"
+                  data-analytics-location="trade-quote-form"
+                >
                   <PhoneCall className="w-4 h-4 text-[#D4AF37] group-hover:rotate-12 transition-transform" />
                   <span>Call Direct Sales: +91 8007443071</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Direct Contact Cards - Mobile View (Showroom on top, Sales Desk & Call in 1 line under it) */}
+            <div className="sm:hidden space-y-2.5 pt-2">
+              <a
+                href={SAH_BUSINESS_DETAILS.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs block active:border-[#C9A227] transition-all group cursor-pointer"
+                title="Open in Google Maps"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block">Raipur Main Showroom</span>
+                  <span className="inline-flex items-center space-x-1 text-[10px] font-semibold text-[#C9A227]">
+                    <span>Open in Maps</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+                </div>
+                <span className="text-[11px] text-[#334155] leading-snug block mt-1">
+                  {SAH_BUSINESS_DETAILS.address}
+                </span>
+              </a>
+
+              {/* Call & Direct Sales Desk in ONE SINGLE LINE */}
+              <div className="grid grid-cols-2 gap-2">
+                <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs flex flex-col justify-center">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-[#64748B] block">Direct Sales Desk</span>
+                  <span className="text-[11px] font-bold text-[#0B1F3A] block mt-0.5 leading-tight">Abhishek — Sales Director</span>
+                </div>
+
+                <a
+                  href={TEL_HREF}
+                  className="p-3 bg-[#0B1F3A] text-white rounded-xl shadow-2xs flex flex-col items-center justify-center active:scale-95 transition-all text-center group cursor-pointer"
+                  data-analytics="click_call"
+                  data-analytics-location="trade-quote-form-mobile"
+                >
+                  <div className="flex items-center space-x-1 text-[9px] font-bold uppercase tracking-wider text-[#D4AF37]">
+                    <PhoneCall className="w-3 h-3" />
+                    <span>Call Direct</span>
+                  </div>
+                  <span className="text-[11px] font-black text-white block mt-0.5 leading-tight">+91 8007443071</span>
                 </a>
               </div>
             </div>
@@ -223,75 +269,75 @@ export default function TradeQuoteFormSection() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
+                    <label className="block text-[11px] sm:text-xs font-semibold text-[#334155] mb-1 truncate">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       {...register('fullName')}
                       placeholder="e.g. Rajesh Kumar"
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      className="w-full px-3 py-2 sm:px-3.5 sm:py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
                     />
-                    {errors.fullName && <p className="text-red-500 text-[11px] mt-1">{errors.fullName.message}</p>}
+                    {errors.fullName && <p className="text-red-500 text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">{errors.fullName.message}</p>}
                   </div>
 
                   {/* Company / Dealer Name */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
+                    <label className="block text-[11px] sm:text-xs font-semibold text-[#334155] mb-1 truncate">
                       Company / Firm Name
                     </label>
                     <input
                       type="text"
                       {...register('companyName')}
-                      placeholder="e.g. Kumar Hardware Traders"
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      placeholder="e.g. Kumar Traders"
+                      className="w-full px-3 py-2 sm:px-3.5 sm:py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
+                    <label className="block text-[11px] sm:text-xs font-semibold text-[#334155] mb-1 truncate">
                       Email Address *
                     </label>
                     <input
                       type="email"
                       {...register('email')}
                       placeholder="rajesh@firm.com"
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      className="w-full px-3 py-2 sm:px-3.5 sm:py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
                     />
-                    {errors.email && <p className="text-red-500 text-[11px] mt-1">{errors.email.message}</p>}
+                    {errors.email && <p className="text-red-500 text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">{errors.email.message}</p>}
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">
+                    <label className="block text-[11px] sm:text-xs font-semibold text-[#334155] mb-1 truncate">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       {...register('phone')}
                       placeholder="+91 9876543210"
-                      className="w-full px-3.5 py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
+                      className="w-full px-3 py-2 sm:px-3.5 sm:py-2 bg-white border border-[#CBD5E1] rounded-lg text-xs text-[#0B1F3A] placeholder-[#94A3B8] focus:outline-none focus:border-[#0B1F3A] transition-colors"
                     />
-                    {errors.phone && <p className="text-red-500 text-[11px] mt-1">{errors.phone.message}</p>}
+                    {errors.phone && <p className="text-red-500 text-[10px] sm:text-[11px] mt-0.5 sm:mt-1">{errors.phone.message}</p>}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   {/* Target Product / SA Code */}
                   <div>
-                    <label htmlFor="saProductCode" className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label htmlFor="saProductCode" className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Target Product / SA Code
                     </label>
                     <select
                       id="saProductCode"
                       {...register('saProductCode')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- General Hardware Enquiry --</option>
                       {FULL_CATALOGUE_PRODUCTS.map((product) => (
@@ -304,13 +350,13 @@ export default function TradeQuoteFormSection() {
 
                   {/* State / Region */}
                   <div>
-                    <label htmlFor="state" className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label htmlFor="state" className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       State / Region
                     </label>
                     <select
                       id="state"
                       {...register('state')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- Select State --</option>
                       {ALL_INDIAN_STATES.map((st) => (

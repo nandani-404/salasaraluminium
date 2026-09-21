@@ -157,70 +157,70 @@ export default function ContactClient() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       placeholder="e.g. Ramesh Patel"
                       {...register('fullName')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.fullName && <span className="text-[11px] text-red-500 mt-1 block">{errors.fullName.message}</span>}
+                    {errors.fullName && <span className="text-[10px] sm:text-[11px] text-red-500 mt-0.5 sm:mt-1 block">{errors.fullName.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Firm / Company Name
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. Patel Hardware Store"
+                      placeholder="e.g. Patel Hardware"
                       {...register('companyName')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Email Address *
                     </label>
                     <input
                       type="email"
                       placeholder="ramesh@firm.com"
                       {...register('email')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.email && <span className="text-[11px] text-red-500 mt-1 block">{errors.email.message}</span>}
+                    {errors.email && <span className="text-[10px] sm:text-[11px] text-red-500 mt-0.5 sm:mt-1 block">{errors.email.message}</span>}
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       placeholder="+91 9876543210"
                       {...register('phone')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all"
                     />
-                    {errors.phone && <span className="text-[11px] text-red-500 mt-1 block">{errors.phone.message}</span>}
+                    {errors.phone && <span className="text-[10px] sm:text-[11px] text-red-500 mt-0.5 sm:mt-1 block">{errors.phone.message}</span>}
                   </div>
                 </div>
 
                 {/* Target Product & State */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       Target Product / SA Code
                     </label>
                     <select
                       {...register('saProductCode')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- General Hardware Enquiry --</option>
                       {FULL_CATALOGUE_PRODUCTS.map((product) => (
@@ -232,12 +232,12 @@ export default function ContactClient() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                    <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
                       State / Region
                     </label>
                     <select
                       {...register('state')}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/60 border border-slate-200 rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer"
+                      className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- Select State --</option>
                       {ALL_INDIAN_STATES.map((st) => (

@@ -5,6 +5,7 @@ import CatalogueCard from '@/components/catalogue/CatalogueCard';
 import FaqList from '@/components/FaqList';
 import JsonLd from '@/components/JsonLd';
 import EnquireButton from '@/components/EnquireButton';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { getProductSchema, getBreadcrumbSchema, getFaqSchema } from '@/lib/jsonld';
 import { BUSINESS, TEL_HREF, whatsappLink } from '@/config/business';
 import { relatedProducts, getCategory, type CatalogueProduct } from '@/data/products';
@@ -94,7 +95,7 @@ export default function CatalogueProductPage({ product }: { product: CataloguePr
   const waMessage = `Hello Salasar, I would like a quote for ${product.name} (${product.sku}).`;
 
   return (
-    <div className="bg-[#FAF9F6] min-h-screen pt-16 sm:pt-24 pb-10 sm:pb-20">
+    <div className="bg-white min-h-screen pt-16 sm:pt-24 pb-10 sm:pb-20">
       <JsonLd schema={getProductSchema(product)} />
       <JsonLd schema={getBreadcrumbSchema(breadcrumbs)} />
       <JsonLd schema={getFaqSchema(faqs)} />
@@ -172,30 +173,36 @@ export default function CatalogueProductPage({ product }: { product: CataloguePr
                 We quote on enquiry rather than publishing a rate card, because the price depends on
                 quantity and finish. Quote the code and we will answer straight away.
               </p>
-              <div className="flex flex-wrap gap-2.5">
-                <a
-                  href={TEL_HREF}
-                  data-analytics="click_call"
-                  data-analytics-sku={product.sku}
-                  data-analytics-location="product-cta"
-                  className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
-                >
-                  <PhoneCall className="w-4 h-4" aria-hidden="true" />
-                  {BUSINESS.phones.primary.display}
-                </a>
-                <a
-                  href={whatsappLink({ message: waMessage, source: path, campaign: 'product' })}
-                  data-analytics="click_whatsapp"
-                  data-analytics-sku={product.sku}
-                  data-analytics-location="product-cta"
-                  className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#0B1F3A] hover:bg-[#1E293B] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
-                >
-                  WhatsApp about {product.sku}
-                </a>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-2.5">
+                <div className="grid grid-cols-2 gap-2 w-full sm:flex sm:w-auto sm:gap-2.5">
+                  <a
+                    href={TEL_HREF}
+                    data-analytics="click_call"
+                    data-analytics-sku={product.sku}
+                    data-analytics-location="product-cta"
+                    className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-11 px-2.5 sm:px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-colors text-center truncate"
+                  >
+                    <PhoneCall className="w-4 h-4 shrink-0" aria-hidden="true" />
+                    <span className="truncate">{BUSINESS.phones.primary.display}</span>
+                  </a>
+                  <a
+                    href={whatsappLink({ message: waMessage, source: path, campaign: 'product' })}
+                    data-analytics="click_whatsapp"
+                    data-analytics-sku={product.sku}
+                    data-analytics-location="product-cta"
+                    className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-11 px-2.5 sm:px-5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-2xs text-center truncate"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 shrink-0" />
+                    <span className="truncate">
+                      <span className="sm:hidden">WhatsApp</span>
+                      <span className="hidden sm:inline">WhatsApp about {product.sku}</span>
+                    </span>
+                  </a>
+                </div>
                 <EnquireButton
                   sku={product.sku}
                   analyticsLocation="product-cta"
-                  className="inline-flex items-center min-h-11 px-5 bg-white border border-[#0B1F3A] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#F1F5F9] transition-colors"
+                  className="inline-flex items-center justify-center min-h-11 px-5 bg-white border border-[#0B1F3A] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#F1F5F9] transition-colors w-full sm:w-auto"
                 >
                   Request a quote
                 </EnquireButton>

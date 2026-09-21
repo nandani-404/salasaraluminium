@@ -22,8 +22,8 @@ export default function ProductDetailClient({ product }: { product: Product }) {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       {/* Left Column: Image & Finish Preview */}
       <div className="lg:col-span-6 space-y-6">
-        <div className="bg-white p-4 rounded-2xl border border-[#E5E3DC] shadow-sm relative overflow-hidden">
-          <div className="relative h-96 w-full rounded-xl overflow-hidden bg-[#FAF9F6]">
+        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div className="relative h-96 w-full rounded-xl overflow-hidden bg-slate-50">
             <Image
               src={product.image}
               alt={product.name}
@@ -39,7 +39,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
 
         {/* Available Finishes Selector */}
-        <div className="bg-white p-6 rounded-xl border border-[#E5E3DC] space-y-3">
+        <div className="bg-white p-6 rounded-xl border border-slate-200 space-y-3">
           <h2 className="text-xs font-semibold text-[#B08D57] uppercase tracking-wider">
             Available Anodizing & Powder Coating Options
           </h2>
@@ -51,7 +51,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 className={`px-3 py-1.5 rounded-md text-xs font-medium border transition-all ${
                   selectedFinish === finish
                     ? 'bg-[#22262A] text-white border-[#22262A]'
-                    : 'bg-[#FAF9F6] border-[#E5E3DC] text-gray-700 hover:border-[#B08D57]'
+                    : 'bg-slate-50 border-slate-200 text-gray-700 hover:border-[#B08D57]'
                 }`}
               >
                 {finish}
@@ -100,7 +100,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
           <button
             onClick={handleDownloadSpec}
-            className="w-full py-3 bg-[#FAF9F6] border border-[#E5E3DC] text-[#22262A] font-medium text-xs rounded hover:border-[#B08D57] transition-colors flex items-center justify-center space-x-2"
+            className="w-full py-3 bg-slate-50 border border-slate-200 text-[#22262A] font-medium text-xs rounded hover:border-[#B08D57] transition-colors flex items-center justify-center space-x-2"
           >
             <Download className="w-4 h-4 text-[#B08D57]" />
             <span>{pdfDownloaded ? 'Spec Sheet Downloaded' : 'Download Technical Specification Sheet (PDF)'}</span>
@@ -110,9 +110,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         {/* Full Specifications Table */}
         <div className="space-y-4">
           <h2 className="text-xl font-serif font-bold text-[#22262A]">Technical Specifications</h2>
-          <div className="bg-white rounded-xl border border-[#E5E3DC] overflow-hidden text-xs">
-            <div className="divide-y divide-[#E5E3DC]">
-              <div className="grid grid-cols-2 p-3 bg-[#FAF9F6]">
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden text-xs">
+            <div className="divide-y divide-slate-200">
+              <div className="grid grid-cols-2 p-3 bg-slate-50">
                 <span className="font-semibold text-gray-500">Dimensions & Sightline</span>
                 <span className="font-semibold text-[#22262A]">{product.dimensions}</span>
               </div>
@@ -123,7 +123,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 </div>
               )}
               {Object.entries(product.specifications).map(([key, val], idx) => (
-                <div key={idx} className={`grid grid-cols-2 p-3 ${idx % 2 === 0 ? 'bg-[#FAF9F6]' : 'bg-white'}`}>
+                <div key={idx} className={`grid grid-cols-2 p-3 ${idx % 2 === 0 ? 'bg-slate-50/70' : 'bg-white'}`}>
                   <span className="font-semibold text-gray-500">{key}</span>
                   <span className="text-[#22262A] font-medium">{val}</span>
                 </div>
@@ -137,7 +137,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           <h2 className="text-base font-serif font-bold text-[#22262A]">Recommended Applications</h2>
           <div className="flex flex-wrap gap-2">
             {product.applications.map((app, i) => (
-              <span key={i} className="px-3 py-1.5 bg-white border border-[#E5E3DC] rounded text-xs text-[#22262A]">
+              <span key={i} className="px-3 py-1.5 bg-white border border-slate-200 rounded text-xs text-[#22262A]">
                 • {app}
               </span>
             ))}

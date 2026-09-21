@@ -38,12 +38,13 @@ export default function HeroVideo({
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    // Respect user's motion preferences
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // `connection` is non-standard and absent in Safari and Firefox; when it is
-    // missing we simply proceed, which is the existing behaviour.
+    // Respect Save-Data and extremely slow 2G connections
     const conn = (
       navigator as Navigator & {
         connection?: { saveData?: boolean; effectiveType?: string };
@@ -52,31 +53,26 @@ export default function HeroVideo({
     if (conn?.saveData) return;
     if (conn?.effectiveType && /(^|-)2g$/.test(conn.effectiveType)) return;
 
-    /*
-     * Skip the video entirely on phones.
-     *
-     * Most of this site's traffic is mobile, on metered Indian mobile data.
-     * A decorative background video is worth several megabytes of someone's
-     * data plan and delivers least on the smallest screen, where it is mostly
-     * hidden behind the headline and the scrim. Below 768px the optimised
-     * poster is the whole background, which is both faster and cheaper.
-     */
-    if (window.matchMedia('(max-width: 767px)').matches) return;
+    // Load video after mount without blocking the first critical paint
+    const timer = setTimeout(() => {
+      setShouldLoad(true);
+    }, 50);
 
-    const start = () => setShouldLoad(true);
-
-    if (document.readyState === 'complete') {
-      start();
-      return;
-    }
-    window.addEventListener('load', start, { once: true });
-    return () => window.removeEventListener('load', start);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    // Attaching the source after mount means the element is in the DOM with its
-    // poster painted before any video byte is requested.
-    if (shouldLoad) ref.current?.load();
+    if (shouldLoad && ref.current) {
+      ref.current.load();
+      const playPromise = ref.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Autoplay may be restricted until user interaction
+          });
+      }
+    }
   }, [shouldLoad]);
 
   return (
@@ -87,11 +83,13 @@ export default function HeroVideo({
       loop
       muted
       playsInline
-      preload="none"
-      // Decorative: it carries no information the surrounding copy does not.
+      preload="metadata"
+      onPlaying={() => setIsPlaying(true)}
       aria-hidden="true"
       tabIndex={-1}
-      className={className}
+      className={`${className || ''} transition-opacity duration-700 ${
+        isPlaying ? 'opacity-95' : 'opacity-90'
+      }`}
     >
       {shouldLoad && <source src={src} type="video/mp4" />}
     </video>

@@ -234,9 +234,9 @@ export default function EnquiryModal() {
                 )}
 
                 {/* Name & Firm */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
                       Full Name *
                     </label>
                     <input
@@ -249,22 +249,22 @@ export default function EnquiryModal() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
                       Company / Firm Name
                     </label>
                     <input
                       type="text"
                       {...register('companyName')}
-                      placeholder="e.g. Kumar Hardware Traders"
+                      placeholder="e.g. Kumar Traders"
                       className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Email & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
                       Email Address *
                     </label>
                     <input
@@ -277,7 +277,7 @@ export default function EnquiryModal() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-medium text-slate-600 mb-1">
+                    <label className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
                       Phone Number *
                     </label>
                     <input

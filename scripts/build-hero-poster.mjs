@@ -19,7 +19,7 @@ import { statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const PUBLIC = join(process.cwd(), 'public');
-const SOURCE = join(PUBLIC, 'salasar-hardware-hero-clean.jpg');
+const SOURCE = join(PUBLIC, 'salasar-workshop-hero-poster-source.jpg');
 
 // 1600px wide covers a 2x phone and a 1x laptop. The poster sits behind a dark
 // scrim and carries no fine detail or text, so it tolerates aggressive quality

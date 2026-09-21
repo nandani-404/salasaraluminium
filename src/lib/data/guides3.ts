@@ -21,7 +21,7 @@ export const HARDWARE_GUIDES_3: BlogPost[] = [
     date: 'September 30, 2026',
     readTime: '5 min read',
     category: 'Doors',
-    image: '/door-seal-v1.png',
+    image: '/blog/how-to-stop-dust-coming-under-a-door.jpg',
     qaBlocks: [
       {
         question: 'How do I stop dust coming into a room under the door?',
@@ -84,7 +84,7 @@ Check the door still swings freely over any threshold, floor mat or tile transit
     date: 'October 2, 2026',
     readTime: '5 min read',
     category: 'Doors',
-    image: '/h-handle-v1.png',
+    image: '/blog/aluminium-door-handle-types-explained.jpg',
     qaBlocks: [
       {
         question: 'Which door handle type should I choose?',
@@ -153,7 +153,7 @@ Match the finish across a whole property before ordering. Mixing matt black and 
     date: 'October 4, 2026',
     readTime: '5 min read',
     category: 'Windows',
-    image: '/crescent-lock-v1.png',
+    image: '/blog/why-your-aluminium-window-rattles.jpg',
     qaBlocks: [
       {
         question: 'Why does my aluminium sliding window rattle in the wind?',
@@ -222,7 +222,7 @@ If you are unsure which of the four you have, photograph the lock and the roller
     date: 'October 6, 2026',
     readTime: '4 min read',
     category: 'Windows',
-    image: '/domal-lock-v1.png',
+    image: '/blog/what-is-a-domal-section-window.jpg',
     qaBlocks: [
       {
         question: 'What is a Domal section window?',
@@ -285,7 +285,7 @@ We hold hardware across the common families. Where an item genuinely is not avai
     date: 'October 8, 2026',
     readTime: '4 min read',
     category: 'Materials',
-    image: '/vhb-tape-grey-v1.png',
+    image: '/blog/vhb-tape-clear-vs-grey-which-to-use.jpg',
     qaBlocks: [
       {
         question: 'What is the difference between clear and grey VHB tape?',
@@ -352,7 +352,7 @@ Tell us the panel size, the two materials and whether the joint will be in direc
     date: 'October 10, 2026',
     readTime: '5 min read',
     category: 'Bathroom & Glass',
-    image: '/patch%20lock.png',
+    image: '/blog/patch-fittings-vs-hinges-for-glass-doors.jpg',
     qaBlocks: [
       {
         question: 'Do I need patch fittings or hinges for my glass door?',

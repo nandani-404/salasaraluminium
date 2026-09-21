@@ -27,7 +27,7 @@ export default function HindiShell({
   children: React.ReactNode;
 }) {
   return (
-    <div lang="hi" className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
+    <div lang="hi" className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 flex flex-wrap items-center justify-between gap-3">
         {breadcrumb && breadcrumb.length > 0 && (
           <nav aria-label="Breadcrumb" className="text-xs text-[#64748B]">

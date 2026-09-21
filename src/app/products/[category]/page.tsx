@@ -17,8 +17,9 @@ import { productsInCategory } from '@/data/products';
 import CatalogueCard from '@/components/catalogue/CatalogueCard';
 import FaqList from '@/components/FaqList';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { BUSINESS, TEL_HREF, whatsappLink } from '@/config/business';
-import { ArrowLeft, Layers, ShieldCheck, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Layers, ShieldCheck, ChevronRight, CheckCircle2, PhoneCall } from 'lucide-react';
 
 export async function generateStaticParams() {
   const archParams = ARCH_CATEGORIES.map((cat) => ({
@@ -123,11 +124,11 @@ export default async function CategoryPage({
     const quickAnswer = `${sahCategory.name} covers ${categoryProducts.length} items in the Salasar catalogue, coded ${sahCategory.codePrefix}. ${sahCategory.description} All of it is stocked at our counter in Bhaisthan, Raipur, and sold to trade and to single-project buyers alike.`;
 
     return (
-      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
+      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
         <JsonLd schema={faqSchema} />
         <JsonLd schema={breadcrumbSchema} />
 
-        <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC] space-y-4">
+        <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-slate-200 space-y-4">
           <nav aria-label="Breadcrumb" className="text-xs text-[#64748B]">
             <Link href="/" className="hover:text-[#0B1F3A]">Home</Link>
             <span className="mx-1.5" aria-hidden="true">/</span>
@@ -156,14 +157,15 @@ export default async function CategoryPage({
             <p className="text-base text-[#1E293B] leading-relaxed">{quickAnswer}</p>
           </div>
 
-          <div className="flex flex-wrap gap-2.5 pt-1">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 sm:gap-2.5 pt-1 w-full sm:w-auto">
             <a
               href={TEL_HREF}
               data-analytics="click_call"
               data-analytics-location={`category-${sahCategory.slug}`}
-              className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-11 px-2.5 sm:px-5 bg-[#8A6408] hover:bg-[#6F5006] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-colors text-center truncate"
             >
-              Call {BUSINESS.phones.primary.display}
+              <PhoneCall className="w-4 h-4 shrink-0" aria-hidden="true" />
+              <span className="truncate">{BUSINESS.phones.primary.display}</span>
             </a>
             <a
               href={whatsappLink({
@@ -173,9 +175,13 @@ export default async function CategoryPage({
               })}
               data-analytics="click_whatsapp"
               data-analytics-location={`category-${sahCategory.slug}`}
-              className="inline-flex items-center gap-2 min-h-11 px-5 bg-white border border-[#0B1F3A] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#0B1F3A] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-11 px-2.5 sm:px-5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-2xs text-center truncate"
             >
-              WhatsApp a photo of the part
+              <WhatsAppIcon className="w-4 h-4 shrink-0" />
+              <span className="truncate">
+                <span className="sm:hidden">WhatsApp</span>
+                <span className="hidden sm:inline">WhatsApp a photo of the part</span>
+              </span>
             </a>
           </div>
         </header>
@@ -190,23 +196,23 @@ export default async function CategoryPage({
             </div>
           </section>
 
-          <section className="space-y-5 pt-4 border-t border-[#E5E3DC]">
+          <section className="space-y-5 pt-4 border-t border-slate-200">
             <h2 className="text-2xl font-bold text-[#0B1F3A]">
               {sahCategory.name} — common questions
             </h2>
             <FaqList faqs={categoryFaqs} />
           </section>
 
-          <nav aria-label="Other categories" className="space-y-4 pt-4 border-t border-[#E5E3DC]">
+          <nav aria-label="Other categories" className="space-y-4 pt-4 border-t border-slate-200">
             <h2 className="text-2xl font-bold text-[#0B1F3A]">Other hardware categories</h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 list-none p-0">
+            <ul className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 list-none p-0">
               {SAH_CATEGORIES.filter((c) => c.slug !== sahCategory.slug).map((c) => (
-                <li key={c.slug}>
+                <li key={c.slug} className="h-full">
                   <Link
                     href={`/products/${c.slug}`}
-                    className="flex items-center min-h-11 px-4 bg-white border border-[#E2E8F0] rounded-xl text-sm font-semibold text-[#0B1F3A] hover:border-[#0B1F3A] transition-colors"
+                    className="flex items-center min-h-11 h-full px-3 sm:px-4 bg-white border border-[#E2E8F0] rounded-xl text-xs sm:text-sm font-semibold text-[#0B1F3A] hover:border-[#0B1F3A] transition-colors"
                   >
-                    {c.name}
+                    <span className="truncate">{c.name}</span>
                   </Link>
                 </li>
               ))}
@@ -243,12 +249,12 @@ export default async function CategoryPage({
     ]);
 
     return (
-      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
+      <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
         <JsonLd schema={faqSchema} />
         <JsonLd schema={breadcrumbSchema} />
 
         {/* Category Hero */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-slate-200">
           <Link
             href="/products"
             className="inline-flex items-center space-x-1.5 text-xs text-gray-500 hover:text-[#22262A] mb-4 font-medium"
@@ -278,13 +284,13 @@ export default async function CategoryPage({
           </div>
 
           {/* Category FAQ Section */}
-          <div className="mt-8 sm:mt-20 pt-6 sm:pt-12 border-t border-[#E5E3DC]">
+          <div className="mt-8 sm:mt-20 pt-6 sm:pt-12 border-t border-slate-200">
             <h2 className="text-2xl font-serif font-bold text-[#22262A] mb-6">
               Frequently Asked Questions — {archCategory.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {categoryFaqs.map((faq, i) => (
-                <div key={i} className="p-6 bg-white rounded-xl border border-[#E5E3DC] space-y-2">
+                <div key={i} className="p-6 bg-white rounded-xl border border-slate-200 space-y-2">
                   <h3 className="text-base font-serif font-bold text-[#22262A]">{faq.question}</h3>
                   <p className="text-xs text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>

@@ -4,6 +4,7 @@ import CatalogueCard from '@/components/catalogue/CatalogueCard';
 import FaqList, { type Faq } from '@/components/FaqList';
 import JsonLd from '@/components/JsonLd';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { getBreadcrumbSchema, getFaqSchema } from '@/lib/jsonld';
 import { BUSINESS, TEL_HREF, whatsappLink } from '@/config/business';
 import type { CatalogueProduct } from '@/data/products';
@@ -54,11 +55,11 @@ export default function HubPage({
   ]);
 
   return (
-    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-[#FAF9F6] min-h-screen">
+    <div className="pt-16 sm:pt-28 pb-8 sm:pb-20 bg-white min-h-screen">
       <JsonLd schema={breadcrumb} />
       <JsonLd schema={getFaqSchema(faqs)} />
 
-      <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-[#E5E3DC] space-y-4">
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 border-b border-slate-200 space-y-4">
         <nav aria-label="Breadcrumb" className="text-xs text-[#64748B]">
           <Link href="/" className="hover:text-[#0B1F3A]">
             Home
@@ -102,9 +103,10 @@ export default function HubPage({
             href={whatsappLink({ message: whatsappMessage, source: path, campaign: 'hub' })}
             data-analytics="click_whatsapp"
             data-analytics-location={`hub${path}`}
-            className="inline-flex items-center gap-2 min-h-11 px-5 bg-white border border-[#0B1F3A] text-[#0B1F3A] text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#0B1F3A] hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 min-h-11 px-5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors shadow-2xs"
           >
-            WhatsApp a photo of the part
+            <WhatsAppIcon className="w-4 h-4 shrink-0" />
+            <span>WhatsApp a photo of the part</span>
           </a>
         </div>
       </header>
@@ -112,7 +114,7 @@ export default function HubPage({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12 sm:space-y-16">
         {groups.map((group) => (
           <section key={group.heading} className="space-y-4 sm:space-y-6">
-            <div className="space-y-2 border-b border-[#E5E3DC] pb-4">
+            <div className="space-y-2 border-b border-slate-200 pb-4">
               <h2 className="text-xl sm:text-2xl font-bold text-[#0B1F3A]">{group.heading}</h2>
               <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-3xl">
                 {group.intro}
@@ -133,7 +135,7 @@ export default function HubPage({
           </section>
         ))}
 
-        <section className="space-y-5 pt-4 border-t border-[#E5E3DC]">
+        <section className="space-y-5 pt-4 border-t border-slate-200">
           <h2 className="text-2xl font-bold text-[#0B1F3A]">Common questions</h2>
           <FaqList faqs={faqs} />
         </section>

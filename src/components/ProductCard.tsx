@@ -20,11 +20,11 @@ export default function ProductCard({ product }: ProductCardProps) {
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-2xl border border-[#E5E3DC] overflow-hidden hover:border-[#B08D57]/60 shadow-sm hover:shadow-lg active:scale-[0.98] transition-all duration-300 flex flex-col justify-between group"
+      className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-[#B08D57]/60 shadow-sm hover:shadow-lg active:scale-[0.98] transition-all duration-300 flex flex-col justify-between group"
     >
       <div>
         {/* Product Image */}
-        <div className="relative h-36 sm:h-52 overflow-hidden bg-[#FAF9F6]">
+        <div className="relative h-36 sm:h-52 overflow-hidden bg-slate-50">
           <Image
             src={product.image}
             alt={product.name}

@@ -22,9 +22,9 @@ export default function AboutClient() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
             
-            {/* Left Column: Premium Architectural Narrative (order-2 on mobile, order-1 on desktop) */}
+            {/* Left Column: Title, Story & Core Features (order-2 on mobile, order-1 on desktop) */}
             <div className="lg:col-span-7 space-y-6 sm:space-y-8 order-2 lg:order-1">
               
               {/* Badge & Title */}
@@ -56,135 +56,87 @@ export default function AboutClient() {
                 </p>
               </div>
 
-              {/*
-                Related businesses, stated once, in one place.
-                Four names appeared across the old site — Salasar, Lieon
-                Marketing, Finetek and Swastik Industries — with no explanation
-                of how they relate, and in places contradicting each other
-                (products were said to be manufactured in Mumbai by Swastik and
-                simultaneously produced in Raipur at Finetek). Naming related
-                entities without defining them confuses buyers and splits the
-                business's search identity across several unresolved names.
-
-                Descriptions come from src/config/business.ts and carry
-                [CONFIRM] markers where the relationship is not yet verified.
-              */}
-              <section className="p-5 rounded-2xl bg-white border border-[#E2E8F0] space-y-3">
-                <h2 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider">
-                  Related businesses, and what each one is
-                </h2>
-                <p className="text-xs text-[#64748B] leading-relaxed">
-                  You may see these names alongside ours. This is how they relate.
-                </p>
-                <dl className="space-y-2.5">
-                  {BUSINESS.entities.map((entity) => (
-                    <div key={entity.name} className="text-xs leading-relaxed">
-                      <dt className="font-bold text-[#0B1F3A] inline">{entity.name}: </dt>
-                      <dd className="inline text-[#475569]">{entity.role}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <p className="text-xs text-[#64748B] leading-relaxed pt-1 border-t border-[#E2E8F0]">
-                  Whichever name is on the invoice, the counter is the same one:{' '}
-                  {BUSINESS.addressLine}.
-                </p>
-              </section>
-
-              {/* Company Facts Card */}
-              <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
-                <h3 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider mb-2">Company Facts</h3>
-                <ul className="space-y-1.5 text-xs text-[#334155]">
-                  {/*
-                    "Established supplier serving Chhattisgarh for over 15+ years"
-                    was removed: no founding date has been verified, and a
-                    fabricated trading history is exactly the kind of claim that
-                    costs trust when a buyer checks it. See SEO-CONFIRM.md — once
-                    the real founding year is supplied, put it back as a fact.
-                  */}
-                  <li>• <strong>Counter and stock point:</strong> {BUSINESS.addressLine}</li>
-                  <li>• <strong>Open:</strong> {BUSINESS.hours.display}</li>
-                  <li>• <strong>Catalogue:</strong> 86 items across 12 categories, each with an SA code</li>
-                  <li>• <strong>Who we sell to:</strong> trade buyers at trade rates, and individual buyers for single projects</li>
-                  <li>• <strong>Prices:</strong> quoted on enquiry — they depend on quantity and finish</li>
-                </ul>
-              </div>
-
               {/* Unique Dual Feature Cards with Metallic Accent Borders */}
-
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4">
-                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
-                    <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-4 pt-1">
+                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
+                  <div>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-xs group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
+                      <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </div>
+                    <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">One counter, real stock</h3>
                   </div>
-                  {/*
-                    Previously: "Produced at our Finetek branch in Raipur using
-                    modern extrusion techniques & strict ISO-grade quality
-                    standards." Two problems. "ISO-grade quality standards" is an
-                    invented certification claim — ISO certification is either
-                    held and numbered, or it is not held. And it contradicted the
-                    adjacent statement that products are manufactured by Swastik
-                    Industries in Mumbai. Both claims cannot be true as written.
-                  */}
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">One counter, real stock</h3>
-                  <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-relaxed">
                     Everything we list is held at the Bhaisthan counter, so you can match a part by hand before you buy it.
                   </p>
                 </div>
 
-                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-sm group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
-                    <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                <div className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs hover:border-[#B8860B]/50 transition-all group relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
+                  <div>
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-xs group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
+                      <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </div>
+                    <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h3>
                   </div>
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h3>
-                  <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  <p className="text-[11px] sm:text-xs text-[#64748B] leading-relaxed">
                     Box and bulk quantities for dealers and fabricators, single pieces for a homeowner fixing one window.
                   </p>
                 </div>
               </div>
 
-              {/* 4 Pillars Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <ShieldCheck className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
-                  <span className="text-[11px] font-bold text-[#0B1F3A] block">High-Grade Stock</span>
-                </div>
-                <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <div className="w-5 h-5 border border-[#B8860B] text-[#8A6408] rounded font-bold text-[10px] flex items-center justify-center mx-auto mb-1">
-                    %
+              {/* Mobile-Only: Trade Desk & Counter Hours under the About content */}
+              <div className="lg:hidden space-y-3 pt-2">
+                {/* Bottom Floating Stats Tag */}
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between shadow-2xs">
+                  <div className="flex items-center space-x-3">
+                    <PhoneCall className="w-5 h-5 text-[#8A6408]" />
+                    <div>
+                      <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">Trade Desk / Inquiry</span>
+                      <a href={TEL_HREF} className="text-xs font-extrabold text-[#0B1F3A] hover:text-[#8A6408] transition-colors">
+                        Abhishek: {BUSINESS.phones.primary.display}
+                      </a>
+                    </div>
                   </div>
-                  <span className="text-[11px] font-bold text-[#0B1F3A] block">Wholesale Rate</span>
+                  <div className="px-2.5 py-1 bg-[#B8860B]/10 rounded-md text-[#8A6408] font-bold text-[10px] uppercase">
+                    Wholesale
+                  </div>
                 </div>
-                <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <Truck className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
-                  <span className="text-[11px] font-bold text-[#0B1F3A] block">Fast Logistics</span>
-                </div>
-                <div className="p-3 bg-white rounded-xl border border-[#E2E8F0] shadow-2xs text-center">
-                  <Award className="w-5 h-5 text-[#8A6408] mx-auto mb-1" />
-                  <span className="text-[11px] font-bold text-[#0B1F3A] block">Top Satisfaction</span>
-                </div>
-              </div>
 
-              {/* Quote Card */}
-              <div className="p-5 rounded-2xl bg-gradient-to-r from-[#0B1F3A] to-[#1E293B] text-white shadow-md flex items-center space-x-4 border border-[#0B1F3A]">
-                <span className="text-4xl font-serif text-[#D4AF37] leading-none select-none">“</span>
-                <p className="text-xs sm:text-sm font-medium text-slate-200 leading-relaxed">
-                  With your trust and support, <span className="text-[#D4AF37] font-bold">Salasar Aluminium & Hardware</span> continues to grow and reach new heights.
-                </p>
+                {/* Quick Counter Timing & Stock Info Card */}
+                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs space-y-2.5">
+                  <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-100">
+                    <span className="text-[#64748B] font-medium">Counter Hours:</span>
+                    <span className="font-bold text-[#0B1F3A]">{BUSINESS.hours.display}</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 text-center pt-0.5">
+                    <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                      <span className="block text-xs font-black text-[#0B1F3A]">86+</span>
+                      <span className="text-[9px] text-[#64748B] font-medium">SKUs In Stock</span>
+                    </div>
+                    <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                      <span className="block text-xs font-black text-[#0B1F3A]">0 MOQ</span>
+                      <span className="text-[9px] text-[#64748B] font-medium">At Counter</span>
+                    </div>
+                    <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                      <span className="block text-xs font-black text-[#8A6408]">Same-Day</span>
+                      <span className="text-[9px] text-[#64748B] font-medium">Dispatch</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
 
             {/* Right Column: Unique Architectural Storefront Frame (order-1 on mobile, order-2 on desktop) */}
-            <div className="lg:col-span-5 relative order-1 lg:order-2">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div className="lg:col-span-5 relative order-1 lg:order-2 self-start">
+              <div className="relative mx-auto max-w-md lg:max-w-none space-y-4">
                 
                 {/* Main Card Frame */}
                 <div className="relative rounded-2xl sm:rounded-3xl bg-slate-950 border border-[#D4AF37]/40 overflow-hidden p-2 sm:p-3 group shadow-lg">
                   
                   {/* Storefront Image Container */}
-                  <div className="relative h-[250px] sm:h-[440px] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
+                  <div className="relative h-[250px] sm:h-[360px] lg:h-[380px] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 flex items-center justify-center">
                     <Image
                       src="/salasar-store-main.png"
                       alt="Salasar Aluminium & Hardware Storefront"
@@ -235,23 +187,135 @@ export default function AboutClient() {
 
                 </div>
 
-                {/* Bottom Floating Stats Tag */}
-                <div className="mt-4 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <PhoneCall className="w-5 h-5 text-[#8A6408]" />
-                    <div>
-                      <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">Trade Desk / Inquiry</span>
-                      <span className="text-xs font-extrabold text-[#0B1F3A]">Abhishek: +91 8007443071</span>
+                {/* Desktop-Only in Right Column: Trade Desk & Counter Hours */}
+                <div className="hidden lg:block space-y-4">
+                  {/* Bottom Floating Stats Tag */}
+                  <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-between shadow-2xs">
+                    <div className="flex items-center space-x-3">
+                      <PhoneCall className="w-5 h-5 text-[#8A6408]" />
+                      <div>
+                        <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider block">Trade Desk / Inquiry</span>
+                        <a href={TEL_HREF} className="text-xs font-extrabold text-[#0B1F3A] hover:text-[#8A6408] transition-colors">
+                          Abhishek: {BUSINESS.phones.primary.display}
+                        </a>
+                      </div>
+                    </div>
+                    <div className="px-2.5 py-1 bg-[#B8860B]/10 rounded-md text-[#8A6408] font-bold text-[10px] uppercase">
+                      Wholesale
                     </div>
                   </div>
-                  <div className="px-2.5 py-1 bg-[#B8860B]/10 rounded-md text-[#8A6408] font-bold text-[10px] uppercase">
-                    Wholesale
+
+                  {/* Quick Counter Timing & Stock Info Card */}
+                  <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs space-y-2.5">
+                    <div className="flex items-center justify-between text-xs pb-2 border-b border-slate-100">
+                      <span className="text-[#64748B] font-medium">Counter Hours:</span>
+                      <span className="font-bold text-[#0B1F3A]">{BUSINESS.hours.display}</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-center pt-0.5">
+                      <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                        <span className="block text-xs font-black text-[#0B1F3A]">86+</span>
+                        <span className="text-[9px] text-[#64748B] font-medium">SKUs In Stock</span>
+                      </div>
+                      <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                        <span className="block text-xs font-black text-[#0B1F3A]">0 MOQ</span>
+                        <span className="text-[9px] text-[#64748B] font-medium">At Counter</span>
+                      </div>
+                      <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
+                        <span className="block text-xs font-black text-[#8A6408]">Same-Day</span>
+                        <span className="text-[9px] text-[#64748B] font-medium">Dispatch</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
               </div>
             </div>
 
+          </div>
+
+          {/* Full-Width 2-Column Section: Related Businesses & Company Facts */}
+          <div className="mt-10 sm:mt-14 pt-8 sm:pt-12 border-t border-[#E2E8F0] grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            
+            {/* Related Businesses Card */}
+            <section className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-2xs space-y-3.5">
+              <div className="flex items-center space-x-2">
+                <Building2 className="w-4 h-4 text-[#8A6408]" />
+                <h2 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider">
+                  Related businesses, and what each one is
+                </h2>
+              </div>
+              <p className="text-xs text-[#64748B] leading-relaxed">
+                You may see these names alongside ours. This is how they relate.
+              </p>
+              <dl className="space-y-3 pt-1">
+                {BUSINESS.entities.map((entity) => (
+                  <div key={entity.name} className="text-xs leading-relaxed pb-2.5 border-b border-slate-100 last:border-0 last:pb-0">
+                    <dt className="font-bold text-[#0B1F3A]">{entity.name}</dt>
+                    <dd className="text-[#475569] mt-0.5">{entity.role}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="text-xs text-[#64748B] leading-relaxed pt-2 border-t border-[#E2E8F0]">
+                Whichever name is on the invoice, the counter is the same one:{' '}
+                <span className="font-medium text-[#0B1F3A]">{BUSINESS.addressLine}</span>
+              </p>
+            </section>
+
+            {/* Company Facts Card */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-2xs flex flex-col justify-between">
+              <div className="space-y-3.5">
+                <div className="flex items-center space-x-2">
+                  <ShieldCheck className="w-4 h-4 text-[#8A6408]" />
+                  <h3 className="text-sm font-extrabold text-[#0B1F3A] uppercase tracking-wider">Company Facts & Trade Overview</h3>
+                </div>
+                <p className="text-xs text-[#64748B] leading-relaxed">
+                  Key operational specifications for fabricators, contractors and project buyers.
+                </p>
+                <dl className="space-y-3 pt-1">
+                  <div className="text-xs leading-relaxed pb-2.5 border-b border-slate-200/60">
+                    <dt className="font-bold text-[#0B1F3A]">Counter & Stock Point</dt>
+                    <dd className="text-[#475569] mt-0.5">{BUSINESS.addressLine}</dd>
+                  </div>
+                  <div className="text-xs leading-relaxed pb-2.5 border-b border-slate-200/60">
+                    <dt className="font-bold text-[#0B1F3A]">Operating Hours</dt>
+                    <dd className="text-[#475569] mt-0.5">{BUSINESS.hours.display}</dd>
+                  </div>
+                  <div className="text-xs leading-relaxed pb-2.5 border-b border-slate-200/60">
+                    <dt className="font-bold text-[#0B1F3A]">Catalogue Inventory</dt>
+                    <dd className="text-[#475569] mt-0.5">86 items across 12 specialized categories, each with a fixed SA code</dd>
+                  </div>
+                  <div className="text-xs leading-relaxed pb-2.5 border-b border-slate-200/60">
+                    <dt className="font-bold text-[#0B1F3A]">Eligible Buyers</dt>
+                    <dd className="text-[#475569] mt-0.5">Trade rates for fabricators & dealers; single-piece supply for individual projects</dd>
+                  </div>
+                  <div className="text-xs leading-relaxed">
+                    <dt className="font-bold text-[#0B1F3A]">Pricing Policy</dt>
+                    <dd className="text-[#475569] mt-0.5">Direct wholesale trade rates quoted on enquiry based on quantity, volume & finish</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="pt-3.5 mt-3.5 border-t border-[#E2E8F0] flex items-center justify-between text-xs">
+                <span className="text-[#64748B]">Have an old part to match?</span>
+                <a
+                  href={`https://wa.me/${BUSINESS.phones.primary.whatsapp}?text=${encodeURIComponent('Hello Salasar Hardware, I would like to identify an aluminium hardware part.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#0B1F3A] hover:text-[#8A6408] flex items-center space-x-1 transition-colors"
+                >
+                  <span>Identify on WhatsApp →</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Full-Width Quote Banner */}
+          <div className="mt-6 sm:mt-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#0B1F3A] via-[#11284A] to-[#1E293B] text-white shadow-md flex items-center space-x-4 sm:space-x-5 border border-[#0B1F3A]">
+            <span className="text-4xl sm:text-5xl font-serif text-[#D4AF37] leading-none select-none">“</span>
+            <p className="text-xs sm:text-base font-medium text-slate-200 leading-relaxed">
+              With your trust and support, <span className="text-[#D4AF37] font-bold">Salasar Aluminium &amp; Hardware</span> continues to grow and reach new heights.
+            </p>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ export const HARDWARE_GUIDES_2: BlogPost[] = [
     date: 'September 18, 2026',
     readTime: '5 min read',
     category: 'Doors',
-    image: '/salasar-doorcloser-hero-clean.jpg',
+    image: '/blog/door-closer-not-latching-how-to-adjust-it.jpg',
     qaBlocks: [
       {
         question: 'Why does my door stop just before closing?',
@@ -87,7 +87,7 @@ At that point, check the closer was sized for the door in the first place. An un
     date: 'September 20, 2026',
     readTime: '5 min read',
     category: 'Doors',
-    image: '/3d-hinge-v1.png',
+    image: '/blog/2d-vs-3d-adjustable-hinges.jpg',
     qaBlocks: [
       {
         question: 'What is the difference between a 2D and a 3D hinge?',
@@ -148,7 +148,7 @@ If you are not sure which hinge pattern is already fitted, photograph it on the 
     date: 'September 22, 2026',
     readTime: '5 min read',
     category: 'Materials',
-    image: '/ss-lock-l-v1.png',
+    image: '/blog/stainless-steel-vs-plated-hardware-when-to-pay-more.jpg',
     qaBlocks: [
       {
         question: 'Is stainless steel hardware worth the extra cost?',
@@ -211,7 +211,7 @@ Match the screws to the fitting. It is the cheapest part of the job and the one 
     date: 'September 24, 2026',
     readTime: '4 min read',
     category: 'Materials',
-    image: '/silicon.png',
+    image: '/blog/neutral-cure-vs-acetic-silicone-on-aluminium.jpg',
     qaBlocks: [
       {
         question: 'Which silicone should I use on aluminium windows?',
@@ -272,7 +272,7 @@ A well-sealed window frequently uses both: foam behind the frame to fill and ins
     date: 'September 26, 2026',
     readTime: '4 min read',
     category: 'Materials',
-    image: '/selfdriling%20screw.png',
+    image: '/blog/self-drilling-vs-self-tapping-screws-for-aluminium.jpg',
     qaBlocks: [
       {
         question: 'Which screw should I use in aluminium extrusion?',
@@ -331,7 +331,7 @@ If a screw suddenly spins freely, the thread has gone. Move to a fresh position 
     date: 'September 28, 2026',
     readTime: '5 min read',
     category: 'Bathroom & Glass',
-    image: '/glass%20to%20glass.png',
+    image: '/blog/toughened-glass-thickness-8mm-10mm-12mm-guide.jpg',
     qaBlocks: [
       {
         question: 'How thick should shower enclosure glass be?',

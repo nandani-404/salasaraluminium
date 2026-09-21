@@ -29,7 +29,7 @@ export const HARDWARE_GUIDES: BlogPost[] = [
     date: 'September 2, 2026',
     readTime: '6 min read',
     category: 'Bathroom & Glass',
-    image: '/salasar-showerhinge-hero-clean.jpg',
+    image: '/blog/how-to-choose-a-shower-hinge-for-8-to-12mm-glass.jpg',
     qaBlocks: [
       {
         question: 'How do I choose a shower hinge for 8 mm or 12 mm glass?',
@@ -83,7 +83,7 @@ Send a photograph of the corner on WhatsApp with the glass thickness and the rou
     date: 'September 4, 2026',
     readTime: '6 min read',
     category: 'Windows',
-    image: '/sliding-roller-v1.png',
+    image: '/blog/sliding-window-roller-sizes-explained.jpg',
     qaBlocks: [
       {
         question: 'What size sliding window roller do I need?',
@@ -145,7 +145,7 @@ If the channel itself is worn through or bent, a new roller will not save it. We
     date: 'September 6, 2026',
     readTime: '7 min read',
     category: 'Doors',
-    image: '/salasar-doorcloser-hero-clean.jpg',
+    image: '/blog/door-closer-size-by-door-weight.jpg',
     qaBlocks: [
       {
         question: 'How do I choose a door closer size?',
@@ -203,7 +203,7 @@ Floor springs have to be positioned before the floor is finished, so that decisi
     date: 'September 8, 2026',
     readTime: '5 min read',
     category: 'Windows',
-    image: '/macchar%20jali.png',
+    image: '/blog/machar-jaali-mosquito-mesh-sizes-and-materials.jpg',
     qaBlocks: [
       {
         question: 'What width of machar jaali should I order?',
@@ -261,7 +261,7 @@ Bring the old frame in if you are unsure which beading size you need, or send a 
     date: 'September 10, 2026',
     readTime: '6 min read',
     category: 'Windows',
-    image: '/crescent-lock-v1.png',
+    image: '/blog/which-sliding-window-lock-crescent-touch-domal-maruti.jpg',
     qaBlocks: [
       {
         question: 'Which sliding window lock is the most secure?',
@@ -329,7 +329,7 @@ Our stainless options are SA-18 for the straight latch and SA-19 for the L-type.
     date: 'September 12, 2026',
     readTime: '5 min read',
     category: 'Doors',
-    image: '/tower-bolt-v1.png',
+    image: '/blog/tower-bolt-sizes-4-inch-vs-6-inch.jpg',
     qaBlocks: [
       {
         question: 'Should I use a 4-inch or 6-inch tower bolt?',
@@ -391,7 +391,7 @@ Tower bolts are made in aluminium and stainless steel, in the usual plated and c
     date: 'September 14, 2026',
     readTime: '5 min read',
     category: 'Windows',
-    image: '/c-channel-v1.png',
+    image: '/blog/c-channel-vs-g-channel-sliding-window-tracks.jpg',
     qaBlocks: [
       {
         question: 'What is the difference between a C-channel and a G-channel?',
@@ -449,7 +449,7 @@ Do not grease the track. Grease collects dust and turns into a grinding paste th
     date: 'September 16, 2026',
     readTime: '6 min read',
     category: 'Doors',
-    image: '/floor-machine-v1.png',
+    image: '/blog/floor-spring-vs-door-closer-for-glass-doors.jpg',
     qaBlocks: [
       {
         question: 'Do I need a floor spring or a door closer for a glass door?',

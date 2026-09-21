@@ -85,7 +85,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Door Kits',
     codePrefix: 'SA-30 to SA-34',
     description: 'Aluminium and Stainless Steel mini, heavy, and multi-finish door kit assemblies.',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-doorkits.png',
     iconName: 'DoorClosed'
   },
   {
@@ -93,7 +93,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Bolts & Handles',
     codePrefix: 'SA-35 to SA-41',
     description: 'Tower bolts, American handles, Taiwan handles, D-handles, H-handles, and handle locks.',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-handles.png',
     iconName: 'GripVertical'
   },
   {
@@ -101,7 +101,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Door Closers',
     codePrefix: 'SA-42 to SA-44',
     description: 'Hydraulic door closers, slim pencil closers, and heavy capsule door closer systems.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-doorclosers.png',
     iconName: 'CornerDownRight'
   },
   {
@@ -109,7 +109,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Fittings & Accessories',
     codePrefix: 'SA-45 to SA-54',
     description: 'Floor springs, wall plugs, partition connectors, glass stickers, PVC angles, and U-channels.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-fittings.png',
     iconName: 'Wrench'
   },
   {
@@ -117,7 +117,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Tapes, Sealants & Adhesives',
     codePrefix: 'SA-47 to SA-57',
     description: 'VHB clear/grey structural tapes, EPDM rubber gaskets, silicone sealants, PU foam, and heavy applicator guns.',
-    image: 'https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-adhesives.png',
     iconName: 'Disc'
   },
   {
@@ -125,7 +125,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Fasteners & Screws',
     codePrefix: 'SA-58 to SA-64',
     description: 'SDS self-drilling screws, drywall screws, wood screws, carriage bolts, STS screws, friction stays, and arm stays.',
-    image: 'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-fasteners.png',
     iconName: 'Hash'
   },
   {
@@ -133,7 +133,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Glass Hardware & Shower Fittings',
     codePrefix: 'SA-65 to SA-78',
     description: 'Frameless glass rollers, knobs, patch locks, center locks, L-connectors, and 0°/90°/180° CP shower hinges.',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-glassshower.png',
     iconName: 'Sparkles'
   },
   {
@@ -141,7 +141,7 @@ export const SAH_CATEGORIES: SAHCategory[] = [
     name: 'Abrasives, Mesh & Misc.',
     codePrefix: 'SA-79 to SA-86',
     description: 'Flap disks, cutting wheels, mosquito jaali (SS/Black/Plastic), louvers, corner cleats, and espagnolette locks.',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    image: '/cat-abrasives.png',
     iconName: 'Grid'
   }
 ];

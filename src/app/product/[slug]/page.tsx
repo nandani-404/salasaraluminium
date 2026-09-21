@@ -95,7 +95,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
 
   return (
-    <div className="container-luxury py-4 sm:py-10 space-y-8 sm:space-y-16">
+    <div className="bg-white min-h-screen pt-16 sm:pt-28 pb-8 sm:pb-20">
+      <div className="container-luxury py-4 sm:py-10 space-y-8 sm:space-y-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -183,6 +184,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </section>
       )}
+      </div>
     </div>
   );
 }

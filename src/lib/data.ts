@@ -401,7 +401,7 @@ const LEGACY_BLOG_POSTS: BlogPost[] = [
     date: 'August 24, 2026',
     readTime: '5 min read',
     category: 'Product Buying Guide',
-    image: '/salasar-doorkit-hero-clean.jpg',
+    image: '/blog/dealers-guide-to-salasar-aluminium-door-kit-range.jpg',
     qaBlocks: [
       {
         question: 'What finishes are available for the SA-33 Aluminium Door Kit?',
@@ -452,7 +452,7 @@ Salasar Aluminium & Hardware supplies full carton packs with custom branding opt
     date: 'August 18, 2026',
     readTime: '6 min read',
     category: 'Technical Specification',
-    image: '/salasar-doorcloser-hero-clean.jpg',
+    image: '/blog/choosing-the-right-door-closer-aluminium-vs-ss-vs-capsule.jpg',
     qaBlocks: [
       {
         question: 'When should a capsule door closer (SA-44) be specified over a standard closer?',
@@ -492,7 +492,7 @@ Selecting the right door closer ensures occupant safety, smooth latching, acoust
     date: 'August 10, 2026',
     readTime: '4 min read',
     category: 'Glass Hardware Guide',
-    image: '/salasar-showerhinge-hero-clean.jpg',
+    image: '/blog/understanding-shower-hinge-types-fix-clip-wall-to-glass-glass-to-glass.jpg',
     qaBlocks: [
       {
         question: 'What glass thickness is compatible with Salasar CP shower hinges?',
@@ -530,7 +530,7 @@ Frameless glass shower enclosures demand high precision hardware engineered to s
     date: 'August 02, 2026',
     readTime: '5 min read',
     category: 'Trade & Wholesale',
-    image: '/salasar-warehouse-hub.png',
+    image: '/blog/aluminium-hardware-wholesale-in-chhattisgarh-what-dealers-should-know.jpg',
     qaBlocks: [
       {
         question: 'Where is the Salasar Aluminium & Hardware main store in Raipur?',
@@ -568,7 +568,7 @@ Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001
     date: 'August 12, 2026',
     readTime: '8 min read',
     category: 'Material Science',
-    image: '/salasar-finishes-hero-clean.jpg',
+    image: '/blog/architectural-aluminium-finishes-mill-anodized-powder-coated.jpg',
     qaBlocks: [
       {
         question: 'What is the main difference between anodized and powder-coated aluminium finishes?',
@@ -593,7 +593,7 @@ When specifying aluminium extrusions for residential windows, commercial facades
     date: 'August 05, 2026',
     readTime: '7 min read',
     category: 'Engineering & Specification',
-    image: '/salasar-hardware-hero-clean.jpg',
+    image: '/blog/how-to-choose-aluminium-hardware-residential-vs-commercial.jpg',
     qaBlocks: [
       {
         question: 'What is the main difference between residential and commercial aluminium extrusions?',
@@ -618,7 +618,7 @@ Choosing the right aluminium profile system requires evaluating four structural 
     date: 'July 28, 2026',
     readTime: '5 min read',
     category: 'Material Comparison',
-    image: '/salasar-steel-vs-alum-hero-clean.jpg',
+    image: '/blog/aluminium-vs-steel-which-is-right-for-your-structural-project.jpg',
     qaBlocks: [
       {
         question: 'Is structural aluminium stronger than steel?',
@@ -639,7 +639,7 @@ When designing structural framing, solar racking systems, or building enclosures
     date: 'July 20, 2026',
     readTime: '6 min read',
     category: 'Buyer Guides',
-    image: '/salasar-railing-hero-clean.jpg',
+    image: '/blog/buyers-guide-to-aluminium-railing-systems.jpg',
     qaBlocks: [
       {
         question: 'What aluminum alloy is recommended for glass railing shoe channels?',

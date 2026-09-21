@@ -147,7 +147,7 @@ export default function Footer() {
           </div>
 
           {/* Raipur Showroom Contact */}
-          <div className="col-span-2 sm:col-span-1 space-y-3">
+          <div className="col-span-1 space-y-3">
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
               Raipur Store Desk
             </h2>
