@@ -289,6 +289,7 @@ export default function Header() {
 
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => {
               if (pathname === '/') {
                 const quoteSec = document.getElementById('trade-quote') || document.getElementById('wholesale-quote');
@@ -317,6 +318,7 @@ export default function Header() {
           </a>
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="p-2 text-[#0B1F3A] bg-white border border-slate-200 hover:border-[#D4AF37] rounded-xl active:scale-90 transition-transform cursor-pointer shadow-2xs"
             aria-label="Toggle navigation menu"
@@ -352,6 +354,7 @@ export default function Header() {
               </div>
               <button
                 type="button"
+                suppressHydrationWarning
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-1.5 text-slate-500 hover:text-[#0B1F3A] hover:bg-slate-100 rounded-lg active:scale-90 transition-all cursor-pointer"
                 aria-label="Close menu"
@@ -388,6 +391,7 @@ export default function Header() {
             <div className="p-3 border-t border-slate-100 bg-slate-50/50 shrink-0">
               <button
                 type="button"
+                suppressHydrationWarning
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openEnquiryModal();

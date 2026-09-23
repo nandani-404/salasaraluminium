@@ -64,6 +64,7 @@ export default function Hero() {
           <div className="pt-2 grid grid-cols-2 gap-2.5 w-full sm:flex sm:flex-row sm:w-auto sm:items-center sm:gap-3.5">
             <button
               type="button"
+              suppressHydrationWarning
               onClick={() => openEnquiryModal()}
               className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#8A6408] hover:bg-[#6F5006] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30 pointer-events-auto"
             >

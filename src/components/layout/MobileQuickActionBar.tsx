@@ -100,6 +100,7 @@ export default function MobileQuickActionBar() {
         {/* Minimal Clean Quote Action Button */}
         <button
           type="button"
+          suppressHydrationWarning
           onClick={() => openEnquiryModal()}
           className="flex-1 flex flex-col items-center justify-center py-1 transition-all active:scale-95 text-slate-500 hover:text-[#0B1F3A] cursor-pointer"
           title="Get Wholesale Quote"
