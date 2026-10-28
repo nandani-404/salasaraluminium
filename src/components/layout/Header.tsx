@@ -202,7 +202,7 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(false)}
             className="block py-2 border-b border-[#D8D1C4]/40"
           >
-            Industrial Extrusions
+            Industrial Hardware
           </Link>
           <Link
             href="/about"

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   // default and end up with the same <title> as a fallback page.
   title: 'Aluminium Door & Window Hardware Raipur | Salasar',
   description:
-    'Aluminium door and window hardware in Raipur, Chhattisgarh — rollers, locks, hinges, door kits, closers, shower fittings. 86 SKUs at trade rates. Call for a quote.',
+    'Aluminium door and window hardware in Raipur: rollers, locks, hinges, closers, shower fittings. 86 SKUs, retail and trade rates. Call 80074 43071.',
   alternates: {
     canonical: '/',
     // Both sides of a language pair must declare each other.
@@ -29,7 +29,13 @@ export const metadata: Metadata = {
     url: '/',
     title: 'Aluminium Door & Window Hardware Raipur | Salasar',
     description:
-      'Aluminium door and window hardware in Raipur, Chhattisgarh — 86 SKUs covering rollers, locks, hinges, door kits, closers and shower fittings.',
+      'Aluminium door and window hardware in Raipur: rollers, locks, hinges, closers, shower fittings. 86 SKUs, retail and trade rates. Call 80074 43071.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Aluminium Door & Window Hardware Raipur | Salasar',
+    description:
+      'Aluminium door and window hardware in Raipur: rollers, locks, hinges, closers, shower fittings. 86 SKUs, retail and trade rates. Call 80074 43071.',
   },
 };
 
@@ -64,7 +70,7 @@ export default function Home() {
               12 Specialized Hardware Categories
             </h2>
             <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
-              Complete 86-SKU wholesale lineup covering architectural extrusions, sliding channels, locks, hinges & door kits.
+              Complete 86-SKU lineup covering sliding channels, locks, hinges, closers, shower fittings & door kits.
             </p>
           </div>
 
@@ -87,9 +93,9 @@ export default function Home() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
 
-                    {/* SKU Code Pill */}
+                    {/* Item Count Pill */}
                     <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#0B1F3A] text-white text-[9px] sm:text-[10px] font-mono font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded">
-                      {cat.codePrefix}
+                      {cat.itemCount} items
                     </div>
                   </div>
 
@@ -265,16 +271,16 @@ export default function Home() {
             <div className="lg:col-span-6 space-y-4 sm:space-y-6">
               <div>
                 <span className="text-xs font-semibold uppercase tracking-widest text-[#8A6408]">
-                  Direct Manufacturer Advantage
+                  Trade Hardware Supplier
                 </span>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B1F3A] tracking-tight mt-1.5 leading-snug">
-                  Wholesale Manufacturing & Bulk Trade Distribution
+                  Door & Window Hardware Supply in Raipur
                 </h2>
               </div>
 
               <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-                Empowering fabricators, contractors, and hardware dealers across Chhattisgarh with direct factory-grade architectural aluminium profiles and 86+ standardized trade SKUs.
+                Supplying fabricators, contractors, dealers, and homeowners across Chhattisgarh with robust door and window hardware and 86 standardized trade SKUs.
               </p>
 
               {/* Trade Key Pillars Grid - 2x2 on mobile, 2 columns on web */}
@@ -282,27 +288,27 @@ export default function Home() {
                 <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
                   <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
-                    <span className="leading-tight">Factory Direct Rates</span>
+                    <span className="leading-tight">Retail & Trade Rates</span>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
-                    Bulk trade rates from our Finetek branch in Raipur.
+                    Quoted on enquiry, based on quantity and finish.
                   </p>
                 </div>
 
                 <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
                   <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
-                    <span className="leading-tight">Raipur Bulk Stocking</span>
+                    <span className="leading-tight">Raipur Stock & Delivery</span>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
-                    Same-day regional dispatch from our Bhaisthan & Lieon Marketing hubs.
+                    Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.
                   </p>
                 </div>
 
                 <div className="p-3 sm:p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl space-y-1 hover:border-[#0B1F3A] transition-colors flex flex-col justify-start">
                   <div className="text-xs font-bold sm:font-semibold text-[#0B1F3A] flex items-center space-x-1.5 sm:space-x-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#B8860B] shrink-0" />
-                    <span className="leading-tight">Multi-Finish Extrusions</span>
+                    <span className="leading-tight">Multi-Finish Hardware</span>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
                     Anodized, powder-coated black, brown & CP finishes across categories.
@@ -315,7 +321,7 @@ export default function Home() {
                     <span className="leading-tight">Custom Trade Orders</span>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-snug sm:leading-relaxed">
-                    Tailored SKU length cuts & project quote support for sites.
+                    Project quote support and custom hardware configurations for sites.
                   </p>
                 </div>
               </div>
@@ -344,7 +350,7 @@ export default function Home() {
               <div className="relative h-[250px] sm:h-[420px] rounded-2xl overflow-hidden shadow-xs border border-[#E2E8F0] bg-[#0F172A] p-2 sm:p-4 flex items-center justify-center">
                 <Image
                   src="/salasar-store-main.png"
-                  alt="Salasar Aluminium & Hardware Storefront & Stock Hub in Raipur, Chhattisgarh"
+                  alt="Salasar Aluminium & Hardware Storefront in Raipur, Chhattisgarh"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain p-2 rounded-xl"
@@ -354,12 +360,12 @@ export default function Home() {
                 {/* Floating Stats Badge */}
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 bg-[#0B1F3A]/95 backdrop-blur-sm text-white p-3 sm:p-5 rounded-xl flex items-center justify-between shadow-md border border-white/10">
                   <div>
-                    <div className="text-sm sm:text-lg font-bold text-[#D4AF37]">Finetek</div>
-                    <div className="text-[10px] sm:text-xs text-slate-300 font-medium">Branch • Raipur</div>
+                    <div className="text-sm sm:text-lg font-bold text-[#D4AF37]">Salasar</div>
+                    <div className="text-[10px] sm:text-xs text-slate-300 font-medium">Shop • Raipur</div>
                   </div>
                   <div className="h-6 sm:h-8 w-px bg-slate-700" />
                   <div className="text-right">
-                    <div className="text-sm sm:text-lg font-bold text-white">86+ SKUs</div>
+                    <div className="text-sm sm:text-lg font-bold text-white">86 SKUs</div>
                     <div className="text-[10px] sm:text-xs text-slate-300 font-medium">Ready Raipur Stock</div>
                   </div>
                 </div>

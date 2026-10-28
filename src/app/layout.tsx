@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: BUSINESS.description,
   // `keywords` removed: ignored by Google since 2009 and by every other major
-  // engine, and the previous list described extrusion products this business
+  // engine, and the previous list described unstocked products this business
   // does not actually sell.
   authors: [{ name: BUSINESS.name }],
   creator: BUSINESS.name,

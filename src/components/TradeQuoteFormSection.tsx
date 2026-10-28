@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CheckCircle2, Send, ShieldCheck, PhoneCall, MapPin, ExternalLink } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
-import { SAH_CATEGORIES, SAH_BUSINESS_DETAILS, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import { SAH_BUSINESS_DETAILS, CATALOGUE_BY_CATEGORY_NUMERIC, ALL_INDIAN_STATES } from '@/lib/sahData';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { BUSINESS, TEL_HREF } from '@/config/business';
 import { track } from '@/lib/analytics';
@@ -112,12 +112,12 @@ export default function TradeQuoteFormSection() {
                 Direct Trade Desk
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0B1F3A] tracking-tight mt-1.5 leading-snug">
-                Request Wholesale Quote & Specifications
+                Request Quote & Specifications
               </h2>
             </div>
 
             <p className="text-sm text-[#475569] leading-relaxed">
-              Connect directly with Abhishek at Salasar Aluminium & Hardware for wholesale catalog pricing, bulk box quotes, and direct manufacturing stock availability in Raipur.
+              Connect directly with Abhishek at Salasar Aluminium & Hardware for catalogue pricing, bulk box quotes, and stock availability at our shop in Raipur.
             </p>
 
             {/* Direct Contact Cards - Desktop View */}
@@ -135,7 +135,7 @@ export default function TradeQuoteFormSection() {
                 title="Open in Google Maps"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] block">Raipur Main Showroom</span>
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#64748B] block">Our Shop in Raipur</span>
                   <span className="inline-flex items-center space-x-1 text-[11px] font-medium text-[#C9A227] group-hover:underline">
                     <span>Open in Maps</span>
                     <ExternalLink className="w-3 h-3" />
@@ -170,7 +170,7 @@ export default function TradeQuoteFormSection() {
                 title="Open in Google Maps"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block">Raipur Main Showroom</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#64748B] block">Our Shop in Raipur</span>
                   <span className="inline-flex items-center space-x-1 text-[10px] font-semibold text-[#C9A227]">
                     <span>Open in Maps</span>
                     <ExternalLink className="w-3 h-3" />
@@ -259,8 +259,8 @@ export default function TradeQuoteFormSection() {
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div className="pb-3 border-b border-[#F1F5F9]">
-                  <h3 className="text-lg font-bold text-[#0B1F3A]">Wholesale Quote Form</h3>
-                  <p className="text-xs text-[#64748B] mt-0.5">Fill in your requirements to receive direct factory rates.</p>
+                  <h3 className="text-lg font-bold text-[#0B1F3A]">Request Quote Form</h3>
+                  <p className="text-xs text-[#64748B] mt-0.5">Fill in your requirements to receive retail and trade rates.</p>
                 </div>
 
                 {errorMessage && (
@@ -302,7 +302,7 @@ export default function TradeQuoteFormSection() {
                   {/* Email */}
                   <div>
                     <label className="block text-[11px] sm:text-xs font-semibold text-[#334155] mb-1 truncate">
-                      Email Address *
+                      Email Address <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
@@ -340,10 +340,14 @@ export default function TradeQuoteFormSection() {
                       className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- General Hardware Enquiry --</option>
-                      {FULL_CATALOGUE_PRODUCTS.map((product) => (
-                        <option key={product.id} value={product.saCode}>
-                          {product.saCode} : {product.name}
-                        </option>
+                      {CATALOGUE_BY_CATEGORY_NUMERIC.map((group) => (
+                        <optgroup key={group.category.slug} label={group.category.name}>
+                          {group.products.map((product) => (
+                            <option key={product.id} value={product.saCode}>
+                              {product.saCode} : {product.name}
+                            </option>
+                          ))}
+                        </optgroup>
                       ))}
                     </select>
                   </div>
@@ -400,7 +404,7 @@ export default function TradeQuoteFormSection() {
                 {/* Requirements & Notes */}
                 <div>
                   <label className="block text-xs font-medium text-slate-700 mb-1.5">
-                    Requirements & Project Details *
+                    Requirements & Project Details <span className="text-slate-400 font-normal">(Optional)</span>
                   </label>
                   <textarea
                     rows={3}

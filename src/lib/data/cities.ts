@@ -59,10 +59,10 @@ export const CITIES_DATA: CityData[] = [
     demandNote:
       'Raipur fabricators order across all 12 categories. Sliding window hardware (rollers, channels, crescent and touch locks) and door kits move fastest, with shower and glass fittings following bathroom renovation work in the newer apartment blocks.',
     description:
-      'Our counter and stock point in Bhaisthan, Raipur. Walk in to match a part by hand, or call ahead with an SA code and collect the same day.',
+      'Our counter and stock point in Bhaisthan, Raipur. Walk in to match a part by hand, or call ahead with an SA code and collect at our counter.',
     keyMarkets:
       'Bhaisthan Hardware Market, JK Steel Gali, Bhanpuri Industrial Area, Urla Industrial Complex',
-    dispatchTime: 'Counter pickup, and same-day local delivery across the Raipur city area',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
       'All 86 SKUs, with SA-33 door kits, SA-42 door closers, SA-76 shower hinges and SA-81 mosquito mesh moving fastest',
   },
@@ -97,7 +97,7 @@ export const CITIES_DATA: CityData[] = [
       'Wholesale supply to Bhilai window fabricators, glazing contractors and hardware dealers, on the NH-53 corridor from Raipur.',
     keyMarkets:
       'Light Industrial Area Bhilai, Power House Market, Supela Hardware Market, Civic Center Trade Hub',
-    dispatchTime: 'Same-day dispatch on orders placed before 2:00 PM',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
       'SA-7 sliding rollers, SA-11 locks, SA-33 black door kits, 2D and 3D adjustable hinges',
   },
@@ -116,9 +116,9 @@ export const CITIES_DATA: CityData[] = [
     description:
       'Trade supply of architectural hardware, door kits and glass fittings to contractors and glass shops across Durg district.',
     keyMarkets: 'Station Road Market, Ganj Para, Industrial Area Borai, Durg Trade Center',
-    dispatchTime: 'Same-day dispatch via local express transport lines',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
-      'SA-1 to SA-13 rollers and channels, SA-44 capsule door closers, SA-24 acoustic door seals',
+      'SA-1 to SA-10, SA-12, SA-13 rollers and channels, SA-44 capsule door closers, SA-24 acoustic door seals',
   },
   {
     slug: 'bilaspur',
@@ -136,7 +136,7 @@ export const CITIES_DATA: CityData[] = [
       'Bulk supply for commercial builders, window fabricators and retail hardware dealers throughout the Bilaspur region.',
     keyMarkets:
       'Vyapar Vihar Commercial Complex, Link Road Hardware Market, Sirgitti Industrial Area, Tifra Market',
-    dispatchTime: 'Next-morning delivery for orders placed before 4:00 PM',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
       'SA-33 champion-finish door kits, SA-35 to SA-41 tower bolts and handles, glass railing channels',
   },
@@ -156,7 +156,7 @@ export const CITIES_DATA: CityData[] = [
       'Heavy-duty door closers, seals and hardware supply for industrial plants, townships and commercial complexes in Korba.',
     keyMarkets:
       'Transport Nagar Korba, Niharika Market, TP Nagar Trade Center, Jamnipali Commercial Zone',
-    dispatchTime: '24-hour freight dispatch via Korba transport lines',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
       'SA-42 and SA-44 hydraulic door closers, SA-27 heavy aluminium hinges, industrial fasteners',
   },
@@ -175,9 +175,9 @@ export const CITIES_DATA: CityData[] = [
     description:
       'Wholesale hardware supply for Rajnandgaon dealers, interior fitters and door fabricators.',
     keyMarkets: 'Ganj Line Hardware Market, Cinema Line, Industrial Area Tedesara',
-    dispatchTime: 'Same-day evening delivery on morning trade orders',
+    dispatchTime: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     popularSkus:
-      'SA-11 to SA-23 crescent and touch locks, SA-30 mini door kits, weather strips and gaskets',
+      'SA-11, SA-14 to SA-23 crescent and touch locks, SA-30 mini door kits, weather strips and gaskets',
   },
   {
     slug: 'raigarh',

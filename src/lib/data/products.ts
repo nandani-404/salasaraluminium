@@ -47,7 +47,7 @@ export const SEGMENTS: Record<Segment, { label: string; description: string; ico
   },
   industrial: {
     label: 'Industrial',
-    description: 'High-performance extrusions for industrial applications',
+    description: 'High-performance profiles for industrial applications',
     icon: '🏭',
   },
 };
@@ -143,7 +143,7 @@ Constructed from Zamak 5 die-cast zinc alloy, the handle is both lightweight and
     category: 'Sliding Systems',
     categorySlug: 'sliding-systems',
     segment: 'residential',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6061 T6',
     finish: 'Anodized Champagne',
     price: 18500,
@@ -155,9 +155,9 @@ Constructed from Zamak 5 die-cast zinc alloy, the handle is both lightweight and
     shortDescription: 'A precision-engineered concealed sliding door system for interior partitions, capable of carrying panels up to 80kg with silent operation.',
     description: `The Sereno Sliding Door System redefines interior living spaces through intelligent engineering and refined aesthetics. Its concealed track design hides all mechanical components within the wall cavity, presenting a clean, uninterrupted aesthetic that luxury interiors demand.
 
-The system's self-closing mechanism ensures the door always returns to a soft-closed position, with adjustable dampening to match your preferred closing speed. The EN AW-6061 T6 aluminium track profile is precision-extruded with a 0.02mm tolerance across its full length.`,
+The system's self-closing mechanism ensures the door always returns to a soft-closed position, with adjustable dampening to match your preferred closing speed. The EN AW-6061 T6 aluminium track profile is precision-engineered with a 0.02mm tolerance across its full length.`,
     specs: [
-      { label: 'Track Material', value: 'EN AW-6061 T6 Extruded Aluminium' },
+      { label: 'Track Material', value: 'EN AW-6061 T6 Aluminium' },
       { label: 'Finish', value: 'Anodized Champagne' },
       { label: 'Max Panel Weight', value: '80kg per panel' },
       { label: 'Track Length Options', value: '1.2m / 1.8m / 2.4m / Custom' },
@@ -182,7 +182,7 @@ The system's self-closing mechanism ensures the door always returns to a soft-cl
     category: 'Wardrobe Systems',
     categorySlug: 'wardrobe-systems',
     segment: 'residential',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6063 T5',
     finish: 'Anodized Champagne',
     price: 3200,
@@ -191,7 +191,7 @@ The system's self-closing mechanism ensures the door always returns to a soft-cl
       'https://images.unsplash.com/photo-1558997519-83ea9252eeb8?w=800&q=85',
     ],
     shortDescription: 'Precision wardrobe frame profile in anodized aluminium for built-in and freestanding wardrobe systems.',
-    description: `The Classica Wardrobe Profile brings the precision of industrial extrusion to residential cabinetry. Each profile is extruded to exact dimensional tolerances, ensuring that modular wardrobe assemblies remain perfectly square and level over decades of use.`,
+    description: `The Classica Wardrobe Profile brings high precision to residential cabinetry. Each profile is formed to exact dimensional tolerances, ensuring that modular wardrobe assemblies remain perfectly square and level over decades of use.`,
     specs: [
       { label: 'Material', value: 'EN AW-6063 T5' },
       { label: 'Finish', value: 'Anodized Champagne (15 microns)' },
@@ -269,7 +269,7 @@ The satin chrome finish on marine-grade SS 316L resists tarnishing in both inter
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85',
     ],
     shortDescription: 'Unitized curtain wall aluminium system for commercial façades. Wind-pressure rated to 3.5kN/m² with thermal break for energy efficiency.',
-    description: `The Atrium Curtain Wall System delivers architectural façade performance at the premium end of the commercial building market. Designed in collaboration with leading façade engineers, each mullion and transom profile is precision-extruded with integral thermal-break channels that reduce heat transfer by 60% compared to non-broken aluminium systems.
+    description: `The Atrium Curtain Wall System delivers architectural façade performance at the premium end of the commercial building market. Designed in collaboration with leading façade engineers, each mullion and transom profile is precision-engineered with integral thermal-break channels that reduce heat transfer by 60% compared to non-broken aluminium systems.
 
 The system accommodates glass units up to 70mm thickness and integrates seamlessly with structural silicone glazing techniques for a flush exterior appearance.`,
     specs: [
@@ -334,7 +334,7 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
     category: 'Window Systems',
     categorySlug: 'window-systems',
     segment: 'commercial',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6063 T6',
     finish: 'Matte Black',
     price: 42000,
@@ -371,7 +371,7 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
     category: 'T-Slot Profiles',
     categorySlug: 't-slot-profiles',
     segment: 'industrial',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6063 T6',
     finish: 'Raw Aluminium',
     price: 420,
@@ -380,9 +380,9 @@ The system accommodates glass units up to 70mm thickness and integrates seamless
       'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=85',
     ],
     shortDescription: '40×40mm T-slot modular aluminium profile for machine frames, workbenches, guarding, and automation structures. M8 bolt compatible.',
-    description: `The cornerstone of our industrial extrusion range, the 40×40 T-Slot Profile offers unparalleled versatility for industrial structure building. The continuous T-slot on all four faces accepts standard M8 slot nuts, enabling connections at any point along the profile without drilling.
+    description: `The cornerstone of our industrial profile range, the 40×40 T-Slot Profile offers unparalleled versatility for industrial structure building. The continuous T-slot on all four faces accepts standard M8 slot nuts, enabling connections at any point along the profile without drilling.
 
-Extruded from EN AW-6063 T6, the profile achieves an excellent strength-to-weight ratio. Its 1.8mm wall thickness provides the rigidity required for precision machinery and automation frames while keeping overall structure weight to a minimum.`,
+Formed from EN AW-6063 T6, the profile achieves an excellent strength-to-weight ratio. Its 1.8mm wall thickness provides the rigidity required for precision machinery and automation frames while keeping overall structure weight to a minimum.`,
     specs: [
       { label: 'Material', value: 'EN AW-6063 T6' },
       { label: 'Finish', value: 'Raw (Mill) / Clear Anodized available' },
@@ -407,13 +407,13 @@ Extruded from EN AW-6063 T6, the profile achieves an excellent strength-to-weigh
   },
   {
     id: 'i-002',
-    slug: 'heavy-duty-extrusion-80x80',
+    slug: 'heavy-duty-profile-80x80',
     name: 'Heavy Duty Profile 80×80',
     sku: 'SAH-I-HD-002',
     category: 'T-Slot Profiles',
     categorySlug: 't-slot-profiles',
     segment: 'industrial',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6061 T6',
     finish: 'Raw Aluminium',
     price: 1280,
@@ -450,7 +450,7 @@ Its reinforced corner chambers and double-wall construction provide torsional ri
     category: 'Conveyor Profiles',
     categorySlug: 'conveyor-profiles',
     segment: 'industrial',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6063 T5',
     finish: 'Raw Aluminium',
     price: 580,
@@ -459,7 +459,7 @@ Its reinforced corner chambers and double-wall construction provide torsional ri
       'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=85',
     ],
     shortDescription: 'Dedicated conveyor belt support profile with integrated guide channels and pre-drilled motor mount positions. EHEDG food-grade available.',
-    description: `Purpose-designed for conveyor and material handling applications, this profile integrates guide rail channels, belt-return slots, and motor-mount positions into a single precision extrusion — eliminating the need for multiple components and reducing assembly time by up to 40%.
+    description: `Purpose-designed for conveyor and material handling applications, this profile integrates guide rail channels, belt-return slots, and motor-mount positions into a single precision profile — eliminating the need for multiple components and reducing assembly time by up to 40%.
 
 Available in standard and EHEDG-compliant food-grade versions for pharmaceutical and food processing environments.`,
     specs: [
@@ -486,7 +486,7 @@ Available in standard and EHEDG-compliant food-grade versions for pharmaceutical
     category: 'Solar Profiles',
     categorySlug: 'solar-profiles',
     segment: 'industrial',
-    material: 'Extruded Aluminium',
+    material: 'Aluminium',
     alloyGrade: 'EN AW-6005A T6',
     finish: 'Raw Aluminium',
     price: 340,
@@ -495,7 +495,7 @@ Available in standard and EHEDG-compliant food-grade versions for pharmaceutical
       'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85',
     ],
     shortDescription: 'High-strength aluminium solar panel mounting rail. Corrosion-resistant, rated for wind loads to 1.5 kN/m². Compatible with major racking systems.',
-    description: `Our Solar Racking Profile is engineered for the demanding outdoor environment of large-scale photovoltaic installations. Extruded from EN AW-6005A T6, it achieves the highest strength-to-weight ratio in our solar range while maintaining the corrosion resistance essential for decades-long outdoor service life.`,
+    description: `Our Solar Racking Profile is engineered for the demanding outdoor environment of large-scale photovoltaic installations. Formed from EN AW-6005A T6, it achieves the highest strength-to-weight ratio in our solar range while maintaining the corrosion resistance essential for decades-long outdoor service life.`,
     specs: [
       { label: 'Material', value: 'EN AW-6005A T6' },
       { label: 'Profile Height', value: '35mm' },
@@ -507,7 +507,7 @@ Available in standard and EHEDG-compliant food-grade versions for pharmaceutical
       { label: 'Certifications', value: 'IEC 61215, BIS IS 733' },
     ],
     faqs: [
-      { question: 'What panel sizes are compatible?', answer: 'The profile is compatible with standard 60-cell, 72-cell, and 144-half-cell panels from all major manufacturers.' },
+      { question: 'What panel sizes are compatible?', answer: 'The profile is compatible with standard 60-cell, 72-cell, and 144-half-cell panels from all major brands.' },
     ],
     isFeatured: false,
     isNew: false,

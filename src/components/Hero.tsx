@@ -3,10 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, Layers, Sparkles, Building2, MapPin } from 'lucide-react';
+import { ArrowRight, Layers, Sparkles, Building2, MapPin, PhoneCall } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS } from '@/lib/sahData';
 import HeroVideo from '@/components/HeroVideo';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { TEL_HREF, whatsappLink } from '@/config/business';
 
 export default function Hero() {
   const { openEnquiryModal } = useEnquiry();
@@ -46,51 +48,77 @@ export default function Hero() {
             </div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-bold text-[#D4AF37] tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-              Wholesale & Trade Supply
+              Retail & Trade Supply in Raipur
             </div>
           </div>
 
           {/* Main Title */}
           <h1 className="text-[26px] sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.18] sm:leading-[1.15] drop-shadow-lg">
-            Architectural Aluminium & Hardware
+            Aluminium & Glass Hardware Supplier in Raipur
           </h1>
 
           {/* Supporting Copy */}
           <p className="text-xs sm:text-lg text-slate-100 font-normal leading-relaxed max-w-xl drop-shadow-md">
-            Direct wholesale supplier of high-precision extrusions, door systems, locks & fittings for fabricators and contractors across Raipur.
+            86 items in 12 categories: door and window hardware, glass and shower fittings, sealants, fasteners and mosquito mesh. Buy one piece at the counter or a box for your project.
           </p>
 
-          {/* Action Buttons */}
-          <div className="pt-2 grid grid-cols-2 gap-2.5 w-full sm:flex sm:flex-row sm:w-auto sm:items-center sm:gap-3.5">
-            <button
-              type="button"
-              suppressHydrationWarning
-              onClick={() => openEnquiryModal()}
-              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#8A6408] hover:bg-[#6F5006] active:bg-[#8A6408] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30 pointer-events-auto"
-            >
-              <span>Request Quote</span>
-              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
-            </button>
+          {/* Action Buttons: Fast Phone/WhatsApp + Quote & Catalogue */}
+          <div className="pt-2 space-y-2.5">
+            <div className="grid grid-cols-2 gap-2.5 w-full sm:flex sm:flex-row sm:w-auto sm:items-center sm:gap-3.5">
+              <a
+                href={whatsappLink({ message: 'Hello Abhishek, I want wholesale rates and catalogue for aluminium hardware in Raipur.', source: '/', campaign: 'hero' })}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics="click_whatsapp"
+                data-analytics-location="hero"
+                className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30"
+              >
+                <WhatsAppIcon className="w-4 h-4 shrink-0" />
+                <span>WhatsApp Rates</span>
+              </a>
 
-            <Link
-              href="/products"
-              className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg border border-white/30 backdrop-blur-md transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer active:scale-95 shrink-0"
-            >
-              <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 shrink-0" />
-              <span>Catalogue</span>
-            </Link>
+              <a
+                href={TEL_HREF}
+                data-analytics="click_call"
+                data-analytics-location="hero"
+                className="w-full sm:w-auto px-4 py-3 sm:px-6 sm:py-3.5 bg-[#0B1F3A] hover:bg-[#1E293B] text-white font-bold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg border border-[#D4AF37]/50 transition-all flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg cursor-pointer active:scale-95 shrink-0 select-none relative z-30"
+              >
+                <PhoneCall className="w-4 h-4 text-[#D4AF37] shrink-0" />
+                <span>Call Abhishek</span>
+              </a>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2.5 w-full sm:flex sm:flex-row sm:w-auto sm:items-center sm:gap-3.5">
+              <button
+                type="button"
+                suppressHydrationWarning
+                onClick={() => openEnquiryModal()}
+                className="w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 bg-[#8A6408] hover:bg-[#6F5006] text-white font-semibold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 shrink-0 select-none relative z-30"
+              >
+                <span>Request Quote</span>
+                <ArrowRight className="w-3.5 h-3.5 text-white shrink-0" />
+              </button>
+
+              <Link
+                href="/products"
+                className="w-full sm:w-auto px-4 py-2.5 sm:px-5 sm:py-3 bg-black/40 hover:bg-black/60 text-white font-semibold text-xs uppercase tracking-wider rounded-xl sm:rounded-lg border border-white/30 backdrop-blur-md transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 shrink-0"
+              >
+                <Layers className="w-3.5 h-3.5 text-slate-300 shrink-0" />
+                <span>Catalogue (86 SKUs)</span>
+              </Link>
+            </div>
           </div>
 
           {/* Factual Footnote */}
           <div className="pt-2 sm:pt-4 flex items-center justify-between sm:justify-start gap-2 sm:gap-6 text-[10px] sm:text-xs text-slate-200 font-medium drop-shadow-sm">
             <span className="flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
-              Finetek Raipur
+              Salasar Raipur
             </span>
             <span className="text-slate-400">•</span>
-            <span>86+ SKUs In Stock</span>
+            <span>86 SKUs In Stock</span>
             <span className="text-slate-400">•</span>
-            <span>Same-Day Dispatch</span>
+            <span>Delivery across Chhattisgarh</span>
           </div>
         </div>
       </div>

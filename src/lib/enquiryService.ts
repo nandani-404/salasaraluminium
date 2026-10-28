@@ -62,7 +62,7 @@ export async function saveEnquiryRecord(data: EnquiryFormData, leadId: string): 
     lead_id: leadId,
     full_name: data.fullName,
     phone: data.phone,
-    email: data.email,
+    email: data.email || 'Not provided',
     company_name: data.companyName || null,
     business_type: data.businessType || null,
     product_category: data.productCategory || null,
@@ -71,7 +71,7 @@ export async function saveEnquiryRecord(data: EnquiryFormData, leadId: string): 
     preferred_finish: data.preferredFinish || null,
     delivery_location: data.deliveryLocation || null,
     state: data.state || null,
-    message: data.message,
+    message: data.message || 'Quick callback / wholesale rate enquiry',
     status: 'new',
     notes: null,
   };

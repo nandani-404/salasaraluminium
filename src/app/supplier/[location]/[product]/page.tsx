@@ -21,9 +21,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!data) return {};
 
-  const rawTitle = `Wholesale ${data.product.name} ${data.location.name}`;
+  const rawTitle = `Supplier of ${data.product.name} ${data.location.name}`;
   const title = rawTitle.length > 38 ? `${rawTitle.substring(0, 35)}...` : rawTitle;
-  const rawDesc = `Wholesale B2B supplier of ${data.product.name} (${data.product.saCode}) in ${data.location.name}. Direct trade pricing for fabricators and builders. Same-day dispatch.`;
+  const rawDesc = `Supplier of ${data.product.name} (${data.product.saCode}) in ${data.location.name}. Retail and trade rates for fabricators and builders. Delivery across Chhattisgarh.`;
   const description = rawDesc.length > 150 ? `${rawDesc.substring(0, 147)}...` : rawDesc;
   const canonicalUrl = `${BASE_URL}/supplier/${data.location.slug}/${data.product.slug}`;
 
@@ -89,7 +89,7 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
     '@type': 'Product',
     name: `${prod.name} (Code: ${prod.saCode})`,
     image: `${BASE_URL}/cat-rollers.png`,
-    description: `Wholesale ${prod.name} manufactured with ${prod.material} in ${prod.finish} finish. Trade distribution to ${loc.name}, ${loc.state}.`,
+    description: `${prod.name} supplied in ${prod.material} with ${prod.finish} finish. Trade distribution to ${loc.name}, ${loc.state}.`,
     sku: prod.saCode,
     mpn: prod.saCode,
     brand: {
@@ -251,11 +251,11 @@ export default async function PSEOSupplierProductPage({ params }: PageProps) {
                 <ul className="space-y-3 text-sm text-neutral-300">
                   <li className="flex items-start gap-2.5">
                     <span className="text-amber-400 font-bold">•</span>
-                    <span><strong>Direct Factory Trade Pricing:</strong> Get competitive wholesale rates with zero middleman markup.</span>
+                    <span><strong>Competitive Trade Pricing:</strong> Get retail and trade rates quoted directly based on quantity and finish.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className="text-amber-400 font-bold">•</span>
-                    <span><strong>Guaranteed Material Quality:</strong> Manufactured to stringent architectural standards for long-lasting performance.</span>
+                    <span><strong>Guaranteed Material Quality:</strong> Built to stringent architectural standards for long-lasting performance.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <span className="text-amber-400 font-bold">•</span>

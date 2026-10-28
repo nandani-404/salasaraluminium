@@ -4,7 +4,7 @@ import React from 'react';
 import { TEL_HREF } from '@/config/business';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Factory, Building2, Truck, ShieldCheck, PhoneCall, ArrowRight, CheckCircle2, Award } from 'lucide-react';
+import { Layers, Building2, Truck, ShieldCheck, PhoneCall, ArrowRight, CheckCircle2, Award } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES } from '@/lib/sahData';
 import TradeQuoteFormSection from '@/components/TradeQuoteFormSection';
@@ -21,7 +21,7 @@ export default function WholesaleClient() {
         <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:24px_24px] opacity-15" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
           <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-[#D4AF37]/15 border border-[#D4AF37]/30 rounded-full text-xs font-bold text-[#D4AF37] uppercase tracking-widest">
-            <span>Direct B2B Trade Supply Desk</span>
+            <span>Direct Trade Supply Desk</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight max-w-4xl">
@@ -29,7 +29,7 @@ export default function WholesaleClient() {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl font-medium leading-relaxed">
-            Direct wholesale prices for hardware dealers, aluminium fabricators, glass contractors, and retail shops across Chhattisgarh & Central India. Bulk orders, factory rates, zero retail markup.
+            Trade rates for hardware dealers, aluminium fabricators, glass contractors, builders, and homeowners across Chhattisgarh. Retail and trade rates quoted on enquiry based on quantity and finish.
           </p>
 
           <div className="pt-4 flex flex-wrap gap-4">
@@ -37,7 +37,7 @@ export default function WholesaleClient() {
               onClick={() => openEnquiryModal()}
               className="px-6 py-3.5 bg-[#B8860B] hover:bg-[#D4AF37] text-[#0B1F3A] text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-lg cursor-pointer"
             >
-              Request Wholesale Price List
+              Request Price List
             </button>
             <a
               href={TEL_HREF}
@@ -55,12 +55,12 @@ export default function WholesaleClient() {
           <div className="col-span-1 p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 sm:space-y-3 flex flex-col justify-between">
             <div className="space-y-2 sm:space-y-3">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold shrink-0">
-                <Factory className="w-5 h-5 sm:w-6 sm:h-6" />
+                <Layers className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Finetek Extrusions</h2>
+              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Hardware Catalogue</h2>
             </div>
             <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
-              Extruded architectural sections and customized industrial T-slot profiles produced under strict ISO tolerance standards.
+              86 standardized hardware items across 12 categories, including rollers, locks, hinges, door kits, closers and shower fittings.
             </p>
           </div>
 
@@ -69,10 +69,10 @@ export default function WholesaleClient() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center font-bold shrink-0">
                 <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Lieon Marketing Hub</h2>
+              <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Salasar Raipur Shop</h2>
             </div>
             <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
-              Central Bhaisthan warehouse carrying ready stock of 86 standardized hardware SKUs for instant trade dispatch.
+              Central shop in Bhaisthan, Raipur carrying ready stock of 86 standardized hardware SKUs for trade and retail buyers.
             </p>
           </div>
 
@@ -82,12 +82,12 @@ export default function WholesaleClient() {
                 <Truck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Same-Day Dispatch</h2>
-                <p className="text-[10px] text-[#8A6408] font-bold sm:hidden">Priority Regional Transport</p>
+                <h2 className="text-xs sm:text-lg font-bold text-[#0B1F3A] leading-snug">Delivery Across CG</h2>
+                <p className="text-[10px] text-[#8A6408] font-bold sm:hidden">Regional Transport</p>
               </div>
             </div>
             <p className="text-[11px] sm:text-xs text-[#475569] leading-relaxed">
-              Daily transport dispatch to Bhilai, Durg, Bilaspur, Korba, Rajnandgaon, and all major Chhattisgarh trade hubs.
+              Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.
             </p>
           </div>
         </div>
@@ -129,12 +129,12 @@ export default function WholesaleClient() {
         faqs={[
           {
             question: 'How do I place a wholesale order or get a trade quote?',
-            answer: 'Submit an enquiry through our website\'s "Request Trade Quote" form, or call/WhatsApp our sales director Abhishek directly at +91 8007443071 / +91 9079332560 for instant wholesale pricing and order placement.',
+            answer: 'Submit an enquiry through our website\'s "Request Trade Quote" form, or call/WhatsApp our sales director Abhishek directly at +91 80074 43071 / +91 90793 32560 for pricing and order placement.',
             category: 'Orders & Quotes',
           },
           {
-            question: 'Do you supply outside Chhattisgarh?',
-            answer: 'Yes — we supply Pan-India for bulk trade orders, in addition to same-day regional dispatch within Chhattisgarh.',
+            question: 'Do you supply outside Raipur?',
+            answer: 'We supply across Chhattisgarh and Pan-India for trade orders. Delivery cost and timing are confirmed against your order before you pay.',
             category: 'Logistics',
           },
           {

@@ -13,7 +13,7 @@ export function Footer() {
             <div>
               <h4 className="font-serif text-lg text-[#FAF7F0]">Certified Alloys</h4>
               <p className="text-xs text-[#FAF7F0]/70 mt-1 leading-relaxed">
-                Extruded from EN AW-6063 T6 & Zamak 5 alloys meeting strict BIS & CE international standards.
+                Engineered from EN AW-6063 T6 & Zamak 5 alloys meeting strict BIS & CE international standards.
               </p>
             </div>
           </div>
@@ -52,12 +52,12 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[#FAF7F0]/70 max-w-sm leading-relaxed">
-              India’s premier architectural hardware showroom and custom aluminium extrusion specialist. Serving residential, commercial, and industrial clients with precision engineering since 1994.
+              Aluminium and glass hardware supplier in Raipur. Serving residential, commercial, and trade clients with door, window, and architectural hardware.
             </p>
             <div className="pt-2">
-              <span className="eyebrow text-[#B08D57]">Showroom & Experience Centre</span>
+              <span className="eyebrow text-[#B08D57]">Our Shop in Raipur</span>
               <p className="text-xs text-[#FAF7F0]/80 mt-1">
-                102 Hardware Galleria, SV Road, Mumbai, MH 400053
+                Shop No. 3, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh 492001
               </p>
             </div>
           </div>
@@ -88,7 +88,7 @@ export function Footer() {
           <div className="space-y-3">
             <h4 className="font-serif text-sm text-[#FAF7F0] uppercase tracking-wider">Industrial & Trade</h4>
             <ul className="space-y-2 text-xs text-[#FAF7F0]/70">
-              <li><Link href="/industrial/t-slot-profiles" className="hover:text-[#B08D57] transition-colors">T-Slot Extrusions</Link></li>
+              <li><Link href="/industrial/t-slot-profiles" className="hover:text-[#B08D57] transition-colors">T-Slot Profiles</Link></li>
               <li><Link href="/industrial/conveyor-profiles" className="hover:text-[#B08D57] transition-colors">Conveyor Systems</Link></li>
               <li><Link href="/industrial/solar-profiles" className="hover:text-[#B08D57] transition-colors">Solar Racking</Link></li>
               <li><Link href="/about" className="hover:text-[#B08D57] transition-colors">Brand Story</Link></li>
@@ -99,7 +99,7 @@ export function Footer() {
 
         {/* Bottom Legal & Copyright */}
         <div className="pt-8 border-t border-[#D8D1C4]/20 flex flex-col md:flex-row items-center justify-between text-[11px] text-[#FAF7F0]/50 space-y-4 md:space-y-0">
-          <p>© {new Date().getFullYear()} Salasar Aluminium & Hardware Ltd. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Salasar Aluminium & Hardware. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <span className="hover:text-[#B08D57] transition-colors cursor-pointer">Privacy Policy</span>
             <span className="hover:text-[#B08D57] transition-colors cursor-pointer">Terms of Supply</span>

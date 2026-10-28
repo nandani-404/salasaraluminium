@@ -45,3 +45,6 @@ src/data/*.json
 
 # Lighthouse run artefacts (scripts/lighthouse-run.mjs)
 .lighthouse/
+
+# scratch directory
+scratch/

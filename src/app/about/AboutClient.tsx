@@ -4,7 +4,7 @@ import React from 'react';
 import { BUSINESS, TEL_HREF } from '@/config/business';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Award, ShieldCheck, Factory, Truck, CheckCircle2, MapPin, Building2, PhoneCall, ExternalLink } from 'lucide-react';
+import { Award, ShieldCheck, Layers, Truck, CheckCircle2, MapPin, Building2, PhoneCall, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { SAH_BUSINESS_DETAILS } from '@/lib/sahData';
 import FAQSection from '@/components/FAQSection';
@@ -62,9 +62,9 @@ export default function AboutClient() {
                   <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-[#B8860B]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform" />
                   <div>
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-xs group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
-                      <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">One counter, real stock</h3>
+                    <h2 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">One counter, real stock</h2>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-relaxed">
                     Everything we list is held at the Bhaisthan counter, so you can match a part by hand before you buy it.
@@ -77,7 +77,7 @@ export default function AboutClient() {
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0B1F3A] text-[#D4AF37] flex items-center justify-center mb-2 sm:mb-3 shadow-xs group-hover:bg-[#8A6408] group-hover:text-white transition-colors">
                       <Building2 className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <h3 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h3>
+                    <h2 className="text-xs sm:text-sm font-extrabold text-[#0B1F3A] mb-1 leading-tight">Trade and single-project</h2>
                   </div>
                   <p className="text-[11px] sm:text-xs text-[#64748B] leading-relaxed">
                     Box and bulk quantities for dealers and fabricators, single pieces for a homeowner fixing one window.
@@ -119,8 +119,8 @@ export default function AboutClient() {
                       <span className="text-[9px] text-[#64748B] font-medium">At Counter</span>
                     </div>
                     <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
-                      <span className="block text-xs font-black text-[#8A6408]">Same-Day</span>
-                      <span className="text-[9px] text-[#64748B] font-medium">Dispatch</span>
+                      <span className="block text-xs font-black text-[#8A6408]">Delivery</span>
+                      <span className="text-[9px] text-[#64748B] font-medium">Across CG</span>
                     </div>
                   </div>
                 </div>
@@ -221,8 +221,8 @@ export default function AboutClient() {
                         <span className="text-[9px] text-[#64748B] font-medium">At Counter</span>
                       </div>
                       <div className="bg-[#F8FAFC] p-2 rounded-xl border border-slate-100">
-                        <span className="block text-xs font-black text-[#8A6408]">Same-Day</span>
-                        <span className="text-[9px] text-[#64748B] font-medium">Dispatch</span>
+                        <span className="block text-xs font-black text-[#8A6408]">Delivery</span>
+                        <span className="text-[9px] text-[#64748B] font-medium">Across CG</span>
                       </div>
                     </div>
                   </div>
@@ -336,14 +336,14 @@ export default function AboutClient() {
               Why Fabricators & Dealers Choose Salasar
             </h2>
             <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
-              Built on certified precision extrusions, wholesale trade value, and fast dispatch.
+              Built on quality hardware products, transparent trade value, and reliable service.
             </p>
           </div>
 
           {/* Minimal Horizontal Cards */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
             {SAH_BUSINESS_DETAILS.pillars.map((pillar, idx) => {
-              const icons = [ShieldCheck, Award, Factory, Truck];
+              const icons = [ShieldCheck, Award, Layers, Truck];
               const IconComp = icons[idx % icons.length];
 
               return (
@@ -380,9 +380,9 @@ export default function AboutClient() {
         title="Frequently asked questions about Salasar Aluminium."
         faqs={[
           {
-            question: 'Where is Salasar Aluminium & Hardware manufactured?',
-            answer: 'We are a supplier and stockist. Products are sourced from manufacturers and held at our Raipur counter, where they are sold to trade buyers and to individual buyers. [CONFIRM] The exact relationship with Swastik Industries, Lieon Marketing and Finetek is set out in the Related Businesses section on this page and needs owner confirmation.',
-            category: 'Manufacturing',
+            question: 'What does Salasar Aluminium & Hardware supply?',
+            answer: 'Salasar Aluminium & Hardware is a supplier of aluminium door, window, glass and shower hardware, fabrication fittings, sealants and mosquito mesh (machar jaali) in Raipur, Chhattisgarh. We sell to homeowners and to trade buyers: dealers, fabricators, contractors, architects and builders.',
+            category: 'Business Profile',
           },
           {
             question: 'How long has Salasar Aluminium & Hardware been supplying the trade in Chhattisgarh?',

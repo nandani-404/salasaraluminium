@@ -31,7 +31,7 @@ export default function IndustriesWeServePage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
-              Salasar Aluminium & Hardware supplies architectural aluminium extrusions and hardware fittings directly to trade buyers across residential, commercial, and industrial construction sectors in Chhattisgarh and Pan-India.
+              Salasar Aluminium & Hardware supplies aluminium door, window, glass and shower hardware directly to trade buyers and homeowners across residential, commercial, and industrial sectors in Chhattisgarh.
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function IndustriesWeServePage() {
               </div>
               <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Architects & Developers</h3>
               <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
-                Curtain wall mullions, frameless glass railing channels, and structural extrusions specified for modern facade and interior work.
+                Frameless glass fittings, shower hinges, partition connectors, and sliding door channels specified for modern facade and interior work.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export default function IndustriesWeServePage() {
               </div>
               <h3 className="text-xs sm:text-base font-bold text-[#0B1F3A] leading-tight">Dealers & Retailers</h3>
               <p className="text-[10px] sm:text-xs text-[#64748B] leading-relaxed line-clamp-3 sm:line-clamp-none">
-                Trade resale stock at direct factory pricing with standardized SA codes for hassle-free reordering.
+                Trade resale stock at competitive trade rates with standardized SA codes for hassle-free reordering.
               </p>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function IndustriesWeServePage() {
         faqs={[
           {
             question: 'Do you supply hardware for both residential and commercial projects?',
-            answer: 'Yes — our catalogue spans both residential-grade and heavier commercial-grade hardware, including reinforced door closers and higher wind-load-rated extrusions for commercial builds.',
+            answer: 'Yes — our catalogue spans both residential-grade and heavier commercial-grade hardware, including reinforced door closers and heavy-duty fittings for commercial builds.',
             category: 'Applications',
           },
           {

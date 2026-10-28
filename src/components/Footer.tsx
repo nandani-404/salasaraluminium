@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { SAH_CATEGORIES } from '@/lib/sahData';
 import { BUSINESS, TEL_HREF } from '@/config/business';
 import { TOPIC_HUBS } from '@/lib/data/hubs';
-import { MapPin, Phone, Building2, Factory, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Building2, ExternalLink } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function Footer() {
@@ -57,17 +57,13 @@ export default function Footer() {
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed max-w-sm font-normal">
-              Wholesale manufacturer & direct supplier of high-tensile aluminium extrusions, door kits, locks, closers, and structural fittings in Raipur.
+              Aluminium and glass hardware supplier in Raipur: door kits, locks, hinges, closers, shower fittings, sealants, and mosquito mesh.
             </p>
 
             <div className="space-y-1.5 sm:space-y-2 pt-1 text-xs text-slate-300">
               <div className="flex items-center space-x-2">
-                <Factory className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span>Branch: <strong className="text-white font-semibold">Finetek, Raipur</strong></span>
-              </div>
-              <div className="flex items-center space-x-2">
                 <Building2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span>Showroom: <strong className="text-white font-semibold">Raipur Main Hardware Hub</strong></span>
+                <span>Salasar Aluminium & Hardware, Raipur</span>
               </div>
             </div>
           </div>
@@ -146,10 +142,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Raipur Showroom Contact */}
+          {/* Raipur Shop Contact */}
           <div className="col-span-1 space-y-3">
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3 sm:mb-4 pb-1 border-b border-white/10">
-              Raipur Store Desk
+              Our Shop in Raipur
             </h2>
             <a
               href={BUSINESS.maps.url}

@@ -58,7 +58,7 @@ export function convertSAHProductToProduct(sah: SAHProduct): Product {
   const faqs: ProductFaq[] = [
     {
       question: `What is the wholesale MOQ and supply lead time for ${sah.name} (${sah.saCode})?`,
-      answer: `We supply ${sah.name} in standard trade box packaging directly from our Raipur warehouse depot with same-day dispatch across Chhattisgarh and 24–48 hour direct transport delivery across Central India.`,
+      answer: `We supply ${sah.name} from our shop in Raipur. Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.`,
     },
     {
       question: `Are wholesale price quotes and commercial trade invoices available for ${sah.name}?`,
@@ -85,7 +85,7 @@ export function convertSAHProductToProduct(sah: SAHProduct): Product {
     moq: 50,
     images: [sah.image],
     shortDescription: sah.shortDesc,
-    description: `${sah.shortDesc} Supplied by Salasar Aluminium & Hardware, Raipur. Manufactured to strict architectural tolerances for smooth operation, corrosion resistance, and high structural reliability in residential and commercial installations.`,
+    description: `${sah.shortDesc} Supplied by Salasar Aluminium & Hardware, Raipur. Built to strict architectural tolerances for smooth operation, corrosion resistance, and high structural reliability in residential and commercial installations.`,
     specs,
     faqs,
     isFeatured: ['sa-1', 'sa-11', 'sa-30', 'sa-33', 'sa-42', 'sa-81'].includes(sah.id),
@@ -165,7 +165,7 @@ export function findProductByAnySlug(slugOrId: string): MatchedProduct | undefin
  */
 export function getCanonicalProductSlugs(): string[] {
   const slugs = new Set<string>();
-  for (const p of products) slugs.add(p.slug);
+
   for (const p of FULL_CATALOGUE_PRODUCTS) slugs.add(getSAHProductSlug(p));
   return Array.from(slugs);
 }
@@ -174,7 +174,7 @@ export function getAllProductStaticSlugs(): string[] {
   const slugs = new Set<string>();
 
   // Showcase items
-  for (const p of products) {
+  if (false) for (const p of products) {
     slugs.add(p.slug);
   }
 

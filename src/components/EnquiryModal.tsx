@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { X, CheckCircle2, ArrowRight, PhoneCall, Shield } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
-import { SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import { FULL_CATALOGUE_PRODUCTS, CATALOGUE_BY_CATEGORY_NUMERIC, ALL_INDIAN_STATES } from '@/lib/sahData';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 const QUANTITY_PRESETS = ['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'];
@@ -265,7 +265,7 @@ export default function EnquiryModal() {
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5">
                   <div>
                     <label className="block text-[11px] font-medium text-slate-600 mb-1 truncate">
-                      Email Address *
+                      Email Address <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
@@ -301,17 +301,21 @@ export default function EnquiryModal() {
                       className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs text-slate-900 font-medium focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-colors cursor-pointer"
                     >
                       <option value="">-- Select Product / General Enquiry --</option>
-                      {FULL_CATALOGUE_PRODUCTS.map((product) => (
-                        <option key={product.id} value={product.saCode}>
-                          {product.saCode} : {product.name}
-                        </option>
+                      {CATALOGUE_BY_CATEGORY_NUMERIC.map((group) => (
+                        <optgroup key={group.category.slug} label={group.category.name}>
+                          {group.products.map((product) => (
+                            <option key={product.id} value={product.saCode}>
+                              {product.saCode} : {product.name}
+                            </option>
+                          ))}
+                        </optgroup>
                       ))}
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-[11px] font-medium text-slate-600 mb-1">
-                      Quantity Required *
+                      Quantity Required <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
                     <input
                       type="text"
@@ -375,7 +379,7 @@ export default function EnquiryModal() {
                 {/* Notes */}
                 <div>
                   <label className="block text-[11px] font-medium text-slate-600 mb-1">
-                    Requirements & Notes *
+                    Requirements & Notes <span className="text-slate-400 font-normal">(Optional)</span>
                   </label>
                   <textarea
                     rows={2}

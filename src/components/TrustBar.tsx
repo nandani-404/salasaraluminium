@@ -9,12 +9,12 @@ export default function TrustBar() {
   const pillars = [
     {
       title: 'Premium Quality',
-      desc: 'Superior grade extruded alloys',
+      desc: 'Superior grade robust hardware',
       icon: <Award className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Wide Catalogue',
-      desc: '86+ trade hardware SKUs in stock',
+      desc: '86 trade hardware SKUs in stock',
       icon: <Layers className="w-4 h-4 text-[#8A6408]" />
     },
     {
@@ -24,17 +24,17 @@ export default function TrustBar() {
     },
     {
       title: 'Trusted Partner',
-      desc: 'Direct factory trade pricing',
+      desc: 'Retail and trade rates on enquiry',
       icon: <CheckCircle2 className="w-4 h-4 text-[#8A6408]" />
     },
     {
-      title: 'Raipur Stock Hub',
-      desc: 'Same-day regional dispatch',
+      title: 'Delivery in CG',
+      desc: 'Delivery across Chhattisgarh',
       icon: <Truck className="w-4 h-4 text-[#8A6408]" />
     },
     {
       title: 'Custom Orders',
-      desc: 'Tailored extrusion lengths & specs',
+      desc: 'Project-specific hardware specs',
       icon: <Wrench className="w-4 h-4 text-[#8A6408]" />
     }
   ];

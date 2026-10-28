@@ -32,7 +32,7 @@ export default function FabricationConsumablesPage() {
         {
           heading: 'Screws and fasteners',
           intro:
-            'Self-drilling screws (SDS) cut their own pilot hole in aluminium and sheet metal. Self-tapping screws (STS) need a pilot but hold better in extrusion. Black phosphate drywall screws are for partition board only — they corrode anywhere damp. Carriage bolts give a clean domed head with no visible drive where the fixing will be seen.',
+            'Self-drilling screws (SDS) cut their own pilot hole in aluminium and sheet metal. Self-tapping screws (STS) need a pilot but hold better in aluminium sections. Black phosphate drywall screws are for partition board only — they corrode anywhere damp. Carriage bolts give a clean domed head with no visible drive where the fixing will be seen.',
           categorySlug: 'fasteners-screws',
           products: productsInCategory('fasteners-screws'),
         },
@@ -65,9 +65,9 @@ export default function FabricationConsumablesPage() {
             'Send us the list of what you get through in a typical month and we will keep it moving rather than have you discover a shortage mid-job. Quote SA codes on a reorder and we can pick it without a conversation about specification.',
         },
         {
-          question: 'Which screw should I use in aluminium extrusion?',
+          question: 'Which screw should I use in aluminium sections?',
           answer:
-            'A self-tapping screw made for aluminium. A wood screw strips the thread in thin extrusion and the fitting works loose — this is one of the most common causes of a hardware item failing months after it was fitted. Self-drilling screws are for sheet and thinner sections where you want to skip the pilot hole.',
+            'A self-tapping screw made for aluminium. A wood screw strips the thread in thin aluminium sections and the fitting works loose — this is one of the most common causes of a hardware item failing months after it was fitted. Self-drilling screws are for sheet and thinner sections where you want to skip the pilot hole.',
         },
         {
           question: 'What are your trade rates?',

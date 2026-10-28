@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Phone, Mail, MapPin, Clock, Send, ShieldCheck, CheckCircle2, Building2, PhoneCall, ExternalLink } from 'lucide-react';
 import { enquirySchema, EnquiryFormData } from '@/lib/schema';
-import { SAH_BUSINESS_DETAILS, SAH_CATEGORIES, FULL_CATALOGUE_PRODUCTS, ALL_INDIAN_STATES } from '@/lib/sahData';
+import { SAH_BUSINESS_DETAILS, CATALOGUE_BY_CATEGORY_NUMERIC, ALL_INDIAN_STATES } from '@/lib/sahData';
 import FAQSection from '@/components/FAQSection';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
@@ -31,7 +31,7 @@ export default function ContactClient() {
   const QUANTITY_PRESETS = ['10 Boxes', '50 Boxes', '100+ Boxes', 'Bulk Order'];
 
   const getWhatsAppQuoteUrl = () => {
-    const parts = ['*Wholesale Trade Quote Request - Salasar Aluminium*'];
+    const parts = ['*Trade Quote Request - Salasar Aluminium*'];
     const name = watch('fullName');
     const company = watch('companyName');
     const code = watch('saProductCode');
@@ -187,7 +187,7 @@ export default function ContactClient() {
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                   <div>
                     <label className="block text-[11px] sm:text-xs font-medium sm:font-semibold text-slate-700 mb-1 truncate">
-                      Email Address *
+                      Email Address <span className="text-slate-400 font-normal">(Optional)</span>
                     </label>
                     <input
                       type="email"
@@ -223,10 +223,14 @@ export default function ContactClient() {
                       className="w-full px-2.5 py-2 sm:px-3.5 sm:py-2.5 bg-slate-50/60 border border-slate-200 rounded-lg sm:rounded-xl text-xs text-slate-900 focus:bg-white focus:outline-none focus:border-slate-900 focus:ring-1 focus:ring-slate-900 transition-all cursor-pointer truncate"
                     >
                       <option value="">-- General Hardware Enquiry --</option>
-                      {FULL_CATALOGUE_PRODUCTS.map((product) => (
-                        <option key={product.id} value={product.saCode}>
-                          {product.saCode} : {product.name}
-                        </option>
+                      {CATALOGUE_BY_CATEGORY_NUMERIC.map((group) => (
+                        <optgroup key={group.category.slug} label={group.category.name}>
+                          {group.products.map((product) => (
+                            <option key={product.id} value={product.saCode}>
+                              {product.saCode} : {product.name}
+                            </option>
+                          ))}
+                        </optgroup>
                       ))}
                     </select>
                   </div>
@@ -281,7 +285,7 @@ export default function ContactClient() {
                 {/* Requirements & Notes */}
                 <div>
                   <label className="block text-xs font-medium text-slate-700 mb-1.5">
-                    Requirements & Project Details *
+                    Requirements & Project Details <span className="text-slate-400 font-normal">(Optional)</span>
                   </label>
                   <textarea
                     rows={3}
@@ -354,7 +358,7 @@ export default function ContactClient() {
               </div>
 
               <div className="pt-2 text-xs text-gray-300 border-t border-white/10 space-y-1">
-                <div><strong>Branches:</strong> Salasar Aluminium & Hardware (Raipur), Lieon Marketing (Raipur) & Finetek (Raipur)</div>
+                <div><strong>Shop:</strong> Salasar Aluminium & Hardware, Raipur</div>
               </div>
             </div>
 

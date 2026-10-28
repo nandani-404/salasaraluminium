@@ -356,7 +356,7 @@ Light versus heavy
 
 Size is length. Light and heavy describe the gauge of the material and the quality of the mechanism, and the two are independent — you can have a heavy 4-inch or a light 6-inch.
 
-A light bolt uses thinner extruded section. The pin is slimmer, the barrel walls are thinner and the mounting plate flexes more under load. It works, and for a bathroom door it works indefinitely.
+A light bolt uses thinner aluminium section. The pin is slimmer, the barrel walls are thinner and the mounting plate flexes more under load. It works, and for a bathroom door it works indefinitely.
 
 A heavy bolt uses a thicker barrel and a more substantial pin, and the slide action is usually better damped. On a door that is bolted and unbolted several times a day, that difference shows up as a mechanism that still slides cleanly in five years rather than one that has started to bind.
 
@@ -396,17 +396,17 @@ Tower bolts are made in aluminium and stainless steel, in the usual plated and c
       {
         question: 'What is the difference between a C-channel and a G-channel?',
         answer:
-          'They are different extruded profiles, named for their cross-section. A C-channel is an open C-shaped guide; a G-channel has an additional return lip that captures the roller more fully. The roller must match the channel — they are not interchangeable.',
+          'They are different aluminium profiles, named for their cross-section. A C-channel is an open C-shaped guide; a G-channel has an additional return lip that captures the roller more fully. The roller must match the channel — they are not interchangeable.',
       },
       {
         question: 'Can I replace a worn track without replacing the window?',
         answer:
-          'Usually yes. The channel is a separate extruded section fitted into the frame, so a worn or bent one can be taken out and replaced while the frame stays in place. Bring an offcut so the profile can be matched exactly.',
+          'Usually yes. The channel is a separate aluminium section fitted into the frame, so a worn or bent one can be taken out and replaced while the frame stays in place. Bring an offcut so the profile can be matched exactly.',
       },
     ],
     content: `Two profiles, named for their shape
 
-C-channel and G-channel are both extruded aluminium guide sections that the roller runs in. The names describe the cross-section when you look at a cut end.
+C-channel and G-channel are both aluminium guide sections that the roller runs in. The names describe the cross-section when you look at a cut end.
 
 A C-channel is an open C: a base with two upstands. The roller sits in the trough and is guided by the sides. It is the simpler section and the more common one in ordinary residential sliding windows.
 

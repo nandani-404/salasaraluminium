@@ -16,9 +16,56 @@ export interface SAHCategory {
   slug: string;
   name: string;
   codePrefix: string;
+  itemCount: number;
   description: string;
   image: string;
   iconName: string;
+}
+
+/**
+ * Helper to compute concise SKU ranges from a list of SA codes.
+ * Collapses 3+ consecutive numbers into ranges ('SA-1 to SA-10')
+ * and lists individual numbers or 2-item pairs explicitly ('SA-12, SA-13', 'SA-45, SA-46').
+ */
+export function formatSkuRanges(skus: string[]): string {
+  if (!skus || skus.length === 0) return '';
+  const nums = skus
+    .map((s) => {
+      const n = parseInt(s.replace(/\D/g, ''), 10);
+      return isNaN(n) ? null : n;
+    })
+    .filter((n): n is number => n !== null)
+    .sort((a, b) => a - b);
+
+  if (nums.length === 0) return '';
+
+  const ranges: string[] = [];
+  let start = nums[0];
+  let prev = nums[0];
+
+  function pushRange(s: number, p: number) {
+    if (s === p) {
+      ranges.push('SA-' + s);
+    } else if (p === s + 1) {
+      ranges.push('SA-' + s);
+      ranges.push('SA-' + p);
+    } else {
+      ranges.push('SA-' + s + ' to SA-' + p);
+    }
+  }
+
+  for (let i = 1; i < nums.length; i++) {
+    const curr = nums[i];
+    if (curr === prev + 1) {
+      prev = curr;
+    } else {
+      pushRange(start, prev);
+      start = curr;
+      prev = curr;
+    }
+  }
+  pushRange(start, prev);
+  return ranges.join(', ');
 }
 
 export const SAH_BUSINESS_DETAILS = {
@@ -26,32 +73,29 @@ export const SAH_BUSINESS_DETAILS = {
   logoMark: 'SAH',
   tagline: 'QUALITY • STRENGTH • TRUST',
   secondaryLine: 'Strength in Every Detail, Quality in Every Product.',
-  businessType: 'Wholesale Manufacturer & Supplier of Aluminium & Hardware Products',
-  manufacturedBy: '',
+  businessType: 'Supplier of Aluminium Door, Window, Glass & Shower Hardware',
+  suppliedBy: 'Salasar Aluminium & Hardware',
   branches: [
-    { name: 'Salasar Aluminium & Hardware', location: 'Raipur' },
-    { name: 'Lieon Marketing', location: 'Raipur' },
-    { name: 'Finetek', location: 'Raipur' }
+    { name: 'Salasar Aluminium & Hardware', location: 'Raipur' }
   ],
-  address: 'Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001',
+  address: 'Shop No. 3, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh 492001',
   googleMapsUrl: 'https://www.google.com/maps/place/Salasar+Aluminium+hardware/@21.2480051,81.6254585,17z/data=!3m1!4b1!4m6!3m5!1s0x3a28ddad7a46804b:0xb79590d9017166be!8m2!3d21.2480001!4d81.6280388!16s%2Fg%2F11nblxggfj?hl=en',
   googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.5924176815556!2d81.6254585!3d21.2480051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28ddad7a46804b%3A0xb79590d9017166be!2sSalasar%20Aluminium%20hardware!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   contactPersons: [
     { name: 'Abhishek', phoneNumbers: ['+91 8007443071', '+91 9079332560'] }
   ],
   pillars: [
-    { title: 'Premium Quality', desc: 'Superior grade extruded alloys & robust hardware', icon: 'Award' },
-    { title: 'Wide Range', desc: 'Comprehensive 86+ hardware product catalogue', icon: 'Layers' },
+    { title: 'Premium Quality', desc: 'Superior grade alloys & robust hardware', icon: 'Award' },
+    { title: 'Wide Range', desc: 'Comprehensive 86 hardware product catalogue', icon: 'Layers' },
     { title: 'Durable Finish', desc: 'Long-lasting anodized & powder-coated performance', icon: 'Shield' },
-    { title: 'Trusted Partner', desc: 'Direct trade pricing & commitment you can rely on', icon: 'CheckCircle2' }
+    { title: 'Trusted Partner', desc: 'Retail and trade rates & commitment you can rely on', icon: 'CheckCircle2' }
   ]
 };
 
-export const SAH_CATEGORIES: SAHCategory[] = [
+const BASE_SAH_CATEGORIES: Omit<SAHCategory, 'codePrefix' | 'itemCount'>[] = [
   {
     slug: 'rollers-bearings-channels',
     name: 'Rollers, Bearings & Channels',
-    codePrefix: 'SA-1 to SA-13',
     description: 'Precision rolling mechanisms, ball bearings, needle bearings, C-Channels & G-Channels for sliding doors and windows.',
     image: '/cat-rollers.png',
     iconName: 'Settings'
@@ -59,7 +103,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'locks-latches',
     name: 'Locks & Latches',
-    codePrefix: 'SA-11 to SA-23',
     description: 'Security locks including Domal, Touch, Crescent, Air Lift, MS/SS locks, and HDPVC latches.',
     image: '/cat-locks.png',
     iconName: 'Lock'
@@ -67,7 +110,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'door-window-seals',
     name: 'Door & Window Seals / Stoppers',
-    codePrefix: 'SA-24 to SA-26',
     description: 'Acoustic door seals, plastic weather seals, and window stoppers for insulation and protection.',
     image: '/cat-seals.png',
     iconName: 'ShieldAlert'
@@ -75,7 +117,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'hinges',
     name: 'Hinges',
-    codePrefix: 'SA-27 to SA-29',
     description: '2D, 3D adjustable aluminium hinges and continuous heavy-duty hardware hinges.',
     image: '/cat-hinges.png',
     iconName: 'Maximize2'
@@ -83,7 +124,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'door-kits',
     name: 'Door Kits',
-    codePrefix: 'SA-30 to SA-34',
     description: 'Aluminium and Stainless Steel mini, heavy, and multi-finish door kit assemblies.',
     image: '/cat-doorkits.png',
     iconName: 'DoorClosed'
@@ -91,7 +131,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'bolts-handles',
     name: 'Bolts & Handles',
-    codePrefix: 'SA-35 to SA-41',
     description: 'Tower bolts, American handles, Taiwan handles, D-handles, H-handles, and handle locks.',
     image: '/cat-handles.png',
     iconName: 'GripVertical'
@@ -99,7 +138,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'door-closers',
     name: 'Door Closers',
-    codePrefix: 'SA-42 to SA-44',
     description: 'Hydraulic door closers, slim pencil closers, and heavy capsule door closer systems.',
     image: '/cat-doorclosers.png',
     iconName: 'CornerDownRight'
@@ -107,7 +145,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'fittings-accessories',
     name: 'Fittings & Accessories',
-    codePrefix: 'SA-45 to SA-54',
     description: 'Floor springs, wall plugs, partition connectors, glass stickers, PVC angles, and U-channels.',
     image: '/cat-fittings.png',
     iconName: 'Wrench'
@@ -115,7 +152,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'tapes-sealants-adhesives',
     name: 'Tapes, Sealants & Adhesives',
-    codePrefix: 'SA-47 to SA-57',
     description: 'VHB clear/grey structural tapes, EPDM rubber gaskets, silicone sealants, PU foam, and heavy applicator guns.',
     image: '/cat-adhesives.png',
     iconName: 'Disc'
@@ -123,7 +159,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'fasteners-screws',
     name: 'Fasteners & Screws',
-    codePrefix: 'SA-58 to SA-64',
     description: 'SDS self-drilling screws, drywall screws, wood screws, carriage bolts, STS screws, friction stays, and arm stays.',
     image: '/cat-fasteners.png',
     iconName: 'Hash'
@@ -131,7 +166,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'glass-hardware-shower-fittings',
     name: 'Glass Hardware & Shower Fittings',
-    codePrefix: 'SA-65 to SA-78',
     description: 'Frameless glass rollers, knobs, patch locks, center locks, L-connectors, and 0°/90°/180° CP shower hinges.',
     image: '/cat-glassshower.png',
     iconName: 'Sparkles'
@@ -139,7 +173,6 @@ export const SAH_CATEGORIES: SAHCategory[] = [
   {
     slug: 'abrasives-mesh-misc',
     name: 'Abrasives, Mesh & Misc.',
-    codePrefix: 'SA-79 to SA-86',
     description: 'Flap disks, cutting wheels, mosquito jaali (SS/Black/Plastic), louvers, corner cleats, and espagnolette locks.',
     image: '/cat-abrasives.png',
     iconName: 'Grid'
@@ -157,8 +190,8 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-8', saCode: 'SA-8', name: 'Double Swing Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Self-aligning double swing roller assembly for heavy sliding patio doors.', image: '/double-swing-roller-v1.png' },
   { id: 'sa-9', saCode: 'SA-9', name: 'C-Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'C-section track roller wheel designed for smooth low-friction gliding.', image: '/c-roller-v1.png' },
   { id: 'sa-10', saCode: 'SA-10', name: 'G-Roller', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'G-profile guiding roller wheel assembly for specialized architectural sections.', image: '/g-roller-v1.png' },
-  { id: 'sa-12', saCode: 'SA-12', name: 'C-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Extruded aluminium C-channel guide section for roller track mounting.', image: '/c-channel-v1.png' },
-  { id: 'sa-13', saCode: 'SA-13', name: 'G-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Precision extruded G-channel structural guide profile.', image: '/g-channel-v1.png' },
+  { id: 'sa-12', saCode: 'SA-12', name: 'C-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Aluminium C-channel guide section for roller track mounting.', image: '/c-channel-v1.png' },
+  { id: 'sa-13', saCode: 'SA-13', name: 'G-Channel', categorySlug: 'rollers-bearings-channels', categoryName: 'Rollers, Bearings & Channels', shortDesc: 'Precision G-channel structural guide profile.', image: '/g-channel-v1.png' },
 
   // B. Locks & Latches
   { id: 'sa-11', saCode: 'SA-11', name: 'Lock – HDPVC / Metal', categorySlug: 'locks-latches', categoryName: 'Locks & Latches', finishes: ['CP (Silver)', 'Black', 'Ivory', 'Dark Brown', 'Gold', 'White', 'Matte Black'], shortDesc: 'Versatile HDPVC & metal body lock mechanism available in 7 premium finishes.', image: '/lock-hdpvc-metal-v1.png' },
@@ -181,7 +214,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   // D. Hinges
   { id: 'sa-27', saCode: 'SA-27', name: '2D Adjustable Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: '2-way micro-adjustable aluminium door hinge for flush alignment.', image: '/2d-hinge-v1.png' },
   { id: 'sa-28', saCode: 'SA-28', name: '3D Adjustable Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Heavy 3-way adjustable hinge allowing height, depth, and side adjustments.', image: '/3d-hinge-v1.png' },
-  { id: 'sa-29', saCode: 'SA-29', name: 'Standard Aluminium Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Durable extruded aluminium butt hinge for residential door shutters.', image: '/standard-aluminium-hinge-v1.png' },
+  { id: 'sa-29', saCode: 'SA-29', name: 'Standard Aluminium Hinges', categorySlug: 'hinges', categoryName: 'Hinges', shortDesc: 'Durable aluminium butt hinge for residential door shutters.', image: '/standard-aluminium-hinge-v1.png' },
 
   // E. Door Kits
   { id: 'sa-30', saCode: 'SA-30', name: 'SS Mini Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', finishes: ['SS Natural (SA-30)'], shortDesc: 'Compact Stainless Steel natural finish door hardware kit including handle, latch, and stopper.', image: '/mini-doorkit-v1.png' },
@@ -191,7 +224,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-34', saCode: 'SA-34', name: 'Heavy Commercial Door Kit', categorySlug: 'door-kits', categoryName: 'Door Kits', shortDesc: 'Reinforced high-load door hardware kit for main entrance doors and commercial spaces.', image: '/heavy-commercial-doorkit-v1.png' },
 
   // F. Bolts & Handles
-  { id: 'sa-35', saCode: 'SA-35', name: 'Tower Bolt (2pcs)', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], shortDesc: '2-piece set extruded aluminium tower bolt for top & bottom door latching.', image: '/tower-bolt-v1.png' },
+  { id: 'sa-35', saCode: 'SA-35', name: 'Tower Bolt (2pcs)', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], shortDesc: '2-piece set aluminium tower bolt for top & bottom door latching.', image: '/tower-bolt-v1.png' },
   { id: 'sa-36', saCode: 'SA-36', name: 'Tower Bolt – Light / Heavy', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['4"', '6"'], variants: ['Light', 'Heavy'], shortDesc: 'Heavy-gauge barrel tower bolt with smooth slide pin mechanism.', image: '/tower-bolt-light-v1.png' },
   { id: 'sa-37', saCode: 'SA-37', name: 'American Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Ergonomic American-style pull handle for entrance doors and windows.', image: '/american-handle-v1.png' },
   { id: 'sa-38', saCode: 'SA-38', name: 'Taiwan Handle', categorySlug: 'bolts-handles', categoryName: 'Bolts & Handles', sizes: ['6"', '8"'], shortDesc: 'Sleek contoured Taiwan handle profile for sliding door sashes.', image: '/taiwan-handle-v1.png' },
@@ -210,7 +243,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-50', saCode: 'SA-50', name: 'Partition Connector', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Aluminium corner & T-connector bracket for office glass partition profiles.', image: '/partition-connector-v1.png' },
   { id: 'sa-51', saCode: 'SA-51', name: 'Glass Sticker Film', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Frosted & decorative privacy safety film for glass panels.', image: '/glass-sticker-v1.png' },
   { id: 'sa-52', saCode: 'SA-52', name: '2Trk–3Trk PVC Angle', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'PVC corner sealing angle for 2-track and 3-track window sills.', image: '/2trk-3trk-pvc-v1.png' },
-  { id: 'sa-53', saCode: 'SA-53', name: 'Premium U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Heavy-gauge extruded aluminium U-channel for structural glass perimeter mounting.', image: '/u-channel-v1.png' },
+  { id: 'sa-53', saCode: 'SA-53', name: 'Premium U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Heavy-gauge aluminium U-channel for structural glass perimeter mounting.', image: '/u-channel-v1.png' },
   { id: 'sa-54', saCode: 'SA-54', name: 'Light U-Channel', categorySlug: 'fittings-accessories', categoryName: 'Fittings & Accessories', shortDesc: 'Standard wall thickness aluminium U-channel for light glazing trims.', image: '/light-u-channel-v1.png' },
 
   // I. Tapes, Sealants & Adhesives
@@ -226,7 +259,7 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-59', saCode: 'SA-59', name: 'Black Drywall Screws', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Black phosphate bugle head screws for partition & drywall fixing.', image: '/black%20drywall%20screw.png' },
   { id: 'sa-60', saCode: 'SA-60', name: 'Wood Screws', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Countersunk head wood screws for timber and frame anchor applications.', image: '/wood%20screw.png' },
   { id: 'sa-61', saCode: 'SA-61', name: 'Carriage Bolt', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Square neck carriage bolts for heavy timber & steel hardware joints.', image: '/carriage%20bolt.png' },
-  { id: 'sa-62', saCode: 'SA-62', name: 'STS Self Tapping Screws', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Precision self-tapping screws for aluminium extrusions and hardware brackets.', image: '/self%20tapping%20screw.png' },
+  { id: 'sa-62', saCode: 'SA-62', name: 'STS Self Tapping Screws', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Precision self-tapping screws for aluminium sections and hardware brackets.', image: '/self%20tapping%20screw.png' },
   { id: 'sa-63', saCode: 'SA-63', name: 'Friction Stay Hinges', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Heavy-duty SS friction stay arm for casement windows.', image: '/stay%20hinge.png' },
   { id: 'sa-64', saCode: 'SA-64', name: 'Arm Stay', categorySlug: 'fasteners-screws', categoryName: 'Fasteners & Screws', shortDesc: 'Window restrictor arm stay for controlled ventilation safety.', image: '/arm%20stay.png' },
 
@@ -256,6 +289,37 @@ export const FULL_CATALOGUE_PRODUCTS: SAHProduct[] = [
   { id: 'sa-85', saCode: 'SA-85', name: 'Corner Cleat (Joint Key)', categorySlug: 'abrasives-mesh-misc', categoryName: 'Abrasives, Mesh & Misc.', shortDesc: 'Internal aluminium corner cleat joint for 90° window frame crimping.', image: '/corner cleat.png' },
   { id: 'sa-86', saCode: 'SA-86', name: 'Espag (Espagnolette Lock)', categorySlug: 'abrasives-mesh-misc', categoryName: 'Abrasives, Mesh & Misc.', shortDesc: 'Multi-point espagnolette locking gear rod for casement window sashes.', image: '/espag.png' }
 ];
+
+export const SAH_CATEGORIES: SAHCategory[] = BASE_SAH_CATEGORIES.map((cat) => {
+  const skus = FULL_CATALOGUE_PRODUCTS.filter((p) => p.categorySlug === cat.slug).map((p) => p.saCode);
+  return {
+    ...cat,
+    codePrefix: formatSkuRanges(skus),
+    itemCount: skus.length,
+  };
+});
+
+export interface GroupedCatalogueCategory {
+  category: SAHCategory;
+  products: SAHProduct[];
+}
+
+export const CATALOGUE_BY_CATEGORY_NUMERIC: GroupedCatalogueCategory[] = SAH_CATEGORIES.map((cat) => ({
+  category: cat,
+  products: FULL_CATALOGUE_PRODUCTS
+    .filter((p) => p.categorySlug === cat.slug)
+    .sort((a, b) => {
+      const numA = parseInt(a.saCode.replace(/\D/g, ''), 10);
+      const numB = parseInt(b.saCode.replace(/\D/g, ''), 10);
+      return numA - numB;
+    }),
+}));
+
+export const FULL_CATALOGUE_PRODUCTS_NUMERIC: SAHProduct[] = [...FULL_CATALOGUE_PRODUCTS].sort((a, b) => {
+  const numA = parseInt(a.saCode.replace(/\D/g, ''), 10);
+  const numB = parseInt(b.saCode.replace(/\D/g, ''), 10);
+  return numA - numB;
+});
 
 export function getSAHProductByCode(saCode: string): SAHProduct | undefined {
   return FULL_CATALOGUE_PRODUCTS.find(p => p.saCode.toLowerCase() === saCode.toLowerCase() || p.id === saCode.toLowerCase());
@@ -312,48 +376,48 @@ export interface SAHFAQ {
 
 export const SAH_FAQS: SAHFAQ[] = [
   {
-    question: 'Is Salasar Aluminium & Hardware a manufacturer or a wholesaler?',
-    answer: 'We are a direct wholesale manufacturer and trade distributor — production is by Swastik Industries (Mumbai), with stock and distribution through our Raipur branches, Salasar Aluminium & Hardware and Lieon Marketing.',
+    question: 'What does Salasar Aluminium & Hardware supply?',
+    answer: 'Salasar Aluminium & Hardware is a supplier of aluminium door, window, glass and shower hardware, fabrication fittings, sealants and mosquito mesh (machar jaali) in Raipur, Chhattisgarh. We sell to homeowners and to trade buyers: dealers, fabricators, contractors, architects and builders.',
     category: 'Business & Trade',
   },
   {
-    question: 'Do you sell to individual retail customers, or only to trade buyers?',
-    answer: 'We supply direct wholesale trade orders only — to dealers, fabricators, contractors, and project developers. We don\'t operate a retail e-commerce cart.',
+    question: 'Do you sell to individual homeowners or only to trade buyers?',
+    answer: 'We sell to both homeowners and trade buyers (fabricators, contractors, dealers, architects, and builders). You can buy one piece at the counter or a box for your project.',
     category: 'Business & Trade',
   },
   {
-    question: 'How do I place a wholesale order or get a trade quote?',
-    answer: 'Submit an enquiry through our website\'s "Request Trade Quote" form, or call/WhatsApp our sales director Abhishek directly at +91 8007443071 / +91 9079332560 for instant wholesale pricing and order placement.',
+    question: 'How do I place an order or get a quote?',
+    answer: 'Submit an enquiry through our website\'s "Request Trade Quote" form, or call/WhatsApp us directly at +91 80074 43071 / +91 90793 32560 for pricing and order placement.',
     category: 'Orders & Quotes',
   },
   {
     question: 'Where is Salasar Aluminium & Hardware located, and where do you deliver?',
-    answer: 'Our main showroom and stock hub is at Shop No. 3, Salasar Aluminium & Hardware, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001. We dispatch same-day across Chhattisgarh and ship Pan-India for bulk trade orders.',
+    answer: 'Our shop is at Shop No. 3, JK Steel Gali, Bhaisthan, Bhawani Patna, Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh 492001. Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     category: 'Location & Delivery',
   },
   {
     question: 'What are SA codes, and how do I match products to them?',
-    answer: 'Every product in our catalogue has a fixed SA code (e.g. SA-33 for the Aluminium Door Kit) so trade buyers can order exact specifications without ambiguity. Browse the full catalogue on our Products page or ask our trade desk for the code that matches your requirement.',
+    answer: 'Every product in our catalogue has a fixed SA code (e.g. SA-33 for the Aluminium Door Kit) so buyers can order exact specifications without ambiguity. Browse the full catalogue on our Products page or contact our shop desk for the code that matches your requirement.',
     category: 'Product Catalogue',
   },
   {
-    question: 'What finishes and colors are available for hardware and extrusions?',
+    question: 'What finishes and colors are available for hardware items?',
     answer: 'Finishes vary by product but commonly include anodized, powder-coated (black, brown), and CP (chrome-plated) options — see individual product listings for the specific finishes available on each SKU.',
     category: 'Product Specifications',
   },
   {
-    question: 'What is the Minimum Order Quantity (MOQ) for wholesale trade pricing?',
-    answer: 'We cater to fabricators, contractors, and hardware dealers with flexible trade quantities — from standard box packs (10–50 pieces) up to full wholesale crate bulk orders. Request a quote with your required quantity for exact trade pricing.',
+    question: 'What is the Minimum Order Quantity (MOQ)?',
+    answer: 'We cater to both retail and trade orders with flexible quantities — from individual pieces up to bulk crates. Retail and trade rates are quoted on enquiry, based on quantity and finish.',
     category: 'Orders & Quotes',
   },
   {
-    question: 'Do you offer custom profile lengths or specialized hardware configurations?',
-    answer: 'Yes — we support custom trade orders including tailored extrusion length cuts and project-specific hardware configurations. Contact our trade desk with your specifications.',
+    question: 'Do you offer project-specific hardware configurations?',
+    answer: 'Yes — we support custom trade orders including project-specific hardware configurations. Contact our shop desk with your specifications.',
     category: 'Customization',
   },
   {
-    question: 'How quickly can orders be dispatched from your Raipur warehouse?',
-    answer: 'Orders are dispatched same-day for regional Chhattisgarh delivery, subject to stock availability and order size.',
+    question: 'What is your delivery coverage and timeframe?',
+    answer: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
     category: 'Location & Delivery',
   },
 ];

@@ -52,7 +52,7 @@ export function productSlug(p: Pick<SAHProduct, 'name' | 'saCode'>): string {
  */
 const CATEGORY_DEFAULTS: Record<string, { materials: string[]; useCases: string[] }> = {
   'rollers-bearings-channels': {
-    materials: ['Nylon', 'Hardened steel', 'Extruded aluminium'],
+    materials: ['Nylon', 'Hardened steel', 'Aluminium'],
     useCases: ['Sliding windows', 'Sliding doors', 'Home', 'Office'],
   },
   'locks-latches': {
@@ -60,19 +60,19 @@ const CATEGORY_DEFAULTS: Record<string, { materials: string[]; useCases: string[
     useCases: ['Sliding windows', 'Sliding doors', 'Home', 'Office'],
   },
   'door-window-seals': {
-    materials: ['Extruded aluminium', 'EPDM rubber', 'Nylon brush', 'PVC'],
+    materials: ['Aluminium', 'EPDM rubber', 'Nylon brush', 'PVC'],
     useCases: ['Entry doors', 'Windows', 'Home', 'Office'],
   },
   hinges: {
-    materials: ['Extruded aluminium', 'Stainless steel'],
+    materials: ['Aluminium', 'Stainless steel'],
     useCases: ['Casement doors', 'Windows', 'Home', 'Office'],
   },
   'door-kits': {
-    materials: ['Extruded aluminium', 'Stainless steel'],
+    materials: ['Aluminium', 'Stainless steel'],
     useCases: ['Entry doors', 'Internal doors', 'Home', 'Office', 'Shopfront'],
   },
   'bolts-handles': {
-    materials: ['Extruded aluminium', 'Stainless steel', 'Zinc alloy'],
+    materials: ['Aluminium', 'Stainless steel', 'Zinc alloy'],
     useCases: ['Entry doors', 'Windows', 'Home', 'Office'],
   },
   'door-closers': {
@@ -80,7 +80,7 @@ const CATEGORY_DEFAULTS: Record<string, { materials: string[]; useCases: string[
     useCases: ['Entry doors', 'Office doors', 'Shopfront', 'High-traffic doorways'],
   },
   'fittings-accessories': {
-    materials: ['Extruded aluminium', 'Nylon', 'PVC', 'Steel'],
+    materials: ['Aluminium', 'Nylon', 'PVC', 'Steel'],
     useCases: ['Glass partitions', 'Office', 'Shopfront', 'Home'],
   },
   'tapes-sealants-adhesives': {
@@ -111,9 +111,9 @@ const SKU_OVERRIDES: Record<string, Partial<Pick<CatalogueProduct, 'materials' |
   'SA-3': { materials: ['Chrome steel'], useCases: ['Sliding window rollers', 'Roller assemblies', 'Home'] },
   'SA-4': { materials: ['Chrome steel'], useCases: ['Sliding door rollers', 'Heavy shutters', 'Office', 'Shopfront'] },
   'SA-5': { materials: ['Hardened steel'], useCases: ['Compact roller assemblies', 'Hardware sub-assemblies'] },
-  'SA-12': { materials: ['Extruded aluminium'], useCases: ['Sliding track mounting', 'Window frames', 'Home', 'Office'] },
-  'SA-13': { materials: ['Extruded aluminium'], useCases: ['Sliding track mounting', 'Window frames', 'Home', 'Office'] },
-  'SA-24': { materials: ['Extruded aluminium', 'Nylon brush', 'EPDM rubber'], useCases: ['Entry door bottoms', 'Home', 'Office'] },
+  'SA-12': { materials: ['Aluminium'], useCases: ['Sliding track mounting', 'Window frames', 'Home', 'Office'] },
+  'SA-13': { materials: ['Aluminium'], useCases: ['Sliding track mounting', 'Window frames', 'Home', 'Office'] },
+  'SA-24': { materials: ['Aluminium', 'Nylon brush', 'EPDM rubber'], useCases: ['Entry door bottoms', 'Home', 'Office'] },
   'SA-25': { materials: ['Flexible PVC'], useCases: ['Internal doors', 'Glass doors', 'Home', 'Office'] },
   'SA-32': { materials: ['Zinc alloy', 'Rubber head'], useCases: ['Entry doors', 'Internal doors', 'Home', 'Office'] },
   'SA-45': { materials: ['Cast iron body', 'Hydraulic fluid'], useCases: ['Frameless glass doors', 'Shopfront', 'Office'] },
@@ -132,10 +132,10 @@ const SKU_OVERRIDES: Record<string, Partial<Pick<CatalogueProduct, 'materials' |
   'SA-79': { materials: ['Zirconia abrasive cloth'], useCases: ['Weld smoothing', 'Edge finishing', 'Fabrication workshop'] },
   'SA-80': { materials: ['Reinforced abrasive'], useCases: ['Cutting aluminium sections', 'Fabrication workshop'] },
   'SA-81': { materials: ['Stainless steel mesh', 'Aluminium mesh'], useCases: ['Window insect screens', 'Home', 'Kitchen and bathroom windows'] },
-  'SA-82': { materials: ['Extruded aluminium'], useCases: ['Bathroom windows', 'Kitchen windows', 'Ventilation', 'Home'] },
+  'SA-82': { materials: ['Aluminium'], useCases: ['Bathroom windows', 'Kitchen windows', 'Ventilation', 'Home'] },
   'SA-83': { materials: ['Powder-coated steel mesh'], useCases: ['Window security screens', 'Home'] },
   'SA-84': { materials: ['HDPE'], useCases: ['Window insect screens', 'Home'] },
-  'SA-85': { materials: ['Extruded aluminium'], useCases: ['Window frame corner joints', 'Fabrication workshop'] },
+  'SA-85': { materials: ['Aluminium'], useCases: ['Window frame corner joints', 'Fabrication workshop'] },
   'SA-86': { materials: ['Zinc alloy', 'Steel gear rod'], useCases: ['Casement window sashes', 'Home', 'Office'] },
 };
 

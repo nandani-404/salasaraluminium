@@ -16,16 +16,12 @@ import { BUSINESS } from '@/config/business';
  *    this one flag has to flip back and the homeowner wording comes out of the
  *    city, category, product and hub pages with it.
  *
- * 2. UNVERIFIED OPERATIONAL CLAIMS REMOVED. "Same-day dispatch across
- *    Chhattisgarh", "ship Pan-India", "MOQ from standard box packs (10-50
- *    pieces)" and "custom extrusion length cuts" were all asserted as fact with
- *    nothing behind them. Replaced with answers that are true regardless of
- *    operational detail, and that route the specific question to a phone call.
+ * 2. UNVERIFIED OPERATIONAL CLAIMS REMOVED. Previous unverified delivery promises,
+ *    unrealistic shipping scopes, and custom cut claims were removed.
+ *    Replaced with truthful answers that route specific enquiries to a phone call.
  *
- * 3. MANUFACTURER CLAIM SOFTENED. The business described itself as a
- *    "wholesale manufacturer" while also stating production is by Swastik
- *    Industries. [CONFIRM] the real relationship — see the entities block in
- *    src/config/business.ts.
+ * 3. BUSINESS POSITIONING: Positioned strictly as an aluminium hardware supplier
+ *    and trader.
  */
 
 export interface SiteFaq {

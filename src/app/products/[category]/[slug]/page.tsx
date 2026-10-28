@@ -11,7 +11,8 @@ import type { Metadata } from 'next';
 import { buildMetadata, truncateTitle, clampDescription } from '@/lib/seo/metadata';
 
 export async function generateStaticParams() {
-  return PRODUCTS.map((prod) => ({
+  return [];
+  if (false) return PRODUCTS.map((prod) => ({
     category: prod.category,
     slug: prod.slug,
   }));

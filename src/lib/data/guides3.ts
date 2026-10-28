@@ -134,7 +134,7 @@ The fixing centre is the distance between the bolt holes, and it is not a fixed 
 
 If you are replacing a handle on a door that is already drilled, measure centre to centre between the existing holes and tell us that figure. If you are drilling fresh, choose the handle first and take the centres from it.
 
-For glass doors, this is not a preference but a hard constraint: toughened glass cannot be drilled after tempering, so the holes are made when the glass is manufactured and the handle must match them exactly.
+For glass doors, this is not a preference but a hard constraint: toughened glass cannot be drilled after tempering, so the holes are made before tempering and the handle must match them exactly.
 
 Finish
 
@@ -234,7 +234,7 @@ If you are unsure which of the four you have, photograph the lock and the roller
 
 This is the thing most people do not realise until they are holding a part that will not fit.
 
-Aluminium window profiles are not standardised the way plumbing fittings are. Different manufacturers extrude different cross-sections, and a lock, roller or channel designed for one will not seat properly in another.
+Aluminium window profiles are not standardised the way plumbing fittings are. Different profile systems have different cross-sections, and a lock, roller or channel designed for one will not seat properly in another.
 
 Domal is one such profile family, and it is common enough in India that hardware is made specifically for it — hence "Domal lock" as a product name.
 

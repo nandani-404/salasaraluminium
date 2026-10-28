@@ -147,26 +147,16 @@ actions available.
 
 ---
 
-## 7. The four business names
+## 7. The single business identity
 
-Four names appear across the site with no explanation, and in one place they
-contradicted each other — products were described as manufactured by Swastik
-Industries in Mumbai *and* produced at Finetek in Raipur.
+Previously multiple names appeared across the site with no explanation.
+The site now presents one consistent identity:
 
-An "Related businesses" section now defines each one on `/about`, using the
-descriptions in `src/config/business.ts` → `BUSINESS.entities`. Three still
-carry `[CONFIRM]`:
-
-| Name | Currently described as |
+| Name | Role |
 |---|---|
-| Salasar Aluminium & Hardware | The counter in Bhaisthan, Raipur — the business you order from |
-| Lieon Marketing | **[CONFIRM]** Associated Raipur trading name used for part of the distribution |
-| Finetek | **[CONFIRM]** Associated Raipur trading name / product line at the same counter |
-| Swastik Industries | **[CONFIRM]** Manufacturing partner whose products are stocked and distributed |
+| Salasar Aluminium & Hardware | The shop and counter in Bhaisthan, Raipur — the business you order from |
 
-Also: is the business a **manufacturer** or a **stockist/supplier**? The site
-called itself a "wholesale manufacturer" while also saying production is by
-someone else. It now says supplier and stockist.
+Positioning has been confirmed: the business is a supplier and stockist.
 
 ---
 
@@ -180,10 +170,10 @@ go back in, as facts.
 | "Mill Test Certified" | Every product page | Removed — certification unverified |
 | "strict ISO-grade quality standards" | /about | Removed — ISO certification is either held and numbered, or not |
 | "Established supplier serving Chhattisgarh for over 15+ years" | /about | Removed — **supply the real founding year and this becomes a genuine trust signal** |
-| "Same-day dispatch across Chhattisgarh" | FAQ, category pages, city pages | Removed — is this reliably true? |
+| "Fixed rapid delivery across Chhattisgarh" | FAQ, category pages, city pages | Removed — is this reliably true? |
 | "Ships Pan-India for bulk trade orders" | FAQ | Removed — do you? |
 | "MOQ: standard box packs (10–50 pieces)" | FAQ | Removed — what is the real MOQ, if any? |
-| "Custom extrusion length cuts" | FAQ, /about | Removed — do you offer this? |
+| "Custom profile length cuts" | FAQ, /about | Removed — do you offer this? |
 | Alloy grade "6063-T6" on all 86 SKUs | Product pages | Removed — was applied uniformly to items including nylon brushes and silicone |
 | "MOQ: 50 units" on all 86 SKUs | Product pages | Removed — same uniform-filler problem |
 | Rating 4.9 / 32 reviews on all 86 SKUs | Product pages + schema | Removed — fabricated review markup is a manual-action risk |

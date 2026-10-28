@@ -199,7 +199,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                   <div className="space-y-4">
                     <h3 className="text-xl font-bold text-[#0B1F3A]">Complete Assembly Components</h3>
-                    <p className="text-gray-700">Every SA-33 Door Kit standard box comes with factory-calibrated components:</p>
+                    <p className="text-gray-700">Every SA-33 Door Kit standard box comes with matched components:</p>
                     <ul className="space-y-2.5 text-gray-700 pl-4 list-disc">
                       <li><strong className="text-[#0B1F3A]">Pair of Heavy Aluminium Pull Handles:</strong> Ergonomically shaped for smooth touch and grip.</li>
                       <li><strong className="text-[#0B1F3A]">Mortise Cylinder & Latch Assembly:</strong> Brass key cylinder mechanism with smooth spring bolt action.</li>

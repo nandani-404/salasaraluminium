@@ -77,7 +77,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     rightSubtitle: 'FABRICATION SECTIONS & HARDWARE COMPONENTS',
     description: 'We supply aluminium profiles, channels, rollers, locks, hinges and assembly hardware for fabricators producing custom doors, windows and aluminium frames.',
     image: '/fabricator-workshop.jpg',
-    imageAlt: 'Industrial aluminium profile extrusions, corner cleats, window rollers, hinges and fabrication tools on assembly workbench',
+    imageAlt: 'Industrial aluminium profiles, corner cleats, window rollers, hinges and fabrication tools on assembly workbench',
     productsSupplied: [
       { name: 'Aluminium Sections', image: '/corner cleat.png', link: '/products', anchorText: 'Explore Sections' },
       { name: 'Profiles & Channels', image: '/u-channel-v1.png', link: '/products', anchorText: 'View Channels' },
@@ -92,11 +92,11 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     name: 'Modular Furniture',
     subtitle: 'Precision aluminium systems & fittings',
     rightEyebrow: 'INDUSTRY 04 • MODULAR FURNITURE',
-    title: 'Modular Furniture Manufacturers',
+    title: 'Modular Furniture & Interior Workshops',
     rightSubtitle: 'FURNITURE PROFILES & MODULAR FITTINGS',
-    description: 'We supply aluminium G-sections, J-profiles, frame channels, drawer slides and cabinet hardware for modular furniture manufacturers and interior fabricators.',
+    description: 'We supply aluminium G-sections, J-profiles, frame channels, drawer slides and cabinet hardware for furniture makers and interior fabricators.',
     image: '/modular-furniture.jpg',
-    imageAlt: 'Modern modular cabinet interior featuring aluminium G-profile handle extrusions, wardrobe frame channels, concealed hinges and fittings',
+    imageAlt: 'Modern modular cabinet interior featuring aluminium G-profile handles, wardrobe frame channels, concealed hinges and fittings',
     productsSupplied: [
       { name: 'Aluminium Profiles', image: '/g channel.png', link: '/products', anchorText: 'Explore Profiles' },
       { name: 'Furniture Sections', image: '/round concealed handle.png', link: '/products', anchorText: 'View Sections' },
@@ -113,7 +113,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     rightEyebrow: 'INDUSTRY 05 • INDUSTRIAL FACILITIES',
     title: 'Industrial Facilities & Warehousing',
     rightSubtitle: 'HEAVY STRUCTURAL HARDWARE & SEALS',
-    description: 'We supply structural aluminium sections, heavy sliding door hardware, weather seals and industrial hardware components for factory and warehouse facilities.',
+    description: 'We supply structural aluminium sections, heavy sliding door hardware, weather seals and industrial hardware components for commercial and warehouse facilities.',
     image: '/salasar-warehouse-hub.png',
     imageAlt: 'Heavy industrial sliding door hardware and aluminium structural assemblies in warehouse',
     productsSupplied: [

@@ -72,7 +72,7 @@ export async function sendEnquiryEmail(data: EnquiryFormData, leadId: string) {
               </tr>
               <tr>
                 <td class="label">Email:</td>
-                <td class="value"><a href="mailto:${data.email}" style="color: #0B1F3A; text-decoration: underline;">${data.email}</a></td>
+                <td class="value">${data.email ? `<a href="mailto:${data.email}" style="color: #0B1F3A; text-decoration: underline;">${data.email}</a>` : '<span style="color: #94a3b8; font-weight: 400;">Not provided</span>'}</td>
               </tr>
               ${data.companyName ? `
               <tr>
@@ -116,7 +116,7 @@ export async function sendEnquiryEmail(data: EnquiryFormData, leadId: string) {
             </table>
 
             <div class="section-title">Requirements & Project Message</div>
-            <div class="message-box">${data.message}</div>
+            <div class="message-box">${data.message || 'No additional note provided (Direct rate quote / callback requested)'}</div>
 
             <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0;">
               <p style="font-size: 13px; font-weight: 600; margin-bottom: 10px;">Quick Sales Actions:</p>

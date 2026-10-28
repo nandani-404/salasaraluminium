@@ -65,7 +65,7 @@ export const CATEGORIES = [
     name: 'Residential Solutions',
     slug: 'residential',
     tagline: 'Precision hardware, sliding window profiles, architectural railings, and cabinet fittings.',
-    description: 'Designed for modern homes and luxury residences. Our residential extrusions combine smooth silent glide mechanisms with corrosion-resistant premium finishes.',
+    description: 'Designed for modern homes and luxury residences. Our residential hardware systems combine smooth silent glide mechanisms with corrosion-resistant premium finishes.',
     icon: 'Home',
     image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     subcategories: ['Window & Door Systems', 'Glass Railings & Balustrades', 'Cabinet & Wardrobe Profiles', 'Rain Gutters & Trims']
@@ -82,11 +82,11 @@ export const CATEGORIES = [
   },
   {
     id: 'industrial',
-    name: 'Industrial Extrusions',
+    name: 'Industrial Hardware & Profiles',
     slug: 'industrial',
     tagline: 'Heavy-duty structural T-slot profiles, solar panel mounting frames, heat sinks, and fasteners.',
     description: 'Custom engineered high-strength T6 temper profiles for machinery automation, solar mounting arrays, electrical enclosures, and heavy industrial framing.',
-    icon: 'Factory',
+    icon: 'Layers',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
     subcategories: ['Structural T-Slot Framing', 'Solar PV Mounting Rails', 'Thermal Management & Heat Sinks', 'Industrial Fasteners & Hardware']
   }
@@ -126,7 +126,7 @@ export const PRODUCTS: Product[] = [
     category: 'residential',
     subcategory: 'Glass Railings & Balustrades',
     shortDescription: 'Surface-mounted aluminum shoe channel system designed for frameless toughened glass balustrades.',
-    fullDescription: 'Manufactured from high-tensile 6061-T6 structural aluminum, this U-channel profile supports up to 17.52mm and 21.52mm SGP laminated glass without requiring top handrails or vertical posts.',
+    fullDescription: 'Engineered from high-tensile 6061-T6 structural aluminum, this U-channel profile supports up to 17.52mm and 21.52mm SGP laminated glass without requiring top handrails or vertical posts.',
     alloy: '6061-T6 Structural Grade',
     temper: 'T6',
     availableFinishes: ['Anodized Silver 20µm', 'Satin Gold Anodized', 'Matte Black Powder'],
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
     featured: true,
     image: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80',
     specifications: {
-      'Alloy Grade': '6005A-T6 High Strength Extrusion',
+      'Alloy Grade': '6005A-T6 High Strength Profile',
       'Thermal Performance': 'Uf down to 1.4 W/m²K with Polyamide Strip',
       'Structural Inertia (Ix)': 'Up to 450 cm⁴',
       'Acoustic Reduction': 'Rw = 42 dB',
@@ -173,14 +173,14 @@ export const PRODUCTS: Product[] = [
     name: 'Modular T-Slot Structural Profile 4040 Heavy',
     category: 'industrial',
     subcategory: 'Structural T-Slot Framing',
-    shortDescription: '40x40mm aluminum extrusions with 8mm T-slots on four sides for industrial automation and machine framing.',
-    fullDescription: 'High precision extruded aluminum profile with 8mm T-slot grooves. Designed for modular assembly of machine guards, workbenches, conveyer frames, and industrial enclosure structures without welding.',
-    alloy: '6063-T6 Precision Extrusion',
+    shortDescription: '40x40mm aluminum profiles with 8mm T-slots on four sides for industrial automation and machine framing.',
+    fullDescription: 'High precision aluminum profile with 8mm T-slot grooves. Designed for modular assembly of machine guards, workbenches, conveyer frames, and industrial enclosure structures without welding.',
+    alloy: '6063-T6 Precision Profile',
     temper: 'T6',
     availableFinishes: ['Anodized Silver 15µm', 'Mill Finish'],
     dimensions: 'Cross Section: 40mm x 40mm | Slot Width: 8.2mm',
     weightPerMeter: '1.75 kg/m',
-    applications: ['Robotic Assembly Stations', 'Factory Conveyor Systems', 'Cleanroom Framing'],
+    applications: ['Robotic Assembly Stations', 'Industrial Conveyor Systems', 'Cleanroom Framing'],
     featured: true,
     image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
     specifications: {
@@ -198,7 +198,7 @@ export const PRODUCTS: Product[] = [
     category: 'industrial',
     subcategory: 'Solar PV Mounting Rails',
     shortDescription: 'Corrosion-resistant anodized aluminum mounting rail for solar roof structures and ground-mount arrays.',
-    fullDescription: 'Specially designed extrusion profile featuring top mid-clamp channel and side L-bracket slot. Ensures rapid bolt-tight installation for rooftop commercial and utility solar projects.',
+    fullDescription: 'Specially designed mounting profile featuring top mid-clamp channel and side L-bracket slot. Ensures rapid bolt-tight installation for rooftop commercial and utility solar projects.',
     alloy: '6063-T6 / 6005A-T6',
     temper: 'T6',
     availableFinishes: ['Anodized Silver 15µm', 'Black Anodized'],
@@ -244,7 +244,7 @@ export const PRODUCTS: Product[] = [
     category: 'residential',
     subcategory: 'Cabinet & Wardrobe Profiles',
     shortDescription: 'Minimalist continuous aluminum J-pull handle profile for contemporary kitchen cabinets & wardrobe doors.',
-    fullDescription: 'Creates seamless, handleless cabinetry aesthetics. Precision extruded aluminum edge profile clips directly onto 18mm plywood or MDF shutter panels.',
+    fullDescription: 'Creates seamless, handleless cabinetry aesthetics. Precision aluminum edge profile clips directly onto 18mm plywood or MDF shutter panels.',
     alloy: '6063-T5 Architectural',
     temper: 'T5',
     availableFinishes: ['Anodized Rose Gold', 'Matte Black', 'Brushed Champagne', 'Satin Silver'],
@@ -267,7 +267,7 @@ export const PRODUCTS: Product[] = [
     category: 'commercial',
     subcategory: 'Storefront Systems',
     shortDescription: '100mm x 45mm heavy tubular aluminum frame for retail entrance doors and showroom displays.',
-    fullDescription: 'Engineered for high-traffic retail entrances and hotel lobbies. Includes flush glazing pocket, heavy-duty concealed door closer header, and threshold extrusions.',
+    fullDescription: 'Engineered for high-traffic retail entrances and hotel lobbies. Includes flush glazing pocket, heavy-duty concealed door closer header, and threshold sections.',
     alloy: '6063-T6 Heavy Commercial',
     temper: 'T6',
     availableFinishes: ['Anodized Silver', 'Bronze Anodized', 'Architectural White Powder Coating'],
@@ -287,10 +287,10 @@ export const PRODUCTS: Product[] = [
 export const FINISHES: Finish[] = [
   {
     id: 'fin-01',
-    name: 'Mill Finish (Raw Extruded)',
+    name: 'Mill Finish (Raw Finish)',
     code: 'MF-01',
     type: 'mill',
-    description: 'Natural untreated extruded aluminum surface showing minor extrusion die lines. Ideal for industrial parts that will undergo secondary processing or concealed framing.',
+    description: 'Natural untreated aluminum surface. Ideal for industrial parts that will undergo secondary processing or concealed framing.',
     thicknessMicrons: '0 µm (Natural Oxidated)',
     corrosionResistance: 'Good',
     recommendedUse: 'Concealed structural framing, industrial machinery, solar brackets.',
@@ -366,7 +366,7 @@ export const PROJECTS: Project[] = [
     segment: 'residential',
     location: 'Worli, Mumbai',
     completionYear: '2025',
-    description: 'Supplied over 45 tonnes of custom thermal break slimline sliding door extrusions and frameless base-channel glass railings for 120 luxury sea-facing apartments.',
+    description: 'Supplied over 45 tonnes of custom thermal break slimline sliding door sections and frameless base-channel glass railings for 120 luxury sea-facing apartments.',
     productsUsed: ['Slimline Architectural Sliding Window System', 'Base-Mounted Heavy Duty Glass Railing Channel'],
     image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80'
   },
@@ -386,7 +386,7 @@ export const PROJECTS: Project[] = [
     segment: 'industrial',
     location: 'Charanka, Gujarat',
     completionYear: '2025',
-    description: 'Manufactured and delivered 120,000 meters of high-tensile 6005A-T6 anodized aluminum mounting rails and structural T-slot framing for ground-mount solar PV arrays.',
+    description: 'Supplied and delivered 120,000 meters of high-tensile 6005A-T6 anodized aluminum mounting rails and structural T-slot framing for ground-mount solar PV arrays.',
     productsUsed: ['Solar Panel Structural Mounting Rail System', 'Modular T-Slot Structural Profile 4040'],
     image: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1000&q=80'
   }
@@ -431,7 +431,7 @@ The SA-33 Aluminium Door Kit is Salasar's flagship architectural hardware packag
 
 ### Complete Assembly Components
 
-Every SA-33 Door Kit standard box comes with factory-calibrated components:
+Every SA-33 Door Kit standard box comes with matched components:
 - **Pair of Heavy Aluminium Pull Handles**: Ergonomically shaped for smooth touch and grip.
 - **Mortise Cylinder & Latch Assembly**: Brass key cylinder mechanism with smooth spring bolt action.
 - **Matching Tower Bolts (Top & Bottom)**: High shear-strength locking bolts for security.
@@ -525,7 +525,7 @@ Frameless glass shower enclosures demand high precision hardware engineered to s
   {
     slug: 'aluminium-hardware-wholesale-in-chhattisgarh-what-dealers-should-know',
     title: 'Aluminium Hardware Wholesale in Chhattisgarh: What Dealers & Fabricators Should Know',
-    excerpt: 'Overview of B2B supply chains, direct trade pricing through our Finetek branch, and ready outlet stocking in Raipur.',
+    excerpt: 'Overview of B2B supply chains, direct trade pricing, and ready counter stocking in Raipur.',
     author: 'Abhishek (Salasar Trade Team)',
     date: 'August 02, 2026',
     readTime: '5 min read',
@@ -546,7 +546,7 @@ Chhattisgarh's expanding construction sector in Raipur, Bilaspur, Korba, and Dur
 
 ### Advantages of Partnering with Salasar Aluminium & Hardware
 
-1. **Direct Factory Outlet & Ex-Stock Supply**: Minimal lead times with extensive warehouse stocking at our Bhaisthan depot in Raipur.
+1. **Direct Trade Supply & Ex-Stock Supply**: Minimal lead times with extensive warehouse stocking at our Bhaisthan depot in Raipur.
 2. **Competitive Wholesale Tier Pricing**: Bulk rates tailored for regional dealers, fabricators, and hardware retailers.
 3. **Comprehensive Catalog Range**: From sliding door channels, weather seals, track brushes to door kit handles and floor springs.
 
@@ -582,7 +582,7 @@ Ramsagar Para, Jawahar Nagar, Raipur, Chhattisgarh – 492001
     content: `
 ### Introduction to Architectural Aluminium Finishes
 
-When specifying aluminium extrusions for residential windows, commercial facades, or industrial machinery, selecting the correct surface finish is as crucial as choosing the structural alloy grade. The surface finish defines not only the visual aesthetic but also the material's lifespan, UV resistance, and resistance to environmental corrosion.
+When specifying aluminium profiles for residential windows, commercial facades, or industrial machinery, selecting the correct surface finish is as crucial as choosing the structural alloy grade. The surface finish defines not only the visual aesthetic but also the material's lifespan, UV resistance, and resistance to environmental corrosion.
     `
   },
   {
@@ -596,8 +596,8 @@ When specifying aluminium extrusions for residential windows, commercial facades
     image: '/blog/how-to-choose-aluminium-hardware-residential-vs-commercial.jpg',
     qaBlocks: [
       {
-        question: 'What is the main difference between residential and commercial aluminium extrusions?',
-        answer: 'Commercial extrusions feature thicker wall sections (typically 2.0mm - 3.5mm), higher tensile alloy tempers (6061-T6 or 6005A-T6), and higher wind load resistance (Class C5) to withstand high-rise wind forces and heavy daily pedestrian usage compared to residential profiles.'
+        question: 'What is the main difference between residential and commercial aluminium profiles?',
+        answer: 'Commercial profiles feature thicker wall sections (typically 2.0mm - 3.5mm), higher tensile alloy tempers (6061-T6 or 6005A-T6), and higher wind load resistance (Class C5) to withstand high-rise wind forces and heavy daily pedestrian usage compared to residential profiles.'
       }
     ],
     content: `
@@ -613,7 +613,7 @@ Choosing the right aluminium profile system requires evaluating four structural 
   {
     slug: 'aluminium-vs-steel-which-is-right-for-your-structural-project',
     title: 'Aluminium vs Steel: Which is Right for Your Structural Project?',
-    excerpt: 'Compare strength-to-weight ratios, corrosion lifespans, fabrication costs, and total cost of ownership between structural steel and T6 aluminium extrusions.',
+    excerpt: 'Compare strength-to-weight ratios, corrosion lifespans, fabrication costs, and total cost of ownership between structural steel and T6 aluminium profiles.',
     author: 'Salasar Technical Engineering Team',
     date: 'July 28, 2026',
     readTime: '5 min read',
@@ -628,7 +628,7 @@ Choosing the right aluminium profile system requires evaluating four structural 
     content: `
 ### Structural Overview: Aluminium vs Steel
 
-When designing structural framing, solar racking systems, or building enclosures, engineers frequently compare structural T6 aluminium extrusions against fabricated mild steel sections.
+When designing structural framing, solar racking systems, or building enclosures, engineers frequently compare structural T6 aluminium profiles against fabricated mild steel sections.
     `
   },
   {

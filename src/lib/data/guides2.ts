@@ -121,7 +121,7 @@ That is not a defect and it does not mean anything was fitted badly. It is why a
 
 When the standard hinge is the right answer
 
-We would not sell you a 3D hinge for a straightforward internal door in an existing, settled building that hangs correctly. A standard extruded aluminium butt hinge does that job, costs less, and has nothing to come loose.
+We would not sell you a 3D hinge for a straightforward internal door in an existing, settled building that hangs correctly. A standard aluminium butt hinge does that job, costs less, and has nothing to come loose.
 
 Adjustable hinges earn their cost in three situations: new construction that has not finished moving, heavy doors where load will pull the leaf over time, and a door that already hangs badly and you would rather adjust than rehang.
 
@@ -275,9 +275,9 @@ A well-sealed window frequently uses both: foam behind the frame to fill and ins
     image: '/blog/self-drilling-vs-self-tapping-screws-for-aluminium.jpg',
     qaBlocks: [
       {
-        question: 'Which screw should I use in aluminium extrusion?',
+        question: 'Which screw should I use in aluminium profiles?',
         answer:
-          'A self-tapping screw with a pilot hole for anything structural in extrusion, and a self-drilling screw for sheet and thin sections where speed matters. Never a wood screw — its coarse thread strips thin aluminium and the fitting works loose.',
+          'A self-tapping screw with a pilot hole for anything structural in aluminium sections, and a self-drilling screw for sheet and thin sections where speed matters. Never a wood screw — its coarse thread strips thin aluminium and the fitting works loose.',
       },
     ],
     content: `The difference is the tip
@@ -286,17 +286,17 @@ A self-drilling screw (SDS) has a drill point formed into its end. It cuts its o
 
 A self-tapping screw (STS) has a sharp point but no drill flute. It forms a thread in a pilot hole you drill first.
 
-The extra step buys you something. Because you control the pilot diameter, you control how much material the thread bites into, and a correctly sized pilot in thicker extrusion gives a meaningfully stronger fixing than a self-driller cutting its own oversized path.
+The extra step buys you something. Because you control the pilot diameter, you control how much material the thread bites into, and a correctly sized pilot in thicker aluminium profiles gives a meaningfully stronger fixing than a self-driller cutting its own oversized path.
 
 Which to use
 
 Use self-drilling screws for sheet metal, thin-walled sections, and volume work where you are fixing many points quickly and no single fixing is critical.
 
-Use self-tapping screws for thicker extrusion, and for anything that will carry load or be cycled — a hinge, a handle, a closer bracket, a lock body. Anywhere a fixing working loose would be a problem, drill the pilot.
+Use self-tapping screws for thicker aluminium sections, and for anything that will carry load or be cycled — a hinge, a handle, a closer bracket, a lock body. Anywhere a fixing working loose would be a problem, drill the pilot.
 
 Why wood screws fail here
 
-A wood screw has a coarse, deeply cut thread designed to grip soft fibrous material. Aluminium extrusion is neither soft in that sense nor thick enough to give that thread much to hold.
+A wood screw has a coarse, deeply cut thread designed to grip soft fibrous material. Aluminium section is neither soft in that sense nor thick enough to give that thread much to hold.
 
 Driven into thin aluminium, a coarse thread does not so much cut as tear. It removes more material than it engages, and the fixing feels tight on the day because the screw head is clamping. Months of use later the thread has given up and the fitting is loose.
 

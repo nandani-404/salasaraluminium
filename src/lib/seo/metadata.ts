@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 const TITLE_MAX = 60;
 /** Description window that survives truncation in most SERP layouts. */
 const DESC_MIN = 140;
-const DESC_MAX = 160;
+const DESC_MAX = 155;
 
 export interface PageMetaInput {
   /** Full <title>, already including the "| Salasar" suffix. 50-60 chars. */

@@ -96,7 +96,7 @@ export default function Header() {
         {/* Left: Brand Logo & Monogram */}
         <div className="flex items-center shrink-0">
           <Link href="/" className="flex items-center space-x-2.5 group">
-            {/* Elegant Navy & Gold Extruded Emblem */}
+            {/* Elegant Navy & Gold Emblem */}
             <div className="relative w-9 h-9 bg-[#0B1F3A] rounded-xl flex items-center justify-center p-1 shadow-md border border-[#C9A227]/40 group-hover:border-[#D4AF37] transition-all shrink-0">
               <svg viewBox="0 0 44 44" fill="none" className="w-full h-full">
                 <defs>

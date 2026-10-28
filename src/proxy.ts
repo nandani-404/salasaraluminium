@@ -112,7 +112,37 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  // 3. Existing Supabase session refresh.
+  // 3. 301 redirect legacy unstocked showcase and segment routes to /products
+  const legacyShowcaseSlugs = new Set([
+    'palazzo-door-handle-brushed-gold',
+    'venezia-window-handle-satin-chrome',
+    'sereno-sliding-door-system',
+    'classica-wardrobe-profile',
+    'imperiale-glass-door-patch',
+    'atrium-curtain-wall-system',
+    'titan-pro-floor-spring',
+    'panorama-aluminium-window-system',
+    'commercial-floor-spring-heavy-duty',
+    'curtain-wall-system-aluminium',
+    'heavy-duty-profile-80x80',
+    'industrial-conveyor-profile',
+    'industrial-t-slot-profile-40x40',
+    'solar-panel-mounting-profile',
+  ]);
+
+  if (
+    url.pathname === '/products/residential' ||
+    url.pathname === '/products/commercial' ||
+    url.pathname === '/products/industrial' ||
+    url.pathname.startsWith('/products/residential/') ||
+    url.pathname.startsWith('/products/commercial/') ||
+    url.pathname.startsWith('/products/industrial/') ||
+    (url.pathname.startsWith('/product/') && legacyShowcaseSlugs.has(url.pathname.replace('/product/', '')))
+  ) {
+    return NextResponse.redirect(new URL('/products', url), 301);
+  }
+
+  // 4. Existing Supabase session refresh.
   return await updateSession(request);
 }
 

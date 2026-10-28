@@ -21,7 +21,8 @@ export const BUSINESS = {
   secondaryLine: 'Strength in Every Detail, Quality in Every Product.',
 
   description:
-    'Wholesale supplier of aluminium door and window hardware in Raipur, Chhattisgarh — rollers, locks, hinges, door kits, door closers, glass and shower fittings, fasteners and sealants across 86 standardised SKUs.',
+    'Aluminium door and window hardware in Raipur: rollers, locks, hinges, closers, shower fittings. 86 SKUs, retail and trade rates. Call 80074 43071.',
+  shortDescription: 'Aluminium and glass hardware supplier in Raipur',
 
   /**
    * [CONFIRM] Canonical postal address.
@@ -84,27 +85,12 @@ export const BUSINESS = {
   },
 
   /**
-   * Related trading entities. Described here once, in plain language, so the
-   * same wording is reused everywhere instead of being reinvented per page.
-   * [CONFIRM] the role of each — the descriptions below are the site's current
-   * best understanding and must be corrected by the owner if wrong.
+   * Single business entity.
    */
   entities: [
     {
       name: 'Salasar Aluminium & Hardware',
       role: 'The retail and wholesale counter in Bhaisthan, Raipur. This is the business you order from.',
-    },
-    {
-      name: 'Lieon Marketing',
-      role: '[CONFIRM] Associated Raipur trading name used for part of the hardware distribution.',
-    },
-    {
-      name: 'Finetek',
-      role: '[CONFIRM] Associated Raipur trading name / product line stocked at the same counter.',
-    },
-    {
-      name: 'Swastik Industries',
-      role: '[CONFIRM] Manufacturing partner whose products are stocked and distributed by Salasar.',
     },
   ],
 

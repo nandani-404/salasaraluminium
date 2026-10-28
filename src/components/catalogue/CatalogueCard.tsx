@@ -2,11 +2,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import type { CatalogueProduct } from '@/data/products';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { whatsappLink } from '@/config/business';
 
 /**
  * Server-rendered catalogue card. Deliberately has no client-side state: the
  * product name, SKU code, description and link must all exist in the initial
  * HTML so the page is complete for crawlers and with JavaScript disabled.
+ *
+ * Includes instant 1-tap WhatsApp lead trigger for Indian trade buyers.
  */
 export default function CatalogueCard({
   product,
@@ -15,6 +19,13 @@ export default function CatalogueCard({
   product: CatalogueProduct;
   priority?: boolean;
 }) {
+  const waMsg = `Hello Salasar, what is the trade price and availability for ${product.name} (${product.sku}) in Raipur?`;
+  const waUrl = whatsappLink({
+    message: waMsg,
+    source: `/product/${product.slug}`,
+    campaign: 'catalogue_card',
+  });
+
   return (
     <article className="bg-white border border-[#E2E8F0] rounded-xl sm:rounded-2xl overflow-hidden shadow-2xs hover:shadow-md hover:border-[#0B1F3A]/40 transition-all flex flex-col justify-between group">
       <Link
@@ -59,13 +70,26 @@ export default function CatalogueCard({
         )}
       </div>
 
-      <div className="p-2.5 sm:p-4 pt-0">
+      <div className="p-2.5 sm:p-4 pt-0 grid grid-cols-2 gap-1.5 sm:gap-2">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-analytics="click_whatsapp"
+          data-analytics-sku={product.sku}
+          data-analytics-location="catalogue-card"
+          className="min-h-10 px-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-[11px] sm:text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1 shadow-2xs active:scale-95 text-center truncate"
+          title={`WhatsApp enquiry for ${product.name}`}
+        >
+          <WhatsAppIcon className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate">WhatsApp Rate</span>
+        </a>
         <Link
           href={`/product/${product.slug}`}
-          className="w-full min-h-11 px-3 bg-[#0B1F3A] hover:bg-[#1E293B] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center gap-1"
+          className="min-h-10 px-2 bg-[#0B1F3A] hover:bg-[#1E293B] text-white text-[11px] sm:text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-0.5 text-center truncate"
         >
-          <span>View specifications</span>
-          <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37]" aria-hidden="true" />
+          <span className="truncate">Details</span>
+          <ChevronRight className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" aria-hidden="true" />
         </Link>
       </div>
     </article>

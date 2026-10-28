@@ -15,8 +15,8 @@ import { relatedProducts, getCategory, type CatalogueProduct } from '@/data/prod
  *
  * Every field shown is read from the catalogue record. The previous template
  * ran catalogue SKUs through an adapter that padded them with claims nobody had
- * verified — "Alloy 6063-T6", "Mill Test Certified", "MOQ: 50 Units",
- * "same-day dispatch" — identically on all 86 pages. Those are gone: the spec
+ * verified — "Alloy 6063-T6", "Mill Test Certified", "MOQ: 50 Units" — identically
+ * on all 86 pages. Those are gone: the spec
  * table now lists only what the data actually contains, and omits a row rather
  * than filling it with a plausible-sounding default.
  */

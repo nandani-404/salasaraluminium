@@ -22,12 +22,12 @@ export default function WhyChooseUsPage() {
         faqs={[
           {
             question: 'What makes Salasar different from other Raipur hardware suppliers?',
-            answer: 'We supply direct from our own Raipur stock hub with a standardized 86-SKU catalogue and fixed SA product codes, at direct factory-trade pricing — no third-party markup and no ordering ambiguity.',
+            answer: 'We supply direct from our shop in Raipur with a standardized 86-SKU catalogue and fixed SA product codes, at retail and trade rates — no ordering ambiguity.',
             category: 'Value Proposition',
           },
           {
-            question: 'How fast can I get hardware after placing a wholesale order?',
-            answer: 'Orders are dispatched same-day for regional Chhattisgarh delivery from our Raipur warehouse, subject to stock availability and order size.',
+            question: 'How does delivery work after placing an order?',
+            answer: 'Delivery across Chhattisgarh. Cost and timing confirmed against your order before you pay.',
             category: 'Delivery & Logistics',
           },
         ]}

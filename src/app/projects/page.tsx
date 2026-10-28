@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { PROJECTS, Project } from '@/lib/data';
-import { Building, Home, Factory, ArrowUpRight } from 'lucide-react';
+import { Building, Home, ArrowUpRight } from 'lucide-react';
 import { useEnquiry } from '@/context/EnquiryContext';
 
 export default function ProjectsPage() {
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
             Completed Architectural Installations
           </h1>
           <p className="text-gray-600 text-sm leading-relaxed">
-            Explore real-world applications of Salasar extrusion profiles across luxury residential villas, high-rise commercial towers, and industrial solar PV infrastructure.
+            Explore applications of Salasar hardware and architectural fittings across residential, commercial, and industrial projects.
           </p>
         </div>
 

@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Home, Building2, Factory, ArrowUpRight } from 'lucide-react';
+import { Home, Building2, Layers, ArrowUpRight } from 'lucide-react';
 import { CATEGORIES } from '@/lib/data';
 import { useEnquiry } from '@/context/EnquiryContext';
 
@@ -18,7 +18,7 @@ export default function SegmentCards() {
       case 'commercial':
         return <Building2 className="w-6 h-6 text-[#B08D57]" />;
       case 'industrial':
-        return <Factory className="w-6 h-6 text-[#B08D57]" />;
+        return <Layers className="w-6 h-6 text-[#B08D57]" />;
       default:
         return <Home className="w-6 h-6 text-[#B08D57]" />;
     }

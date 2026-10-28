@@ -35,7 +35,7 @@ export async function generateStaticParams() {
     category: getSAHProductSlug(p),
   }));
 
-  return [...archParams, ...sahParams, ...prodParams];
+  return [...sahParams, ...prodParams];
 }
 
 export async function generateMetadata({
@@ -89,10 +89,8 @@ export default async function CategoryPage({
      * Answer-first FAQs: the first sentence of each answer is the direct
      * answer, so it can stand alone as a snippet.
      *
-     * The previous set asserted "same-day dispatch from our central warehouse",
-     * "direct factory trade pricing" and "custom bulk crate deliveries across
-     * Central India" on all 12 category pages. None of those are verified
-     * operational facts, and the same text on 12 URLs is duplicate content.
+     * Generic unverified claims have been removed to prevent duplicate content
+     * across category pages.
      */
     const categoryFaqs = [
       {
@@ -233,7 +231,7 @@ export default async function CategoryPage({
     const categoryFaqs = [
       {
         question: `What alloy grade is typically used for Salasar ${archCategory.name}?`,
-        answer: `Our ${archCategory.name.toLowerCase()} range is primarily extruded using EN AW 6063-T6 architectural alloy or 6061-T6 high-tensile structural alloy depending on line load requirements.`,
+        answer: `Our ${archCategory.name.toLowerCase()} range is primarily produced using EN AW 6063-T6 architectural alloy or 6061-T6 high-tensile structural alloy depending on line load requirements.`,
       },
       {
         question: `Can I request custom anodizing or powder coating colors for ${archCategory.name}?`,
