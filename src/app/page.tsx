@@ -376,6 +376,74 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Popular Trade Searches & Wholesale Hardware in Raipur (SEO & GEO Keyword Hub) */}
+      <section className="py-10 sm:py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="text-center max-w-3xl mx-auto space-y-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#8A6408]">
+              High-Demand Categories • Raipur & Chhattisgarh
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B1F3A] tracking-tight">
+              Popular Hardware Searches & Wholesale Supplies
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
+              Direct counter stock and wholesale supply across Raipur, Bhilai, Durg, and Bilaspur. Click to browse specifications, rates, and box packaging.
+            </p>
+          </div>
+
+          {/* Keyword Pill Grid */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-5xl mx-auto pt-2">
+            {[
+              { label: 'Sliding Window Rollers Wholesale Raipur', href: '/locations/raipur/rollers-bearings-channels' },
+              { label: 'SA-33 Aluminium Door Kits', href: '/products/door-kits' },
+              { label: 'Hydraulic Door Closers (45kg–120kg)', href: '/products/door-closers' },
+              { label: 'Floor Springs for Glass Doors', href: '/products/door-closers' },
+              { label: '90° Shower Glass Hinges', href: '/bathroom-glass-hardware' },
+              { label: 'SS 304 Mosquito Mesh (Machhar Jaali)', href: '/mosquito-mesh-jaali' },
+              { label: 'Window Track Brush (Wool Pile)', href: '/products/door-window-seals' },
+              { label: 'Self-Drilling Screws & SDS Fasteners', href: '/products/fasteners-screws' },
+              { label: 'C-Channel & G-Channel Tracks', href: '/window-hardware' },
+              { label: 'Mortise Sash Locks & Cylinders', href: '/products/locks-latches' },
+              { label: 'Aluminium Hardware in Bhilai & Durg', href: '/locations/bhilai' },
+              { label: 'Hardware Supply in Bilaspur', href: '/locations/bilaspur' },
+              { label: 'Sliding Door Bearings & Fittings', href: '/sliding-door-hardware' },
+              { label: 'Glass Partition Hardware', href: '/glass-partition-hardware' },
+              { label: 'Bhaisthan Raipur Counter Pickup', href: '/locations/raipur' },
+            ].map((kw) => (
+              <Link
+                key={kw.label}
+                href={kw.href}
+                className="px-3.5 py-2 bg-white hover:bg-[#0B1F3A] text-[#1E293B] hover:text-white border border-[#E2E8F0] hover:border-[#0B1F3A] rounded-lg text-xs font-semibold shadow-2xs transition-all duration-200"
+              >
+                {kw.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Quick Voice / Hinglish Search Assistance Box */}
+          <div className="mt-8 p-4 sm:p-6 bg-white border border-[#E2E8F0] rounded-xl max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="space-y-1">
+              <h3 className="text-sm font-bold text-[#0B1F3A]">
+                पुराने पुर्ज़े या रोलर का नाम नहीं पता? (Don&apos;t know the exact part name?)
+              </h3>
+              <p className="text-xs text-[#64748B]">
+                खिड़की या दरवाज़े के पुराने पुर्ज़े की फोटो WhatsApp करें। हम 5 मिनट में सही SA कोड, स्टॉक और होलसेल रेट बता देंगे।
+              </p>
+            </div>
+            <a
+              href="https://wa.me/918007443071?text=Hello%20Abhishek%2C%20I%20am%20sending%20a%20photo%20of%20my%20hardware%20part%20to%20match%20and%20get%20rates."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics="click_whatsapp"
+              data-analytics-location="home-keyword-hub"
+              className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold rounded-lg transition-all shadow-xs flex items-center justify-center space-x-1.5 shrink-0"
+            >
+              <span>WhatsApp Photo</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQSection />
 

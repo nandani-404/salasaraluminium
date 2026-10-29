@@ -410,4 +410,212 @@ The patch-and-floor-spring question only arises when the glass is genuinely fram
 
 If you are not sure which you have, photograph the top corner of the door where it meets the head, and send it on WhatsApp. The presence or absence of a frame at that corner answers it immediately.`,
   },
+  {
+    slug: 'top-5-aluminium-sliding-window-accessories',
+    title: 'Top 5 Aluminium Sliding Window Accessories Every Fabricator Must Install',
+    excerpt:
+      'A rattle-free, dust-tight sliding window depends on the hardware inside the profile. The 5 essential accessories fabricators in Raipur and Chhattisgarh need for smooth glide and longevity.',
+    author: AUTHOR,
+    date: 'October 28, 2026',
+    readTime: '5 min read',
+    category: 'Windows',
+    image: '/blog/top-5-aluminium-sliding-window-accessories.jpg',
+    qaBlocks: [
+      {
+        question: 'What causes aluminium sliding windows to rattle in high wind?',
+        answer:
+          'Worn or missing wool pile weatherstripping and undersized sash buffer stoppers allow the shutter profile to vibrate inside the outer track frame when wind pressure strikes the glass.',
+      },
+      {
+        question: 'Which roller is best for residential aluminium sliding windows?',
+        answer:
+          'Heavy-duty sealed ball bearing rollers with virgin nylon wheels (such as 625/626 bearing C-rollers or G-rollers). Sealed steel ball bearings prevent Raipur dust and grit from seizing the axle, while nylon wheels glide silently without eroding the bottom aluminium track.',
+      },
+      {
+        question: 'Why do fabricators install anti-lift blocks on sliding windows?',
+        answer:
+          'Anti-lift nylon blocks sit in the top track cavity above each sash. They prevent intruders from levering the sliding shutter upward and popping it off the bottom track from outside.',
+      },
+      {
+        question: 'What is the difference between a crescent lock and a touch lock for sliding windows?',
+        answer:
+          'A crescent lock uses a rotating eccentric brass or zinc cam that pulls the two meeting stiles tightly together for maximum air and acoustic seal. A touch lock is spring-loaded and snaps automatically into the frame receiver when the shutter slides shut, ideal for quick one-touch operation.',
+      },
+      {
+        question: 'How often should window rollers and wool pile brush be replaced?',
+        answer:
+          'In high-dust, industrial or highway environments across Chhattisgarh, wool pile should be inspected every 3 to 5 years, and nylon rollers typically last 7 to 10 years when high-grade sealed ball bearings are specified.',
+      },
+    ],
+    content: `The hardware inside the track determines the window
+
+When a homeowner tests a new aluminium sliding window, they do not touch the aluminium extrusion. They touch the lock, feel the weight of the sash as it slides, and listen for metal grating or vibrations.
+
+The aluminium section (whether standard 18mm, 2-track, 3-track, or 27mm Domal profile) provides the structural envelope. But how that window feels every single day for the next decade depends entirely on five internal accessories.
+
+Skimping on these parts saves fifty rupees per window and guarantees rattling shutters, jammed rollers, and callbacks before the first monsoon ends. Here is what every fabricator in Raipur and Chhattisgarh should fit into every sliding window sash.
+
+1. Heavy-duty sealed ball bearing nylon rollers
+
+The entire dead weight of the glass shutter rests on two roller wheels running along the bottom aluminium track rail.
+
+If you fit cheap plain bush rollers (a nylon wheel spinning directly on a metal rivet without ball bearings), dust and airborne sand enter the hub within months. Friction increases, the wheel stops rotating, and the homeowner ends up dragging a flat-spotted wheel across the track, gouging the aluminium extrusion.
+
+Fit sealed 625 or 626 ball bearing rollers with virgin nylon or polyacetal wheels (like Salasar C-rollers or G-rollers). The sealed bearing shields the steel balls from dust, and the nylon compound dampens rolling noise while protecting the bottom track profile from abrasive wear. For heavy sashes (exceeding 35 kg per panel), always use double-tandem bearing rollers to distribute the point load.
+
+2. Fin-seal wool pile weatherstripping
+
+Without wool pile weatherstripping in the vertical and horizontal sash channels, an aluminium window is a musical instrument waiting for a windy evening.
+
+A standard extrusion leaves a 2 to 3 mm clearance on either side of the track to allow free sliding. In high wind, air currents blast through this gap, causing the sash to flutter against the frame with an audible rattle.
+
+High-density polypropylene wool pile with a centre plastic fin (fin-seal) acts as a flexible acoustic and dust barrier. The woven brush bristles cushion the shutter against the frame jambs, eliminating rattling, while the impermeable centre fin stops fine road dust, vehicular soot, and rain spray from infiltrating the room.
+
+3. Ergonomic crescent or touch locks
+
+Window security and acoustic isolation depend on how the meeting stiles lock together.
+
+Crescent locks (cam locks) are the contractor favorite for standard two-track sliding windows. When the handle is turned, the eccentric curved brass or zinc cam hooks into the opposing keeper, camming the two vertical sashes tightly against each other. This tight compression squeezes the interlocking wool pile together, creating a superior draft and acoustic seal.
+
+Touch locks (snap locks) are recessed flush into the window handle stile. When the window is slid shut, the spring-loaded latch tongue clicks into the jamb cutout automatically. For homeowners who want clean flush lines without protruding hardware handles, high-grade touch locks with stainless steel internal springs deliver seamless push-to-release convenience.
+
+4. Anti-lift security blocks
+
+Sliding windows have an inherent vulnerability: to install or remove a sash, you lift the shutter into the deep top track pocket until the bottom rollers clear the lower rail, then tilt it inward.
+
+Intruders know this geometry. On a ground-floor or balcony window without security grilles, a crowbar inserted under the sash can lift and unseat the entire shutter in seconds.
+
+Anti-lift blocks (nylon or PVC spacer blocks) are screwed into the upper track channel directly above the sash top rail after the shutter is placed. They restrict upward travel to less than 1.5 mm—enough for smooth horizontal sliding, but physically preventing anyone from lifting the sash off its bottom rollers from the exterior.
+
+5. High-density rubber and nylon buffer stoppers
+
+When family members or office occupants slide a heavy window sash open with force, the leading stile can slam directly into the outer frame jamb or the adjacent glass panel.
+
+Without buffer stoppers, this repeated metal-on-metal impact chips powder-coated finishes, loosens corner cleat joints, and shocks toughened glass edges.
+
+Fit heavy-duty rubber or nylon buffer stoppers at the top and bottom corners of the sliding sash. These stoppers absorb kinetic impact, protect the lock handle from smashing into the window reveal, and prevent fingers from getting pinched between overlapping stiles.
+
+How to specify hardware for Raipur fabricators
+
+The difference between a cheap sliding window that clatters in the wind and a luxury architectural glide comes down to these five accessories.
+
+When quoting a residential project or commercial tower in Raipur, Bilaspur, or Durg-Bhilai, standardise on sealed ball bearing rollers, 6.5mm or 8.5mm fin-seal wool pile, zinc/brass cam crescent locks, and top track anti-lift blocks.
+
+All of these accessories are stocked in bulk cartons at Salasar Hardware Raipur for same-day workshop pickup or statewide dispatch. Send your profile drawing or window schedule on WhatsApp for exact hardware sizing and carton rates.`,
+  },
+  {
+    slug: 'friction-stay-hinges-vs-butt-hinges-for-casement-windows',
+    title: 'Friction Stay Hinges vs Butt Hinges for Casement Windows: Selection & Load Guide',
+    excerpt:
+      'Choosing between concealed stainless steel friction stay hinges and traditional aluminium butt hinges for casement windows. Weight calculations, stack height (13mm vs 17mm), and wind resistance.',
+    author: AUTHOR,
+    date: 'October 28, 2026',
+    readTime: '6 min read',
+    category: 'Windows',
+    image: '/blog/friction-stay-hinges-vs-butt-hinges-for-casement-windows.jpg',
+    qaBlocks: [
+      {
+        question: 'What is the main advantage of friction stay hinges over butt hinges on casement windows?',
+        answer:
+          'Friction stays hold the window sash open at any chosen angle (from 15° to 85°) without requiring a separate window peg stay or sill restrictor hook. Their internal friction slider resists gusty winds and prevents sudden slamming.',
+      },
+      {
+        question: 'Can butt hinges hold a casement window open in windy weather?',
+        answer:
+          'No. Butt hinges swing freely on a fixed pivot pin. Without a manual casement stay or friction arm screwed to the sill, sudden wind gusts will slam the window shut or blow it violently open, risking glass shatter.',
+      },
+      {
+        question: 'How do I choose between 13mm and 17mm stack height on friction stays?',
+        answer:
+          'Stack height is the depth cavity between the outer aluminium frame rebate and the sash extrusion channel. 13mm is the standard Indian architectural standard for Euro-groove and Domal profiles, while 17mm is used on deep commercial profiles and UPVC window systems.',
+      },
+      {
+        question: 'How do I calculate casement window sash weight for hinge sizing?',
+        answer:
+          'Multiply glass area (height in metres x width in metres) by glass thickness (mm) x 2.5 kg/m² per mm of glass, then add 3 to 5 kg for the aluminium frame profile. For example, a 1.2m x 0.6m window with 5mm toughened glass weighs approximately 13 kg, easily handled by a standard 12-inch or 16-inch friction stay.',
+      },
+      {
+        question: 'Why is SS 304 specified for casement friction stays instead of zinc-plated steel?',
+        answer:
+          'Friction stays sit exposed to exterior rainwater, condensation, and humidity inside the perimeter rebate. In Chhattisgarh monsoon season, zinc-plated steel pivots rust and bind, shearing the pivot rivets. Grade 304 stainless steel remains corrosion-free and maintains smooth adjustable tension for decades.',
+      },
+    ],
+    content: `Two different philosophies of casement window operation
+
+When designing an outward-opening aluminium casement window, fabricators face a fundamental architectural choice: hang the sash on external butt hinges, or fit concealed stainless steel friction stay hinges inside the perimeter groove.
+
+Both carry the weight of the sash. But how the window behaves once you open it into the breeze is completely different.
+
+Butt hinges leave the sash swinging freely like an internal door, demanding a secondary sill hook or casement peg stay to keep it open. Friction stays tuck completely into the perimeter rebate, holding the window firmly at whatever opening angle you leave it, with no visible hardware on the outside.
+
+Here is how to calculate loads, select stay lengths, and choose the right mechanism for your architectural window schedule.
+
+How a friction stay hinge works
+
+A friction stay consists of four or five linked stainless steel arms connecting the outer frame track to the sash bar.
+
+As the window pushes open, the arms scissors outward, moving the pivot point along the frame channel. Inside the track channel sits an adjustable brass or nylon friction slider. By turning the adjusting screw on the slider shoe, the fabricator tunes the resistance.
+
+This friction holds the sash stationary against moderate wind forces without needing peg stays, casement hooks, or sill brackets. Furthermore, as the window swings open, the hinge-side stile pulls away from the frame by 80 to 100 mm, leaving a gap wide enough for an occupant to clean the exterior glass face from safely inside the room.
+
+Where traditional butt hinges still make sense
+
+Standard aluminium or stainless steel butt hinges pivot around a single fixed axis.
+
+Their strengths are simplicity, extreme weight capacity, and wide opening angles. A heavy pair of extruded aluminium butt hinges (or 2D/3D adjustable hinges) can easily support an oversized sash weighing 60 to 80 kg, swinging fully 90° or 180° flat against the wall.
+
+However, butt hinges do not hold an open position on their own. If an occupant pushes the window open on the fourth floor of an apartment during a Chhattisgarh pre-monsoon thunderstorm, a sudden cross-draft will slam the shutter shut or violently whip it backward, bending the frame or shattering the glass unless a manual stay hook is securely latched.
+
+Top-hung vs side-hung friction stay geometry
+
+Friction stays come in two distinct geometric configurations that must never be mixed up:
+
+Top-hung stays (for awning windows): The friction stays are installed on the two vertical side jambs. The sash hinges outward from the top edge, swinging upward like a visor. Because gravity acts downward along the length of both stays simultaneously, top-hung stays carry heavier glass weights (typically 20 kg to 55 kg) and open to approximately 30° to 50°.
+
+Side-hung stays (for casement windows): One friction stay is fitted along the top horizontal frame head, and the other along the bottom sill. The sash swings outward sideways like a door. Because the entire dead load of the glass hangs as a cantilever off the bottom track shoe, side-hung stays must be sized strictly to the sash width and carry lighter maximum loads (typically 18 kg to 35 kg).
+
+Calculating sash load and selecting stay length
+
+Never guess the length of a friction stay. A stay that is too short will twist under wind load, while an oversized stay will restrict the opening angle.
+
+Step 1: Calculate the glass weight
+Glass has a universal density of 2.5 kg per square metre per millimetre of thickness.
+- Width (m) x Height (m) x Glass Thickness (mm) x 2.5 = Glass Weight in kg.
+- Example: A 1.2 m high x 0.6 m wide window with 5 mm toughened glass = 1.2 x 0.6 x 5 x 2.5 = 9.0 kg.
+
+Step 2: Add the aluminium profile weight
+A standard aluminium casement sash frame (including corner cleats, glazing beads, and gasket) adds 3 to 5 kg. Total sash weight = ~13 kg.
+
+Step 3: Select stay length based on sash dimension
+- For side-hung casement windows: The friction stay length should cover between 60% and 80% of the sash width. For a 600 mm (24-inch) wide sash, install a 16-inch (400 mm) side-hung stay.
+- For top-hung awning windows: The friction stay length should cover between 75% and 90% of the sash height. For a 900 mm (36-inch) high awning sash, install an 18-inch or 20-inch top-hung stay.
+
+Stack height: 13 mm vs 17 mm clearance
+
+Before ordering friction stays in bulk, measure the depth of the clearance cavity between the outer aluminium frame rebate and the sash extrusion.
+
+13 mm stack height: The standard Indian and Euro-groove architectural standard for aluminium casement profiles (including Domal and standard 40mm casement suites). The folded stay arms collapse into a 13 mm thickness.
+
+17 mm stack height: Designed for deep-rebate commercial aluminium systems, curtain wall vents, and UPVC profiles where the air gap is wider.
+
+Installing a 17 mm stay into a 13 mm profile cavity will bind the sash before it closes, while fitting a 13 mm stay into a 17 mm cavity leaves a 4 mm gap, preventing the perimeter rubber weatherseal from compressing.
+
+Stainless steel 304 vs plated steel in Chhattisgarh climate
+
+Friction stays live in the perimeter rebate—the exact zone where exterior rainwater drains and condensation collects before venting out through weep holes.
+
+Zinc-plated or MS friction stays rust within one or two rainy seasons. Once rust pits the sliding track or binds the brass slider, the homeowner must force the window shut, which shears the pivot rivets.
+
+At Salasar Hardware, we exclusively supply Grade 304 (18/8 austenitic) stainless steel friction stays. SS 304 withstands high humidity, monsoon rain, and industrial airborne pollutants without pitting, ensuring the multi-link arms glide smoothly for tens of thousands of cycles.
+
+Fabricator specification checklist
+
+When placing your order for a casement window project in Raipur or across Chhattisgarh, have four numbers ready:
+1. Window type: Side-hung casement (opens sideways) or top-hung awning (pushes out from bottom).
+2. Sash width and height in millimetres.
+3. Glass thickness (5mm, 6mm, or double glazed unit).
+4. Stack height cavity (13mm standard or 17mm deep).
+
+We stock heavy-duty SS 304 friction stays in 8", 10", 12", 14", 16", 20", and 24" lengths, complete with stainless steel mounting screws and adjustable tension shoes, ready for same-day workshop pickup in Raipur or bulk carton dispatch.`,
+  },
 ];

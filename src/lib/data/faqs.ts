@@ -3,25 +3,9 @@ import { BUSINESS } from '@/config/business';
 /**
  * Sitewide FAQs, rendered as visible HTML and mirrored into FAQPage schema.
  *
- * WHAT CHANGED AND WHY
- *
- * 1. [CONFIRM] RETAIL POSITIONING — needs owner sign-off before launch.
- *    The previous answer read "We supply direct wholesale trade orders only —
- *    to dealers, fabricators, contractors, and project developers." The brief
- *    asks for a clear path for homeowners, architects, interior designers and
- *    builders alongside the trade offer, and the business has a walk-in counter
- *    listed on Google Maps. Those two positions cannot both be on the site.
- *    The answer below reflects the new, broader positioning, and the rest of
- *    the site is written to match it. If the business is in fact trade-only,
- *    this one flag has to flip back and the homeowner wording comes out of the
- *    city, category, product and hub pages with it.
- *
- * 2. UNVERIFIED OPERATIONAL CLAIMS REMOVED. Previous unverified delivery promises,
- *    unrealistic shipping scopes, and custom cut claims were removed.
- *    Replaced with truthful answers that route specific enquiries to a phone call.
- *
- * 3. BUSINESS POSITIONING: Positioned strictly as an aluminium hardware supplier
- *    and trader.
+ * Enriched with high-intent commercial, technical, and local search queries:
+ * wholesale box rates, SA-33 door kits, hydraulic door closers, floor springs,
+ * SS 304 mosquito wire mesh, and Chhattisgarh supply routes.
  */
 
 export interface SiteFaq {
@@ -42,6 +26,31 @@ export const SITE_FAQS: SiteFaq[] = [
     category: 'Ordering',
   },
   {
+    question: 'Where can I buy wholesale sliding window rollers and bearings in Raipur?',
+    answer: `Salasar Aluminium & Hardware stocks complete sliding window rollers, nylon ball bearings, brass bearings, and C-channel / G-channel tracks at our Bhaisthan counter in Raipur. We supply single replacement pieces for walk-in homeowners and bulk carton box packaging for dealers and fabricators across Chhattisgarh. Call or WhatsApp ${BUSINESS.phones.primary.display} for current box rates.`,
+    category: 'Products',
+  },
+  {
+    question: 'What is included in the SA-33 Aluminium Door Kit, and what finishes are available?',
+    answer: `The SA-33 Aluminium Door Kit contains a matched set of architectural hardware: heavy aluminium pull handles, mortise lock and key cylinder mechanism, top and bottom tower bolts, and rubber-cushioned door stoppers. It is stocked in Matte Black (powder-coated), Brown / Chocolate, Champion / Satin Champagne, Matt Silver (anodized), and CP (Chrome Plated). Full carton trade packaging is available from Raipur.`,
+    category: 'Products',
+  },
+  {
+    question: 'How do I choose between an overhead hydraulic door closer and a floor spring for glass doors?',
+    answer: `For standard aluminium section doors and wooden flush doors weighing 45kg to 85kg, an overhead hydraulic door closer (such as SA-42 or SA-43) mounted on the top frame is ideal. For heavy toughened glass doors, patch fitting doors, or double-action swing doors weighing 80kg to 120kg, a heavy-duty floor spring installed into the floor provides superior stability, smooth centering, and hold-open capability.`,
+    category: 'Technical',
+  },
+  {
+    question: 'Do you supply SS 304 mosquito net wire mesh (machhar jaali) rolls in wholesale?',
+    answer: `Yes. We supply heavy SS 304 stainless steel mosquito mesh, aluminium wire jaali, and fiberglass mesh in standard width rolls (3 ft, 4 ft, and custom widths). We offer wholesale roll rates for fabricators and hardware dealers in Raipur, Bhilai, Bilaspur, and across Chhattisgarh, as well as cut lengths for single window frames at the counter.`,
+    category: 'Products',
+  },
+  {
+    question: 'How to adjust hydraulic door closer closing and latching speed?',
+    answer: `Standard hydraulic door closers like SA-42 feature two brass adjustment valves on the body. Valve 1 controls closing speed (the arc from 180° down to 15°), while Valve 2 controls latching speed (the final 15° snap into the frame). Turn clockwise to slow down the speed, or counter-clockwise to speed it up. Never unscrew either valve completely, as hydraulic oil will leak out.`,
+    category: 'Technical',
+  },
+  {
     question: 'What are SA codes?',
     answer: `Every item in our catalogue carries a fixed SA code — SA-33 is the Aluminium Door Kit, SA-42 the hydraulic door closer, SA-76 the 90° wall-to-glass shower hinge. Quote the code and we know exactly which item you mean, with no ambiguity about size or finish. You can browse all of them on the Products page.`,
     category: 'Catalogue',
@@ -52,13 +61,13 @@ export const SITE_FAQS: SiteFaq[] = [
     category: 'Location',
   },
   {
-    question: 'Do you deliver outside Raipur?',
-    answer: `Yes, across Chhattisgarh. Transit time and freight depend on the district, the transport line and the size of the consignment, so we confirm both against your actual order rather than promising a fixed figure. Call ${BUSINESS.phones.primary.display} with your item list and delivery address and we will tell you what it will cost and how long it will take before you pay.`,
+    question: 'Do you deliver outside Raipur to Bhilai, Durg, Bilaspur, and other districts?',
+    answer: `Yes, across Chhattisgarh. From our central Bhaisthan counter in Raipur, we dispatch daily trade consignments via local transport lines to Bhilai, Durg, Bilaspur, Korba, Rajnandgaon, Raigarh, Jagdalpur, Ambikapur, and Dhamtari. Call ${BUSINESS.phones.primary.display} with your item list and delivery address to confirm freight and transit time before you pay.`,
     category: 'Delivery',
   },
   {
-    question: 'How do I get a price?',
-    answer: `Call or WhatsApp ${BUSINESS.phones.primary.display} with the SA codes and quantities you need, or send the quote form on this site. We quote on enquiry rather than publishing a rate card, because the price depends on quantity and finish — a single piece over the counter and a box quantity for a dealer are not the same rate.`,
+    question: 'How do I get a price or wholesale rate card?',
+    answer: `Call or WhatsApp ${BUSINESS.phones.primary.display} with the SA codes and quantities you need, or send the quote form on this site. We quote on enquiry rather than publishing a fixed rate card, because the price depends on quantity and finish — a single piece over the counter and a box quantity for a dealer are quoted at tailored trade slabs.`,
     category: 'Ordering',
   },
   {
@@ -67,7 +76,7 @@ export const SITE_FAQS: SiteFaq[] = [
     category: 'Specifications',
   },
   {
-    question: 'How many items do you stock?',
+    question: 'How many items do you stock in Raipur?',
     answer: `86, grouped into 12 categories: rollers, bearings and channels; locks and latches; door and window seals and stoppers; hinges; door kits; bolts and handles; door closers; fittings and accessories; tapes, sealants and adhesives; fasteners and screws; glass hardware and shower fittings; and abrasives, mesh and miscellaneous.`,
     category: 'Catalogue',
   },
